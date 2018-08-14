@@ -1,0 +1,226 @@
+package com.xmly.android.action;
+
+import com.xmly.android.appiumlistener.ElementListener;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidElement;
+import io.appium.java_client.events.EventFiringWebDriverFactory;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+/**
+ * Created with IntelliJ IDEA.
+ * Author: ye.liu
+ * Date: 2018/8/8
+ * Time: 下午4:08
+ */
+
+public class Action {
+
+    public static AndroidDriver<AndroidElement> driver;
+
+    @BeforeTest
+    public static void setUp() throws Exception {
+        GetDeviceInfo getDeviceInfo = new GetDeviceInfo();
+        String deviceName = getDeviceInfo.getDeviceName();
+        String platformVersion = getDeviceInfo.getOsVersion();
+
+        //设置apk的路径
+        File classpathRoot = new File(System.getProperty("user.dir"));
+        File appDir = new File(classpathRoot, "apps");
+        File app = new File(appDir, "xmly.apk");
+
+        //设置自动化相关参数
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability("noReset", true);
+        //  capabilities.setCapability(CapabilityType.BROWSER_NAME, "");
+        capabilities.setCapability("device", "Android");
+        capabilities.setCapability("platformName", "Android");
+        capabilities.setCapability("deviceName", deviceName);
+
+        //设置安卓系统版本
+        capabilities.setCapability("platformVersion", platformVersion);
+        //设置apk路径
+        capabilities.setCapability("app", app.getAbsolutePath());
+
+
+        //设置新的命令等待时长（应该用不到，设置1h）
+        capabilities.setCapability("newCommandTimeout", 3600);
+
+        //使用自带输入法，输入中文
+        capabilities.setCapability("unicodeKeyboard", true);
+        capabilities.setCapability("resetKeyboard", true);
+
+//        capabilities.setCapability("automationName","uiautomator2");
+//        capabilities.setCapability("noSign", true);
+        //设置app的主包名和主类名
+        capabilities.setCapability("appPackage", "com.ximalaya.ting.android");
+        capabilities.setCapability("appActivity", "com.ximalaya.ting.android.host.activity.WelComeActivity");
+
+
+        //初始化
+        driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+
+        driver = EventFiringWebDriverFactory.getEventFiringWebDriver(driver,new ElementListener());
+
+        //关闭开机动画和弹层
+        sleep(2000);
+        Action.skipSplash();
+        sleep(3000);
+    }
+
+    public static AndroidDriver getDriver(){
+        return driver;
+    }
+
+    @AfterTest
+    public static void tearDown() throws Exception {
+        driver.quit();
+    }
+
+    //执行cmd
+    public static void execCmd(String cmd) throws IOException {
+        Runtime runtime = Runtime.getRuntime();
+        Process proc = runtime.exec(cmd);
+
+        try {
+            if (proc.waitFor() != 0) {
+                System.err.println("exit value = " + proc.exitValue());
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } finally {
+            proc.destroy();
+        }
+    }
+
+    public static void sleep(int ms) throws InterruptedException {
+        Thread.sleep(ms);
+    }
+
+    public List<AndroidElement> getElementsByResourceId(String resourceId) {
+        List<AndroidElement> lis = driver.findElementsById(resourceId);
+        return lis;
+    }
+
+    //获取中心点击坐标
+    public static String getCenterCoordinates(AndroidElement androidElement) {
+        String coordinates = null;
+        int x = androidElement.getCenter().getX();
+        int y = androidElement.getCenter().getY();
+        coordinates = "" + x + " " + y + "";
+        return coordinates;
+    }
+
+    public static void pressKey(KEY keyCode) throws IOException {
+        if (keyCode.equals(KEY.BACK)) {
+            //点击返回键
+            execCmd("adb shell input keyevent 4");
+        } else if (keyCode.equals(KEY.ENTER)) {
+            //点击ENTER键
+            execCmd("adb shell input keyevent 66");
+        } else if (keyCode.equals(KEY.HOME)) {
+            //点击HOME键
+            execCmd("adb shell input keyevent 3");
+        }
+    }
+
+    public static void skipSplash() {
+        try {
+            if (driver.findElementById("com.ximalaya.ting.android:id/host_ad_img").isDisplayed()) {
+                driver.findElementByAndroidUIAutomator("new UiSelector().textContains(\"跳过\")").click();
+                System.out.println("跳过splash");
+            }
+        } catch (Exception e) {
+            System.out.println("无splash");
+        }
+    }
+
+    //获取非appium的输入法
+    public static String getInputMethod() throws IOException, MyException {
+        String inputMethod = null;
+        List<String> inputMethods = new ArrayList<>();
+        Runtime runtime = Runtime.getRuntime();
+        Process proc = runtime.exec("adb shell ime list -s");
+        try {
+            if (proc.waitFor() != 0) {
+                System.err.println("exit value = " + proc.exitValue());
+            }
+            BufferedReader in = new BufferedReader(new InputStreamReader(
+                    proc.getInputStream()));
+            String line = null;
+            while ((line = in.readLine()) != null) {
+                inputMethods.add(line.toString().trim());
+            }
+
+            if (inputMethods.size() == 1 && inputMethods.indexOf("io.appium.android.ime/.UnicodeIME") == 0) {
+                throw new MyException("请安装其他三方输入法");
+            } else {
+                if (inputMethods.indexOf("io.appium.android.ime/.UnicodeIME") > 0) {
+                    inputMethod = inputMethods.get(0);
+                } else if (inputMethods.indexOf("io.appium.android.ime/.UnicodeIME") == 0) {
+                    inputMethod = inputMethods.get(1);
+                } else {
+                    throw new MyException("没有安装appium输入法");
+                }
+            }
+        } catch (InterruptedException e) {
+            System.err.println(e);
+        } finally {
+            try {
+                proc.destroy();
+            } catch (Exception e1) {
+                System.err.print(e1);
+            }
+        }
+        return inputMethod;
+    }
+
+    // 检查当前页面最上层的activity是否在指定packageName
+    public static boolean checkPackage(String packageName) throws IOException, MyException {
+        String command = "adb shell \"dumpsys activity | grep \"mFocusedActivity\"\"";
+        if (System.getProperty("os.name").equals("Mac OS X")) {
+            command = "adb shell dumpsys activity | grep \"mFocusedActivity\"";
+        }
+        Runtime runtime = Runtime.getRuntime();
+        Process proc = runtime.exec(command);
+        try {
+            if (proc.waitFor() != 0) {
+                System.err.println("exit value = " + proc.exitValue());
+            }
+            BufferedReader in = new BufferedReader(new InputStreamReader(
+                    proc.getInputStream()));
+            StringBuffer stringBuffer = new StringBuffer();
+            String line = null;
+            while ((line = in.readLine()) != null) {
+                stringBuffer.append(line + " ");
+            }
+            String str = stringBuffer.toString().trim();
+            if (str.indexOf("packageName") != -1) {
+                return true;
+//                throw new MyException("");
+            }
+        } catch (InterruptedException e) {
+            System.err.println(e);
+        } finally {
+            try {
+                proc.destroy();
+            } catch (Exception e1) {
+                System.err.print(e1);
+                throw e1;
+            }
+        }
+        return false;
+    }
+}
+
