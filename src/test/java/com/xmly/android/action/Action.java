@@ -1,6 +1,7 @@
 package com.xmly.android.action;
 
 import com.xmly.android.appiumlistener.ElementListener;
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.events.EventFiringWebDriverFactory;
@@ -14,6 +15,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -71,7 +73,7 @@ public class Action {
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
         driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
 
-        driver = EventFiringWebDriverFactory.getEventFiringWebDriver(driver,new ElementListener());
+        driver = EventFiringWebDriverFactory.getEventFiringWebDriver(driver, new ElementListener());
 
         //关闭开机动画和弹层
         sleep(2000);
@@ -79,7 +81,7 @@ public class Action {
         sleep(3000);
     }
 
-    public static AndroidDriver getDriver(){
+    public static AndroidDriver getDriver() {
         return driver;
     }
 
@@ -143,6 +145,26 @@ public class Action {
             }
         } catch (Exception e) {
             System.out.println("无splash");
+        }
+    }
+
+    //根据设定时长滑动页面
+    public static void swipUpAndDownByTime(int time) throws InterruptedException, IOException, MyException {
+        int width = driver.manage().window().getSize().width;
+        int height = driver.manage().window().getSize().height;
+        long s = (new Date()).getTime();
+        while ((new Date()).getTime() - s < formatMin(time)) {
+//            checkInFanli();
+            for (int i1 = 0; i1 <= 8; i1++) {
+                TouchAction action = new TouchAction(driver).press(width / 2, height * 5 / 7).waitAction().moveTo(width / 2, height * 2 / 7).release();
+                action.perform();
+                Thread.sleep(1000);
+            }
+            for (int i2 = 0; i2 <= 5; i2++) {
+                TouchAction action1 = new TouchAction(driver).press(width / 2, height * 2 / 7).waitAction().moveTo(width / 2, height * 5 / 7).release();
+                action1.perform();
+                Thread.sleep(1000);
+            }
         }
     }
 
@@ -221,6 +243,17 @@ public class Action {
             }
         }
         return false;
+    }
+
+    //分钟转换成毫秒
+    public static int formatMin(int i) {
+        int timeLong = 0;
+        if (i > 0) {
+            timeLong = i * 60 * 1000;
+        } else {
+            System.out.println("输入错误");
+        }
+        return timeLong;
     }
 }
 

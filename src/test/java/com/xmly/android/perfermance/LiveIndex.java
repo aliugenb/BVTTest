@@ -19,9 +19,12 @@ public class LiveIndex extends Action {
     private boolean start = false;
 
     @Test
-    public void swipBanner() throws InterruptedException, IOException, MyException {
+    public void swipList() throws InterruptedException, IOException, MyException {
         try {
-
+            driver.findElementByAndroidUIAutomator("text(\"直播\")").click();
+            sleep(5000);
+            start=true;
+            swipUpAndDownByTime(5);
         } catch (Exception e) {
             DataSwitch.excelNormal = false;
             throw e;
@@ -33,20 +36,11 @@ public class LiveIndex extends Action {
     }
 
     @Test
-    public void cpuMonitor() throws IOException, InterruptedException {
+    public void fpsMonitor() throws IOException, InterruptedException {
         while (!start) {
             Thread.sleep(500);
             System.out.println("waiting");
         }
-        new Cpu().writeExcel("首页banner轮播Cpu");
-    }
-
-    @Test
-    public void memoryMonitor() throws IOException, InterruptedException {
-        while (!start) {
-            Thread.sleep(500);
-            System.out.println("waiting");
-        }
-        new Memory().writeExcel("首页banner轮播Memory");
+        new Cpu().writeExcel("首页fps");
     }
 }

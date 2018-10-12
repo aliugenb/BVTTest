@@ -24,7 +24,7 @@ public class Cpu extends GetData {
             StringBuffer stringBuffer = new StringBuffer();
             String line = null;
             while ((line = in.readLine()) != null) {
-                if ((line.indexOf("com.fanli.android.apps") != -1) && (line.indexOf("com.fanli.android.apps:") == -1)) {
+                if ((line.indexOf("com.ximalaya.ting.android") != -1) && (line.indexOf("com.ximalaya.ting.android:") == -1)) {
                     stringBuffer.append(line + " ");
                 }
             }

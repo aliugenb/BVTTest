@@ -23,11 +23,11 @@ public class Fps extends GetData {
 
     @Override
     public List<String> handleData() throws IOException, InterruptedException {
-        String command = "adb shell \"dumpsys gfxinfo com.fanli.android.apps reset | grep frames\"";
+        String command = "adb shell \"dumpsys gfxinfo com.ximalaya.ting.android reset | grep frames\"";
         if (osName.equals("Mac OS X")) {
-            command = "adb shell dumpsys gfxinfo com.fanli.android.apps reset | grep frames";
+            command = "adb shell dumpsys gfxinfo com.ximalaya.ting.android reset | grep frames";
         } else if (osName.indexOf("Windows") != -1) {
-            command = "adb shell \"dumpsys gfxinfo com.fanli.android.apps reset | grep frames\"";
+            command = "adb shell \"dumpsys gfxinfo com.ximalaya.ting.android reset | grep frames\"";
         }
         List<String> data = new ArrayList<String>();
         System.out.println("FPS收集数据开始...");

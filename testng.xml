@@ -5,11 +5,12 @@
         <!--<listener class-name="com.xmly.android.testnglistener.ExtentTestNGIReporterListener" />-->
         <!--<listener class-name="com.xmly.android.testnglistener.TestngRetry" />-->
     <!--</listeners>-->
-    <test verbose="2" preserve-order="true" name="/Users/xmly/Documents/BVTTest">
+    <test verbose="2" preserve-order="true" parallel="methods" thread-count="2" name="首页banner滑动检查">
         <classes>
-            <class name="com.xmly.android.TestDemo">
+            <class name="com.xmly.android.perfermance.LiveIndex">
                 <methods>
-                    <include name="start"/>
+                    <include name="swipList"/>
+                    <include name="fpsMonitor"/>
                 </methods>
             </class>
         </classes>
