@@ -86,7 +86,7 @@ public class ElementListener implements ElementEventListener, AppiumWebDriverEve
 
     @Override
     public void beforeClickOn(WebElement element, WebDriver driver) {
-        System.out.println("yaodianle ");
+
     }
 
     @Override

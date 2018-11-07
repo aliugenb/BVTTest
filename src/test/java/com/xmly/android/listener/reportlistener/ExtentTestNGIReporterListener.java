@@ -20,6 +20,7 @@ import java.util.Map;
  * Date: 2018/8/8
  * Time: 下午4:49
  */
+
 public class ExtentTestNGIReporterListener implements IReporter {
 
     private static final String OUTPUT_FOLDER = "test-output/";
