@@ -1,4 +1,4 @@
-package com.xmly.android.appiumlistener;
+package com.xmly.android.listener.appiumlistener;
 
 import io.appium.java_client.events.api.general.AppiumWebDriverEventListener;
 import io.appium.java_client.events.api.general.ElementEventListener;

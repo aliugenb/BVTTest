@@ -1,4 +1,4 @@
-package com.xmly.android.testnglistener;
+package com.xmly.android.listener.testnglistener;
 
 import com.xmly.android.action.Action;
 import io.appium.java_client.android.AndroidDriver;

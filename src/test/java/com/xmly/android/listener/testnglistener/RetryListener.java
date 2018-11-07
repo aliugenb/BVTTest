@@ -1,4 +1,4 @@
-package com.xmly.android.testnglistener;
+package com.xmly.android.listener.testnglistener;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;

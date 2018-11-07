@@ -4,6 +4,7 @@ import com.xmly.android.action.Action;
 import com.xmly.android.action.MyException;
 import com.xmly.android.perfermance.handleData.Cpu;
 import com.xmly.android.perfermance.handleData.DataSwitch;
+import com.xmly.android.perfermance.handleData.Fps;
 import com.xmly.android.perfermance.handleData.Memory;
 import org.testng.annotations.Test;
 
@@ -21,17 +22,16 @@ public class LiveIndex extends Action {
     @Test
     public void swipList() throws InterruptedException, IOException, MyException {
         try {
-            driver.findElementByAndroidUIAutomator("text(\"直播\")").click();
+            driver.findElementByAndroidUIAutomator("text(\"发现\")").click();
             sleep(5000);
-            start=true;
+            start = true;
             swipUpAndDownByTime(5);
         } catch (Exception e) {
             DataSwitch.excelNormal = false;
             throw e;
         } finally {
             start = true;
-            DataSwitch.cpuEnd = true;
-            DataSwitch.memoryEnd = true;
+            DataSwitch.fpsEnd = true;
         }
     }
 
@@ -41,6 +41,6 @@ public class LiveIndex extends Action {
             Thread.sleep(500);
             System.out.println("waiting");
         }
-        new Cpu().writeExcel("首页fps");
+        new Fps().writeExcel("首页fps");
     }
 }

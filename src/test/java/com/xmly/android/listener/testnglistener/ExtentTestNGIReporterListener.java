@@ -1,4 +1,4 @@
-package com.xmly.android.testnglistener;
+package com.xmly.android.listener.testnglistener;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;

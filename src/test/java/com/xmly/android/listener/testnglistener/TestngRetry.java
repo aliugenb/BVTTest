@@ -1,4 +1,4 @@
-package com.xmly.android.testnglistener;
+package com.xmly.android.listener.testnglistener;
 
 import org.testng.IRetryAnalyzer;
 import org.testng.ITestResult;
