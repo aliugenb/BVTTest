@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
     <!--<listeners>-->
-        <!--<listener class-name="com.xmly.android.listener.testnglistener.ExtentTestNGIReporterListener" />-->
+        <!--<listener class-name="com.xmly.android.listener.reportlistener.ExtentTestNGIReporterListener" />-->
         <!--<listener class-name="com.xmly.android.listener.testnglistener.TestngRetry" />-->
     <!--</listeners>-->
     <test verbose="2" preserve-order="true" parallel="methods" thread-count="2" name="首页banner滑动检查">
