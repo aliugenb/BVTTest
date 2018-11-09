@@ -1,4 +1,4 @@
-package com.xmly.android.action;
+package com.xmly.android.driver.android;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
  * Time: 下午4:08
  */
 
-public class GetDeviceInfo {
+public class DeviceInfo {
     private String OsVersion;
     private String DeviceName;
 
@@ -32,7 +32,7 @@ public class GetDeviceInfo {
         return DeviceName;
     }
 
-    public GetDeviceInfo() {
+    public DeviceInfo() {
         String version = GetInfo("adb shell getprop ro.build.version.release");
         String deviceName = GetInfo("adb devices");
         Pattern r = Pattern.compile("attached(.*)device");
