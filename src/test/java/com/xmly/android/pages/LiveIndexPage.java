@@ -20,6 +20,9 @@ public class LiveIndexPage extends BasePage{
         super(driver);
     }
 
-    @AndroidFindBy(id="")
-    AndroidElement liveRoom;
+    @AndroidFindBy(id="com.ximalaya.ting.android.main.application:id/main_tv_search_bar_action")
+    AndroidElement liveRoomSearchBar;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"亲密度周榜\")" )
+    AndroidElement livrRecord;
 }
