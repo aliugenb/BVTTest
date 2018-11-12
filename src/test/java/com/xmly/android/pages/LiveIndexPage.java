@@ -4,6 +4,8 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import org.openqa.selenium.remote.RemoteWebElement;
 import io.appium.java_client.pagefactory.*;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
 
 /**
  * Created with IntelliJ IDEA.
@@ -18,5 +20,6 @@ public class LiveIndexPage extends BasePage{
         super(driver);
     }
 
-
+    @AndroidFindBy(id="")
+    AndroidElement liveRoom;
 }
