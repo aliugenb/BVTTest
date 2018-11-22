@@ -23,5 +23,5 @@ Class-Path: mongodb-driver-core-3.3.0.jar jsoup-1.9.2.jar selenium-jav
  r xml-apis-1.0.b2.jar gson-2.8.2.jar selenium-opera-driver-3.6.0.jar 
  extentreports-3.1.5.jar selenium-support-3.6.0.jar byte-buddy-1.7.5.j
  ar commons-digester-1.8.1.jar
-Main-Class: com.xmly.android.Run
+Main-Class: Run
 

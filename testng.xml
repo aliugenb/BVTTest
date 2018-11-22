@@ -2,12 +2,12 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
     <!--<listeners>-->
-        <!--<listener class-name="com.xmly.android.listener.reportlistener.ExtentTestNGIReporterListener" />-->
-        <!--<listener class-name="com.xmly.android.listener.testnglistener.TestngRetry" />-->
+        <!--<listener class-name="ExtentTestNGIReporterListener" />-->
+        <!--<listener class-name="TestngRetry" />-->
     <!--</listeners>-->
     <test verbose="2" preserve-order="true" parallel="methods" thread-count="2" name="首页banner滑动检查">
         <classes>
-            <class name="com.xmly.android.perfermance.LiveIndex">
+            <class name="LiveIndex">
                 <methods>
                     <include name="swipList"/>
                     <include name="fpsMonitor"/>
