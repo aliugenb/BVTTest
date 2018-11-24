@@ -4,7 +4,6 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 /**
@@ -25,10 +24,10 @@ public class BasePage {
     }
 
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"直播\")")
-    WebElement HomePageLiveBtn;
+    MobileElement HomePageLiveBtn;
 
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"发现\")")
-    WebElement TabbarFindBtn;
+    MobileElement TabbarFindBtn;
 
     public void enter(String IndexPage) {
         switch (IndexPage) {

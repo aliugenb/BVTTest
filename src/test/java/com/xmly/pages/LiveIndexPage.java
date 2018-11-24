@@ -25,11 +25,11 @@ public class LiveIndexPage extends BasePage {
 
 
     @AndroidFindBy(id = "com.ximalaya.ting.android.main.application:id/main_tv_search_bar_action")
-    WebElement liveRoomSearchBar;
+    MobileElement liveRoomSearchBar;
 
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"亲密度周榜\")")
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_home_anchor_rank_tv")
-    WebElement livrRecord;
+    MobileElement livrRecord;
 
 
     public void enterRecorder() {

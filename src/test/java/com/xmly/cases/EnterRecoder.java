@@ -4,6 +4,7 @@ import com.xmly.driver.android.AndroidBaseDriver;
 import com.xmly.pages.LiveIndexPage;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 /**
@@ -13,7 +14,9 @@ import org.testng.annotations.Test;
  * Time: 10:48 AM
  */
 public class EnterRecoder {
+    private AppiumDriver<? extends MobileElement> driver;
 
+    @BeforeTest
 
     public static void main(String[] args) throws Exception {
         AppiumDriver<? extends MobileElement> driver = new AndroidBaseDriver().getDriver();

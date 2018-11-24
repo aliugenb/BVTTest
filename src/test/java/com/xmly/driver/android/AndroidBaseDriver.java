@@ -6,6 +6,7 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.events.EventFiringWebDriverFactory;
+import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterTest;
@@ -24,7 +25,7 @@ import java.util.concurrent.TimeUnit;
 public class AndroidBaseDriver {
     public static AppiumDriver<? extends MobileElement> driver;
 
-    public AppiumDriver<? extends MobileElement> getDriver() throws Exception{
+    public AppiumDriver<? extends MobileElement> getDriver() throws Exception {
         DeviceInfo deviceInfo = new DeviceInfo();
         String deviceName = deviceInfo.getDeviceName();
         String platformVersion = deviceInfo.getOsVersion();
@@ -46,6 +47,7 @@ public class AndroidBaseDriver {
         capabilities.setCapability("platformVersion", platformVersion);
         //设置apk路径
         capabilities.setCapability("app", app.getAbsolutePath());
+        capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, "60");
 
 
         //设置新的命令等待时长（应该用不到，设置1h）
@@ -63,8 +65,8 @@ public class AndroidBaseDriver {
 
 
         //初始化
-        driver = new AndroidDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
-        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+        driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
         driver = EventFiringWebDriverFactory.getEventFiringWebDriver(driver, new ElementListener());
         return driver;
