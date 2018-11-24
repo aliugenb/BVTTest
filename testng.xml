@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
-    <!--<listeners>-->
-        <!--<listener class-name="ExtentTestNGIReporterListener" />-->
-        <!--<listener class-name="TestngRetry" />-->
-    <!--</listeners>-->
+    <listeners>
+        <listener class-name="ExtentTestNGIReporterListener" />
+        <listener class-name="TestngRetry" />
+    </listeners>
     <test verbose="2" preserve-order="true" parallel="methods" thread-count="2" name="首页banner滑动检查">
         <classes>
-            <class name="LiveIndex">
+            <class name="com.xmly.cases.EnterRecoder">
                 <methods>
-                    <include name="swipList"/>
-                    <include name="fpsMonitor"/>
+                    <include name="enterClick"/>
+                    <!--<include name="fpsMonitor"/>-->
                 </methods>
             </class>
         </classes>

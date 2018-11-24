@@ -1,10 +1,8 @@
 package com.xmly.pages;
 
-import io.appium.java_client.MobileDriver;
-import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.AndroidElement;
-import org.openqa.selenium.remote.RemoteWebElement;
-import io.appium.java_client.pagefactory.*;
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
+import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.support.PageFactory;
 
 /**
@@ -15,9 +13,9 @@ import org.openqa.selenium.support.PageFactory;
  */
 public class BasePage {
 
-    public MobileDriver driver;
+    public AppiumDriver<? extends MobileElement> driver;
 
-    public BasePage(MobileDriver driver) {
+    public BasePage(AppiumDriver<? extends MobileElement> driver) {
         this.driver = driver;
         //使用initElements方法构造,第一个参数new AppiumFieldDecorator,第二个参数是当前类
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
