@@ -20,10 +20,9 @@ public class LiveIndexPage extends BasePage {
 
     public LiveIndexPage(AppiumDriver<? extends MobileElement> driver) {
         super(driver);
+        enter("LiveIndex");
     }
 
-    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"直播\")")
-    WebElement LiveEnter;
 
     @AndroidFindBy(id = "com.ximalaya.ting.android.main.application:id/main_tv_search_bar_action")
     WebElement liveRoomSearchBar;
