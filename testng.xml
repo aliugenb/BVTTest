@@ -2,15 +2,14 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
     <listeners>
-        <listener class-name="ExtentTestNGIReporterListener" />
-        <listener class-name="TestngRetry" />
+        <listener class-name="com.xmly.listener.reportlistener.ExtentTestNGIReporterListener"/>
+        <listener class-name="com.xmly.listener.testnglistener.RetryListener"/>
     </listeners>
     <test verbose="2" preserve-order="true" parallel="methods" thread-count="2" name="首页banner滑动检查">
         <classes>
             <class name="com.xmly.cases.EnterRecoder">
                 <methods>
-                    <include name="enterClick"/>
-                    <!--<include name="fpsMonitor"/>-->
+                    <include name="enterRecorder"/>
                 </methods>
             </class>
         </classes>

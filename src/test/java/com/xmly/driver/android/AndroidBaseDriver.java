@@ -122,8 +122,5 @@ public class AndroidBaseDriver {
     }
 
 
-    @AfterTest
-    public static void tearDown() throws Exception {
-        driver.quit();
-    }
+
 }

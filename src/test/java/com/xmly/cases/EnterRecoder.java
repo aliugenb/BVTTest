@@ -13,13 +13,10 @@ import org.testng.annotations.Test;
  * Date: 2018/11/24
  * Time: 10:48 AM
  */
-public class EnterRecoder {
-    private static AppiumDriver<? extends MobileElement> driver;
+public class EnterRecoder extends BaseCase {
 
-    @BeforeTest
-
-    public static void main(String[] args) throws Exception {
-        driver = new AndroidBaseDriver().getDriver();
+    @Test
+    public static void enterRecorder() {
         LiveIndexPage liveIndexPage = new LiveIndexPage(driver);
         liveIndexPage.enterRecorder();
     }
