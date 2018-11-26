@@ -1,4 +1,4 @@
-package com.xmly.cases;
+package com.xmly.cases.android;
 
 import com.xmly.driver.android.AndroidBaseDriver;
 import io.appium.java_client.AppiumDriver;
@@ -12,6 +12,7 @@ import org.testng.annotations.BeforeTest;
  * Date: 2018/11/26
  * Time: 4:27 PM
  */
+
 public class BaseCase {
     protected static AppiumDriver<? extends MobileElement> driver;
 

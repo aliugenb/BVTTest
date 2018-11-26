@@ -23,15 +23,6 @@ public class Action {
 
     public static AndroidDriver<AndroidElement> driver;
 
-    public static AndroidDriver getDriver() {
-        return driver;
-    }
-
-    @AfterTest
-    public static void tearDown() throws Exception {
-        driver.quit();
-    }
-
     //执行cmd
     public static void execCmd(String cmd) throws IOException {
         Runtime runtime = Runtime.getRuntime();

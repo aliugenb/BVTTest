@@ -1,10 +1,6 @@
-package com.xmly.cases;
+package com.xmly.cases.android;
 
-import com.xmly.driver.android.AndroidBaseDriver;
 import com.xmly.pages.LiveIndexPage;
-import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileElement;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 /**

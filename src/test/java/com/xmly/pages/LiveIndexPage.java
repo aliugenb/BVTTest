@@ -18,7 +18,6 @@ public class LiveIndexPage extends BasePage {
         enter("LiveIndex");
     }
 
-
     @AndroidFindBy(id = "com.ximalaya.ting.android.main.application:id/main_tv_search_bar_action")
     MobileElement liveRoomSearchBar;
 
