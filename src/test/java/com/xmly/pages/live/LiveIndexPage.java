@@ -14,9 +14,12 @@ import io.appium.java_client.pagefactory.*;
  */
 public class LiveIndexPage extends BasePage {
 
+    {
+        enter(LiveHomePage);
+    }
+
     public LiveIndexPage(AppiumDriver<? extends MobileElement> driver) {
         super(driver);
-        enter(LiveHomePage);
     }
 
     @AndroidFindBy(id = "com.ximalaya.ting.android.main.application:id/main_tv_search_bar_action")
