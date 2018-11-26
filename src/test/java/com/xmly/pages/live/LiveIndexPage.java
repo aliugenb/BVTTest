@@ -1,5 +1,6 @@
-package com.xmly.pages;
+package com.xmly.pages.live;
 
+import com.xmly.pages.BasePage;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.*;

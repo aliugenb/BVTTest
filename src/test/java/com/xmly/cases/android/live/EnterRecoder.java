@@ -1,7 +1,7 @@
 package com.xmly.cases.android.live;
 
 import com.xmly.cases.android.AndroidBaseCase;
-import com.xmly.pages.LiveIndexPage;
+import com.xmly.pages.live.LiveIndexPage;
 import org.testng.annotations.Test;
 
 /**
