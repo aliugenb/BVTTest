@@ -17,8 +17,8 @@ public class BasePage {
 
     public AppiumDriver<? extends MobileElement> driver;
 
-    public static final String LiveIndexPage = "LiveIndex";
-    public static final String FindIndexPage = "FindIndex";
+    public static final String LiveHomePage = "LiveIndex";
+    public static final String FindHomePage = "FindIndex";
 
     public BasePage(AppiumDriver<? extends MobileElement> driver) {
         this.driver = driver;
