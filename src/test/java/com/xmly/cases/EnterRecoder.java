@@ -14,12 +14,12 @@ import org.testng.annotations.Test;
  * Time: 10:48 AM
  */
 public class EnterRecoder {
-    private AppiumDriver<? extends MobileElement> driver;
+    private static AppiumDriver<? extends MobileElement> driver;
 
     @BeforeTest
 
     public static void main(String[] args) throws Exception {
-        AppiumDriver<? extends MobileElement> driver = new AndroidBaseDriver().getDriver();
+        driver = new AndroidBaseDriver().getDriver();
         LiveIndexPage liveIndexPage = new LiveIndexPage(driver);
         liveIndexPage.enterRecorder();
     }

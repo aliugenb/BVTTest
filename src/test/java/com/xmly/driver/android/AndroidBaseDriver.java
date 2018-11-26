@@ -51,7 +51,7 @@ public class AndroidBaseDriver {
 
 
         //设置新的命令等待时长（应该用不到，设置1h）
-        capabilities.setCapability("newCommandTimeout", 3600);
+//        capabilities.setCapability("newCommandTimeout", 3600);
 
         //使用自带输入法，输入中文
         capabilities.setCapability("unicodeKeyboard", true);
@@ -113,7 +113,7 @@ public class AndroidBaseDriver {
 
         //初始化
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
-        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
         driver = EventFiringWebDriverFactory.getEventFiringWebDriver(driver, new ElementListener());
 

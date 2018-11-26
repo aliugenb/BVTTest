@@ -33,10 +33,13 @@ public class BasePage {
         switch (IndexPage) {
             case "LiveIndex":
                 HomePageLiveBtn.click();
+                break;
             case "FindIndex":
                 TabbarFindBtn.click();
+                break;
             default:
                 HomePageLiveBtn.click();
+                break;
         }
     }
 }
