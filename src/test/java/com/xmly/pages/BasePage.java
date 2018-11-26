@@ -17,6 +17,9 @@ public class BasePage {
 
     public AppiumDriver<? extends MobileElement> driver;
 
+    public static final String LiveIndexPage = "LiveIndex";
+    public static final String FindIndexPage = "FindIndex";
+
     public BasePage(AppiumDriver<? extends MobileElement> driver) {
         this.driver = driver;
         //使用initElements方法构造,第一个参数new AppiumFieldDecorator,第二个参数是当前类
@@ -29,8 +32,8 @@ public class BasePage {
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"发现\")")
     MobileElement TabbarFindBtn;
 
-    public void enter(String IndexPage) {
-        switch (IndexPage) {
+    public void enter(String HomePage) {
+        switch (HomePage) {
             case "LiveIndex":
                 HomePageLiveBtn.click();
                 break;
