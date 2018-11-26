@@ -23,6 +23,10 @@ public class Action {
 
     public static AndroidDriver<AndroidElement> driver;
 
+    public static AndroidDriver<AndroidElement> getDriver() {
+        return driver;
+    }
+
     //执行cmd
     public static void execCmd(String cmd) throws IOException {
         Runtime runtime = Runtime.getRuntime();

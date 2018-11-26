@@ -1,5 +1,6 @@
-package com.xmly.cases.android;
+package com.xmly.cases.android.live;
 
+import com.xmly.cases.android.AndroidBaseCase;
 import com.xmly.pages.LiveIndexPage;
 import org.testng.annotations.Test;
 
@@ -9,7 +10,7 @@ import org.testng.annotations.Test;
  * Date: 2018/11/24
  * Time: 10:48 AM
  */
-public class EnterRecoder extends BaseCase {
+public class EnterRecoder extends AndroidBaseCase {
 
     @Test
     public static void enterRecorder() {

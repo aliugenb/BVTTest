@@ -7,7 +7,7 @@
     </listeners>
     <test verbose="2" preserve-order="true" parallel="methods" thread-count="2" name="首页banner滑动检查">
         <classes>
-            <class name="com.xmly.cases.android.EnterRecoder">
+            <class name="com.xmly.cases.android.live.EnterRecoder">
                 <methods>
                     <include name="enterRecorder"/>
                 </methods>

@@ -13,7 +13,7 @@ import org.testng.annotations.BeforeTest;
  * Time: 4:27 PM
  */
 
-public class BaseCase {
+public class AndroidBaseCase {
     protected static AppiumDriver<? extends MobileElement> driver;
 
     @BeforeTest
