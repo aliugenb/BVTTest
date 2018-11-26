@@ -1,6 +1,7 @@
 package com.xmly.cases.android.find;
 
 import com.xmly.cases.android.AndroidBaseCase;
+import com.xmly.pages.find.FindIndexPage;
 import org.testng.annotations.Test;
 
 /**
@@ -13,6 +14,6 @@ public class EnterFind extends AndroidBaseCase {
 
     @Test
     public static void enterFindHomePage() {
-
+        FindIndexPage findIndexPage = new FindIndexPage(driver);
     }
 }
