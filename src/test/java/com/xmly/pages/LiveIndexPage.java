@@ -1,13 +1,8 @@
 package com.xmly.pages;
 
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.*;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.remote.RemoteWebElement;
 
 /**
  * Created with IntelliJ IDEA.
@@ -27,8 +22,9 @@ public class LiveIndexPage extends BasePage {
     @AndroidFindBy(id = "com.ximalaya.ting.android.main.application:id/main_tv_search_bar_action")
     MobileElement liveRoomSearchBar;
 
-    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"亲密度周榜\")")
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_home_anchor_rank_tv")
+    @AndroidFindAll({
+            @AndroidBy(uiAutomator = "new UiSelector().text(\"亲密度周榜\")"),
+            @AndroidBy(id = "com.ximalaya.ting.android.live.application:id/live_home_anchor_rank_tv")})
     MobileElement livrRecord;
 
 
