@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite">
+<suite name="LiveIndex">
     <listeners>
         <listener class-name="com.xmly.listener.reportlistener.ExtentTestNGIReporterListener"/>
         <listener class-name="com.xmly.listener.testnglistener.RetryListener"/>
     </listeners>
-    <test verbose="2" preserve-order="true" parallel="methods" thread-count="2" name="首页banner滑动检查">
+    <test verbose="2" preserve-order="true" parallel="methods" thread-count="1" name="直播首页检查">
         <classes>
-            <class name="com.xmly.cases.android.live.EnterRecoder">
+            <!--<class name="com.xmly.cases.android.liveindex.EnterRecoder">-->
+                <!--<methods>-->
+                    <!--<include name="enterRecorder"/>-->
+                <!--</methods>-->
+            <!--</class>-->
+            <class name="com.xmly.cases.android.liveindex.caseCheckSearchBar">
                 <methods>
-                    <include name="enterRecorder"/>
+                    <include name="checkSearchBar"/>
                 </methods>
             </class>
         </classes>
