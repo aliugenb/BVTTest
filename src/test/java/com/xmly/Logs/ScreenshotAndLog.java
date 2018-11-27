@@ -1,4 +1,4 @@
-package com.xmly.driver;
+package com.xmly.Logs;
 
 /**
  * Created with IntelliJ IDEA.

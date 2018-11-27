@@ -7,7 +7,6 @@ import io.appium.java_client.android.AndroidElement;
 
 import java.io.IOException;
 import java.util.Date;
-import java.util.List;
 
 import static com.xmly.action.ActionHelper.execCmd;
 import static com.xmly.action.ActionHelper.formatMin;
@@ -26,7 +25,6 @@ public class AndroidDriverHelper extends AndroidBaseDriver {
         int height = driver.manage().window().getSize().height;
         long s = (new Date()).getTime();
         while ((new Date()).getTime() - s < formatMin(time)) {
-//            checkInFanli();
             for (int i1 = 0; i1 <= 8; i1++) {
                 TouchAction action = new TouchAction(driver).press(width / 2, height * 5 / 7).waitAction().moveTo(width / 2, height * 2 / 7).release();
                 action.perform();
@@ -39,7 +37,6 @@ public class AndroidDriverHelper extends AndroidBaseDriver {
             }
         }
     }
-
 
     //点击系统按钮
     public static void pressKey(KEY keyCode) throws IOException {
@@ -62,10 +59,5 @@ public class AndroidDriverHelper extends AndroidBaseDriver {
         int y = androidElement.getCenter().getY();
         coordinates = "" + x + " " + y + "";
         return coordinates;
-    }
-
-    public List<AndroidElement> getElementsByResourceId(String resourceId) {
-        List<AndroidElement> lis = (List<AndroidElement>) driver.findElementsById(resourceId);
-        return lis;
     }
 }

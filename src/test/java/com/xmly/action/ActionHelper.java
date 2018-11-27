@@ -41,7 +41,6 @@ public class ActionHelper {
             String str = stringBuffer.toString().trim();
             if (str.indexOf("packageName") != -1) {
                 return true;
-//                throw new MyException("");
             }
         } catch (InterruptedException e) {
             System.err.println(e);
@@ -106,7 +105,7 @@ public class ActionHelper {
         }
         return inputMethod;
     }
-    
+
     //执行cmd
     public static void execCmd(String cmd) throws IOException {
         Runtime runtime = Runtime.getRuntime();
