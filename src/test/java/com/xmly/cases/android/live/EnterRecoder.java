@@ -2,7 +2,7 @@ package com.xmly.cases.android.live;
 
 import com.xmly.cases.android.AndroidBaseCase;
 import com.xmly.pages.live.LiveIndexPage;
-import com.xmly.pages.live.Recorder;
+import com.xmly.pages.live.RecorderPage;
 import org.testng.annotations.Test;
 
 /**
@@ -17,7 +17,7 @@ public class EnterRecoder extends AndroidBaseCase {
     public static void enterRecorder() {
 //        LiveIndexPage liveIndexPage = new LiveIndexPage(driver);
 //        liveIndexPage.enterRecorder();
-        Recorder recorder = new Recorder(driver);
+        RecorderPage recorder = new RecorderPage(driver);
         recorder.enterRecorder();
     }
 }

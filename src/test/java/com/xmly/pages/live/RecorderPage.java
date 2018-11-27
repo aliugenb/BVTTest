@@ -18,7 +18,7 @@ public class RecorderPage extends LiveIndexPage {
     }
 
     @AndroidFindAll({
-            @AndroidBy(uiAutomator = "new UiSelector().text(\"亲密度周榜\")"),
+            @AndroidBy(uiAutomator = "new UiSelector().text(\"亲榜\")"),
             @AndroidBy(id = "com.ximalaya.ting.android.live.application:id/live_home_anchor_rank_tv")})
     MobileElement livrRecord;
 
