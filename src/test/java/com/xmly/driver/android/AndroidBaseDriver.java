@@ -18,6 +18,7 @@ import java.util.concurrent.TimeUnit;
  * Date: 2018/11/8
  * Time: 10:57 AM
  */
+
 public class AndroidBaseDriver {
     public static AppiumDriver<? extends MobileElement> driver;
 

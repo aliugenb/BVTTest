@@ -15,8 +15,6 @@ public class EnterRecoder extends AndroidBaseCase {
 
     @Test
     public static void enterRecorder() {
-//        LiveIndexPage liveIndexPage = new LiveIndexPage(driver);
-//        liveIndexPage.enterRecorder();
         RecorderPage recorder = new RecorderPage(driver);
         recorder.enterRecorder();
     }
