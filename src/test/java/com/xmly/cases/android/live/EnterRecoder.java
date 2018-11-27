@@ -1,9 +1,7 @@
 package com.xmly.cases.android.live;
 
-import com.xmly.action.CommonAction;
-import com.xmly.action.MyException;
 import com.xmly.cases.android.AndroidBaseCase;
-import com.xmly.driver.android.ActionHelper;
+import com.xmly.driver.android.AndroidDriverHelper;
 import com.xmly.pages.live.RecorderPage;
 import org.testng.annotations.Test;
 
@@ -21,6 +19,6 @@ public class EnterRecoder extends AndroidBaseCase {
     public static void enterRecorder() throws Exception {
         RecorderPage recorder = new RecorderPage(driver);
         recorder.enterRecorder();
-        new ActionHelper().swipUpAndDownByTime(1);
+        new AndroidDriverHelper().swipUpAndDownByTime(1);
     }
 }

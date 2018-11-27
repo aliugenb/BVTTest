@@ -1,4 +1,4 @@
-package com.xmly.driver.android;
+package com.xmly.driver;
 
 /**
  * Created with IntelliJ IDEA.
