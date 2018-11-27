@@ -21,10 +21,10 @@ import java.util.concurrent.TimeUnit;
 
 public class AndroidBaseDriver {
 
-    private AppiumDriver<? extends MobileElement> driver;
+    protected static AppiumDriver<? extends MobileElement> driver;
 
     public AppiumDriver<? extends MobileElement> getDriver() throws Exception {
-        DeviceInfo deviceInfo = new DeviceInfo();
+        AndroidDeviceInfo deviceInfo = new AndroidDeviceInfo();
         String deviceName = deviceInfo.getDeviceName();
         String platformVersion = deviceInfo.getOsVersion();
 

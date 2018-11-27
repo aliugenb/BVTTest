@@ -1,15 +1,7 @@
 package com.xmly.listener.testnglistener;
 
-import com.xmly.action.Action;
-import io.appium.java_client.android.AndroidDriver;
-import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.testng.TestListenerAdapter;
 
-import java.io.File;
-import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 import org.apache.logging.log4j.LogManager;
@@ -75,7 +67,6 @@ public class TestngListener extends TestListenerAdapter {
     }
 
     public void onTestFailure(ITestResult result) {
-        takeScreenShot(result);
     }
 
     public void onTestSkipped(ITestResult result) {
@@ -87,17 +78,17 @@ public class TestngListener extends TestListenerAdapter {
     public void onStart(ITestContext context) {
     }
 
-    private void takeScreenShot(ITestResult result) {
-        AndroidDriver driver = Action.getDriver();
-        File location = new File("Screenshots");
-        Date now = new Date();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss");
-        String screenShotName = location.getAbsolutePath() + File.separator + result.getMethod().getMethodName() + "-" + dateFormat.format(now) + ".png";
-        File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-        try {
-            FileUtils.copyFile(scrFile, new File(screenShotName));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+//    private void takeScreenShot(ITestResult result) {
+//        AndroidDriver driver = Action.getDriver();
+//        File location = new File("Screenshots");
+//        Date now = new Date();
+//        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss");
+//        String screenShotName = location.getAbsolutePath() + File.separator + result.getMethod().getMethodName() + "-" + dateFormat.format(now) + ".png";
+//        File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+//        try {
+//            FileUtils.copyFile(scrFile, new File(screenShotName));
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//}
 }

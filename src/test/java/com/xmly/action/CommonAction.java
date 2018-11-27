@@ -1,13 +1,21 @@
 package com.xmly.action;
 
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterTest;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -19,13 +27,9 @@ import java.util.List;
  * Time: 下午4:08
  */
 
-public class Action {
+public class CommonAction {
 
     public static AndroidDriver<AndroidElement> driver;
-
-    public static AndroidDriver<AndroidElement> getDriver() {
-        return driver;
-    }
 
     //执行cmd
     public static void execCmd(String cmd) throws IOException {
@@ -50,6 +54,19 @@ public class Action {
     public List<AndroidElement> getElementsByResourceId(String resourceId) {
         List<AndroidElement> lis = driver.findElementsById(resourceId);
         return lis;
+    }
+
+    private void takeScreenShot(ITestResult result, AppiumDriver<? extends MobileElement> driver) {
+        File location = new File("Screenshots");
+        Date now = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss");
+        String screenShotName = location.getAbsolutePath() + File.separator + result.getMethod().getMethodName() + "-" + dateFormat.format(now) + ".png";
+        File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        try {
+            FileUtils.copyFile(scrFile, new File(screenShotName));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     //获取中心点击坐标
@@ -86,24 +103,7 @@ public class Action {
     }
 
     //根据设定时长滑动页面
-    public static void swipUpAndDownByTime(int time) throws InterruptedException, IOException, MyException {
-        int width = driver.manage().window().getSize().width;
-        int height = driver.manage().window().getSize().height;
-        long s = (new Date()).getTime();
-        while ((new Date()).getTime() - s < formatMin(time)) {
-//            checkInFanli();
-            for (int i1 = 0; i1 <= 8; i1++) {
-                TouchAction action = new TouchAction(driver).press(width / 2, height * 5 / 7).waitAction().moveTo(width / 2, height * 2 / 7).release();
-                action.perform();
-                Thread.sleep(1000);
-            }
-            for (int i2 = 0; i2 <= 5; i2++) {
-                TouchAction action1 = new TouchAction(driver).press(width / 2, height * 2 / 7).waitAction().moveTo(width / 2, height * 5 / 7).release();
-                action1.perform();
-                Thread.sleep(1000);
-            }
-        }
-    }
+
 
     //获取非appium的输入法
     public static String getInputMethod() throws IOException, MyException {

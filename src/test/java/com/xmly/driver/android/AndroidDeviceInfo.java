@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
  * Time: 下午4:08
  */
 
-public class DeviceInfo {
+public class AndroidDeviceInfo {
     private String OsVersion;
     private String DeviceName;
 
@@ -25,7 +25,7 @@ public class DeviceInfo {
         return DeviceName;
     }
 
-    public DeviceInfo() {
+    public AndroidDeviceInfo() {
         String version = GetInfo("adb shell getprop ro.build.version.release");
         String deviceName = GetInfo("adb devices");
         Pattern r = Pattern.compile("attached(.*)device");
