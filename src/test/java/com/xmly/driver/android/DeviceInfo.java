@@ -16,17 +16,10 @@ public class DeviceInfo {
     private String OsVersion;
     private String DeviceName;
 
-//    public void setOsVersion(String osVersion) {
-//        OsVersion = osVersion;
-//    }
 
     public String getOsVersion() {
         return OsVersion;
     }
-
-//    public void setDeviceName(String deviceName) {
-//        DeviceName = deviceName;
-//    }
 
     public String getDeviceName() {
         return DeviceName;

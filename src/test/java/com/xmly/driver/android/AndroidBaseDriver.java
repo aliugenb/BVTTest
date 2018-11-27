@@ -20,7 +20,8 @@ import java.util.concurrent.TimeUnit;
  */
 
 public class AndroidBaseDriver {
-    public static AppiumDriver<? extends MobileElement> driver;
+
+    private AppiumDriver<? extends MobileElement> driver;
 
     public AppiumDriver<? extends MobileElement> getDriver() throws Exception {
         DeviceInfo deviceInfo = new DeviceInfo();
@@ -66,6 +67,8 @@ public class AndroidBaseDriver {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
         driver = EventFiringWebDriverFactory.getEventFiringWebDriver(driver, new ElementListener());
+
         return driver;
     }
+
 }
