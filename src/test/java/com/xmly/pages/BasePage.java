@@ -4,7 +4,10 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import io.appium.java_client.pagefactory.TimeOutDuration;
 import org.openqa.selenium.support.PageFactory;
+
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created with IntelliJ IDEA.
@@ -17,20 +20,23 @@ public class BasePage {
 
     public AppiumDriver<? extends MobileElement> driver;
 
+    private final int TIMEOUT = 15;
+
     public static final String LiveHomePage = "LiveIndex";
     public static final String FindHomePage = "FindIndex";
 
     public BasePage(AppiumDriver<? extends MobileElement> driver) {
         this.driver = driver;
         //使用initElements方法构造,第一个参数new AppiumFieldDecorator,第二个参数是当前类
-        PageFactory.initElements(new AppiumFieldDecorator(driver), this);
+        PageFactory.initElements(new AppiumFieldDecorator(
+                driver, new TimeOutDuration(TIMEOUT, TimeUnit.SECONDS)), this);
     }
 
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"直播\")")
-    MobileElement HomePageLiveBtn;
+    private MobileElement HomePageLiveBtn;
 
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"发现\")")
-    MobileElement TabbarFindBtn;
+    private MobileElement TabbarFindBtn;
 
     public void enter(String HomePage) {
         switch (HomePage) {
