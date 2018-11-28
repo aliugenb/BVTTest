@@ -16,6 +16,7 @@ import java.util.List;
  * Time: 11:09 AM
  * 直播Tab首页
  */
+
 public class LiveIndexPage extends BasePage {
 
     {
@@ -64,11 +65,13 @@ public class LiveIndexPage extends BasePage {
         return liveTabs.size();
     }
 
+    //点击创建直播间
     public void createLiveRoom() {
         createLiveRoomBtn.click();
     }
 
-    public void clickLiveRoom() {
+    //首页进入直播间
+    public void enterLiveRoom() {
         liveRoom.click();
     }
 }
