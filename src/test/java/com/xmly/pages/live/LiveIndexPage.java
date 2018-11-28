@@ -14,7 +14,7 @@ import java.util.List;
  * Author: ye.liu
  * Date: 2018/11/8
  * Time: 11:09 AM
- * 直播首页
+ * 直播Tab首页
  */
 public class LiveIndexPage extends BasePage {
 
@@ -27,21 +27,21 @@ public class LiveIndexPage extends BasePage {
     }
 
     @AndroidFindBy(id = "com.ximalaya.ting.android.main.application:id/main_tv_search_bar_action")
-    private MobileElement SearchBar;
+    private MobileElement SearchBar; //搜索框
 
     @AndroidFindBy(id = "com.ximalaya.ting.android.main.application:id/main_tv_search_bar_action")
-    private MobileElement createLiveRoomBtn;
+    private MobileElement createLiveRoomBtn; //我要直播按钮
 
     @AndroidFindAll({
             @AndroidBy(uiAutomator = "new UiSelector().text(\"亲密度周榜\")"),
             @AndroidBy(id = "com.ximalaya.ting.android.liveindex.application:id/live_home_anchor_rank_tv")})
-    private MobileElement liveRecord;
+    private MobileElement liveRecord; //排行榜
 
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_tab_layout")
-    private List<MobileElement> liveTabs;
+    private List<MobileElement> liveTabs; //分类tab
 
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_item_record_cover")
-    private MobileElement liveRoom;
+    private MobileElement liveRoom; //直播间
 
 
     public void isLiveRoomSearchBarDisplayed() {
@@ -64,7 +64,7 @@ public class LiveIndexPage extends BasePage {
         return liveTabs.size();
     }
 
-    public void clickCreateLiveRoomBtn() {
+    public void createLiveRoom() {
         createLiveRoomBtn.click();
     }
 
