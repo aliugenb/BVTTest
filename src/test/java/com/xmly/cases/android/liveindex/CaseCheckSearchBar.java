@@ -8,14 +8,14 @@ import org.testng.annotations.Test;
  * Created with IntelliJ IDEA.
  * Author: ye.liu
  * Date: 2018/11/27
- * Time: 23:14
- * case编号：LiveIndex_02
+ * Time: 22:45
+ * case编号：LiveIndex_01
  */
 
-public class caseCheckCreateLiveRoomBtn extends AndroidBaseCase {
+public class CaseCheckSearchBar extends AndroidBaseCase {
     @Test
-    public void checkCreateLiveRoomBtn(){
+    public void checkSearchBar() {
         LiveIndexPage liveIndexPage = new LiveIndexPage(driver);
-        liveIndexPage.isCreateLiveRoomBtnDisplayed();
+        liveIndexPage.isLiveRoomSearchBarDisplayed();
     }
 }

@@ -15,6 +15,7 @@ import java.util.regex.Pattern;
 public class AndroidDeviceInfo {
     private String OsVersion;
     private String DeviceName;
+    private String ProductModel;
 
 
     public String getOsVersion() {
@@ -25,18 +26,24 @@ public class AndroidDeviceInfo {
         return DeviceName;
     }
 
+    public String getProductModel() {
+        return ProductModel;
+    }
+
     public AndroidDeviceInfo() {
         String version = GetInfo("adb shell getprop ro.build.version.release");
         String deviceName = GetInfo("adb devices");
+        String productModel = GetInfo("adb shell getprop ro.product.model");
         Pattern r = Pattern.compile("attached(.*)device");
         Matcher m = r.matcher(deviceName);
         this.OsVersion = version.trim();
         if (m.find()) {
             this.DeviceName = m.group(1).trim();
         }
+        this.ProductModel = productModel.trim();
     }
 
-    public static String GetInfo(String cmd) {
+    private static String GetInfo(String cmd) {
         Runtime run = Runtime.getRuntime();
         String info = null;
         try {
