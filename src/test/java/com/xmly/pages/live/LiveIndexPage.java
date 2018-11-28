@@ -7,6 +7,8 @@ import io.appium.java_client.pagefactory.*;
 import org.junit.Test;
 import org.testng.Assert;
 
+import java.util.List;
+
 /**
  * Created with IntelliJ IDEA.
  * Author: ye.liu
@@ -35,22 +37,38 @@ public class LiveIndexPage extends BasePage {
             @AndroidBy(id = "com.ximalaya.ting.android.liveindex.application:id/live_home_anchor_rank_tv")})
     private MobileElement liveRecord;
 
+    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_tab_layout")
+    private List<MobileElement> liveTabs;
 
-    public void clickliveRoomBtn() {
-        createLiveRoomBtn.click();
-    }
+    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_item_record_cover")
+    private MobileElement liveRoom;
+
 
     public void isLiveRoomSearchBarDisplayed() {
         Assert.assertTrue(SearchBar.isDisplayed(), "搜索状态栏存在");
     }
 
-    public void isLivrRecordDisplayed() {
+    public void isLiveRecordDisplayed() {
         Assert.assertTrue(liveRecord.isDisplayed(), "排行榜存在");
     }
 
     public void isCreateLiveRoomBtnDisplayed() {
-        Assert.assertTrue(createLiveRoomBtn.isDisplayed(), "排行榜存在");
+        Assert.assertTrue(createLiveRoomBtn.isDisplayed(), "我要直播存在");
     }
 
+    public void isLiveRoomDisplayed() {
+        Assert.assertTrue(liveRoom.isDisplayed(), "我要直播存在");
+    }
 
+    public int getLiveTabQty() {
+        return liveTabs.size();
+    }
+
+    public void clickCreateLiveRoomBtn() {
+        createLiveRoomBtn.click();
+    }
+
+    public void clickLiveRoom() {
+        liveRoom.click();
+    }
 }

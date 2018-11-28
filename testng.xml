@@ -12,9 +12,9 @@
                     <!--<include name="enterRecorder"/>-->
                 <!--</methods>-->
             <!--</class>-->
-            <class name="com.xmly.cases.android.liveindex.caseCheckSearchBar">
+            <class name="com.xmly.cases.android.liveindex.CaseCheckLiveTab">
                 <methods>
-                    <include name="checkSearchBar"/>
+                    <include name="checkLiveTab"/>
                 </methods>
             </class>
         </classes>

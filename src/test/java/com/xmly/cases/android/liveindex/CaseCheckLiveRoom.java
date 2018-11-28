@@ -7,16 +7,16 @@ import org.testng.annotations.Test;
 /**
  * Created with IntelliJ IDEA.
  * Author: ye.liu
- * Date: 2018/11/27
- * Time: 22:45
- * case编号：LiveIndex_01
- * 搜索框
+ * Date: 2018/11/28
+ * Time: 7:56 PM
+ * case编号：LiveIndex_04
+ * 显示直播间
  */
 
-public class CaseCheckSearchBar extends AndroidBaseCase {
+public class CaseCheckLiveRoom extends AndroidBaseCase {
     @Test
-    public void checkSearchBar() {
+    public void checkLiveRecord() {
         LiveIndexPage liveIndexPage = new LiveIndexPage(driver);
-        liveIndexPage.isLiveRoomSearchBarDisplayed();
+        liveIndexPage.isLiveRoomDisplayed();
     }
 }
