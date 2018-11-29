@@ -18,7 +18,7 @@ import java.util.List;
 public class ActionHelper {
 
     // 检查当前页面最上层的activity是否在指定packageName
-    public static boolean checkPackage(String packageName) throws IOException, MyException {
+    public static boolean checkPackage(String packageName) throws IOException {
         String command = "adb shell \"dumpsys activity | grep \"mFocusedActivity\"\"";
         if (System.getProperty("os.name").equals("Mac OS X")) {
             command = "adb shell dumpsys activity | grep \"mFocusedActivity\"";
