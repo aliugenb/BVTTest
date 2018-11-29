@@ -21,43 +21,30 @@ public class AnchorLiveRoomPage extends BasePage {
     }
 
     @AndroidFindBy(id = "com.ximalaya.ting.android:id/host_cancle_share_and_dismiss")
-    private MobileElement cancelShareBtn; //取消分享
+    public MobileElement cancelShareBtn; //取消分享
 
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_iv_pk")
-    private MobileElement pkBtn; //pk按钮
+    public MobileElement pkBtn; //pk按钮
 
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_defaultCallIv")
-    private MobileElement callBtn; //连麦按钮
+    public MobileElement callBtn; //连麦按钮
 
     @AndroidFindBy(id = "com.ximalaya.ting.android:id/tab_listen")
-    private MobileElement listenBtn; //音效按钮
+    public MobileElement listenBtn; //音效按钮
 
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_chat_bottom_music")
-    private MobileElement addBgmBtn; //添加背景音乐按钮
+    public MobileElement addBgmBtn; //添加背景音乐按钮
 
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_back_btn")
-    private MobileElement exitLiveBtn; //退出直播
+    public MobileElement exitLiveBtn; //退出直播
 
     @AndroidFindAll({
             @AndroidBy(uiAutomator = "new UiSelector().text(\"结束直播\")"),
             @AndroidBy(id = "com.ximalaya.ting.android.live.application:id/live_ok")
     })
-    private MobileElement endLiveBtn; //结束直播
+    public MobileElement endLiveBtn; //结束直播
 
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_cancel")
-    private MobileElement cancelEndLiveBtn; //取消退出直播按钮
+    public MobileElement cancelEndLiveBtn; //取消退出直播按钮
 
-    //结束直播
-    public void endLive() throws InterruptedException {
-        exitLiveBtn.click();
-        ActionHelper.sleep(1000);
-        endLiveBtn.click();
-    }
-
-    //取消结束直播
-    public void cancelEndLive() throws InterruptedException {
-        exitLiveBtn.click();
-        ActionHelper.sleep(1000);
-        cancelEndLiveBtn.click();
-    }
 }

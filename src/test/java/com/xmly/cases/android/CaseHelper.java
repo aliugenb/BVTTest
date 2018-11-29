@@ -1,9 +1,11 @@
 package com.xmly.cases.android;
 
+import com.xmly.action.ActionHelper;
 import com.xmly.pages.BasePage;
 import com.xmly.pages.live.AnchorLiveRoomPage;
 import com.xmly.pages.live.CreateLiveRoomPage;
 import com.xmly.pages.live.LiveIndexPage;
+import org.testng.Assert;
 
 /**
  * Created with IntelliJ IDEA.
@@ -25,13 +27,18 @@ public class CaseHelper extends AndroidBaseCase {
         basePage.enter(FindHomePage);
     }
 
-    public static void createLiveRoom() {
+    //创建直播间
+    public static void createLiveRoom() throws InterruptedException {
         gotoLiveHomePage();
         liveIndexPage.gotoCreateLiveRoomPage();
-        createLiveRoomPage.BeginLive();
+        createLiveRoomPage.BeginLiveBtn.click();
+        ActionHelper.sleep(8000);
     }
 
+    //主播端结束直播间
     public static void endAnchorLive() throws InterruptedException {
-        anchorLiveRoomPage.endLive();
+        anchorLiveRoomPage.exitLiveBtn.click();
+        ActionHelper.sleep(1000);
+        anchorLiveRoomPage.endLiveBtn.click();
     }
 }

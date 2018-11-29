@@ -3,6 +3,7 @@ package com.xmly.cases.android.liveindex;
 import com.xmly.cases.android.AndroidBaseCase;
 import com.xmly.cases.android.CaseHelper;
 import com.xmly.pages.live.LiveIndexPage;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 /**
@@ -18,6 +19,6 @@ public class CaseCheckLiveRecord extends CaseHelper {
     @Test
     public void checkLiveRecord() {
         gotoLiveHomePage();
-        liveIndexPage.isLiveRecordDisplayed();
+        Assert.assertTrue(liveIndexPage.liveRecord.isDisplayed());
     }
 }

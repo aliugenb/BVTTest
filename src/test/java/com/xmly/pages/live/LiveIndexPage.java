@@ -24,37 +24,21 @@ public class LiveIndexPage extends BasePage {
     }
 
     @AndroidFindBy(id = "com.ximalaya.ting.android.main.application:id/main_tv_search_bar_action")
-    private MobileElement SearchBar; //搜索框
+    public MobileElement SearchBar; //搜索框
 
     @AndroidFindBy(id = "com.ximalaya.ting.android.main.application:id/main_tv_search_bar_action")
-    private MobileElement createLiveRoomBtn; //我要直播按钮
+    public MobileElement createLiveRoomBtn; //我要直播按钮
 
     @AndroidFindAll({
             @AndroidBy(uiAutomator = "new UiSelector().text(\"亲密度周榜\")"),
             @AndroidBy(id = "com.ximalaya.ting.android.liveindex.application:id/live_home_anchor_rank_tv")})
-    private MobileElement liveRecord; //排行榜
+    public MobileElement liveRecord; //排行榜
 
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_tab_layout")
-    private List<MobileElement> liveTabs; //分类tab
+    public List<MobileElement> liveTabs; //分类tab
 
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_item_record_cover")
-    private MobileElement liveRoom; //直播间
-
-    public void isLiveRoomSearchBarDisplayed() {
-        Assert.assertTrue(SearchBar.isDisplayed(), "搜索状态栏存在");
-    }
-
-    public void isLiveRecordDisplayed() {
-        Assert.assertTrue(liveRecord.isDisplayed(), "排行榜存在");
-    }
-
-    public void isCreateLiveRoomBtnDisplayed() {
-        Assert.assertTrue(createLiveRoomBtn.isDisplayed(), "我要直播存在");
-    }
-
-    public void isLiveRoomDisplayed() {
-        Assert.assertTrue(liveRoom.isDisplayed(), "我要直播存在");
-    }
+    public MobileElement liveRoom; //直播间
 
     public int getLiveTabQty() {
         return liveTabs.size();

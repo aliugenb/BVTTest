@@ -3,6 +3,7 @@ package com.xmly.cases.android.liveindex;
 import com.xmly.cases.android.AndroidBaseCase;
 import com.xmly.cases.android.CaseHelper;
 import com.xmly.pages.live.LiveIndexPage;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 /**
@@ -18,6 +19,6 @@ public class CaseCheckSearchBar extends CaseHelper {
     @Test
     public void checkSearchBar() {
         gotoLiveHomePage();
-        liveIndexPage.isLiveRoomSearchBarDisplayed();
+        Assert.assertTrue(liveIndexPage.SearchBar.isDisplayed());
     }
 }
