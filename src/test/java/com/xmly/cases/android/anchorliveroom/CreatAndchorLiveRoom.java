@@ -1,9 +1,6 @@
 package com.xmly.cases.android.anchorliveroom;
 
-import com.xmly.cases.android.AndroidBaseCase;
 import com.xmly.cases.android.CaseHelper;
-import com.xmly.pages.live.CreateLiveRoomPage;
-import com.xmly.pages.live.LiveIndexPage;
 import org.testng.annotations.Test;
 
 /**
@@ -18,6 +15,6 @@ public class CreatAndchorLiveRoom extends CaseHelper {
     public void create() {
         CaseHelper.gotoLiveHomePage();
         liveIndexPage.gotoCreateLiveRoomPage();
-        createLiveRoomPage.BeginLive();
+        createLiveRoomPage.BeginLiveBtn.click();
     }
 }

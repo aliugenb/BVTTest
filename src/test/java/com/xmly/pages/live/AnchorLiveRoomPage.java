@@ -1,6 +1,5 @@
 package com.xmly.pages.live;
 
-import com.xmly.action.ActionHelper;
 import com.xmly.pages.BasePage;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
@@ -15,6 +14,7 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
  * Time: 8:08 PM
  * 主播侧直播间页面
  */
+
 public class AnchorLiveRoomPage extends BasePage {
     public AnchorLiveRoomPage(AppiumDriver<? extends MobileElement> driver) {
         super(driver);

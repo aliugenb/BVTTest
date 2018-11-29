@@ -1,7 +1,5 @@
 package com.xmly.action;
 
-import com.xmly.action.MyException;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;

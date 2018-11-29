@@ -1,6 +1,5 @@
 package com.xmly.pages.live;
 
-import com.sun.xml.internal.rngom.parse.host.Base;
 import com.xmly.pages.BasePage;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;

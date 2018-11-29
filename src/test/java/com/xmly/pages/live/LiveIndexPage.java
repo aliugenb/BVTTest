@@ -4,9 +4,6 @@ import com.xmly.pages.BasePage;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.*;
-import org.junit.Test;
-import org.testng.Assert;
-
 import java.util.List;
 
 /**

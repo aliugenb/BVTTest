@@ -32,7 +32,6 @@ public class CaseHelper extends AndroidBaseCase {
         gotoLiveHomePage();
         liveIndexPage.gotoCreateLiveRoomPage();
         createLiveRoomPage.BeginLiveBtn.click();
-        ActionHelper.sleep(8000);
     }
 
     //主播端结束直播间
