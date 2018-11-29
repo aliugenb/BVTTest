@@ -1,6 +1,7 @@
 package com.xmly.cases.android.liveindex;
 
 import com.xmly.cases.android.AndroidBaseCase;
+import com.xmly.cases.android.CaseHelper;
 import com.xmly.pages.live.LiveIndexPage;
 import org.testng.annotations.Test;
 
@@ -13,10 +14,10 @@ import org.testng.annotations.Test;
  * 搜索框
  */
 
-public class CaseCheckSearchBar extends AndroidBaseCase {
+public class CaseCheckSearchBar extends CaseHelper {
     @Test
     public void checkSearchBar() {
-        LiveIndexPage liveIndexPage = new LiveIndexPage(driver);
+        CaseHelper.gotoLiveHomePage();
         liveIndexPage.isLiveRoomSearchBarDisplayed();
     }
 }

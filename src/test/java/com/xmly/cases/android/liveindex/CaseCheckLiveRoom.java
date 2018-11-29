@@ -1,6 +1,7 @@
 package com.xmly.cases.android.liveindex;
 
 import com.xmly.cases.android.AndroidBaseCase;
+import com.xmly.cases.android.CaseHelper;
 import com.xmly.pages.live.LiveIndexPage;
 import org.testng.annotations.Test;
 
@@ -13,10 +14,10 @@ import org.testng.annotations.Test;
  * 显示直播间
  */
 
-public class CaseCheckLiveRoom extends AndroidBaseCase {
+public class CaseCheckLiveRoom extends CaseHelper {
     @Test
     public void checkLiveRecord() {
-        LiveIndexPage liveIndexPage = new LiveIndexPage(driver);
+        CaseHelper.gotoLiveHomePage();
         liveIndexPage.isLiveRoomDisplayed();
     }
 }

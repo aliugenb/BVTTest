@@ -1,6 +1,7 @@
-package com.xmly.cases.android.liveroom;
+package com.xmly.cases.android.anchorliveroom;
 
 import com.xmly.cases.android.AndroidBaseCase;
+import com.xmly.cases.android.CaseHelper;
 import com.xmly.pages.live.CreateLiveRoomPage;
 import com.xmly.pages.live.LiveIndexPage;
 import org.testng.annotations.Test;
@@ -12,12 +13,11 @@ import org.testng.annotations.Test;
  * Time: 22:34
  */
 
-public class CreatLiveRoom extends AndroidBaseCase {
+public class CreatAndchorLiveRoom extends CaseHelper {
     @Test
     public void create() {
-        LiveIndexPage liveIndexPage = new LiveIndexPage(driver);
-        liveIndexPage.createLiveRoom();
-        CreateLiveRoomPage createLiveRoomPage = new CreateLiveRoomPage(driver);
+        CaseHelper.gotoLiveHomePage();
+        liveIndexPage.gotoCreateLiveRoomPage();
         createLiveRoomPage.BeginLive();
     }
 }

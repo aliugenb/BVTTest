@@ -1,6 +1,7 @@
 package com.xmly.cases.android.liveindex;
 
 import com.xmly.cases.android.AndroidBaseCase;
+import com.xmly.cases.android.CaseHelper;
 import com.xmly.pages.live.LiveIndexPage;
 import org.testng.annotations.Test;
 
@@ -13,10 +14,10 @@ import org.testng.annotations.Test;
  * 检查存在我要直播按钮
  */
 
-public class CaseCheckCreateLiveRoomBtn extends AndroidBaseCase {
+public class CaseCheckCreateLiveRoomBtn extends CaseHelper {
     @Test
-    public void checkCreateLiveRoomBtn(){
-        LiveIndexPage liveIndexPage = new LiveIndexPage(driver);
+    public static void checkCreateLiveRoomBtn(){
+        CaseHelper.gotoLiveHomePage();
         liveIndexPage.isCreateLiveRoomBtnDisplayed();
     }
 }

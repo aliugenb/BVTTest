@@ -19,10 +19,6 @@ import java.util.List;
 
 public class LiveIndexPage extends BasePage {
 
-    {
-        enter(LiveHomePage);
-    }
-
     public LiveIndexPage(AppiumDriver<? extends MobileElement> driver) {
         super(driver);
     }
@@ -44,7 +40,6 @@ public class LiveIndexPage extends BasePage {
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_item_record_cover")
     private MobileElement liveRoom; //直播间
 
-
     public void isLiveRoomSearchBarDisplayed() {
         Assert.assertTrue(SearchBar.isDisplayed(), "搜索状态栏存在");
     }
@@ -65,13 +60,13 @@ public class LiveIndexPage extends BasePage {
         return liveTabs.size();
     }
 
-    //点击创建直播间
-    public void createLiveRoom() {
+    //跳转创建直播间页面
+    public void gotoCreateLiveRoomPage() {
         createLiveRoomBtn.click();
     }
 
     //首页进入直播间
-    public void enterLiveRoom() {
+    public void gotoUserLiveRoomPage() {
         liveRoom.click();
     }
 }

@@ -14,6 +14,5 @@ import io.appium.java_client.MobileElement;
 public class FindIndexPage extends BasePage {
     public FindIndexPage(AppiumDriver<? extends MobileElement> driver) {
         super(driver);
-        enter(FindHomePage);
     }
 }

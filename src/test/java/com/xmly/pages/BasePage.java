@@ -22,9 +22,6 @@ public class BasePage {
 
     private final int TIMEOUT = 15;
 
-    public static final String LiveHomePage = "LiveIndex";
-    public static final String FindHomePage = "FindIndex";
-
     public BasePage(AppiumDriver<? extends MobileElement> driver) {
         this.driver = driver;
         //使用initElements方法构造,第一个参数new AppiumFieldDecorator,第二个参数是当前类
