@@ -18,7 +18,7 @@ import org.testng.annotations.Test;
 public class CaseCheckLiveTab extends CaseHelper {
     @Test
     public void checkLiveTab() {
-        CaseHelper.gotoLiveHomePage();
+        gotoLiveHomePage();
         System.out.println(liveIndexPage.getLiveTabQty());
         Assert.assertEquals(liveIndexPage.getLiveTabQty(), 5);
     }

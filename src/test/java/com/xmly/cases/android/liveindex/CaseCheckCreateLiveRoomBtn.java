@@ -17,7 +17,7 @@ import org.testng.annotations.Test;
 public class CaseCheckCreateLiveRoomBtn extends CaseHelper {
     @Test
     public static void checkCreateLiveRoomBtn(){
-        CaseHelper.gotoLiveHomePage();
+        gotoLiveHomePage();
         liveIndexPage.isCreateLiveRoomBtnDisplayed();
     }
 }

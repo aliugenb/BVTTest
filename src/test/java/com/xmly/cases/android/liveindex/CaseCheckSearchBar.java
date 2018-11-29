@@ -17,7 +17,7 @@ import org.testng.annotations.Test;
 public class CaseCheckSearchBar extends CaseHelper {
     @Test
     public void checkSearchBar() {
-        CaseHelper.gotoLiveHomePage();
+        gotoLiveHomePage();
         liveIndexPage.isLiveRoomSearchBarDisplayed();
     }
 }

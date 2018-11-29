@@ -17,7 +17,7 @@ import org.testng.annotations.Test;
 public class CaseCheckLiveRoom extends CaseHelper {
     @Test
     public void checkLiveRecord() {
-        CaseHelper.gotoLiveHomePage();
+        gotoLiveHomePage();
         liveIndexPage.isLiveRoomDisplayed();
     }
 }
