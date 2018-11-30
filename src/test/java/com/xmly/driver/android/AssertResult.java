@@ -11,7 +11,8 @@ import java.net.MalformedURLException;
  * Date: 2018/11/27
  * Time: 2:23 PM
  */
-//public class AssertResult extends Assertion {
+public class AssertResult extends Assertion {
+
 //
 //    @Override
 //    public void onAssertFailure(IAssert assertCommand) {
@@ -25,4 +26,4 @@ import java.net.MalformedURLException;
 //            System.out.println("获取截图失败");
 //        }
 //    }
-//}
+}
