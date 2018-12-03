@@ -1,11 +1,16 @@
 package com.xmly;
 
+import com.xmly.utils.FileInit;
 import org.testng.TestNG;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,11 +22,28 @@ import java.util.List;
  */
 
 public class Run {
+    public static Path resultDirPath;
+    public static Path logDirPath;
+    public static Path screenshotDirPath;
+    public static Path preTestNGIReportPath;
+    public static Path tarTestNGIReportPath;
+
+    public static void init() {
+        FileInit fileInit = new FileInit();
+        resultDirPath = Paths.get(FileInit.resultDir.getAbsolutePath());
+        logDirPath = Paths.get(fileInit.getLogDir().getAbsolutePath());
+        screenshotDirPath = Paths.get(fileInit.getScreenshotDir().getAbsolutePath());
+        preTestNGIReportPath = Paths.get(resultDirPath + "/" + FileInit.testNGIReportFile);
+        tarTestNGIReportPath = Paths.get(fileInit.getTestNGIReportDir().getAbsolutePath()
+                + "/" + FileInit.testNGIReportFile);
+    }
+
     public static void main(String[] args) throws IOException, InterruptedException {
+        init();
         if (stopAppium()) {
             startAppium();
         }
-
+        Files.deleteIfExists(preTestNGIReportPath);
         try {
             TestNG testNG = new TestNG();
             List<String> suites = new ArrayList<String>();
@@ -32,6 +54,7 @@ public class Run {
             e.printStackTrace();
         } finally {
             stopAppium();
+            Files.move(preTestNGIReportPath, tarTestNGIReportPath);
         }
     }
 
@@ -138,5 +161,9 @@ public class Run {
             }
         }
         return flag;
+    }
+
+    private static void moveFile(File file) {
+
     }
 }

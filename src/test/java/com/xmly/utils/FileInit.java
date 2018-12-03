@@ -1,6 +1,10 @@
 package com.xmly.utils;
 
 import java.io.File;
+import java.nio.file.FileSystem;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -11,33 +15,34 @@ import java.util.Date;
  * Time: 5:50 PM
  */
 
-public class DirInit {
+public class FileInit {
+
     public static File classpathRoot = new File(System.getProperty("user.dir"));
-    public File resultDir = new File(classpathRoot, "result");
-    private File timeDir;
+    public static File resultDir = new File(classpathRoot, "result");
     private File logDir;
     private File screenshotDir;
-    private String testNGIReportPath;
+    private File testNGIReportDir;
+
+    public static final String testNGIReportFile = "testngReport.html";
 
     public File getLogDir() {
-        return logDir;
+        return logDir.getAbsoluteFile();
     }
 
-    public String getTestNGIReportPath() {
-        return testNGIReportPath;
+    public File getTestNGIReportDir() {
+        return testNGIReportDir;
     }
 
     public File getScreenshotDir() {
         return screenshotDir;
     }
 
-    public DirInit() {
+    public FileInit() {
         String timeNow = formatDate();
-        timeDir = new File(resultDir, timeNow);
+        File timeDir = new File(resultDir, timeNow);
         logDir = new File(timeDir, "log");
-        screenshotDir = new File(timeDir, "result");
-        testNGIReportPath = timeNow + "/testngreport/" + timeNow + ".html";
-        new File(resultDir,testNGIReportPath);
+        screenshotDir = new File(timeDir, "screenShot");
+        testNGIReportDir = new File(timeDir, "testngReport");
     }
 
     private static String formatDate() {
