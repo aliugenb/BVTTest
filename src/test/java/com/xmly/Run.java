@@ -7,9 +7,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.*;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created with IntelliJ IDEA.
@@ -20,24 +18,24 @@ import java.util.Map;
 
 public class Run {
     public static void main(String[] args) throws IOException, InterruptedException {
-//        if (stopAppium()) {
-//            startAppium();
-//        }
-//
-//        try {
-//            TestNG testNG = new TestNG();
-//            List<String> suites = new ArrayList<String>();
-//            suites.add("./testng.xml");
-//            testNG.setTestSuites(suites);
-//            testNG.run();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            stopAppium();
-//        }
-        system();
+        if (stopAppium()) {
+            startAppium();
+        }
+
+        try {
+            TestNG testNG = new TestNG();
+            List<String> suites = new ArrayList<String>();
+            suites.add("./testng.xml");
+            testNG.setTestSuites(suites);
+            testNG.run();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            stopAppium();
+        }
     }
 
-    public static boolean startAppium() throws IOException, InterruptedException {
+    private static boolean startAppium() throws IOException, InterruptedException {
         if (isPortUsing(4723)) {
             return true;
         }
@@ -71,7 +69,7 @@ public class Run {
         return false;
     }
 
-    public static boolean stopAppium() throws UnknownHostException {
+    private static boolean stopAppium() throws IOException {
         if (!isPortUsing(4723)) {
             return true;
         }
@@ -110,7 +108,7 @@ public class Run {
         return false;
     }
 
-    public static int getAppiumResponseCode() {
+    private static int getAppiumResponseCode() {
         String appiumUrl = "http://localhost:4723/wd/hub/status";
         int responseCode = 0;
         try {
@@ -124,26 +122,21 @@ public class Run {
         return responseCode;
     }
 
-    public static boolean isPortUsing(int port) throws UnknownHostException {
+    private static boolean isPortUsing(int port) throws IOException {
         String host = "127.0.0.1";
         boolean flag = false;
+        Socket socket = null;
         InetAddress theAddress = InetAddress.getByName(host);
         try {
-            Socket socket = new Socket(theAddress, port);
+            socket = new Socket(theAddress, port);
             flag = true;
         } catch (IOException e) {
 
+        } finally {
+            if (socket != null) {
+                socket.close();
+            }
         }
         return flag;
-    }
-
-    public static void system(){
-        Map<String, String> map=System.getenv();
-        Iterator<String> iterator = map.keySet().iterator();
-
-        while (iterator.hasNext()) {
-            String key = iterator.next();
-            System.out.println(key + "=" + map.get(key));
-        }
     }
 }

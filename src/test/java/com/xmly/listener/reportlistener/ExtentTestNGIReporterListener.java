@@ -23,8 +23,8 @@ import java.util.Map;
 
 public class ExtentTestNGIReporterListener implements IReporter {
 
-    private static final String OUTPUT_FOLDER = "test-output/";
-    private static final String FILE_NAME = "Extent1.html";
+    private static final String OUTPUT_FOLDER = "Result/";
+    private static final String FILE_NAME = "testngReport.html";
 
     private ExtentReports extent;
 
@@ -33,7 +33,7 @@ public class ExtentTestNGIReporterListener implements IReporter {
         init();
 
         for (ISuite suite : suites) {
-            Map<String, ISuiteResult>  result = suite.getResults();
+            Map<String, ISuiteResult> result = suite.getResults();
 
             for (ISuiteResult r : result.values()) {
                 ITestContext context = r.getTestContext();
@@ -77,8 +77,7 @@ public class ExtentTestNGIReporterListener implements IReporter {
 
                 if (result.getThrowable() != null) {
                     test.log(status, result.getThrowable());
-                }
-                else {
+                } else {
                     test.log(status, "Test " + status.toString().toLowerCase() + "ed");
                 }
 
