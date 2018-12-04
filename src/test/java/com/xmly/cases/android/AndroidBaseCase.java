@@ -5,8 +5,6 @@ import com.xmly.pages.BasePage;
 import com.xmly.pages.live.AnchorLiveRoomPage;
 import com.xmly.pages.live.CreateLiveRoomPage;
 import com.xmly.pages.live.LiveIndexPage;
-import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileElement;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
@@ -17,8 +15,7 @@ import org.testng.annotations.BeforeTest;
  * Time: 4:27 PM
  */
 
-public class AndroidBaseCase {
-    public static AppiumDriver<? extends MobileElement> driver;
+public class AndroidBaseCase extends AndroidBaseDriver {
 
     protected static BasePage basePage;
     protected static LiveIndexPage liveIndexPage;
@@ -27,7 +24,7 @@ public class AndroidBaseCase {
 
     @BeforeTest
     public static void setUp() throws Exception {
-        driver = new AndroidBaseDriver().getDriver();
+        AndroidBaseDriver.init();
 
         basePage = new BasePage(driver);
         liveIndexPage = new LiveIndexPage(driver);
