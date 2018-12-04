@@ -9,6 +9,7 @@ import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.io.File;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
@@ -23,11 +24,7 @@ public class AndroidBaseDriver {
 
     protected static AppiumDriver<? extends MobileElement> driver;
 
-    public static void setDriver(AppiumDriver<? extends MobileElement> driver) {
-        AndroidBaseDriver.driver = driver;
-    }
-
-    public AppiumDriver<? extends MobileElement> getDriver() throws Exception {
+    public static void init() throws MalformedURLException {
         AndroidDeviceInfo deviceInfo = new AndroidDeviceInfo();
         String deviceName = deviceInfo.getDeviceName();
         String platformVersion = deviceInfo.getOsVersion();
@@ -71,8 +68,9 @@ public class AndroidBaseDriver {
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 
         driver = EventFiringWebDriverFactory.getEventFiringWebDriver(driver, new ElementListener());
-
-        return driver;
     }
 
+    public static AppiumDriver<? extends MobileElement> getDriver() {
+        return driver;
+    }
 }

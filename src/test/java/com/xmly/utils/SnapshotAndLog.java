@@ -15,7 +15,7 @@ import java.nio.file.Path;
  * Date: 2018/12/4
  * Time: 4:01 PM
  */
-public class snapshotAndLog {
+public class SnapshotAndLog {
     static String currentPath = System.getProperty("user.dir");
 
     public static void snapshotByAppium(TakesScreenshot drivername, String filename) {
