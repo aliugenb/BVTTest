@@ -23,6 +23,10 @@ public class AndroidBaseDriver {
 
     protected static AppiumDriver<? extends MobileElement> driver;
 
+    public static void setDriver(AppiumDriver<? extends MobileElement> driver) {
+        AndroidBaseDriver.driver = driver;
+    }
+
     public AppiumDriver<? extends MobileElement> getDriver() throws Exception {
         AndroidDeviceInfo deviceInfo = new AndroidDeviceInfo();
         String deviceName = deviceInfo.getDeviceName();

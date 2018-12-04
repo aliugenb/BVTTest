@@ -48,10 +48,9 @@ public class FilesInit {
         String resultPath = resultDir.getAbsolutePath();
         this.logDirPath = resultPath + "/" + timeNow + "/log";
         this.screenshotDirPath = resultPath + "/" + timeNow + "/screenshot";
-        this.preTestNGReportPath = resultPath + "/" + testNGReportFile;
         this.testNGReportPath = resultPath + "/" + timeNow + "/testNGReport";
+        this.preTestNGReportPath = resultPath + "/" + testNGReportFile;
         this.tarTestNGReportPath = testNGReportPath + "/" + testNGReportFile;
-
     }
 
     private static String formatDate() {
