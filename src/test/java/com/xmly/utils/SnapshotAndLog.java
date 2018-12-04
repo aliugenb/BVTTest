@@ -42,4 +42,8 @@ public class SnapshotAndLog {
         System.out.println(pullCmd);
         ActionHelper.execCmd(pullCmd);
     }
+
+    public static void logByAdb(Path path) {
+
+    }
 }
