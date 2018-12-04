@@ -1,11 +1,19 @@
 package com.xmly;
 
+import com.xmly.utils.FilesInit;
 import org.testng.TestNG;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.net.*;
+import java.net.HttpURLConnection;
+import java.net.InetAddress;
+import java.net.Socket;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,11 +25,19 @@ import java.util.List;
  */
 
 public class Run {
+    private static Path logDirPath;
+    private static Path screenshotDirPath;
+    private static Path testNGReportPath;
+    private static Path preTestNGReportPath;
+    private static Path tarTestNGReportPath;
+
+
     public static void main(String[] args) throws IOException, InterruptedException {
         if (stopAppium()) {
             startAppium();
         }
-
+        init();
+        Files.deleteIfExists(preTestNGReportPath);
         try {
             TestNG testNG = new TestNG();
             List<String> suites = new ArrayList<String>();
@@ -32,6 +48,23 @@ public class Run {
             e.printStackTrace();
         } finally {
             stopAppium();
+            Files.move(preTestNGReportPath, tarTestNGReportPath, StandardCopyOption.REPLACE_EXISTING);
+        }
+    }
+
+    private static void init() {
+        FilesInit filesInit = new FilesInit();
+        logDirPath = Paths.get(filesInit.getLogDirPath());
+        screenshotDirPath = Paths.get(filesInit.getScreenshotDirPath());
+        testNGReportPath = Paths.get(filesInit.getTestNGReportPath());
+        preTestNGReportPath = Paths.get(filesInit.getPreTestNGReportPath());
+        tarTestNGReportPath = Paths.get(filesInit.getTarTestNGReportPath());
+        try {
+            Files.createDirectories(logDirPath);
+            Files.createDirectories(screenshotDirPath);
+            Files.createDirectories(testNGReportPath);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

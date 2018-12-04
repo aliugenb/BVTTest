@@ -6,6 +6,7 @@ import com.aventstack.extentreports.ResourceCDN;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.aventstack.extentreports.reporter.configuration.ChartLocation;
+import com.xmly.utils.FilesInit;
 import org.testng.*;
 import org.testng.xml.XmlSuite;
 
@@ -24,7 +25,7 @@ import java.util.Map;
 public class ExtentTestNGIReporterListener implements IReporter {
 
     private static final String OUTPUT_FOLDER = "Result/";
-    private static final String FILE_NAME = "testngReport.html";
+    private static final String FILE_NAME = FilesInit.testNGReportFile;
 
     private ExtentReports extent;
 
