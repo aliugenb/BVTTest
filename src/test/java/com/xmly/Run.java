@@ -1,6 +1,7 @@
 package com.xmly;
 
 import com.xmly.utils.FilesInit;
+import com.xmly.utils.SnapshotAndLog;
 import org.testng.TestNG;
 
 import java.io.BufferedReader;
@@ -40,10 +41,24 @@ public class Run {
         Files.deleteIfExists(preTestNGReportPath);
         try {
             TestNG testNG = new TestNG();
+
             List<String> suites = new ArrayList<String>();
             suites.add("./testng.xml");
             testNG.setTestSuites(suites);
             testNG.run();
+//            new Thread(new Runnable() {
+//                @Override
+//                public void run() {
+//                    while (true) {
+//                        if (testNG.hasFailure()) {
+//                            System.out.println("====+++++++++++++++++++++=======");
+//                            return;
+//                        }
+////                            SnapshotAndLog.logByAdb(logDirPath);
+//                    }
+//                }
+//            }).start();
+            System.out.println(testNG.getStatus());
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

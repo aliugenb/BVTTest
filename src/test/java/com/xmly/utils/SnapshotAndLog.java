@@ -43,7 +43,8 @@ public class SnapshotAndLog {
         ActionHelper.execCmd(pullCmd);
     }
 
-    public static void logByAdb(Path path) {
-
+    public static void logByAdb(Path path) throws IOException {
+        String logCmd = "adb logcat -v time > " + path;
+        ActionHelper.execCmd(logCmd);
     }
 }
