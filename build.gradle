@@ -23,7 +23,7 @@ sourceSets {
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
     testCompile 'org.testng:testng:6.10'
-    provided group: 'com.aventstack', name: 'extentreports', version: '3.1.5'
+    compile group: 'com.aventstack', name: 'extentreports', version: '4.0.1'
     testCompile group: 'io.appium', name: 'java-client', version: '5.0.4'
     compile group: 'org.apache.poi', name: 'poi-ooxml', version: '3.17'
 
@@ -37,3 +37,13 @@ dependencies {
 
 
 }
+
+test {
+    useTestNG()
+}
+
+apply plugin: 'java'
+apply plugin: 'application'
+
+// main函数所在路径
+mainClassName = 'com.xmly.Run'
