@@ -13,9 +13,9 @@ import java.util.regex.Pattern;
  */
 
 public class AndroidDeviceInfo {
-    public static String OsVersion;
-    public static String DeviceName;
-    public static String ProductModel;
+    private String OsVersion;
+    private String DeviceName;
+    private String ProductModel;
 
 
     public String getOsVersion() {
