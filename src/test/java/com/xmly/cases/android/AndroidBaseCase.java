@@ -9,6 +9,9 @@ import com.xmly.pages.live.LiveIndexPage;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
+import static com.xmly.Run.startAppium;
+import static com.xmly.Run.stopAppium;
+
 /**
  * Created with IntelliJ IDEA.
  * Author: ye.liu
@@ -25,9 +28,9 @@ public class AndroidBaseCase extends AndroidBaseDriver {
 
     @BeforeTest
     public static void setUp() throws Exception {
-//        if (stopAppium()) {
-//            startAppium();
-//        }
+        if (stopAppium()) {
+            startAppium();
+        }
 
         AndroidBaseDriver.init();
         Run.init();
@@ -41,7 +44,7 @@ public class AndroidBaseCase extends AndroidBaseDriver {
     @AfterTest
     public static void tearDown() throws Exception {
         driver.quit();
-//        stopAppium();
+        stopAppium();
 //        Files.move(preTestNGReportPath, tarTestNGReportPath, StandardCopyOption.REPLACE_EXISTING);
     }
 }
