@@ -31,8 +31,9 @@ public class AndroidBaseDriver {
 
         //设置apk的路径
         File classpathRoot = new File(System.getProperty("user.dir"));
-        File appDir = new File(classpathRoot, "apps");
-        File app = new File(appDir, "xmly.apk");
+//        File appDir = new File(classpathRoot, "apps");
+//        File app = new File(appDir, "xmly.apk");
+        File app = new File(classpathRoot, "xmly.apk");
 
         //设置自动化相关参数
         DesiredCapabilities capabilities = new DesiredCapabilities();
