@@ -1,0 +1,13 @@
+.idea/
+apps/*.apk
+out/
+test-output/
+*.iml
+.gradle
+/local.properties
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+resouces/
+screenshots/
