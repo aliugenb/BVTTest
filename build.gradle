@@ -1,0 +1,57 @@
+plugins {
+    id 'java'
+}
+
+group 'com.xmly'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+configurations {
+    provided
+}
+//sourceSets {
+//    main {
+//        compileClasspath += configurations.provided
+//    }
+//}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile 'org.testng:testng:6.10'
+    compile group: 'com.aventstack', name: 'extentreports', version: '4.0.1'
+    testCompile group: 'io.appium', name: 'java-client', version: '5.0.4'
+    compile group: 'org.apache.poi', name: 'poi-ooxml', version: '3.17'
+
+    compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.11.0'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.11.0'
+
+    compile group: 'dom4j', name: 'dom4j', version: '1.6.1'
+
+    compile group: 'org.freemarker', name: 'freemarker', version: '2.3.28'
+    compile group: 'org.mongodb', name: 'bson', version: '3.3.0'
+
+
+}
+
+test {
+    useTestNG{
+        suites(file('testng.xml'));
+    }
+}
+
+//jar {
+//    manifest {
+//        attributes(
+//                "Manifest-Version": 1.0,
+//                "Main-Class": "com.xmly.Run.Main")
+//    }
+//    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+//    into('assets') {
+//        from 'assets'
+//    }
+//}
