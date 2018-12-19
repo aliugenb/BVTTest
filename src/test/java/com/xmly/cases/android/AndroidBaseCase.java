@@ -1,16 +1,15 @@
 package com.xmly.cases.android;
 
-import com.xmly.Run;
+import com.xmly.action.MyException;
 import com.xmly.driver.android.AndroidBaseDriver;
 import com.xmly.pages.BasePage;
 import com.xmly.pages.live.AnchorLiveRoomPage;
 import com.xmly.pages.live.CreateLiveRoomPage;
 import com.xmly.pages.live.LiveIndexPage;
+import com.xmly.utils.AppiumServer;
+import com.xmly.utils.FilesInit;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
-
-import static com.xmly.Run.startAppium;
-import static com.xmly.Run.stopAppium;
 
 /**
  * Created with IntelliJ IDEA.
@@ -28,13 +27,23 @@ public class AndroidBaseCase extends AndroidBaseDriver {
 
     @BeforeTest
     public static void setUp() throws Exception {
-        if (stopAppium()) {
-            startAppium();
+        if (!AppiumServer.startAppium()) {
+            throw new MyException("appium未启动");
         }
 
         AndroidBaseDriver.init();
-        Run.init();
-
+        FilesInit.filesInit();
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                try {
+//                    SnapshotAndLog.logByAdb(FilesInit.logDirPath);
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+//
+//            }
+//        }).start();
         basePage = new BasePage(driver);
         liveIndexPage = new LiveIndexPage(driver);
         createLiveRoomPage = new CreateLiveRoomPage(driver);
@@ -44,7 +53,10 @@ public class AndroidBaseCase extends AndroidBaseDriver {
     @AfterTest
     public static void tearDown() throws Exception {
         driver.quit();
-        stopAppium();
+//        System.out.println(FilesInit.logDirPath);
+//        SnapshotAndLog.logByAdb(FilesInit.logDirPath);
+        AppiumServer.stopAppium();
+
 //        Files.move(preTestNGReportPath, tarTestNGReportPath, StandardCopyOption.REPLACE_EXISTING);
     }
 }

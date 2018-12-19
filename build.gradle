@@ -11,9 +11,9 @@ repositories {
     mavenCentral()
 }
 
-configurations {
-    provided
-}
+//configurations {
+//    provided
+//}
 //sourceSets {
 //    main {
 //        compileClasspath += configurations.provided
@@ -43,15 +43,3 @@ test {
         suites(file('testng.xml'));
     }
 }
-
-//jar {
-//    manifest {
-//        attributes(
-//                "Manifest-Version": 1.0,
-//                "Main-Class": "com.xmly.Run.Main")
-//    }
-//    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
-//    into('assets') {
-//        from 'assets'
-//    }
-//}
