@@ -9,7 +9,6 @@ import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.aventstack.extentreports.reporter.configuration.ChartLocation;
 import com.aventstack.extentreports.reporter.configuration.Protocol;
 import com.aventstack.extentreports.reporter.configuration.Theme;
-import com.xmly.utils.FilesInit;
 import org.testng.*;
 import org.testng.xml.XmlSuite;
 
@@ -27,7 +26,7 @@ import java.util.*;
 public class ExtentTestNGIReporterListener implements IReporter {
     //生成的路径以及文件名
     private static final String OUTPUT_FOLDER = "result/";
-    private static final String FILE_NAME = FilesInit.testNGReportFile;
+    private static final String FILE_NAME = "testNGReport.html";
 
     private ExtentReports extent;
 
