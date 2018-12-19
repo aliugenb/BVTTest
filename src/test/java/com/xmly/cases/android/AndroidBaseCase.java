@@ -7,7 +7,6 @@ import com.xmly.pages.live.AnchorLiveRoomPage;
 import com.xmly.pages.live.CreateLiveRoomPage;
 import com.xmly.pages.live.LiveIndexPage;
 import com.xmly.utils.AppiumServer;
-import com.xmly.utils.FilesInit;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
@@ -32,7 +31,7 @@ public class AndroidBaseCase extends AndroidBaseDriver {
         }
 
         AndroidBaseDriver.init();
-        FilesInit.filesInit();
+//        FilesInit.filesInit();
 //        new Thread(new Runnable() {
 //            @Override
 //            public void run() {
