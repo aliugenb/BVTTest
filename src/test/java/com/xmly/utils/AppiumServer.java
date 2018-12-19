@@ -16,7 +16,7 @@ import java.net.URL;
  */
 public class AppiumServer {
 
-    public static boolean startAppium() throws IOException, InterruptedException {
+    public static boolean startAppium() throws IOException {
         if (isPortUsing(4723)) {
             return true;
         }
