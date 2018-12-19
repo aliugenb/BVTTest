@@ -1,6 +1,10 @@
 package com.xmly.utils;
 
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -13,44 +17,38 @@ import java.util.Date;
 
 public class FilesInit {
     public static File classpathRoot = new File(System.getProperty("user.dir"));
-    private String logDirPath;
-    private String screenshotDirPath;
-    private String testNGReportPath;
-    private String preTestNGReportPath;
-    private String tarTestNGReportPath;
+    public static Path logDirPath;
+    public static Path screenshotDirPath;
+    public static Path testNGReportPath;
+    public static Path preTestNGReportPath;
+    public static Path tarTestNGReportPath;
 
     public static final String testNGReportFile = "testNGReport.html";
 
 
-    public String getLogDirPath() {
-        return logDirPath;
-    }
-
-    public String getScreenshotDirPath() {
-        return screenshotDirPath;
-    }
-
-    public String getPreTestNGReportPath() {
-        return preTestNGReportPath;
-    }
-
-    public String getTestNGReportPath() {
-        return testNGReportPath;
-    }
-
-    public String getTarTestNGReportPath() {
-        return tarTestNGReportPath;
-    }
-
     public FilesInit() {
+
+
+    }
+
+    public static void filesInit() throws IOException {
         File resultDir = new File(classpathRoot, "result");
         String timeNow = formatDate();
         String resultPath = resultDir.getAbsolutePath();
-        this.logDirPath = resultPath + "/" + timeNow + "/log";
-        this.screenshotDirPath = resultPath + "/" + timeNow + "/screenshot";
-        this.testNGReportPath = resultPath + "/" + timeNow + "/testNGReport";
-        this.preTestNGReportPath = resultPath + "/" + testNGReportFile;
-        this.tarTestNGReportPath = testNGReportPath + "/" + testNGReportFile;
+        logDirPath = Paths.get(resultPath + "/" + timeNow + "/log");
+        screenshotDirPath = Paths.get(resultPath + "/" + timeNow + "/screenshot");
+        testNGReportPath = Paths.get(resultPath + "/" + timeNow + "/testNGReport");
+        preTestNGReportPath = Paths.get(resultPath + "/" + testNGReportFile);
+        tarTestNGReportPath = Paths.get(testNGReportPath + "/" + testNGReportFile);
+
+        try {
+            Files.createDirectories(logDirPath);
+            Files.createDirectories(screenshotDirPath);
+            Files.createDirectories(testNGReportPath);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Files.deleteIfExists(preTestNGReportPath);
     }
 
     private static String formatDate() {
