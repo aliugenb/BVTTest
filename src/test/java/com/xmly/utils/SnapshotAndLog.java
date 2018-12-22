@@ -44,8 +44,12 @@ public class SnapshotAndLog {
     }
 
     public static void logByAdb(Path path) throws IOException {
-        String logCmd = "adb logcat -d -v time > " + path + "/log.txt";
+        String logCmd = "adb logcat -d -v time > /Users/xmly/Documents/BVTTest/result/log.txt";
         System.out.println(logCmd);
         ActionHelper.execCmd(logCmd);
+    }
+
+    public static void main(String[] args) throws IOException {
+        logByAdb(FilesInit.logDirPath);
     }
 }

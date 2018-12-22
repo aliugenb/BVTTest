@@ -24,12 +24,7 @@ public class FilesInit {
     public static Path tarTestNGReportPath;
 
     public static final String testNGReportFile = "testNGReport.html";
-
-
-    public FilesInit() {
-
-
-    }
+    
 
     public static void filesInit() throws IOException {
         File resultDir = new File(classpathRoot, "result");

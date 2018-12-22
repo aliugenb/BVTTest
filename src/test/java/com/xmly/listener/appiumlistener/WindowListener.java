@@ -41,4 +41,14 @@ public class WindowListener implements WindowEventListener {
     public void afterWindowIsMaximized(WebDriver driver, WebDriver.Window window) {
 
     }
+
+    @Override
+    public void beforeSwitchToWindow(String windowName, WebDriver driver) {
+
+    }
+
+    @Override
+    public void afterSwitchToWindow(String windowName, WebDriver driver) {
+
+    }
 }

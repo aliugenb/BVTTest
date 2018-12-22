@@ -3,6 +3,7 @@ package com.xmly.listener.appiumlistener;
 import io.appium.java_client.events.api.general.AppiumWebDriverEventListener;
 import io.appium.java_client.events.api.general.ElementEventListener;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -125,7 +126,27 @@ public class ElementListener implements ElementEventListener, AppiumWebDriverEve
     }
 
     @Override
+    public void beforeSwitchToWindow(String windowName, WebDriver driver) {
+
+    }
+
+    @Override
+    public void afterSwitchToWindow(String windowName, WebDriver driver) {
+
+    }
+
+    @Override
     public void onException(Throwable throwable, WebDriver driver) {
+
+    }
+
+    @Override
+    public <X> void beforeGetScreenshotAs(OutputType<X> target) {
+
+    }
+
+    @Override
+    public <X> void afterGetScreenshotAs(OutputType<X> target, X screenshot) {
 
     }
 }

@@ -50,14 +50,14 @@ public class AndroidBaseDriver {
 
 
         //设置新的命令等待时长（应该用不到，设置1h）
-//        capabilities.setCapability("newCommandTimeout", 3600);
+        //capabilities.setCapability("newCommandTimeout", 3600);
 
         //使用自带输入法，输入中文
         capabilities.setCapability("unicodeKeyboard", true);
         capabilities.setCapability("resetKeyboard", true);
 
-//        capabilities.setCapability("automationName","uiautomator2");
-//        capabilities.setCapability("noSign", true);
+        //capabilities.setCapability("automationName","uiautomator2");
+        //capabilities.setCapability("noSign", true);
         //设置app的主包名和主类名
         capabilities.setCapability("appPackage", "com.ximalaya.ting.android");
         capabilities.setCapability("appActivity", "com.ximalaya.ting.android.host.activity.WelComeActivity");
