@@ -2,8 +2,8 @@ package com.xmly.cases.android.liveindex;
 
 import com.xmly.action.MyException;
 import com.xmly.cases.android.CaseHelper;
-import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import java.io.IOException;
 
@@ -20,6 +20,8 @@ public class CaseCheckSearchBar extends CaseHelper {
     @Test
     public void checkSearchBar() throws InterruptedException, IOException, MyException {
         gotoLiveHomePage();
-        Assert.assertTrue(liveIndexPage.SearchBar.isDisplayed());
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertTrue(liveIndexPage.SearchBar.isDisplayed());
+        softAssert.assertAll();
     }
 }
