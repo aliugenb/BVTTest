@@ -56,7 +56,7 @@ public class AndroidBaseCase extends AndroidBaseDriver {
     @AfterTest
     public static void tearDown() throws Exception {
         driver.quit();
-        SnapshotAndLog.logByAdb(FilesInit.logDirPath);
+//        SnapshotAndLog.logByAdb(FilesInit.logDirPath);
         AppiumServer.stopAppium();
     }
 }

@@ -8,6 +8,7 @@ import org.testng.annotations.Test;
  * Author: ye.liu
  * Date: 2018/11/28
  * Time: 22:34
+ * 主播端创建直播间
  */
 
 public class CreatAndchorLiveRoom extends CaseHelper {
