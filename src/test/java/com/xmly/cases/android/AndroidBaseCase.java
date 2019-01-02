@@ -1,5 +1,6 @@
 package com.xmly.cases.android;
 
+import com.xmly.action.AssertHelper;
 import com.xmly.action.MyException;
 import com.xmly.driver.android.AndroidBaseDriver;
 import com.xmly.pages.BasePage;
@@ -28,6 +29,8 @@ public class AndroidBaseCase extends AndroidBaseDriver {
     protected static CreateLiveRoomPage createLiveRoomPage;
     protected static AnchorLiveRoomPage anchorLiveRoomPage;
 
+    protected static AssertHelper assertHelper;
+
     @BeforeTest
     public static void setUp() throws Exception {
         if (!AppiumServer.startAppium()) {
@@ -36,6 +39,7 @@ public class AndroidBaseCase extends AndroidBaseDriver {
 
         AndroidBaseDriver.init();
         FilesInit.filesInit();
+
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -47,6 +51,8 @@ public class AndroidBaseCase extends AndroidBaseDriver {
 
             }
         }).start();
+        assertHelper = new AssertHelper();
+
         basePage = new BasePage(driver);
         liveIndexPage = new LiveIndexPage(driver);
         createLiveRoomPage = new CreateLiveRoomPage(driver);

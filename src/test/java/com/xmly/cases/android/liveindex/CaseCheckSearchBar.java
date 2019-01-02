@@ -1,9 +1,10 @@
 package com.xmly.cases.android.liveindex;
 
 import com.xmly.action.MyException;
-import com.xmly.cases.android.CaseHelper;
+import com.xmly.cases.android.AndroidBaseCase;
+import com.xmly.utils.SnapshotAndLog;
+import org.testng.Assert;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
 
 import java.io.IOException;
 
@@ -16,12 +17,16 @@ import java.io.IOException;
  * 搜索框
  */
 
-public class CaseCheckSearchBar extends CaseHelper {
+public class CaseCheckSearchBar extends AndroidBaseCase {
     @Test
     public void checkSearchBar() throws InterruptedException, IOException, MyException {
-        gotoLiveHomePage();
-        SoftAssert softAssert = new SoftAssert();
-        softAssert.assertTrue(liveIndexPage.SearchBar.isDisplayed());
-        softAssert.assertAll();
+//        basePage.enter(basePage.LiveHomePage);
+//        Assert.assertTrue(liveIndexPage.SearchBar.isDisplayed());
+        SnapshotAndLog.snapshotByAppium(driver,"aaaa");
+        Assert.assertTrue(1==2);
+        assertHelper.assertTrue(3==4);
+        System.out.println("++++++++++");
+//
+//        assertHelper.assertAll();
     }
 }

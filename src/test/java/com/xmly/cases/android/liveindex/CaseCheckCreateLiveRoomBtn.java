@@ -1,8 +1,7 @@
 package com.xmly.cases.android.liveindex;
 
-import com.xmly.action.AssertHelper;
 import com.xmly.action.MyException;
-import com.xmly.cases.android.CaseHelper;
+import com.xmly.cases.android.AndroidBaseCase;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
@@ -16,11 +15,10 @@ import java.io.IOException;
  * 检查存在我要直播按钮
  */
 
-public class CaseCheckCreateLiveRoomBtn extends CaseHelper {
+public class CaseCheckCreateLiveRoomBtn extends AndroidBaseCase {
     @Test
     public static void checkCreateLiveRoomBtn() throws InterruptedException, IOException, MyException {
-        gotoLiveHomePage();
-        AssertHelper assertHelper = new AssertHelper();
+        basePage.enter(basePage.LiveHomePage);
         assertHelper.assertTrue(liveIndexPage.createLiveRoomBtn.isDisplayed());
     }
 }
