@@ -1,4 +1,4 @@
-package com.xmly.action;
+package com.xmly.common;
 
 import java.io.BufferedReader;
 import java.io.IOException;

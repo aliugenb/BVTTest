@@ -1,7 +1,7 @@
 package com.xmly.driver.android;
 
-import com.xmly.action.KEY;
-import com.xmly.action.MyException;
+import com.xmly.common.KEY;
+import com.xmly.common.MyException;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.touch.offset.PointOption;
@@ -9,8 +9,8 @@ import io.appium.java_client.touch.offset.PointOption;
 import java.io.IOException;
 import java.util.Date;
 
-import static com.xmly.action.ActionHelper.execCmd;
-import static com.xmly.action.ActionHelper.formatMin;
+import static com.xmly.common.ActionHelper.execCmd;
+import static com.xmly.common.ActionHelper.formatMin;
 
 /**
  * Created with IntelliJ IDEA.

@@ -1,9 +1,7 @@
 package com.xmly.cases.android.liveindex;
 
-import com.xmly.action.MyException;
 import com.xmly.cases.android.AndroidBaseCase;
-import com.xmly.utils.SnapshotAndLog;
-import org.testng.Assert;
+import com.xmly.common.MyException;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
@@ -20,13 +18,8 @@ import java.io.IOException;
 public class CaseCheckSearchBar extends AndroidBaseCase {
     @Test
     public void checkSearchBar() throws InterruptedException, IOException, MyException {
-//        basePage.enter(basePage.LiveHomePage);
-//        Assert.assertTrue(liveIndexPage.SearchBar.isDisplayed());
-        SnapshotAndLog.snapshotByAppium(driver,"aaaa");
-        Assert.assertTrue(1==2);
-        assertHelper.assertTrue(3==4);
-        System.out.println("++++++++++");
-//
-//        assertHelper.assertAll();
+        basePage.enter(basePage.LiveHomePage);
+//        assertHelper.assertTrue(liveIndexPage.SearchBar.isDisplayed(), "检查搜索框存在", driver);
+        assertHelper.assertTrue(1==2, "搜索框存在", driver,"搜索框不存在");
     }
 }

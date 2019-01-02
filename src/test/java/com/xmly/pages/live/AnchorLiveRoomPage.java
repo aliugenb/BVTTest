@@ -1,6 +1,6 @@
 package com.xmly.pages.live;
 
-import com.xmly.action.ActionHelper;
+import com.xmly.common.ActionHelper;
 import com.xmly.pages.BasePage;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;

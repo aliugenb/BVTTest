@@ -1,12 +1,5 @@
 package com.xmly.perfermance;
 
-import com.xmly.action.MyException;
-import com.xmly.perfermance.handleData.DataSwitch;
-import com.xmly.perfermance.handleData.Fps;
-import org.testng.annotations.Test;
-
-import java.io.IOException;
-
 /**
  * Created with IntelliJ IDEA.
  * Author: ye.liu

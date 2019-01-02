@@ -1,5 +1,6 @@
-package com.xmly.action;
+package com.xmly.common;
 
+import io.appium.java_client.AppiumDriver;
 import org.testng.asserts.Assertion;
 import org.testng.asserts.IAssert;
 import org.testng.collections.Maps;
@@ -12,7 +13,7 @@ import java.util.Map;
  * Date: 2018/11/27
  * Time: 5:50 PM
  */
-public class AssertHelper extends Assertion {
+public class SoftAssert extends Assertion {
     // LinkedHashMap to preserve the order
     private final Map<AssertionError, IAssert<?>> m_errors = Maps.newLinkedHashMap();
 
@@ -30,7 +31,7 @@ public class AssertHelper extends Assertion {
         }
     }
 
-    public void assertAll() {
+    public void assertAll(AppiumDriver driver) {
         if (!m_errors.isEmpty()) {
             StringBuilder sb = new StringBuilder("The following asserts failed:");
             boolean first = true;
@@ -42,6 +43,7 @@ public class AssertHelper extends Assertion {
                 }
                 sb.append("\n\t");
                 sb.append(ae.getKey().getMessage());
+//                SnapshotAndLog.snapshotByAppium(driver,"bbbb");
             }
             throw new AssertionError(sb.toString());
         }

@@ -1,19 +1,15 @@
 package com.xmly.cases.android;
 
-import com.xmly.action.AssertHelper;
-import com.xmly.action.MyException;
+import com.xmly.common.AssertHelper;
+import com.xmly.common.MyException;
 import com.xmly.driver.android.AndroidBaseDriver;
 import com.xmly.pages.BasePage;
 import com.xmly.pages.live.AnchorLiveRoomPage;
 import com.xmly.pages.live.CreateLiveRoomPage;
 import com.xmly.pages.live.LiveIndexPage;
 import com.xmly.utils.AppiumServer;
-import com.xmly.utils.FilesInit;
-import com.xmly.utils.SnapshotAndLog;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
-
-import java.io.IOException;
 
 /**
  * Created with IntelliJ IDEA.
@@ -33,24 +29,22 @@ public class AndroidBaseCase extends AndroidBaseDriver {
 
     @BeforeTest
     public static void setUp() throws Exception {
-        if (!AppiumServer.startAppium()) {
-            throw new MyException("appium未启动");
-        }
 
-        AndroidBaseDriver.init();
-        FilesInit.filesInit();
+//        AndroidBaseDriver.init();
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    SnapshotAndLog.logByAdb(FilesInit.logDirPath);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
 
-            }
-        }).start();
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                try {
+//                    SnapshotAndLog.logByAdb(FilesInit.logDirPath);
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+//
+//            }
+//        }).start();
+
         assertHelper = new AssertHelper();
 
         basePage = new BasePage(driver);

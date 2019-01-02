@@ -1,6 +1,6 @@
 package com.xmly.perfermance.handleData;
 
-import com.xmly.action.MyException;
+import com.xmly.common.MyException;
 
 import java.io.IOException;
 import java.util.ArrayList;
