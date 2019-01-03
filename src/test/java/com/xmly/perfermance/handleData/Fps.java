@@ -1,6 +1,6 @@
 package com.xmly.perfermance.handleData;
 
-import com.xmly.action.MyException;
+import com.xmly.common.MyException;
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;

@@ -1,6 +1,8 @@
 package com.xmly.driver.android;
 
+import com.xmly.common.MyException;
 import com.xmly.listener.appiumlistener.ElementListener;
+import com.xmly.utils.AppiumServer;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
@@ -8,10 +10,12 @@ import io.appium.java_client.events.EventFiringWebDriverFactory;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-import java.io.File;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
+
+import static com.xmly.utils.FilesInit.apkPath;
 
 /**
  * Created with IntelliJ IDEA.
@@ -24,15 +28,21 @@ public class AndroidBaseDriver {
 
     protected static AppiumDriver<? extends MobileElement> driver;
 
-    public static void init() throws MalformedURLException {
+    static {
+
+        try {
+            if (!AppiumServer.startAppium()) {
+                throw new MyException("appium未启动");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (MyException e) {
+            e.printStackTrace();
+        }
+
         AndroidDeviceInfo deviceInfo = new AndroidDeviceInfo();
         String deviceName = deviceInfo.getDeviceName();
         String platformVersion = deviceInfo.getOsVersion();
-
-        //设置apk的路径
-        File classpathRoot = new File(System.getProperty("user.dir"));
-        File appDir = new File(classpathRoot, "apps");
-        File app = new File(appDir, "xmly.apk");
 
         //设置自动化相关参数
         DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -45,7 +55,7 @@ public class AndroidBaseDriver {
         //设置安卓系统版本
         capabilities.setCapability("platformVersion", platformVersion);
         //设置apk路径
-        capabilities.setCapability("app", app.getAbsolutePath());
+        capabilities.setCapability("app", apkPath);
         capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, "60");
 
 
@@ -64,13 +74,13 @@ public class AndroidBaseDriver {
 
 
         //初始化
-        driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+        try {
+            driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 
         driver = EventFiringWebDriverFactory.getEventFiringWebDriver(driver, new ElementListener());
-    }
-
-    public static AppiumDriver<? extends MobileElement> getDriver() {
-        return driver;
     }
 }

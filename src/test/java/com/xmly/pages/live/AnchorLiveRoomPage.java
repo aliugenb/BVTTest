@@ -1,5 +1,6 @@
 package com.xmly.pages.live;
 
+import com.xmly.common.ActionHelper;
 import com.xmly.pages.BasePage;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
@@ -47,4 +48,10 @@ public class AnchorLiveRoomPage extends BasePage {
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_cancel")
     public MobileElement cancelEndLiveBtn; //取消退出直播按钮
 
+    //主播端退出直播间
+    public void endAnchorLive() throws InterruptedException {
+        exitLiveBtn.click();
+        ActionHelper.sleep(1000);
+        endLiveBtn.click();
+    }
 }

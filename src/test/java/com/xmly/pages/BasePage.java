@@ -20,6 +20,8 @@ public class BasePage {
     public AppiumDriver<? extends MobileElement> driver;
 
     private final long TIMEOUT = 15;
+    public static final String LiveHomePage = "LiveIndex";
+    public static final String FindHomePage = "FindIndex";
 
     public BasePage(AppiumDriver<? extends MobileElement> driver) {
         this.driver = driver;

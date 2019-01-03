@@ -1,7 +1,7 @@
-package com.xmly.driver.android;
+package com.xmly.common;
 
-import com.xmly.action.KEY;
-import com.xmly.action.MyException;
+import com.xmly.driver.android.AndroidBaseDriver;
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.touch.offset.PointOption;
@@ -9,16 +9,28 @@ import io.appium.java_client.touch.offset.PointOption;
 import java.io.IOException;
 import java.util.Date;
 
-import static com.xmly.action.ActionHelper.execCmd;
-import static com.xmly.action.ActionHelper.formatMin;
+import static com.xmly.common.ActionHelper.execCmd;
+import static com.xmly.common.ActionHelper.formatMin;
 
 /**
  * Created with IntelliJ IDEA.
  * Author: ye.liu
- * Date: 2018/11/27
- * Time: 5:39 PM
+ * Date: 2019/1/3
+ * Time: 4:37 PM
  */
-public class AndroidDriverHelper extends AndroidBaseDriver {
+public class DriverHelper extends AndroidBaseDriver {
+
+    //判断元素是否存在
+    public static boolean isDisplayed(MobileElement mobileElement) {
+        try {
+            if (mobileElement.isDisplayed()) {
+                return true;
+            }
+        } catch (Exception e) {
+            return false;
+        }
+        return false;
+    }
 
     //根据设定时长滑动页面
     public static void swipUpAndDownByTime(int time) throws InterruptedException, IOException, MyException {

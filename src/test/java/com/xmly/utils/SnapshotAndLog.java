@@ -1,13 +1,15 @@
 package com.xmly.utils;
 
-import com.xmly.action.ActionHelper;
+import com.xmly.common.ActionHelper;
+import io.appium.java_client.AppiumDriver;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Path;
+
+import static com.xmly.utils.FilesInit.resultPath;
 
 /**
  * Created with IntelliJ IDEA.
@@ -16,25 +18,24 @@ import java.nio.file.Path;
  * Time: 4:01 PM
  */
 public class SnapshotAndLog {
-    static String currentPath = System.getProperty("user.dir");
 
-    public static void snapshotByAppium(TakesScreenshot drivername, String filename) {
-        File scrFile = drivername.getScreenshotAs(OutputType.FILE);
+    public static void snapshotByAppium(AppiumDriver driver, String filename) {
+        File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         try {
-            System.out.println("save snapshot path is:" + currentPath + "/"
+            System.out.println("save snapshot path is:" + resultPath + "/"
                     + filename);
-            FileUtils.copyFile(scrFile, new File(currentPath + "/" + filename + ".png"));
+            FileUtils.copyFile(scrFile, new File(resultPath + "/" + filename + ".png"));
         } catch (IOException e) {
             System.out.println("Can't save screenshot");
             e.printStackTrace();
         } finally {
-            System.out.println("screen shot finished, it's in " + currentPath
+            System.out.println("screen shot finished, it's in " + resultPath
                     + " folder");
         }
     }
 
-    public static void snapshotByAdb(Path path, String fileName) throws IOException, InterruptedException {
-        String savePath = path + "/" + fileName + ".png";
+    public static void snapshotByAdb(String fileName) throws IOException, InterruptedException {
+        String savePath = resultPath + "/" + fileName + ".png";
         String screenshotCmd = "adb shell /system/bin/screencap -p /sdcard/screenshot.png";
         String pullCmd = "adb pull /sdcard/screenshot.png " + savePath;
         ActionHelper.execCmd(screenshotCmd);
@@ -43,13 +44,10 @@ public class SnapshotAndLog {
         ActionHelper.execCmd(pullCmd);
     }
 
-    public static void logByAdb(Path path) throws IOException {
-        String logCmd = "adb logcat -d -v time > /Users/xmly/Documents/BVTTest/result/log.txt";
+    public static void logByAdb(String name) throws IOException {
+        String path = resultPath + "/" + name + ".txt";
+        String logCmd = "adb logcat -d -v time > " + path;
         System.out.println(logCmd);
         ActionHelper.execCmd(logCmd);
-    }
-
-    public static void main(String[] args) throws IOException {
-        logByAdb(FilesInit.logDirPath);
     }
 }

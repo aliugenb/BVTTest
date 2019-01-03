@@ -1,7 +1,6 @@
 package com.xmly.cases.android.liveindex;
 
-import com.xmly.cases.android.CaseHelper;
-import org.testng.Assert;
+import com.xmly.cases.android.AndroidBaseCase;
 import org.testng.annotations.Test;
 
 /**
@@ -13,10 +12,10 @@ import org.testng.annotations.Test;
  * 显示亲密度榜
  */
 
-public class CaseCheckLiveRecord extends CaseHelper {
+public class CaseCheckLiveRecord extends AndroidBaseCase {
     @Test
     public void checkLiveRecord() {
-        gotoLiveHomePage();
-        Assert.assertTrue(liveIndexPage.liveRecord.isDisplayed());
+        basePage.enter(basePage.LiveHomePage);
+//        assertHelper.assertTrue(liveIndexPage.liveRecord.isDisplayed());
     }
 }

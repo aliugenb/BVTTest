@@ -1,10 +1,6 @@
 package com.xmly.utils;
 
 import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -16,34 +12,20 @@ import java.util.Date;
  */
 
 public class FilesInit {
-    public static File classpathRoot = new File(System.getProperty("user.dir"));
-    public static Path logDirPath;
-    public static Path screenshotDirPath;
-    public static Path testNGReportPath;
-    public static Path preTestNGReportPath;
-    public static Path tarTestNGReportPath;
+    public static String resultPath;
+    public static String apkPath;
 
     public static final String testNGReportFile = "testNGReport.html";
-    
 
-    public static void filesInit() throws IOException {
+    static {
+        File classpathRoot = new File(System.getProperty("user.dir"));
         File resultDir = new File(classpathRoot, "result");
-        String timeNow = formatDate();
-        String resultPath = resultDir.getAbsolutePath();
-        logDirPath = Paths.get(resultPath + "/" + timeNow + "/log");
-        screenshotDirPath = Paths.get(resultPath + "/" + timeNow + "/screenshot");
-        testNGReportPath = Paths.get(resultPath + "/" + timeNow + "/testNGReport");
-        preTestNGReportPath = Paths.get(resultPath + "/" + testNGReportFile);
-        tarTestNGReportPath = Paths.get(testNGReportPath + "/" + testNGReportFile);
+        File appDir = new File(classpathRoot, "apps");
+        File apk = new File(appDir, "xmly.apk");
 
-        try {
-            Files.createDirectories(logDirPath);
-            Files.createDirectories(screenshotDirPath);
-            Files.createDirectories(testNGReportPath);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        Files.deleteIfExists(preTestNGReportPath);
+        resultPath = resultDir.getAbsolutePath();
+        apkPath = apk.getAbsolutePath();
+
     }
 
     private static String formatDate() {
