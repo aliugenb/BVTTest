@@ -17,7 +17,7 @@ public class CaseCheckLiveTab extends AndroidBaseCase {
     @Test
     public void checkLiveTab() {
         basePage.enter(basePage.LiveHomePage);
-        System.out.println(liveIndexPage.getLiveTabQty());
-//        assertHelper.assertEquals(liveIndexPage.getLiveTabQty(), 5);
+        assertHelper.assertTrue(liveIndexPage.getLiveTabQty()==5,
+                "判断首页tab数量=5",driver,"CaseCheckLiveTab首页tab");
     }
 }

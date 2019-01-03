@@ -24,6 +24,9 @@ public class LoginPage extends BasePage {
     @AndroidFindBy(id = "com.ximalaya.ting.android.main.application:id/main_login_more")
     public MobileElement moreLoginBtn;
 
+    @AndroidFindBy(id = "com.ximalaya.ting.android.main.application:id/main_login_with_pwd")
+    public MobileElement loginByPwdBtn;
+
     @AndroidFindBy(id = "com.ximalaya.ting.android.main.application:id/main_username")
     public MobileElement userNameInput;
 
@@ -33,8 +36,9 @@ public class LoginPage extends BasePage {
     @AndroidFindBy(id = "com.ximalaya.ting.android.main.application:id/main_login")
     public MobileElement loginBtn;
 
-    public void login(String userName, String passwd) throws InterruptedException {
+    private void login(String userName, String passwd) throws InterruptedException {
         moreLoginBtn.click();
+        loginByPwdBtn.click();
         userNameInput.sendKeys(userName);
         ActionHelper.sleep(3000);
         passwdInput.sendKeys(passwd);

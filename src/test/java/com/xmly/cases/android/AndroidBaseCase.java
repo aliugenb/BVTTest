@@ -1,9 +1,9 @@
 package com.xmly.cases.android;
 
 import com.xmly.common.AssertHelper;
-import com.xmly.common.MyException;
 import com.xmly.driver.android.AndroidBaseDriver;
 import com.xmly.pages.BasePage;
+import com.xmly.pages.LoginPage;
 import com.xmly.pages.live.AnchorLiveRoomPage;
 import com.xmly.pages.live.CreateLiveRoomPage;
 import com.xmly.pages.live.LiveIndexPage;
@@ -21,6 +21,7 @@ import org.testng.annotations.BeforeTest;
 public class AndroidBaseCase extends AndroidBaseDriver {
 
     protected static BasePage basePage;
+    protected static LoginPage loginPage;
     protected static LiveIndexPage liveIndexPage;
     protected static CreateLiveRoomPage createLiveRoomPage;
     protected static AnchorLiveRoomPage anchorLiveRoomPage;
@@ -29,10 +30,6 @@ public class AndroidBaseCase extends AndroidBaseDriver {
 
     @BeforeTest
     public static void setUp() throws Exception {
-
-//        AndroidBaseDriver.init();
-
-
 //        new Thread(new Runnable() {
 //            @Override
 //            public void run() {
@@ -48,6 +45,7 @@ public class AndroidBaseCase extends AndroidBaseDriver {
         assertHelper = new AssertHelper();
 
         basePage = new BasePage(driver);
+        loginPage = new LoginPage(driver);
         liveIndexPage = new LiveIndexPage(driver);
         createLiveRoomPage = new CreateLiveRoomPage(driver);
         anchorLiveRoomPage = new AnchorLiveRoomPage(driver);

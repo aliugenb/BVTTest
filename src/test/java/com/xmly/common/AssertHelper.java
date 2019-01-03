@@ -4,9 +4,7 @@ import com.xmly.utils.SnapshotAndLog;
 import io.appium.java_client.AppiumDriver;
 import org.testng.Assert;
 
-import static org.testng.internal.EclipseInterface.ASSERT_LEFT;
-import static org.testng.internal.EclipseInterface.ASSERT_MIDDLE;
-import static org.testng.internal.EclipseInterface.ASSERT_RIGHT;
+import static org.testng.internal.EclipseInterface.*;
 
 /**
  * Created with IntelliJ IDEA.

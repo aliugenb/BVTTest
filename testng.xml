@@ -7,11 +7,11 @@
     </listeners>
     <test verbose="3" preserve-order="true" parallel="methods" thread-count="1" name="直播首页检查">
         <classes>
-            <class name="com.xmly.cases.android.liveindex.CaseCheckSearchBar">
-                <methods>
-                    <include name="CheckSearchBar"/>
-                </methods>
-            </class>
+            <!--<class name="com.xmly.cases.android.liveindex.CaseCheckSearchBar">-->
+                <!--<methods>-->
+                    <!--<include name="CheckSearchBar"/>-->
+                <!--</methods>-->
+            <!--</class>-->
             <!--<class name="com.xmly.cases.android.liveindex.CaseCheckCreateLiveRoomBtn">-->
                 <!--<methods>-->
                     <!--<include name="checkCreateLiveRoomBtn"/>-->
@@ -22,11 +22,11 @@
                     <!--<include name="checkLiveRecord"/>-->
                 <!--</methods>-->
             <!--</class>-->
-            <!--<class name="com.xmly.cases.android.liveindex.CaseCheckLiveTab">-->
-                <!--<methods>-->
-                    <!--<include name="checkLiveTab"/>-->
-                <!--</methods>-->
-            <!--</class>-->
+            <class name="com.xmly.cases.android.liveindex.CaseCheckLiveTab">
+                <methods>
+                    <include name="checkLiveTab"/>
+                </methods>
+            </class>
             <!--<class name="com.xmly.cases.android.liveindex.CaseCheckLiveRoom">-->
                 <!--<methods>-->
                     <!--<include name="checkLiveRoom"/>-->

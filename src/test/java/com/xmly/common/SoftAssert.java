@@ -1,5 +1,6 @@
 package com.xmly.common;
 
+import com.xmly.utils.SnapshotAndLog;
 import io.appium.java_client.AppiumDriver;
 import org.testng.asserts.Assertion;
 import org.testng.asserts.IAssert;
@@ -31,7 +32,7 @@ public class SoftAssert extends Assertion {
         }
     }
 
-    public void assertAll(AppiumDriver driver) {
+    public void assertAll(AppiumDriver driver, String fileName) {
         if (!m_errors.isEmpty()) {
             StringBuilder sb = new StringBuilder("The following asserts failed:");
             boolean first = true;
@@ -43,7 +44,7 @@ public class SoftAssert extends Assertion {
                 }
                 sb.append("\n\t");
                 sb.append(ae.getKey().getMessage());
-//                SnapshotAndLog.snapshotByAppium(driver,"bbbb");
+                SnapshotAndLog.snapshotByAppium(driver, fileName);
             }
             throw new AssertionError(sb.toString());
         }

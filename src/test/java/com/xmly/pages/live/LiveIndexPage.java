@@ -4,6 +4,7 @@ import com.xmly.pages.BasePage;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.*;
+
 import java.util.List;
 
 /**
@@ -20,16 +21,22 @@ public class LiveIndexPage extends BasePage {
         super(driver);
     }
 
-    @AndroidFindBy(id = "com.ximalaya.ting.android.main.application:id/main_tv_search_bar_action")
-    public MobileElement SearchBar; //搜索框
+    @AndroidFindBy(id = "com.ximalaya.ting.android.main.application:id/main_tv_search")
+    public MobileElement searchBar; //搜索框
+
+    @AndroidFindBy(id = "com.ximalaya.ting.android.main.application:id/main_search_button")
+    public MobileElement searchBtn; //搜索页的搜索按钮
 
     @AndroidFindBy(id = "com.ximalaya.ting.android.main.application:id/main_tv_search_bar_action")
     public MobileElement createLiveRoomBtn; //我要直播按钮
 
+    /*
     @AndroidFindAll({
             @AndroidBy(uiAutomator = "new UiSelector().text(\"亲密度周榜\")"),
             @AndroidBy(id = "com.ximalaya.ting.android.liveindex.application:id/live_home_anchor_rank_tv")})
-    public MobileElement liveRecord; //排行榜
+            */
+    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_home_anchor_rank_tv")
+    public MobileElement liveRecord; //主播排行榜
 
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_tab_layout")
     public List<MobileElement> liveTabs; //分类tab
@@ -49,5 +56,18 @@ public class LiveIndexPage extends BasePage {
     //首页进入直播间
     public void gotoUserLiveRoomPage() {
         liveRoom.click();
+    }
+
+    //跳转搜索页
+    public void gotoSearchPage() {
+        searchBar.click();
+    }
+
+    //跳转榜单页
+    public String gotoAnchorRankPage() {
+        String text = null;
+        text = liveRecord.getText();
+        liveRecord.click();
+        return text;
     }
 }
