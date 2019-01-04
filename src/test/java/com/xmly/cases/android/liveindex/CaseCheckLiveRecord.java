@@ -23,13 +23,13 @@ public class CaseCheckLiveRecord extends AndroidBaseCase {
 //        AnchorRankPage anchorRankPage = new AnchorRankPage(driver);
 //        System.out.println(anchorRankPage.intimacyRank.getLocation());
 //        assertHelper.assertTrue(liveIndexPage.liveRecord.isDisplayed());
-        Set<String> contexts = driver.getContextHandles();
-        for (String context: contexts){
-            if (context.toLowerCase().contains("webview")){
-                driver.context(context);
-                break;
-            }
-        }
-        System.out.println(driver.findElementByClassName("tab-progress-track").getLocation());
+//        Set<String> contexts = driver.getContextHandles();
+//        for (String context: contexts){
+//            if (context.toLowerCase().contains("webview")){
+//                driver.context(context);
+//                break;
+//            }
+//        }
+//        System.out.println(driver.findElementByClassName("tab-progress-track").getLocation());
     }
 }
