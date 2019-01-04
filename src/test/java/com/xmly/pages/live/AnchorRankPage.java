@@ -17,6 +17,6 @@ public class AnchorRankPage extends BasePage {
         super(driver);
     }
 
-    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"亲密度周榜\")")
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"咸鱼\")")
     public MobileElement intimacyRank;
 }

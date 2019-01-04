@@ -17,16 +17,16 @@
                     <!--<include name="checkCreateLiveRoomBtn"/>-->
                 <!--</methods>-->
             <!--</class>-->
-            <!--<class name="com.xmly.cases.android.liveindex.CaseCheckLiveRecord">-->
-                <!--<methods>-->
-                    <!--<include name="checkLiveRecord"/>-->
-                <!--</methods>-->
-            <!--</class>-->
-            <class name="com.xmly.cases.android.liveindex.CaseCheckLiveTab">
+            <class name="com.xmly.cases.android.liveindex.CaseCheckLiveRecord">
                 <methods>
-                    <include name="checkLiveTab"/>
+                    <include name="checkLiveRecord"/>
                 </methods>
             </class>
+            <!--<class name="com.xmly.cases.android.liveindex.CaseCheckLiveTab">-->
+                <!--<methods>-->
+                    <!--<include name="checkLiveTab"/>-->
+                <!--</methods>-->
+            <!--</class>-->
             <!--<class name="com.xmly.cases.android.liveindex.CaseCheckLiveRoom">-->
                 <!--<methods>-->
                     <!--<include name="checkLiveRoom"/>-->

@@ -46,21 +46,21 @@ public class AndroidBaseDriver {
 
         //设置自动化相关参数
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("noReset", true);
-        //  capabilities.setCapability(CapabilityType.BROWSER_NAME, "");
-        capabilities.setCapability("device", "Android");
-        capabilities.setCapability("platformName", "Android");
-        capabilities.setCapability("deviceName", deviceName);
+        capabilities.setCapability(MobileCapabilityType.NO_RESET, true);
+//        capabilities.setCapability(MobileCapabilityType.BROWSER_NAME, "");
+//        capabilities.setCapability(MobileCapabilityType.AUTO_WEBVIEW, true);
+
+        capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
+        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, deviceName);
 
         //设置安卓系统版本
-        capabilities.setCapability("platformVersion", platformVersion);
+        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, platformVersion);
         //设置apk路径
-        capabilities.setCapability("app", apkPath);
-        capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, "60");
+        capabilities.setCapability(MobileCapabilityType.APP, apkPath);
 
 
         //设置新的命令等待时长（应该用不到，设置1h）
-        //capabilities.setCapability("newCommandTimeout", 3600);
+        capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, "60");
 
         //使用自带输入法，输入中文
         capabilities.setCapability("unicodeKeyboard", true);
