@@ -41,7 +41,7 @@
             <!--<include name="CheckSearchBar"/>-->
             <!--</methods>-->
             <!--</class>-->
-            <class name="com.xmly.cases.android.anchorLiveRoom.CaseCall">
+            <class name="com.xmly.cases.android.AnchorLiveRoom.CaseCall">
                 <methods>
                     <include name="checkCall"/>
                 </methods>
