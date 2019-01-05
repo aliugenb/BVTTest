@@ -10,7 +10,7 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
  * Date: 2019/1/5
  * Time: 4:54 PM
  */
-public class CallPage extends AnchorRoomIndexPage{
+public class CallPage extends AnchorRoomIndexPage {
     public CallPage(AppiumDriver<? extends MobileElement> driver) {
         super(driver);
     }
@@ -19,5 +19,9 @@ public class CallPage extends AnchorRoomIndexPage{
     public MobileElement callBtn; //连麦按钮
 
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_onMicNumTv")
-    public MobileElement onCallNum;
+    public MobileElement onCallNum; //左上角连麦状态（开启状态及人数）
+
+    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_openCallCb")
+    public MobileElement openCallSwitch; //连麦开关
+
 }

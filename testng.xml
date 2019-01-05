@@ -17,11 +17,11 @@
                     <!--<include name="checkCreateLiveRoomBtn"/>-->
                 <!--</methods>-->
             <!--</class>-->
-            <class name="com.xmly.cases.android.liveindex.CaseCheckLiveRecord">
-                <methods>
-                    <include name="checkLiveRecord"/>
-                </methods>
-            </class>
+            <!--<class name="com.xmly.cases.android.liveindex.CaseCheckLiveRecord">-->
+                <!--<methods>-->
+                    <!--<include name="checkLiveRecord"/>-->
+                <!--</methods>-->
+            <!--</class>-->
             <!--<class name="com.xmly.cases.android.liveindex.CaseCheckLiveTab">-->
                 <!--<methods>-->
                     <!--<include name="checkLiveTab"/>-->
@@ -31,6 +31,35 @@
                 <!--<methods>-->
                     <!--<include name="checkLiveRoom"/>-->
                 <!--</methods>-->
+            <!--</class>-->
+        </classes>
+    </test>
+    <test verbose="3" preserve-order="true" parallel="methods" thread-count="1" name="主播端直播间检查">
+        <classes>
+            <!--<class name="com.xmly.cases.android.liveindex.CaseCheckSearchBar">-->
+            <!--<methods>-->
+            <!--<include name="CheckSearchBar"/>-->
+            <!--</methods>-->
+            <!--</class>-->
+            <class name="com.xmly.cases.android.anchorLiveRoom.CaseCall">
+                <methods>
+                    <include name="checkCall"/>
+                </methods>
+            </class>
+            <!--<class name="com.xmly.cases.android.liveindex.CaseCheckLiveRecord">-->
+            <!--<methods>-->
+            <!--<include name="checkLiveRecord"/>-->
+            <!--</methods>-->
+            <!--</class>-->
+            <!--<class name="com.xmly.cases.android.liveindex.CaseCheckLiveTab">-->
+            <!--<methods>-->
+            <!--<include name="checkLiveTab"/>-->
+            <!--</methods>-->
+            <!--</class>-->
+            <!--<class name="com.xmly.cases.android.liveindex.CaseCheckLiveRoom">-->
+            <!--<methods>-->
+            <!--<include name="checkLiveRoom"/>-->
+            <!--</methods>-->
             <!--</class>-->
         </classes>
     </test>

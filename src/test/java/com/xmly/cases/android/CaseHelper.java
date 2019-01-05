@@ -2,6 +2,8 @@ package com.xmly.cases.android;
 
 import org.openqa.selenium.NoSuchElementException;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * Created with IntelliJ IDEA.
  * Author: ye.liu
@@ -20,7 +22,7 @@ public class CaseHelper extends AndroidBaseCase {
         basePage.enter(basePage.FindHomePage);
     }
 
-    //主播端创建直播间
+    //直播首页创建直播间
     public static void createAnchorLiveRoom() throws InterruptedException {
         gotoLiveIndex();
         liveIndexPage.gotoCreateLiveRoomPage();
@@ -28,10 +30,12 @@ public class CaseHelper extends AndroidBaseCase {
             if (loginPage.moreLoginBtn.isDisplayed()) {
                 loginPage.onlineLogin();
             }
+            liveIndexPage.gotoCreateLiveRoomPage();
         } catch (NoSuchElementException e) {
             System.out.println("登录成功");
         }
-        liveIndexPage.gotoCreateLiveRoomPage();
         createLiveRoomPage.beginLiveBtn.click();
+        TimeUnit.SECONDS.sleep(8);
+        anchorRoomIndexPage.cancelShareBtn.click();
     }
 }

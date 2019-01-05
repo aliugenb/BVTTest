@@ -5,6 +5,7 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.touch.offset.PointOption;
+import org.openqa.selenium.NoSuchElementException;
 
 import java.io.IOException;
 import java.util.Date;
@@ -26,10 +27,22 @@ public class DriverHelper extends AndroidBaseDriver {
             if (mobileElement.isDisplayed()) {
                 return true;
             }
-        } catch (Exception e) {
+        } catch (NoSuchElementException e) {
             return false;
         }
         return false;
+    }
+
+    //获取元素对应的文本
+    public static String getText(MobileElement mobileElement) {
+        try {
+            if (mobileElement.isDisplayed()) {
+                return mobileElement.getText();
+            }
+        } catch (NoSuchElementException e) {
+            return null;
+        }
+        return null;
     }
 
     //根据设定时长滑动页面
@@ -68,10 +81,10 @@ public class DriverHelper extends AndroidBaseDriver {
     }
 
     //获取中心点击坐标
-    public static String getCenterCoordinates(AndroidElement androidElement) {
+    public static String getCenterCoordinates(MobileElement mobileElement) {
         String coordinates = null;
-        int x = androidElement.getCenter().getX();
-        int y = androidElement.getCenter().getY();
+        int x = mobileElement.getCenter().getX();
+        int y = mobileElement.getCenter().getY();
         coordinates = "" + x + " " + y + "";
         return coordinates;
     }
