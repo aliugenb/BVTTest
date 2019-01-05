@@ -30,18 +30,6 @@ public class AndroidBaseCase extends AndroidBaseDriver {
 
     @BeforeTest
     public static void setUp() throws Exception {
-//        new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//                try {
-//                    SnapshotAndLog.logByAdb(FilesInit.logDirPath);
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-//
-//            }
-//        }).start();
-
         assertHelper = new AssertHelper();
 
         basePage = new BasePage(driver);

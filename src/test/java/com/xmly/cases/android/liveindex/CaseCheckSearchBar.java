@@ -1,6 +1,7 @@
 package com.xmly.cases.android.liveindex;
 
 import com.xmly.cases.android.AndroidBaseCase;
+import com.xmly.cases.android.CaseHelper;
 import com.xmly.common.DriverHelper;
 import com.xmly.common.MyException;
 import org.testng.annotations.Test;
@@ -18,7 +19,7 @@ import java.io.IOException;
 public class CaseCheckSearchBar extends AndroidBaseCase {
     @Test
     public void checkSearchBar() throws InterruptedException, IOException, MyException {
-        basePage.enter(basePage.LiveHomePage);
+        CaseHelper.gotoLiveIndex();
         assertHelper.assertTrue(
                 DriverHelper.isDisplayed(liveIndexPage.searchBar),
                 "判断首页存在搜索框", driver, "CaseCheckSearchBar搜索框不存在");
