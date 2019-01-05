@@ -3,7 +3,7 @@ package com.xmly.pages.live;
 import com.xmly.pages.BasePage;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.pagefactory.*;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 
 import java.util.List;
 
@@ -30,11 +30,12 @@ public class LiveIndexPage extends BasePage {
     @AndroidFindBy(id = "com.ximalaya.ting.android.main.application:id/main_tv_search_bar_action")
     public MobileElement createLiveRoomBtn; //我要直播按钮
 
-    /*
-    @AndroidFindAll({
-            @AndroidBy(uiAutomator = "new UiSelector().text(\"亲密度周榜\")"),
-            @AndroidBy(id = "com.ximalaya.ting.android.liveindex.application:id/live_home_anchor_rank_tv")})
-            */
+
+    //    @AndroidFindAll({
+//            @AndroidBy(uiAutomator = "new UiSelector().text(\"亲度周榜\")"),
+//            @AndroidBy(uiAutomator = "new UiSelector().text(\"小时榜\")"),
+//            @AndroidBy(uiAutomator = "new UiSelector().text(\"周榜\")"),
+//            @AndroidBy(uiAutomator = "new UiSelector().text(\"日周榜\")"),})
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_home_anchor_rank_tv")
     public MobileElement liveRecord; //主播排行榜
 
@@ -66,8 +67,9 @@ public class LiveIndexPage extends BasePage {
     //跳转榜单页
     public String gotoAnchorRankPage() {
         String text = null;
-        text = liveRecord.getText();
-        liveRecord.click();
+        MobileElement record = liveRecord;
+        text = record.getText();
+        record.click();
         return text;
     }
 }

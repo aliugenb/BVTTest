@@ -15,11 +15,11 @@ import java.time.Duration;
  * Time: 7:51 PM
  */
 
-public class BasePage {
+public class BasePage{
 
     public AppiumDriver<? extends MobileElement> driver;
 
-    private final long TIMEOUT = 15;
+    private final int TIMEOUT = 15;
     public static final String LiveHomePage = "LiveIndex";
     public static final String FindHomePage = "FindIndex";
 

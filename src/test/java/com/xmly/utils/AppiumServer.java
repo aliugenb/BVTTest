@@ -46,6 +46,7 @@ public class AppiumServer {
         responseCode = getAppiumResponseCode();
         if (responseCode == 200) {
             System.out.println("Appium-server start success");
+            return true;
         }
         return false;
     }

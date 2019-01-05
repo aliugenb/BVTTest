@@ -34,9 +34,9 @@ public class CaseCheckCreateLiveRoomBtn extends AndroidBaseCase {
                     DriverHelper.isDisplayed(createLiveRoomPage.beginLiveBtn),
                     "判断创建页面存在开始按钮", driver, "CaseCheckCreateLiveRoomBtn开始按钮不存在");
         } catch (NoSuchElementException e) {
-            assertHelper.assertTrue(
-                    DriverHelper.isDisplayed(createLiveRoomPage.beginLiveBtn),
-                    "判断创建页面存在开始按钮", driver, "CaseCheckCreateLiveRoomBtn开始按钮不存在");
         }
+        assertHelper.assertTrue(
+                DriverHelper.isDisplayed(createLiveRoomPage.beginLiveBtn),
+                "判断创建页面存在开始按钮", driver, "CaseCheckCreateLiveRoomBtn开始按钮不存在");
     }
 }

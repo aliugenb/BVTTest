@@ -1,6 +1,7 @@
 package com.xmly.cases.android.liveindex;
 
 import com.xmly.cases.android.AndroidBaseCase;
+import com.xmly.common.DriverHelper;
 import org.testng.annotations.Test;
 
 /**
@@ -16,6 +17,6 @@ public class CaseCheckLiveRoom extends AndroidBaseCase {
     @Test
     public void checkLiveRecord() {
         basePage.enter(basePage.LiveHomePage);
-//        assertHelper.assertTrue(liveIndexPage.liveRoom.isDisplayed());
+        assertHelper.assertTrue(DriverHelper.isDisplayed(liveIndexPage.liveRoom));
     }
 }

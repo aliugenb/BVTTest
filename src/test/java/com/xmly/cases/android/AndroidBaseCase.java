@@ -4,7 +4,7 @@ import com.xmly.common.AssertHelper;
 import com.xmly.driver.android.AndroidBaseDriver;
 import com.xmly.pages.BasePage;
 import com.xmly.pages.LoginPage;
-import com.xmly.pages.live.AnchorLiveRoomPage;
+import com.xmly.pages.live.AnchorLiveRoomPage.AnchorRoomIndexPage;
 import com.xmly.pages.live.CreateLiveRoomPage;
 import com.xmly.pages.live.LiveIndexPage;
 import com.xmly.utils.AppiumServer;
@@ -24,31 +24,19 @@ public class AndroidBaseCase extends AndroidBaseDriver {
     protected static LoginPage loginPage;
     protected static LiveIndexPage liveIndexPage;
     protected static CreateLiveRoomPage createLiveRoomPage;
-    protected static AnchorLiveRoomPage anchorLiveRoomPage;
+    protected static AnchorRoomIndexPage anchorRoomIndexPage;
 
     protected static AssertHelper assertHelper;
 
     @BeforeTest
     public static void setUp() throws Exception {
-//        new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//                try {
-//                    SnapshotAndLog.logByAdb(FilesInit.logDirPath);
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-//
-//            }
-//        }).start();
-
         assertHelper = new AssertHelper();
 
         basePage = new BasePage(driver);
         loginPage = new LoginPage(driver);
         liveIndexPage = new LiveIndexPage(driver);
         createLiveRoomPage = new CreateLiveRoomPage(driver);
-        anchorLiveRoomPage = new AnchorLiveRoomPage(driver);
+        anchorRoomIndexPage = new AnchorRoomIndexPage(driver);
     }
 
     @AfterTest
