@@ -2,10 +2,8 @@ package com.xmly.cases.anchorLiveRoom;
 
 import com.xmly.cases.BaseCase;
 import com.xmly.cases.CaseHelper;
-import com.xmly.cases.AndroidBaseCase;
 import com.xmly.common.DriverHelper;
 import com.xmly.pages.live.anchorRoomPage.CallPage;
-import org.testng.annotations.Test;
 
 /**
  * Created with IntelliJ IDEA.

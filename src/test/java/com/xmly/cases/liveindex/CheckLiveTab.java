@@ -1,8 +1,6 @@
 package com.xmly.cases.liveindex;
 
-import com.xmly.cases.AndroidBaseCase;
 import com.xmly.cases.BaseCase;
-import org.testng.annotations.Test;
 
 
 /**

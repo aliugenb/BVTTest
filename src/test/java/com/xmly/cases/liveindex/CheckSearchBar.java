@@ -1,11 +1,9 @@
 package com.xmly.cases.liveindex;
 
-import com.xmly.cases.AndroidBaseCase;
 import com.xmly.cases.BaseCase;
 import com.xmly.cases.CaseHelper;
 import com.xmly.common.DriverHelper;
 import com.xmly.common.MyException;
-import org.testng.annotations.Test;
 
 import java.io.IOException;
 

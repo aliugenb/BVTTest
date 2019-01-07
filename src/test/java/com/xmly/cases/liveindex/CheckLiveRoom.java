@@ -1,9 +1,7 @@
 package com.xmly.cases.liveindex;
 
-import com.xmly.cases.AndroidBaseCase;
 import com.xmly.cases.BaseCase;
 import com.xmly.common.DriverHelper;
-import org.testng.annotations.Test;
 
 /**
  * Created with IntelliJ IDEA.

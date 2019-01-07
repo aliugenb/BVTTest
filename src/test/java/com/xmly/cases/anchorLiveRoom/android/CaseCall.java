@@ -1,6 +1,5 @@
 package com.xmly.cases.anchorLiveRoom.android;
 
-import com.xmly.cases.AndroidBaseCase;
 import com.xmly.cases.anchorLiveRoom.Call;
 import org.testng.annotations.Test;
 
