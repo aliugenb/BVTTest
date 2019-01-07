@@ -1,8 +1,7 @@
-package com.xmly.cases.android.liveindex;
+package com.xmly.cases.liveindex;
 
-import com.xmly.cases.android.AndroidBaseCase;
+import com.xmly.cases.BaseCase;
 import com.xmly.common.DriverHelper;
-import org.testng.annotations.Test;
 
 /**
  * Created with IntelliJ IDEA.
@@ -13,9 +12,9 @@ import org.testng.annotations.Test;
  * 显示直播间
  */
 
-public class CaseCheckLiveRoom extends AndroidBaseCase {
-    @Test
-    public void checkLiveRecord() {
+public abstract class CheckLiveRoom extends BaseCase {
+
+    public static void checkLiveRoom() {
         basePage.enter(basePage.LiveHomePage);
         assertHelper.assertTrue(DriverHelper.isDisplayed(liveIndexPage.liveRoom));
     }

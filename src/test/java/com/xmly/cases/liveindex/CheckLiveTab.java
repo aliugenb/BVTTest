@@ -1,7 +1,6 @@
-package com.xmly.cases.android.liveindex;
+package com.xmly.cases.liveindex;
 
-import com.xmly.cases.android.AndroidBaseCase;
-import org.testng.annotations.Test;
+import com.xmly.cases.BaseCase;
 
 
 /**
@@ -13,9 +12,9 @@ import org.testng.annotations.Test;
  * 热门分类tab存在并且有5个
  */
 
-public class CaseCheckLiveTab extends AndroidBaseCase {
-    @Test
-    public void checkLiveTab() {
+public abstract class CheckLiveTab extends BaseCase {
+
+    public static void checkLiveTab() {
         basePage.enter(basePage.LiveHomePage);
         assertHelper.assertTrue(liveIndexPage.getLiveTabQty()==5,
                 "判断首页tab数量=5",driver,"CaseCheckLiveTab首页tab");

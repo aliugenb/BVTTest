@@ -1,6 +1,6 @@
-package com.xmly.cases.android.find;
+package com.xmly.cases.find;
 
-import com.xmly.cases.android.AndroidBaseCase;
+import com.xmly.cases.BaseCase;
 import com.xmly.pages.find.FindIndexPage;
 import org.testng.annotations.Test;
 
@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
  * Date: 2018/11/26
  * Time: 8:33 PM
  */
-public class EnterFind extends AndroidBaseCase {
+public class EnterFind extends BaseCase {
 
     @Test
     public static void enterFindHomePage() {

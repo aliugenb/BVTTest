@@ -1,10 +1,9 @@
-package com.xmly.cases.android.liveindex;
+package com.xmly.cases.liveindex;
 
-import com.xmly.cases.android.AndroidBaseCase;
-import com.xmly.cases.android.CaseHelper;
+import com.xmly.cases.BaseCase;
+import com.xmly.cases.CaseHelper;
 import com.xmly.common.DriverHelper;
 import com.xmly.common.MyException;
-import org.testng.annotations.Test;
 
 import java.io.IOException;
 
@@ -16,9 +15,9 @@ import java.io.IOException;
  * case编号：LiveIndex_01
  */
 
-public class CaseCheckSearchBar extends AndroidBaseCase {
-    @Test
-    public void checkSearchBar() throws InterruptedException, IOException, MyException {
+public abstract class CheckSearchBar extends BaseCase {
+
+    public static void checkSearchBar() throws InterruptedException, IOException, MyException {
         CaseHelper.gotoLiveIndex();
         assertHelper.assertTrue(
                 DriverHelper.isDisplayed(liveIndexPage.searchBar),

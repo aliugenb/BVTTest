@@ -22,7 +22,7 @@ public class AnchorLiveRoom extends BasePage {
     }
 
     @AndroidFindBy(id = "com.ximalaya.ting.android:id/host_cancle_share_and_dismiss")
-    public MobileElement cancelShareBtn; //取消分享
+    private MobileElement cancelShareBtn; //取消分享
 
 
     //PK功能相关

@@ -1,6 +1,7 @@
 package com.xmly.common;
 
 import com.xmly.driver.android.AndroidBaseDriver;
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidElement;
@@ -19,7 +20,7 @@ import static com.xmly.common.ActionHelper.formatMin;
  * Date: 2019/1/3
  * Time: 4:37 PM
  */
-public class DriverHelper extends AndroidBaseDriver {
+public class DriverHelper {
 
     //判断元素是否存在
     public static boolean isDisplayed(MobileElement mobileElement) {
@@ -45,8 +46,24 @@ public class DriverHelper extends AndroidBaseDriver {
         return null;
     }
 
+    //获取中心点击坐标
+    public static String getCenterCoordinates(MobileElement mobileElement) {
+        try {
+            if (mobileElement.isDisplayed()) {
+                String coordinates = null;
+                int x = mobileElement.getCenter().getX();
+                int y = mobileElement.getCenter().getY();
+                coordinates = "" + x + " " + y + "";
+                return coordinates;
+            }
+        } catch (NoSuchElementException e) {
+            return null;
+        }
+        return null;
+    }
+
     //根据设定时长滑动页面
-    public static void swipUpAndDownByTime(int time) throws InterruptedException, IOException, MyException {
+    public static void swipUpAndDownByTime(AppiumDriver driver, int time) throws InterruptedException, IOException, MyException {
         int width = driver.manage().window().getSize().width;
         int height = driver.manage().window().getSize().height;
         long s = (new Date()).getTime();
@@ -80,12 +97,5 @@ public class DriverHelper extends AndroidBaseDriver {
         }
     }
 
-    //获取中心点击坐标
-    public static String getCenterCoordinates(MobileElement mobileElement) {
-        String coordinates = null;
-        int x = mobileElement.getCenter().getX();
-        int y = mobileElement.getCenter().getY();
-        coordinates = "" + x + " " + y + "";
-        return coordinates;
-    }
+
 }

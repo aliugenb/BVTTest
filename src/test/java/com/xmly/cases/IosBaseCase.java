@@ -1,4 +1,4 @@
-package com.xmly.cases.ios;
+package com.xmly.cases;
 
 /**
  * Created with IntelliJ IDEA.
