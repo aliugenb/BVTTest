@@ -7,12 +7,10 @@ import com.xmly.pages.BasePage;
 import com.xmly.pages.LoginPage;
 import com.xmly.pages.live.CreateLiveRoomPage;
 import com.xmly.pages.live.LiveIndexPage;
-import com.xmly.pages.live.anchorRoomPage.AnchorRoomIndexPage;
+import com.xmly.pages.live.anchorliveroompage.AnchorRoomIndexPage;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Parameters;
+import org.testng.annotations.*;
 
 /**
  * Created with IntelliJ IDEA.
@@ -49,6 +47,5 @@ public class BaseCase {
     @AfterClass
     public static void tearDown() {
         driver.quit();
-        driver = null;
     }
 }

@@ -1,4 +1,4 @@
-package com.xmly.pages.live.anchorRoomPage;
+package com.xmly.pages.live.anchorliveroompage;
 
 import com.xmly.common.ActionHelper;
 import com.xmly.pages.BasePage;

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="IOS直播">
+    <!--<listeners>-->
+        <!--<listener class-name="com.xmly.listener.reportlistener.ExtentTestNGIReporterListener"/>-->
+        <!--<listener class-name="com.xmly.listener.testnglistener.RetryListener"/>-->
+        <!--<listener class-name="com.xmly.listener.testnglistener.ScreenShotListener"/>-->
+    <!--</listeners>-->
+    <parameter name="osDriver" value="2"/>
+    <test verbose="3" preserve-order="true" parallel="classes" thread-count="1" name="liveindex直播首页检查">
+        <classes>
+            <class name="com.xmly.cases.liveindex.android.CaseCheckSearchBar">
+            </class>
+            <!--<class name="com.xmly.cases.liveindex.android.CaseCheckCreateLiveRoomBtn">-->
+            <!--<methods>-->
+            <!--<include name="checkCreateLiveRoomBtn"/>-->
+            <!--</methods>-->
+            <!--</class>-->
+            <!--<class name="com.xmly.cases.liveindex.android.CaseCheckLiveRecord">-->
+            <!--<methods>-->
+            <!--<include name="checkLiveRecord"/>-->
+            <!--</methods>-->
+            <!--</class>-->
+            <class name="com.xmly.cases.liveindex.android.CaseCheckLiveTab">
+                <methods>
+                    <include name="checkLiveTab"/>
+                </methods>
+            </class>
+            <!--<class name="com.xmly.cases.liveindex.android.CaseCheckLiveRoom">-->
+            <!--<methods>-->
+            <!--<include name="checkLiveRoom"/>-->
+            <!--</methods>-->
+            <!--</class>-->
+        </classes>
+    </test>
+    <test verbose="3" preserve-order="true" parallel="classes" thread-count="1" name="anchorliveroom主播端直播间检查">
+        <classes>
+            <!--<class name="com.xmly.cases.android.liveindex.CaseCheckSearchBar">-->
+            <!--<methods>-->
+            <!--<include name="CheckSearchBar"/>-->
+            <!--</methods>-->
+            <!--</class>-->
+            <class name="com.xmly.cases.anchorliveroom.android.CaseCall">
+                <methods>
+                    <include name="checkCall"/>
+                </methods>
+            </class>
+            <!--<class name="com.xmly.cases.android.liveindex.CaseCheckLiveRecord">-->
+            <!--<methods>-->
+            <!--<include name="checkLiveRecord"/>-->
+            <!--</methods>-->
+            <!--</class>-->
+            <!--<class name="com.xmly.cases.android.liveindex.CaseCheckLiveTab">-->
+            <!--<methods>-->
+            <!--<include name="checkLiveTab"/>-->
+            <!--</methods>-->
+            <!--</class>-->
+            <!--<class name="com.xmly.cases.android.liveindex.CaseCheckLiveRoom">-->
+            <!--<methods>-->
+            <!--<include name="checkLiveRoom"/>-->
+            <!--</methods>-->
+            <!--</class>-->
+        </classes>
+    </test>
+</suite>
