@@ -1,4 +1,4 @@
-package com.xmly.pages.live.AnchorLiveRoomPage;
+package com.xmly.pages.live.anchorRoomPage;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;

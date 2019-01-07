@@ -1,8 +1,10 @@
-package com.xmly.cases.android.anchorLiveRoom;
+package com.xmly.cases.anchorLiveRoom;
 
-import com.xmly.cases.android.CaseHelper;
+import com.xmly.cases.BaseCase;
+import com.xmly.cases.CaseHelper;
+import com.xmly.cases.AndroidBaseCase;
 import com.xmly.common.DriverHelper;
-import com.xmly.pages.live.AnchorLiveRoomPage.CallPage;
+import com.xmly.pages.live.anchorRoomPage.CallPage;
 import org.testng.annotations.Test;
 
 /**
@@ -11,12 +13,10 @@ import org.testng.annotations.Test;
  * Date: 2019/1/5
  * Time: 4:14 PM
  */
-public class CaseCall extends CaseHelper {
+public abstract class Call extends BaseCase {
 
-    static CallPage callPage = new CallPage(driver);
-
-    @Test
     public static void checkCall() throws InterruptedException {
+        CallPage callPage = new CallPage(driver);
         CaseHelper.createAnchorLiveRoom();
         anchorRoomIndexPage.callBtn.click();
         assertHelper.assertTrue(

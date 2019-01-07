@@ -1,23 +1,20 @@
-package com.xmly.cases.android.liveindex;
+package com.xmly.cases.liveindex;
 
+import com.xmly.cases.BaseCase;
 import com.xmly.common.DriverHelper;
 import com.xmly.common.MyException;
-import com.xmly.cases.android.AndroidBaseCase;
 import org.openqa.selenium.NoSuchElementException;
-import org.testng.annotations.Test;
 
 import java.io.IOException;
 
 /**
  * Created with IntelliJ IDEA.
  * Author: ye.liu
- * Date: 2018/11/27
- * Time: 23:14
- * case编号：LiveIndex_02
+ * Date: 2019/1/7
+ * Time: 4:44 PM
  */
+public abstract class CheckCreateLiveRoomBtn extends BaseCase {
 
-public class CaseCheckCreateLiveRoomBtn extends AndroidBaseCase {
-    @Test
     public static void checkCreateLiveRoomBtn() throws InterruptedException, IOException, MyException {
         basePage.enter(basePage.LiveHomePage);
         assertHelper.assertTrue(

@@ -1,9 +1,8 @@
-package com.xmly.cases.android.liveindex;
+package com.xmly.cases.liveindex;
 
-import com.xmly.cases.android.AndroidBaseCase;
+import com.xmly.cases.AndroidBaseCase;
+import com.xmly.cases.BaseCase;
 import org.testng.annotations.Test;
-
-import java.util.Set;
 
 /**
  * Created with IntelliJ IDEA.
@@ -14,9 +13,9 @@ import java.util.Set;
  * 显示亲密度榜
  */
 
-public class CaseCheckLiveRecord extends AndroidBaseCase {
-    @Test
-    public void checkLiveRecord() throws InterruptedException {
+public abstract class CheckLiveRecord extends BaseCase {
+
+    public static void checkLiveRecord() throws InterruptedException {
         basePage.enter(basePage.LiveHomePage);
         String recordText = liveIndexPage.gotoAnchorRankPage();
         System.out.println(recordText);

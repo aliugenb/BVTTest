@@ -4,6 +4,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.PageFactory;
 
 import java.time.Duration;
@@ -15,7 +16,7 @@ import java.time.Duration;
  * Time: 7:51 PM
  */
 
-public class BasePage{
+public class BasePage {
 
     public AppiumDriver<? extends MobileElement> driver;
 
@@ -31,22 +32,37 @@ public class BasePage{
     }
 
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"直播\")")
-    private MobileElement HomePageLiveBtn;
+    private MobileElement homePageLiveTab;
 
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"发现\")")
-    private MobileElement TabbarFindBtn;
+    private MobileElement tabbarFindBtn;
+
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/host_close_firework")
+    private MobileElement interstitial; //首页弹窗广告关闭按钮
+
 
     public void enter(String HomePage) {
         switch (HomePage) {
             case "LiveIndex":
-                HomePageLiveBtn.click();
+                homePageLiveTab.click();
                 break;
             case "FindIndex":
-                TabbarFindBtn.click();
+                tabbarFindBtn.click();
                 break;
             default:
-                HomePageLiveBtn.click();
+                homePageLiveTab.click();
                 break;
         }
     }
+
+    public void closeInterstitial() {
+        try {
+            if (interstitial.isDisplayed()) {
+                interstitial.click();
+            }
+        } catch (NoSuchElementException e) {
+            e.getStackTrace();
+        }
+    }
+
 }

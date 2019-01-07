@@ -1,6 +1,6 @@
-package com.xmly.cases.android.find;
+package com.xmly.cases.find;
 
-import com.xmly.cases.android.AndroidBaseCase;
+import com.xmly.cases.AndroidBaseCase;
 import com.xmly.pages.find.FindIndexPage;
 import org.testng.annotations.Test;
 

@@ -1,24 +1,28 @@
-package com.xmly.cases.android;
+package com.xmly.cases;
 
 import com.xmly.common.AssertHelper;
-import com.xmly.driver.android.AndroidBaseDriver;
+import com.xmly.common.MyException;
+import com.xmly.driver.BaseDriver;
 import com.xmly.pages.BasePage;
 import com.xmly.pages.LoginPage;
-import com.xmly.pages.live.AnchorLiveRoomPage.AnchorRoomIndexPage;
 import com.xmly.pages.live.CreateLiveRoomPage;
 import com.xmly.pages.live.LiveIndexPage;
-import com.xmly.utils.AppiumServer;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
+import com.xmly.pages.live.anchorRoomPage.AnchorRoomIndexPage;
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 
 /**
  * Created with IntelliJ IDEA.
  * Author: ye.liu
- * Date: 2018/11/26
- * Time: 4:27 PM
+ * Date: 2019/1/7
+ * Time: 4:07 PM
  */
 
-public class AndroidBaseCase extends AndroidBaseDriver {
+public class BaseCase {
+    protected static AppiumDriver<? extends MobileElement> driver;
 
     protected static BasePage basePage;
     protected static LoginPage loginPage;
@@ -28,8 +32,11 @@ public class AndroidBaseCase extends AndroidBaseDriver {
 
     protected static AssertHelper assertHelper;
 
-    @BeforeTest
-    public static void setUp() throws Exception {
+    @Parameters({"osDriver"})
+    @BeforeClass
+    public static void setUp(int osDriver) throws MyException {
+        BaseDriver.setDriver(osDriver);
+        driver = BaseDriver.getDriver();
         assertHelper = new AssertHelper();
 
         basePage = new BasePage(driver);
@@ -39,10 +46,9 @@ public class AndroidBaseCase extends AndroidBaseDriver {
         anchorRoomIndexPage = new AnchorRoomIndexPage(driver);
     }
 
-    @AfterTest
-    public static void tearDown() throws Exception {
+    @AfterClass
+    public static void tearDown() {
         driver.quit();
-//        SnapshotAndLog.logByAdb(FilesInit.logDirPath);
-        AppiumServer.stopAppium();
+        driver = null;
     }
 }
