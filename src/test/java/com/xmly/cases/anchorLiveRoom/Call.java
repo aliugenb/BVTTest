@@ -1,9 +1,9 @@
-package com.xmly.cases.anchorLiveRoom;
+package com.xmly.cases.anchorliveroom;
 
 import com.xmly.cases.BaseCase;
 import com.xmly.cases.CaseHelper;
 import com.xmly.common.DriverHelper;
-import com.xmly.pages.live.anchorRoomPage.CallPage;
+import com.xmly.pages.live.anchorliveroompage.CallPage;
 
 /**
  * Created with IntelliJ IDEA.

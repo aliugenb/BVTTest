@@ -12,6 +12,8 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import org.testng.annotations.*;
 
+import java.io.IOException;
+
 /**
  * Created with IntelliJ IDEA.
  * Author: ye.liu
@@ -32,7 +34,7 @@ public class BaseCase {
 
     @Parameters({"osDriver"})
     @BeforeClass
-    public static void setUp(int osDriver) throws MyException {
+    public static void setUp(int osDriver) throws MyException, IOException {
         BaseDriver.setDriver(osDriver);
         driver = BaseDriver.getDriver();
         assertHelper = new AssertHelper();

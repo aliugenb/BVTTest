@@ -42,6 +42,6 @@ dependencies {
 
 test {
     useTestNG {
-        suites(file('testng.xml'));
+        suites(file("testng.xml"))
     }
 }
