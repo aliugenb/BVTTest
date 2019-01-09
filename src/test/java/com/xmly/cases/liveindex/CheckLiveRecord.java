@@ -1,6 +1,7 @@
 package com.xmly.cases.liveindex;
 
 import com.xmly.cases.BaseCase;
+import com.xmly.cases.CaseHelper;
 
 /**
  * Created with IntelliJ IDEA.
@@ -11,10 +12,10 @@ import com.xmly.cases.BaseCase;
  * 显示亲密度榜
  */
 
-public abstract class CheckLiveRecord extends BaseCase {
+public abstract class CheckLiveRecord extends CaseHelper {
 
     public static void checkLiveRecord() throws InterruptedException {
-        basePage.enter(basePage.LiveHomePage);
+        CaseHelper.gotoLiveIndex();
         String recordText = liveIndexPage.gotoAnchorRankPage();
         System.out.println(recordText);
 //        AnchorRankPage anchorRankPage = new AnchorRankPage(driver);

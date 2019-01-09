@@ -22,6 +22,8 @@ public class AnchorRoomIndexPage extends BasePage {
     @AndroidFindBy(id = "com.ximalaya.ting.android:id/host_cancle_share_and_dismiss")
     public MobileElement cancelShareBtn; //取消分享
 
+    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_content")
+    public MobileElement content; //主播间消息
 
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_iv_pk")
     public MobileElement pkBtn; //pk按钮
@@ -36,6 +38,11 @@ public class AnchorRoomIndexPage extends BasePage {
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_chat_bottom_music")
     public MobileElement addBgmBtn; //添加背景音乐按钮
 
+    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_ll_more")
+    public MobileElement moreBtn; //更多按钮
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"交友模式\")")
+    public MobileElement friendBtn; //交友模式按钮
 
     //退出直播相关
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_back_btn")

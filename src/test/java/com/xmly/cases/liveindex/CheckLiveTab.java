@@ -1,6 +1,7 @@
 package com.xmly.cases.liveindex;
 
 import com.xmly.cases.BaseCase;
+import com.xmly.cases.CaseHelper;
 
 
 /**
@@ -12,10 +13,10 @@ import com.xmly.cases.BaseCase;
  * 热门分类tab存在并且有5个
  */
 
-public abstract class CheckLiveTab extends BaseCase {
+public abstract class CheckLiveTab extends CaseHelper {
 
     public static void checkLiveTab() {
-        basePage.enter(basePage.LiveHomePage);
+        CaseHelper.gotoLiveIndex();
         assertHelper.assertTrue(liveIndexPage.getLiveTabQty()==5,
                 "判断首页tab数量=5",driver,"CaseCheckLiveTab首页tab");
     }

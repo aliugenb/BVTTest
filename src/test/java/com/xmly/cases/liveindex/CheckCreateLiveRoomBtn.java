@@ -1,6 +1,7 @@
 package com.xmly.cases.liveindex;
 
 import com.xmly.cases.BaseCase;
+import com.xmly.cases.CaseHelper;
 import com.xmly.common.DriverHelper;
 import com.xmly.common.MyException;
 import org.openqa.selenium.NoSuchElementException;
@@ -13,10 +14,10 @@ import java.io.IOException;
  * Date: 2019/1/7
  * Time: 4:44 PM
  */
-public abstract class CheckCreateLiveRoomBtn extends BaseCase {
+public abstract class CheckCreateLiveRoomBtn extends CaseHelper {
 
     public static void checkCreateLiveRoomBtn() throws InterruptedException, IOException, MyException {
-        basePage.enter(basePage.LiveHomePage);
+        CaseHelper.gotoLiveIndex();
         assertHelper.assertTrue(
                 DriverHelper.isDisplayed(liveIndexPage.createLiveRoomBtn),
                 "判断首页存在我要直播按钮", driver, "CaseCheckCreateLiveRoomBtn搜索框不存在");

@@ -9,6 +9,7 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
  * Author: ye.liu
  * Date: 2019/1/5
  * Time: 4:54 PM
+ * PK
  */
 public class PKPage extends AnchorRoomIndexPage {
     public PKPage(AppiumDriver<? extends MobileElement> driver) {

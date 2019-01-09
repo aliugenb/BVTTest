@@ -11,14 +11,14 @@ import com.xmly.pages.live.anchorliveroompage.CallPage;
  * Date: 2019/1/5
  * Time: 4:14 PM
  */
-public abstract class Call extends BaseCase {
+public abstract class Call extends CaseHelper {
 
     public static void checkCall() throws InterruptedException {
         CallPage callPage = new CallPage(driver);
         CaseHelper.createAnchorLiveRoom();
         anchorRoomIndexPage.callBtn.click();
         assertHelper.assertTrue(
-                DriverHelper.getText(callPage.onCallNum).equals("连麦开启"),
-                "判断打开连麦时默认关闭", driver, "连麦默认打开");
+                DriverHelper.getText(callPage.onCallNum).equals("连麦未开启"),
+                "判断打开连麦时默认关闭", driver, "连麦默认关闭");
     }
 }
