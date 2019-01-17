@@ -42,6 +42,7 @@ dependencies {
 
 test {
     useTestNG {
-        suites(file("testng.xml"))
+        if("$os"=="android"){suites(file("testng.xml"))}
+        if("$os"=="ios"){suites(file("testng.xml"))}
     }
 }
