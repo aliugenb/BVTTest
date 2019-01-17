@@ -20,16 +20,11 @@ public abstract class BaseDriver implements Driver {
 
     private static AppiumDriver<? extends MobileElement> driver;
 
-    public static void setDriver(int osDriver) throws MyException {
-        try {
-            if (!AppiumServer.startAppium()) {
-                throw new MyException("appium未启动");
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (MyException e) {
-            e.printStackTrace();
+    public static void setDriver(int osDriver) throws MyException, IOException {
+        if (!AppiumServer.startAppium()) {
+            throw new MyException("appium未启动");
         }
+
         if (osDriver == Driver.AndroidDriver) {
             driver = new AndroidBaseDriver().getDriver();
         } else if (osDriver == Driver.IosDriver) {

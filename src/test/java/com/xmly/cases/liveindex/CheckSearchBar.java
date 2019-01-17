@@ -15,7 +15,7 @@ import java.io.IOException;
  * case编号：LiveIndex_01
  */
 
-public abstract class CheckSearchBar extends BaseCase {
+public abstract class CheckSearchBar extends CaseHelper {
 
     public static void checkSearchBar() throws InterruptedException, IOException, MyException {
         CaseHelper.gotoLiveIndex();

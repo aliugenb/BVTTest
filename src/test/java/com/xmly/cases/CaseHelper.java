@@ -15,7 +15,9 @@ public class CaseHelper extends BaseCase {
 
     //跳转直播首页
     public static void gotoLiveIndex() {
+        basePage.closeInterstitial();
         basePage.enter(basePage.LiveHomePage);
+        liveIndexPage.endLive();
     }
 
     //跳转发现页

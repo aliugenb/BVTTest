@@ -1,12 +1,15 @@
 package com.xmly.common;
 
-import com.xmly.driver.android.AndroidBaseDriver;
+import com.xmly.driver.AppiumDriverWait;
+import com.xmly.driver.ExpectedConditionForAppium;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
-import io.appium.java_client.android.AndroidElement;
+import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.touch.offset.PointOption;
+import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebElement;
 
 import java.io.IOException;
 import java.util.Date;
@@ -33,6 +36,22 @@ public class DriverHelper {
         }
         return false;
     }
+
+//    public boolean waitForAeAppear(AppiumDriver driver, int timeOutInSeconds) {
+//        try {
+//            AppiumDriverWait wait = new AppiumDriverWait(driver, timeOutInSeconds);
+//            wait.(new ExpectedConditionForAppium<WebElement>() {
+//                public WebElement apply(AndroidDriver d) {
+//                    return d.findElement(By
+//                            .id("com.zhihu.android:id/showcase_close"));
+//                }
+//
+//            });
+//            return true;
+//        } catch (Exception e) {
+//            return false;
+//        }
+//    }
 
     //获取元素对应的文本
     public static String getText(MobileElement mobileElement) {

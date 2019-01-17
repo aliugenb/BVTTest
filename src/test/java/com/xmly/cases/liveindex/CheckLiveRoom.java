@@ -1,6 +1,7 @@
 package com.xmly.cases.liveindex;
 
 import com.xmly.cases.BaseCase;
+import com.xmly.cases.CaseHelper;
 import com.xmly.common.DriverHelper;
 
 /**
@@ -12,10 +13,10 @@ import com.xmly.common.DriverHelper;
  * 显示直播间
  */
 
-public abstract class CheckLiveRoom extends BaseCase {
+public abstract class CheckLiveRoom extends CaseHelper {
 
     public static void checkLiveRoom() {
-        basePage.enter(basePage.LiveHomePage);
+        CaseHelper.gotoLiveIndex();
         assertHelper.assertTrue(DriverHelper.isDisplayed(liveIndexPage.liveRoom));
     }
 }

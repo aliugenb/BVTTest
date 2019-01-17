@@ -1,4 +1,4 @@
-package com.xmly.pages.live.anchorRoomPage;
+package com.xmly.pages.live.anchorliveroompage;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
@@ -9,6 +9,7 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
  * Author: ye.liu
  * Date: 2019/1/5
  * Time: 4:54 PM
+ * 连麦功能
  */
 public class CallPage extends AnchorRoomIndexPage {
     public CallPage(AppiumDriver<? extends MobileElement> driver) {

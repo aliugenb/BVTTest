@@ -1,5 +1,7 @@
 package com.xmly.pages.live;
 
+import com.xmly.common.DriverHelper;
+import com.xmly.driver.Driver;
 import com.xmly.pages.BasePage;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
@@ -45,6 +47,9 @@ public class LiveIndexPage extends BasePage {
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_item_record_cover")
     public MobileElement liveRoom; //直播间
 
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"结束直播\")")
+    public MobileElement cancelLiveBtn; //直播未正常关闭时弹出提醒弹层
+
     public int getLiveTabQty() {
         return liveTabs.size();
     }
@@ -72,4 +77,12 @@ public class LiveIndexPage extends BasePage {
         record.click();
         return text;
     }
+
+    //关闭直播未正常关闭时首页弹出的提醒弹层
+    public void endLive() {
+        if (DriverHelper.isDisplayed(cancelLiveBtn)) {
+            cancelLiveBtn.click();
+        }
+    }
+
 }
