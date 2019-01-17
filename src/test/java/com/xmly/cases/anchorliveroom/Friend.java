@@ -10,7 +10,7 @@ import com.xmly.pages.live.anchorliveroompage.FriendPage;
  * Date: 2019/1/9
  * Time: 8:01 PM
  */
-public class Friend extends CaseHelper {
+public abstract class Friend extends CaseHelper {
     private static FriendPage friendPage;
 
     public static void openFriendModel() throws InterruptedException {
