@@ -23,7 +23,7 @@ public class LiveIndexPage extends BasePage {
         super(driver);
     }
 
-    @AndroidFindBy(id = "com.ximalaya.ting.android.main.application:id/main_tv_search")
+    @AndroidFindBy(id = "com.ximalaya.ting.android1.main.application:id/main_tv_search")
     public MobileElement searchBar; //搜索框
 
     @AndroidFindBy(id = "com.ximalaya.ting.android.main.application:id/main_search_button")

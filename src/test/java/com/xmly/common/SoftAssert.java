@@ -32,7 +32,7 @@ public class SoftAssert extends Assertion {
         }
     }
 
-    public void assertAll(AppiumDriver driver, String fileName) {
+    public void assertAll(String fileName) {
         if (!m_errors.isEmpty()) {
             StringBuilder sb = new StringBuilder("The following asserts failed:");
             boolean first = true;
@@ -44,7 +44,7 @@ public class SoftAssert extends Assertion {
                 }
                 sb.append("\n\t");
                 sb.append(ae.getKey().getMessage());
-                SnapshotAndLog.snapshotByAppium(driver, fileName);
+                SnapshotAndLog.snapshotByAppium(fileName);
             }
             throw new AssertionError(sb.toString());
         }

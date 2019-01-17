@@ -19,6 +19,6 @@ public abstract class Call extends CaseHelper {
         anchorRoomIndexPage.callBtn.click();
         assertHelper.assertTrue(
                 DriverHelper.getText(callPage.onCallNum).equals("连麦未开启"),
-                "判断打开连麦时默认关闭", driver, "连麦默认关闭");
+                "判断打开连麦时默认关闭", "连麦默认关闭");
     }
 }

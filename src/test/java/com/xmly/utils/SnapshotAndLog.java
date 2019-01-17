@@ -1,6 +1,8 @@
 package com.xmly.utils;
 
+import com.xmly.cases.BaseCase;
 import com.xmly.common.ActionHelper;
+import com.xmly.driver.BaseDriver;
 import io.appium.java_client.AppiumDriver;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
@@ -19,7 +21,8 @@ import static com.xmly.utils.FilesInit.resultPath;
  */
 public class SnapshotAndLog {
 
-    public static void snapshotByAppium(AppiumDriver driver, String filename) {
+    public static void snapshotByAppium(String filename) {
+        AppiumDriver driver = BaseDriver.getDriver();
         File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         try {
             System.out.println("save snapshot path is:" + resultPath + "/"
