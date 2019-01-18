@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Android直播">
+    <listeners>
+        <listener class-name="com.xmly.listener.reportlistener.ExtentTestNGIReporterListener"/>
+        <listener class-name="com.xmly.listener.testnglistener.RetryListener"/>
+        <listener class-name="com.xmly.listener.testnglistener.ScreenShotListener"/>
+    </listeners>
 
     <parameter name="osDriver" value="1"/>
 
