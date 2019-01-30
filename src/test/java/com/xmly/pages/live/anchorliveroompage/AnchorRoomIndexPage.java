@@ -72,9 +72,15 @@ public class AnchorRoomIndexPage extends BasePage {
         endLiveBtn.click();
     }
 
-    //开启交友模式
-    public void enableFriendModel() {
+    //进入开启连麦页面
+    public void gotoCallPage(){
+        callBtn.click();
+    }
+
+    //进入开启交友模式页面
+    public void gotoFriendPage() {
         moreBtn.click();
         friendBtn.click();
     }
+
 }

@@ -16,13 +16,16 @@ public class CallPage extends AnchorRoomIndexPage {
         super(driver);
     }
 
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_defaultCallIv")
-    public MobileElement callBtn; //连麦按钮
-
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_onMicNumTv")
     public MobileElement onCallNum; //左上角连麦状态（开启状态及人数）
 
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_openCallCb")
     public MobileElement openCallSwitch; //连麦开关
+
+    //开启或者关闭连麦
+    public void switchCall(){
+        openCallSwitch.click();
+    }
+
 
 }

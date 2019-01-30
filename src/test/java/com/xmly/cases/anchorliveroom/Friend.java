@@ -16,7 +16,10 @@ public abstract class Friend extends CaseHelper {
     public static void openFriendModel() throws InterruptedException {
         friendPage = new FriendPage(driver);
         CaseHelper.createAnchorLiveRoom();
-        anchorRoomIndexPage.enableFriendModel();
-        assertHelper.assertTrue(DriverHelper.isDisplayed(friendPage.friendConfirmPopup));
+        anchorRoomIndexPage.gotoFriendPage();
+        assertHelper.assertTrue(DriverHelper.isDisplayed(friendPage.friendConfirmPopup),
+                "弹出交友模式确认弹窗","交友模式开启未弹出确认弹窗");
+
+        friendPage.enableFriend();
     }
 }

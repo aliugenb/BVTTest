@@ -27,4 +27,8 @@ public class FriendPage extends AnchorRoomIndexPage {
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_operation_desc_tv")
     public MobileElement forbbidenSeatBtn; //锁定位置按钮
 
+    //开启交友模式
+    public void  enableFriend(){
+        friendConfirmPopup.click();
+    }
 }

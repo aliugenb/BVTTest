@@ -11,7 +11,7 @@
 
     <test verbose="3" preserve-order="true" parallel="classes" thread-count="1" name="liveindex直播首页检查">
         <classes>
-            <class name="com.xmly.cases.liveindex.android.CaseCheckSearchBar"></class>
+            <!--<class name="com.xmly.cases.liveindex.android.CaseCheckSearchBar"></class>-->
             <!--<class name="com.xmly.cases.liveindex.android.CaseCheckCreateLiveRoomBtn"></class>-->
             <!--<class name="com.xmly.cases.liveindex.android.CaseCheckLiveRecord"></class>-->
             <!--<class name="com.xmly.cases.liveindex.android.CaseCheckLiveTab"></class>-->
@@ -20,7 +20,7 @@
     </test>
     <test verbose="3" preserve-order="true" parallel="classes" thread-count="1" name="anchorliveroom主播端直播间检查">
         <classes>
-            <!--<class name="com.xmly.cases.anchorliveroom.android.CaseCall"></class>-->
+            <class name="com.xmly.cases.anchorliveroom.android.CaseCall"></class>
             <!--<class name="com.xmly.cases.android.liveindex.CaseCheckLiveRecord">-->
             <!--<methods>-->
             <!--<include name="checkLiveRecord"/>-->
