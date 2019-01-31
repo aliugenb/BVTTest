@@ -60,6 +60,15 @@ public class AnchorRoomIndexPage extends BasePage {
         friendBtn.click();
     }
 
+    //话题
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"话题\")")
+    public MobileElement topicBtn;
+
+    public void gotoTopicPage(){
+        moreBtn.click();
+        topicBtn.click();
+    }
+
     //静音模式
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"开麦\")")
     public MobileElement enableMuteBtn; //开启静音
