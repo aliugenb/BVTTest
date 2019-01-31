@@ -9,7 +9,7 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
  * Author: ye.liu
  * Date: 2019/1/5
  * Time: 4:54 PM
- * 连麦功能
+ * 连麦页面
  */
 public class CallPage extends AnchorRoomIndexPage {
     public CallPage(AppiumDriver<? extends MobileElement> driver) {

@@ -65,7 +65,7 @@ public class DriverHelper {
         return null;
     }
 
-    //获取中心点击坐标
+    //获取元素中心点击坐标
     public static String getCenterCoordinates(MobileElement mobileElement) {
         try {
             if (mobileElement.isDisplayed()) {
@@ -102,6 +102,7 @@ public class DriverHelper {
         }
     }
 
+
     //点击系统按钮
     public static void pressKey(KEY keyCode) throws IOException {
         if (keyCode.equals(KEY.BACK)) {
@@ -116,5 +117,10 @@ public class DriverHelper {
         }
     }
 
+    //根据坐标点击
+    public static void clickByCoordinates(AppiumDriver driver, int x, int y) {
+        TouchAction touchAction = new TouchAction(driver).press(PointOption.point(x, y)).release();
+        touchAction.perform();
+    }
 
 }
