@@ -54,29 +54,10 @@ public class AnchorRoomIndexPage extends BasePage {
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"交友模式\")")
     public MobileElement friendBtn; //交友模式按钮
 
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_dialog_center_btn")
-    public MobileElement friendConfirmPopup; //交友模式开启确认弹窗
-
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_seat_iv")
-    public List<MobileElement> friendSeats; //交友模式位置
-
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_operation_desc_tv")
-    public MobileElement forbbidenSeatBtn; //锁定位置按钮
-
     //进入开启交友模式页面
     public void gotoFriendPage() {
         moreBtn.click();
         friendBtn.click();
-    }
-
-    //开启交友模式
-    public void enableFriend() {
-        friendConfirmPopup.click();
-    }
-
-    //获取交友模式位置数量
-    public int getFriendSeatQty() {
-        return friendSeats.size();
     }
 
     //静音模式

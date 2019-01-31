@@ -17,10 +17,22 @@ public class FriendPage extends AnchorRoomIndexPage {
         super(driver);
     }
 
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_seat_iv")
+    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_seat_name_tv")
     public List<MobileElement> friendSeats; //交友模式位置
 
-    public int getLiveSeatQty() {
+    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_dialog_center_btn")
+    public MobileElement friendConfirmPopup; //交友模式开启确认弹窗
+
+    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_operation_desc_tv")
+    public MobileElement forbbidenSeatBtn; //锁定位置按钮
+
+    //开启交友模式
+    public void enableFriend() {
+        friendConfirmPopup.click();
+    }
+
+    //获取交友模式位置数量
+    public int getFriendSeatQty() {
         return friendSeats.size();
     }
 }
