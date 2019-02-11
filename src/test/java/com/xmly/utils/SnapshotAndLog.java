@@ -1,6 +1,5 @@
 package com.xmly.utils;
 
-import com.xmly.cases.BaseCase;
 import com.xmly.common.ActionHelper;
 import com.xmly.driver.BaseDriver;
 import io.appium.java_client.AppiumDriver;

@@ -29,6 +29,7 @@ public class AnchorRoomIndexPage extends BasePage {
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_content")
     public List<MobileElement> liveContents; //主播间消息
 
+    //判断直播间是否展示消息
     public boolean findByContent(String content) {
         if (liveContents.size() == 0) {
             return false;
