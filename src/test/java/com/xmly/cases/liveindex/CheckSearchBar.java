@@ -21,10 +21,10 @@ public abstract class CheckSearchBar extends CaseHelper {
         CaseHelper.gotoLiveIndex();
         assertHelper.assertTrue(
                 DriverHelper.isDisplayed(liveIndexPage.searchBar),
-                "判断首页存在搜索框", "CaseCheckSearchBar搜索框不存在");
+                "判断首页存在搜索框", "CheckSearchBar搜索框不存在");
         liveIndexPage.gotoSearchPage();
         assertHelper.assertTrue(
                 DriverHelper.isDisplayed(liveIndexPage.searchBtn),
-                "判断当前在搜索页", "CaseCheckSearchBar未跳转搜索页");
+                "判断当前在搜索页", "CheckSearchBar未跳转搜索页");
     }
 }

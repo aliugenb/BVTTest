@@ -10,6 +10,7 @@ import io.appium.java_client.touch.offset.PointOption;
  * Author: ye.liu
  * Date: 2019-01-31
  * Time: 14:33
+ * 主播端静音功能
  */
 public abstract class Mute extends CaseHelper {
 
@@ -17,19 +18,19 @@ public abstract class Mute extends CaseHelper {
         CaseHelper.createAnchorLiveRoom();
         anchorRoomIndexPage.enableMute();
         assertHelper.assertTrue(DriverHelper.isDisplayed(anchorRoomIndexPage.disableMuteBtn),
-                "判断开启静音模式按钮文案变成静音", "按钮文案未变成静音");
+                "判断开启静音模式按钮文案变成静音", "Mute开启静音模式后按钮文案未变成静音");
 
         int width = driver.manage().window().getSize().width;
         int height = driver.manage().window().getSize().height;
         DriverHelper.clickByCoordinates(driver, 2 / width, 2 / height);
         assertHelper.assertTrue(DriverHelper.isDisplayed(anchorRoomIndexPage.micOffIcon),
-                "判断开启静音模式出现静音icon", "未出现静音icon");
+                "判断开启静音模式出现静音icon", "Mute开启静音模式未出现静音icon");
 
         anchorRoomIndexPage.disableMute();
         assertHelper.assertTrue(DriverHelper.isDisplayed(anchorRoomIndexPage.enableMuteBtn),
-                "判断关闭静音模式按钮文案变成开麦", "按钮文案未变成开麦");
+                "判断关闭静音模式按钮文案变成开麦", "Mute关闭静音模式按钮文案未变成开麦");
         DriverHelper.clickByCoordinates(driver, 2 / width, 2 / height);
         assertHelper.assertTrue(!DriverHelper.isDisplayed(anchorRoomIndexPage.micOffIcon),
-                "判断关闭静音模式静音icon消失", "静音icon未消失");
+                "判断关闭静音模式静音icon消失", "Mute关闭静音模式静音icon未消失");
     }
 }

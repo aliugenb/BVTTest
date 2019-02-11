@@ -11,6 +11,7 @@ import java.util.List;
  * Author: ye.liu
  * Date: 2019-01-31
  * Time: 16:53
+ * 交友模式
  */
 public class FriendPage extends AnchorRoomIndexPage {
     public FriendPage(AppiumDriver<? extends MobileElement> driver) {

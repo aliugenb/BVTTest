@@ -11,6 +11,7 @@ import java.util.concurrent.TimeUnit;
  * Author: ye.liu
  * Date: 2019-01-31
  * Time: 18:04
+ * 设置话题页面
  */
 public class TopicPage extends AnchorRoomIndexPage {
     public TopicPage(AppiumDriver<? extends MobileElement> driver) {

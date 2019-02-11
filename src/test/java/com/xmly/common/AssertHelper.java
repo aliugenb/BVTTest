@@ -15,18 +15,18 @@ import static org.testng.internal.EclipseInterface.*;
 
 public class AssertHelper extends Assert {
 
-    public static void assertTrue(boolean condition, String message, String fileName) {
+    public static void assertTrue(boolean condition, String message, String errorName) {
         if (!condition) {
-            failNotEquals(condition, Boolean.TRUE, message, fileName);
+            failNotEquals(condition, Boolean.TRUE, message, errorName);
         }
     }
 
-    static private void failNotEquals(Object actual, Object expected, String message, String fileName) {
-        fail(format(actual, expected, message), fileName);
+    static private void failNotEquals(Object actual, Object expected, String message, String errorName) {
+        fail(format(actual, expected, message), errorName);
     }
 
-    static public void fail(String message, String fileName) {
-        SnapshotAndLog.snapshotByAppium(fileName);
+    static public void fail(String message, String errorName) {
+        SnapshotAndLog.snapshotByAppium(errorName);
         throw new AssertionError(message);
     }
 

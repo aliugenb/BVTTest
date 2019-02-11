@@ -27,7 +27,24 @@ public class AnchorRoomIndexPage extends BasePage {
     public MobileElement cancelShareBtn; //取消分享
 
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_content")
-    public MobileElement content; //主播间消息
+    public List<MobileElement> liveContents; //主播间消息
+
+    public boolean findByContent(String content) {
+        if (liveContents.size() == 0) {
+            return false;
+        } else if (liveContents.size() == 1) {
+            if (liveContents.get(0).getText().contains(content)) {
+                return true;
+            }
+        } else {
+            for (MobileElement liveContent : liveContents) {
+                if (liveContent.getText().contains(content)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_ll_more")
     public MobileElement moreBtn; //更多按钮
@@ -62,11 +79,28 @@ public class AnchorRoomIndexPage extends BasePage {
 
     //话题
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"话题\")")
-    public MobileElement topicBtn;
+    public MobileElement topicBtn; //话题按钮
 
-    public void gotoTopicPage(){
+    public void gotoTopicPage() {
         moreBtn.click();
         topicBtn.click();
+    }
+
+    //发言
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"发言\")")
+    public MobileElement speakBtn; //发言按钮
+
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/comment_body")
+    public MobileElement commentBody; //发言输入框
+
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/send_comment")
+    public MobileElement sendBtn; //发言发送按钮
+
+    public void speakByContent(String content) {
+        moreBtn.click();
+        speakBtn.click();
+        commentBody.sendKeys(content);
+        sendBtn.click();
     }
 
     //静音模式
