@@ -1,6 +1,7 @@
 package com.xmly.driver.android;
 
 import com.xmly.listener.appiumlistener.ElementListener;
+import com.xmly.utils.DeviceInit;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
@@ -8,6 +9,7 @@ import io.appium.java_client.events.EventFiringWebDriverFactory;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
@@ -29,6 +31,15 @@ public class AndroidBaseDriver {
         AndroidDeviceInfo deviceInfo = new AndroidDeviceInfo();
         String deviceName = deviceInfo.getDeviceName();
         String platformVersion = deviceInfo.getOsVersion();
+        String productModel = deviceInfo.getProductModel();
+
+        try {
+            new DeviceInit().installApp(productModel);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         //设置自动化相关参数
         DesiredCapabilities capabilities = new DesiredCapabilities();

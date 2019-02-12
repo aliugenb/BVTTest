@@ -17,6 +17,7 @@ import java.util.List;
 
 public class ActionHelper {
 
+
     // 检查当前页面最上层的activity是否在指定packageName
     public static boolean checkPackage(String packageName) throws IOException {
         String command = "adb shell \"dumpsys activity | grep \"mFocusedActivity\"\"";
@@ -110,11 +111,11 @@ public class ActionHelper {
         Process proc = runtime.exec(cmd);
 
         try {
-            if (proc.waitFor() != 0) {
-                System.err.println("exit value = " + proc.exitValue());
-            }
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+//            if (proc.waitFor() != 0) {
+//                System.err.println("exit value = " + proc.exitValue());
+//            }
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
         } finally {
             proc.destroy();
         }

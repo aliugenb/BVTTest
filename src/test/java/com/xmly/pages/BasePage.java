@@ -1,5 +1,6 @@
 package com.xmly.pages;
 
+import com.xmly.common.DriverHelper;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -40,6 +41,9 @@ public class BasePage {
     @AndroidFindBy(id = "com.ximalaya.ting.android:id/host_close_firework")
     private MobileElement interstitial; //首页弹窗广告关闭按钮
 
+    @AndroidFindBy(id = "com.android.packageinstaller:id/permission_allow_button")
+    public MobileElement permissionAllowBtn; //首页权限按钮
+
 
     public void enter(String HomePage) {
         switch (HomePage) {
@@ -65,4 +69,9 @@ public class BasePage {
         }
     }
 
+    public void allowPermission() {
+        if (DriverHelper.isDisplayed(permissionAllowBtn)) {
+            permissionAllowBtn.click();
+        }
+    }
 }

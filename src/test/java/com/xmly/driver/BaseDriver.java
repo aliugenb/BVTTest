@@ -3,8 +3,10 @@ package com.xmly.driver;
 import com.xmly.cases.BaseCase;
 import com.xmly.common.MyException;
 import com.xmly.driver.android.AndroidBaseDriver;
+import com.xmly.driver.android.AndroidDeviceInfo;
 import com.xmly.driver.ios.IosBaseDriver;
 import com.xmly.utils.AppiumServer;
+import com.xmly.utils.DeviceInit;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 
