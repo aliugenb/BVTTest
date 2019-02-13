@@ -2,7 +2,6 @@ package com.xmly.cases.liveindex.android;
 
 import com.xmly.cases.CaseHelper;
 import com.xmly.common.DriverHelper;
-import com.xmly.common.MyException;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
@@ -17,7 +16,7 @@ import java.io.IOException;
 
 public class CaseCheckSearchBar extends CaseHelper {
     @Test
-    public static void checkSearchBar() throws InterruptedException, IOException, MyException {
+    public static void checkSearchBar() {
         CaseHelper.gotoLiveIndex();
         assertHelper.assertTrue(
                 DriverHelper.isDisplayed(liveIndexPage.searchBar),

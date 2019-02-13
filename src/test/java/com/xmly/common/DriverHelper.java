@@ -1,21 +1,14 @@
 package com.xmly.common;
 
-import com.xmly.driver.AppiumDriverWait;
-import com.xmly.driver.ExpectedConditionForAppium;
+import com.xmly.utils.CommonUtil;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
-import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.touch.offset.PointOption;
-import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebElement;
 
 import java.io.IOException;
 import java.util.Date;
-
-import static com.xmly.common.ActionHelper.execCmd;
-import static com.xmly.common.ActionHelper.formatMin;
 
 /**
  * Created with IntelliJ IDEA.
@@ -86,7 +79,7 @@ public class DriverHelper {
         int width = driver.manage().window().getSize().width;
         int height = driver.manage().window().getSize().height;
         long s = (new Date()).getTime();
-        while ((new Date()).getTime() - s < formatMin(time)) {
+        while ((new Date()).getTime() - s < CommonUtil.formatMin(time)) {
             for (int i1 = 0; i1 <= 8; i1++) {
                 TouchAction action = new TouchAction(driver).press(PointOption.point(width / 2, height * 5 / 7))
                         .waitAction().moveTo(PointOption.point(width / 2, height * 2 / 7)).release();
@@ -99,21 +92,6 @@ public class DriverHelper {
                 action1.perform();
                 Thread.sleep(1000);
             }
-        }
-    }
-
-
-    //点击系统按钮
-    public static void pressKey(KEY keyCode) throws IOException {
-        if (keyCode.equals(KEY.BACK)) {
-            //点击返回键
-            execCmd("adb shell input keyevent 4");
-        } else if (keyCode.equals(KEY.ENTER)) {
-            //点击ENTER键
-            execCmd("adb shell input keyevent 66");
-        } else if (keyCode.equals(KEY.HOME)) {
-            //点击HOME键
-            execCmd("adb shell input keyevent 3");
         }
     }
 

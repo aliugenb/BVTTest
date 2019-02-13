@@ -1,6 +1,7 @@
 package com.xmly.pages;
 
 import com.xmly.common.ActionHelper;
+import com.xmly.utils.CommonUtil;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -40,9 +41,9 @@ public class LoginPage extends BasePage {
         moreLoginBtn.click();
         loginByPwdBtn.click();
         userNameInput.sendKeys(userName);
-        ActionHelper.sleep(3000);
+        CommonUtil.sleep(3000);
         passwdInput.sendKeys(passwd);
-        ActionHelper.sleep(2000);
+        CommonUtil.sleep(2000);
         loginBtn.click();
     }
 

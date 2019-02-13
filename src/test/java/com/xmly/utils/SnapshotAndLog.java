@@ -47,22 +47,22 @@ public class SnapshotAndLog {
         String savePath = resultPath + "/" + fileName + ".png";
         String screenshotCmd = "adb shell /system/bin/screencap -p /sdcard/screenshot.png";
         String pullCmd = "adb pull /sdcard/screenshot.png " + savePath;
-        ActionHelper.execCmd(screenshotCmd);
-        ActionHelper.sleep(3000);
+        CommonUtil.execCmd(screenshotCmd);
+        CommonUtil.sleep(3000);
         System.out.println(pullCmd);
-        ActionHelper.execCmd(pullCmd);
+        CommonUtil.execCmd(pullCmd);
     }
 
     public static void logByAdb(String name) throws IOException {
         String path = resultPath + "/" + name + ".txt";
         String logCmd = "adb logcat -d -v time > " + path;
         System.out.println(logCmd);
-        ActionHelper.execCmd(logCmd);
+        CommonUtil.execCmd(logCmd);
     }
 
     public static void clearAndroidLog() throws IOException {
         String clearCmd = "adb logcat -c";
-        ActionHelper.execCmd(clearCmd);
+        CommonUtil.execCmd(clearCmd);
     }
 
     public static void logByAppium(String fileName) throws FileNotFoundException {

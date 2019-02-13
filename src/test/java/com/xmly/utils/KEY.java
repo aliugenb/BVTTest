@@ -1,4 +1,4 @@
-package com.xmly.common;
+package com.xmly.utils;
 
 /**
  * Created with IntelliJ IDEA.
