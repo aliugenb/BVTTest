@@ -34,7 +34,7 @@ public class BaseCase {
 
     @Parameters({"osDriver"})
     @BeforeClass
-    public static void setUp(int osDriver) throws MyException, IOException {
+    public static void setUp(int osDriver) throws MyException, IOException, InterruptedException {
         BaseDriver.setDriver(osDriver);
         driver = BaseDriver.getDriver();
         assertHelper = new AssertHelper();

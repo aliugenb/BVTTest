@@ -1,7 +1,6 @@
 package com.xmly.driver.android;
 
 import com.xmly.listener.appiumlistener.ElementListener;
-import com.xmly.utils.DeviceInit;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
@@ -9,7 +8,6 @@ import io.appium.java_client.events.EventFiringWebDriverFactory;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
@@ -45,8 +43,9 @@ public class AndroidBaseDriver {
         //设置安卓系统版本
         capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, platformVersion);
         //设置apk路径
-        capabilities.setCapability(MobileCapabilityType.APP, apkPath);
 
+        capabilities.setCapability(MobileCapabilityType.APP, apkPath);
+        capabilities.setCapability("autoGrantPermissions", true);
 
         //设置新的命令等待时长（应该用不到，设置1h）
         capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, "60");
