@@ -44,6 +44,15 @@ public class BasePage {
     @AndroidFindBy(id = "com.android.packageinstaller:id/permission_allow_button")
     public MobileElement permissionAllowBtn; //首页权限按钮
 
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"喜马拉雅权限管理\")")
+    public MobileElement permissionManager; //首页权限管理
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"确定\")")
+    public MobileElement allowBtn; //权限点击按钮
+
+    @AndroidFindBy(id="com.ximalaya.ting.android:id/host_dialog_update_cancel_iv")
+    public MobileElement updateBtn; //升级取消弹窗按钮
+
 
     public void enter(String HomePage) {
         switch (HomePage) {

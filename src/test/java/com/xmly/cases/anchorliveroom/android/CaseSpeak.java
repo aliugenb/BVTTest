@@ -1,6 +1,6 @@
 package com.xmly.cases.anchorliveroom.android;
 
-import com.xmly.cases.anchorliveroom.Speak;
+import com.xmly.cases.CaseHelper;
 import org.testng.annotations.Test;
 
 /**
@@ -9,10 +9,15 @@ import org.testng.annotations.Test;
  * Date: 2019-02-11
  * Time: 14:52
  */
-public class CaseSpeak extends Speak {
+public class CaseSpeak extends CaseHelper {
 
     @Test
     public static void checkSpeak() throws InterruptedException {
-        Speak.checkSpeak();
+        String content = "大家好";
+
+        CaseHelper.createAnchorLiveRoom();
+        anchorRoomIndexPage.speakByContent(content);
+        assertHelper.assertTrue(anchorRoomIndexPage.findByContent(content),
+                "发言后显示发送内容", "Speak没有展示发言内容");
     }
 }

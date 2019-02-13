@@ -1,6 +1,7 @@
 package com.xmly.cases.liveindex.android;
 
-import com.xmly.cases.liveindex.CheckSearchBar;
+import com.xmly.cases.CaseHelper;
+import com.xmly.common.DriverHelper;
 import com.xmly.common.MyException;
 import org.testng.annotations.Test;
 
@@ -14,9 +15,16 @@ import java.io.IOException;
  * case编号：LiveIndex_01
  */
 
-public class CaseCheckSearchBar extends CheckSearchBar {
+public class CaseCheckSearchBar extends CaseHelper {
     @Test
     public static void checkSearchBar() throws InterruptedException, IOException, MyException {
-        CheckSearchBar.checkSearchBar();
+        CaseHelper.gotoLiveIndex();
+        assertHelper.assertTrue(
+                DriverHelper.isDisplayed(liveIndexPage.searchBar),
+                "判断首页存在搜索框", "CheckSearchBar搜索框不存在");
+        liveIndexPage.gotoSearchPage();
+        assertHelper.assertTrue(
+                DriverHelper.isDisplayed(liveIndexPage.searchBtn),
+                "判断当前在搜索页", "CheckSearchBar未跳转搜索页");
     }
 }

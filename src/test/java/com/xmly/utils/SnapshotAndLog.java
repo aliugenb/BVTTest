@@ -6,9 +6,15 @@ import io.appium.java_client.AppiumDriver;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.logging.LogEntries;
+import org.openqa.selenium.logging.LogEntry;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.List;
+import java.util.logging.Level;
 
 import static com.xmly.utils.FilesInit.resultPath;
 
@@ -20,8 +26,9 @@ import static com.xmly.utils.FilesInit.resultPath;
  */
 public class SnapshotAndLog {
 
+    static AppiumDriver driver = BaseDriver.getDriver();
+
     public static void snapshotByAppium(String filename) {
-        AppiumDriver driver = BaseDriver.getDriver();
         File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         try {
             System.out.println("save snapshot path is:" + resultPath + "/"
@@ -51,5 +58,20 @@ public class SnapshotAndLog {
         String logCmd = "adb logcat -d -v time > " + path;
         System.out.println(logCmd);
         ActionHelper.execCmd(logCmd);
+    }
+
+    public static void logByAppium(String fileName) throws FileNotFoundException {
+//        LogEntries logEntries = driver.manage().logs().get("driver");
+        List<LogEntry> logEntries = driver.manage().logs().get("logcat").filter(Level.ALL);
+        File logFile = new File(resultPath + File.separator + fileName + ".txt");
+        logFile.getParentFile().mkdirs();
+
+        PrintWriter log_file_writer = new PrintWriter(logFile);
+        for (LogEntry logEntry : logEntries) {
+            if (logEntry.getMessage().contains("ximalaya")) {
+                log_file_writer.println(logEntry);
+            }
+        }
+        log_file_writer.flush();
     }
 }

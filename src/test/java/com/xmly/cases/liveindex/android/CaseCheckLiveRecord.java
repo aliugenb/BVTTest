@@ -1,6 +1,6 @@
 package com.xmly.cases.liveindex.android;
 
-import com.xmly.cases.liveindex.CheckLiveRecord;
+import com.xmly.cases.CaseHelper;
 import org.testng.annotations.Test;
 
 /**
@@ -12,9 +12,22 @@ import org.testng.annotations.Test;
  * 显示亲密度榜
  */
 
-public class CaseCheckLiveRecord extends CheckLiveRecord{
+public class CaseCheckLiveRecord extends CaseHelper{
     @Test
     public static void checkLiveRecord() throws InterruptedException {
-        CheckLiveRecord.checkLiveRecord();
+        CaseHelper.gotoLiveIndex();
+        String recordText = liveIndexPage.gotoAnchorRankPage();
+        System.out.println(recordText);
+//        AnchorRankPage anchorRankPage = new AnchorRankPage(driver);
+//        System.out.println(anchorRankPage.intimacyRank.getLocation());
+//        assertHelper.assertTrue(liveIndexPage.liveRecord.isDisplayed());
+//        Set<String> contexts = driver.getContextHandles();
+//        for (String context: contexts){
+//            if (context.toLowerCase().contains("webview")){
+//                driver.context(context);
+//                break;
+//            }
+//        }
+//        System.out.println(driver.findElementByClassName("tab-progress-track").getLocation());
     }
 }

@@ -1,7 +1,11 @@
 package com.xmly.cases.liveindex.android;
 
-import com.xmly.cases.liveindex.CheckLiveRoom;
+import com.xmly.cases.CaseHelper;
+import com.xmly.common.DriverHelper;
+import com.xmly.utils.SnapshotAndLog;
 import org.testng.annotations.Test;
+
+import java.io.FileNotFoundException;
 
 /**
  * Created with IntelliJ IDEA.
@@ -12,9 +16,10 @@ import org.testng.annotations.Test;
  * 显示直播间
  */
 
-public class CaseCheckLiveRoom extends CheckLiveRoom {
+public class CaseCheckLiveRoom extends CaseHelper {
     @Test
-    public static void checkLiveRecord() {
-        CheckLiveRoom.checkLiveRoom();
+    public static void checkLiveRoom() throws FileNotFoundException {
+        CaseHelper.gotoLiveIndex();
+        assertHelper.assertTrue(DriverHelper.isDisplayed(liveIndexPage.liveRoom));
     }
 }

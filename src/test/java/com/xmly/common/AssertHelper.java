@@ -4,6 +4,8 @@ import com.xmly.utils.SnapshotAndLog;
 import io.appium.java_client.AppiumDriver;
 import org.testng.Assert;
 
+import java.io.FileNotFoundException;
+
 import static org.testng.internal.EclipseInterface.*;
 
 /**
@@ -27,6 +29,11 @@ public class AssertHelper extends Assert {
 
     static public void fail(String message, String errorName) {
         SnapshotAndLog.snapshotByAppium(errorName);
+        try {
+            SnapshotAndLog.logByAppium(errorName);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
         throw new AssertionError(message);
     }
 

@@ -14,7 +14,7 @@
             <!--<class name="com.xmly.cases.liveindex.android.CaseCheckSearchBar"></class>-->
             <!--<class name="com.xmly.cases.liveindex.android.CaseCheckCreateLiveRoomBtn"></class>-->
             <!--<class name="com.xmly.cases.liveindex.android.CaseCheckLiveRecord"></class>-->
-            <!--<class name="com.xmly.cases.liveindex.android.CaseCheckLiveTab"></class>-->
+            <class name="com.xmly.cases.liveindex.android.CaseCheckLiveTab"></class>
             <!--<class name="com.xmly.cases.liveindex.android.CaseCheckLiveRoom"></class>-->
         </classes>
     </test>
@@ -28,7 +28,7 @@
             <!--</class>-->
             <!--<class name="com.xmly.cases.anchorliveroom.android.CaseMute"></class>-->
             <!--<class name="com.xmly.cases.anchorliveroom.android.CaseTopic"></class>-->
-            <class name="com.xmly.cases.anchorliveroom.android.CaseSpeak"></class>
+            <!--<class name="com.xmly.cases.anchorliveroom.android.CaseSpeak"></class>-->
         </classes>
     </test>
 </suite>

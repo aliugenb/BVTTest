@@ -28,7 +28,7 @@ public class FilesInit {
 
     }
 
-    private static String formatDate() {
+    private String formatDate() {
         Date now = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss");
         return dateFormat.format(now);

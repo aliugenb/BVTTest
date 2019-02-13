@@ -33,14 +33,6 @@ public class AndroidBaseDriver {
         String platformVersion = deviceInfo.getOsVersion();
         String productModel = deviceInfo.getProductModel();
 
-        try {
-            new DeviceInit().installApp(productModel);
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
         //设置自动化相关参数
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability(MobileCapabilityType.NO_RESET, true);

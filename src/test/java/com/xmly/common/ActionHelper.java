@@ -111,11 +111,11 @@ public class ActionHelper {
         Process proc = runtime.exec(cmd);
 
         try {
-//            if (proc.waitFor() != 0) {
-//                System.err.println("exit value = " + proc.exitValue());
-//            }
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
+            if (proc.waitFor() != 0) {
+                System.err.println("exit value = " + proc.exitValue());
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         } finally {
             proc.destroy();
         }

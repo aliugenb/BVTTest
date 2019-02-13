@@ -86,8 +86,8 @@ public class DeviceInit {
         ActionHelper.execCmd("adb shell input tap " + x + " " + y);
     }
 
-    public static void main(String[] args) throws IOException, InterruptedException {
-        new DeviceInit().installApp("RNE-AL00");
-//        new DeviceInit().tapByCoordinates(528, 1283);
-    }
+//    public static void main(String[] args) throws IOException, InterruptedException {
+//        new DeviceInit().installApp("RNE-AL00");
+////        new DeviceInit().tapByCoordinates(528, 1283);
+//    }
 }
