@@ -8,5 +8,6 @@ package com.xmly.common;
  */
 
 public class Status {
+    //判断app是否已安装
     public static volatile boolean isInstall = false;
 }

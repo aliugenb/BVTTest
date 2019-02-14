@@ -1,12 +1,10 @@
 package com.xmly.utils;
 
-import com.xmly.common.ActionHelper;
 import com.xmly.driver.BaseDriver;
 import io.appium.java_client.AppiumDriver;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.logging.LogEntries;
 import org.openqa.selenium.logging.LogEntry;
 
 import java.io.File;

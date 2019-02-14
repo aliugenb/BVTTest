@@ -1,6 +1,5 @@
 package com.xmly.pages;
 
-import com.xmly.common.ActionHelper;
 import com.xmly.utils.CommonUtil;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;

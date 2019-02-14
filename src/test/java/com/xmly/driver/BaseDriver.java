@@ -1,6 +1,5 @@
 package com.xmly.driver;
 
-import com.xmly.common.ActionHelper;
 import com.xmly.common.MyException;
 import com.xmly.common.Status;
 import com.xmly.driver.android.AndroidBaseDriver;
@@ -12,9 +11,6 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 
 import java.io.IOException;
-import java.util.concurrent.TimeUnit;
-
-import static com.xmly.utils.FilesInit.apkPath;
 
 /**
  * Created with IntelliJ IDEA.

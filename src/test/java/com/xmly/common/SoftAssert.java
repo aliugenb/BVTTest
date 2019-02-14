@@ -1,7 +1,6 @@
 package com.xmly.common;
 
 import com.xmly.utils.SnapshotAndLog;
-import io.appium.java_client.AppiumDriver;
 import org.testng.asserts.Assertion;
 import org.testng.asserts.IAssert;
 import org.testng.collections.Maps;

@@ -1,6 +1,5 @@
 package com.xmly.cases;
 
-import com.xmly.cases.BaseCase;
 import org.openqa.selenium.NoSuchElementException;
 
 import java.util.concurrent.TimeUnit;
@@ -11,22 +10,30 @@ import java.util.concurrent.TimeUnit;
  * Date: 2019/1/5
  * Time: 4:07 PM
  */
+
 public class CaseHelper extends BaseCase {
 
-    //跳转直播首页
+    /*
+    跳转直播首页
+     */
     public static void gotoLiveIndex() {
         basePage.allowPermission();
+        basePage.closeUpdatePop();
         basePage.closeInterstitial();
         basePage.enter(basePage.LiveHomePage);
         liveIndexPage.endLive();
     }
 
-    //跳转发现页
+    /*
+    跳转发现页
+     */
     public static void gotoFindIndex() {
         basePage.enter(basePage.FindHomePage);
     }
 
-    //直播首页创建直播间
+    /*
+    直播首页创建直播间
+     */
     public static void createAnchorLiveRoom() throws InterruptedException {
         gotoLiveIndex();
         basePage.closeInterstitial();

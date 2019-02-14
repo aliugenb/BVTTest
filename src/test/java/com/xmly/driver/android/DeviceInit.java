@@ -19,12 +19,12 @@ import static com.xmly.utils.FilesInit.apkPath;
  */
 
 public class DeviceInit {
-    public static void installApp(String productModel) throws IOException, InterruptedException {
+    public static void installApp(String productModel) {
         String installCmd = "adb install " + apkPath;
         String uninstallCmd = "adb uninstall com.ximalaya.ting.android";
         if (isAppInstalled()) {
             CommonUtil.execCmd(uninstallCmd);
-            TimeUnit.SECONDS.sleep(20);
+            CommonUtil.sleep(20);
         }
 
         AdbInstall adbInstall = new AdbInstall(installCmd);
@@ -32,81 +32,59 @@ public class DeviceInit {
         adbInstall.start();
         clickAcceptInstall.start();
 
-        TimeUnit.SECONDS.sleep(20);
-        if (isAppInstalled()) {
-            System.out.println("App安装成功");
-            Status.isInstall = true;
-            return;
+        while (true) {
+            if (isAppInstalled()) {
+                System.out.println("App安装成功");
+                Status.isInstall = true;
+                return;
+            }
+            CommonUtil.sleep(3);
         }
     }
 
-    private static boolean isAppInstalled() throws IOException {
+    private static boolean isAppInstalled() {
         String packageCmd = "adb shell pm list package | grep \"ximalaya\"";
-
-        Runtime runtime = Runtime.getRuntime();
-        Process proc = runtime.exec(packageCmd);
-        try {
-            if (proc.waitFor() != 0) {
-                System.err.println("exit value = " + proc.exitValue());
-            }
-            BufferedReader in = new BufferedReader(new InputStreamReader(
-                    proc.getInputStream()));
-            StringBuffer stringBuffer = new StringBuffer();
-            String line = null;
-            while ((line = in.readLine()) != null) {
-                stringBuffer.append(line + " ");
-            }
-            String str = stringBuffer.toString().trim();
-            if (str != null) {
-                System.out.println(str);
-                return true;
-            }
-        } catch (InterruptedException e) {
-            System.err.println(e);
-        } finally {
-            try {
-                proc.destroy();
-            } catch (Exception e1) {
-                System.err.print(e1);
-                throw e1;
-            }
+        String result = CommonUtil.execCmd(packageCmd);
+        System.out.println(result);
+//        if (result != null) {
+        if (result.contains("ximalaya")) {
+            return true;
         }
         return false;
     }
-}
 
-class AdbInstall extends Thread {
-    public String cmd;
+    private static class AdbInstall extends Thread {
+        public String cmd;
 
-    public AdbInstall(String cmd) {
-        this.cmd = cmd;
-    }
+        public AdbInstall(String cmd) {
+            this.cmd = cmd;
+        }
 
-    public void run() {
-        CommonUtil.execCmd(cmd);
-    }
-}
-
-class ClickAcceptInstall extends Thread {
-    public String productModel;
-
-    public ClickAcceptInstall(String productModel) {
-        this.productModel = productModel;
-    }
-
-    public void run() {
-        if (productModel.equals("RNE-AL00")) {
-            System.out.println("=========");
-            CommonUtil.sleep(6);
-            AdbUtil.tapByCoordinates(528, 1283);
-            CommonUtil.sleep(6);
-            AdbUtil.tapByCoordinates(356, 1204);
-        } else {
-            return;
+        public void run() {
+            CommonUtil.execCmd(cmd);
         }
     }
-}
 
-class AppInstallStatus {
+    private static class ClickAcceptInstall extends Thread {
+        public String productModel;
 
+        public ClickAcceptInstall(String productModel) {
+            this.productModel = productModel;
+        }
+
+        public void run() {
+            if (productModel.equals("RNE-AL00")) {
+                CommonUtil.sleep(6);
+                AdbUtil.tapByCoordinates(528, 1283);
+                CommonUtil.sleep(6);
+                AdbUtil.tapByCoordinates(356, 1204);
+            } else {
+                return;
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        DeviceInit.installApp("RNE-AL00");
+    }
 }

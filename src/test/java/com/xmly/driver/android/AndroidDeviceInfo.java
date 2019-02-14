@@ -1,5 +1,7 @@
 package com.xmly.driver.android;
 
+import com.xmly.utils.CommonUtil;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.regex.Matcher;
@@ -31,37 +33,37 @@ public class AndroidDeviceInfo {
     }
 
     public AndroidDeviceInfo() {
-        String version = GetInfo("adb shell getprop ro.build.version.release");
-        String deviceName = GetInfo("adb devices");
-        String productModel = GetInfo("adb shell getprop ro.product.model");
+        String version = CommonUtil.execCmd("adb shell getprop ro.build.version.release");
+        String deviceName = CommonUtil.execCmd("adb devices");
+        String productModel = CommonUtil.execCmd("adb shell getprop ro.product.model");
         Pattern r = Pattern.compile("attached(.*)device");
         Matcher m = r.matcher(deviceName);
-        this.OsVersion = version.trim();
+        this.OsVersion = version;
         if (m.find()) {
             this.DeviceName = m.group(1).trim();
         }
         this.ProductModel = productModel.trim();
     }
 
-    private static String GetInfo(String cmd) {
-        Runtime run = Runtime.getRuntime();
-        String info = null;
-        try {
-            Process process = run.exec(cmd);
-            BufferedReader in = new BufferedReader(new InputStreamReader(
-                    process.getInputStream()));
-            StringBuffer stringBuffer = new StringBuffer();
-            String line = null;
-            while ((line = in.readLine()) != null) {
-                stringBuffer.append(line + " ");
-            }
-            info = stringBuffer.toString();
-            in.close();
-            process.waitFor();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return info;
-    }
+//    private static String GetInfo(String cmd) {
+//        Runtime run = Runtime.getRuntime();
+//        String info = null;
+//        try {
+//            Process process = run.exec(cmd);
+//            BufferedReader in = new BufferedReader(new InputStreamReader(
+//                    process.getInputStream()));
+//            StringBuffer stringBuffer = new StringBuffer();
+//            String line = null;
+//            while ((line = in.readLine()) != null) {
+//                stringBuffer.append(line + " ");
+//            }
+//            info = stringBuffer.toString();
+//            in.close();
+//            process.waitFor();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        return info;
+//    }
 }
 

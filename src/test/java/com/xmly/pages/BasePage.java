@@ -38,22 +38,6 @@ public class BasePage {
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"发现\")")
     private MobileElement tabbarFindBtn;
 
-    @AndroidFindBy(id = "com.ximalaya.ting.android:id/host_close_firework")
-    private MobileElement interstitial; //首页弹窗广告关闭按钮
-
-    @AndroidFindBy(id = "com.android.packageinstaller:id/permission_allow_button")
-    public MobileElement permissionAllowBtn; //首页权限按钮
-
-    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"喜马拉雅权限管理\")")
-    public MobileElement permissionManager; //首页权限管理
-
-    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"确定\")")
-    public MobileElement allowBtn; //权限点击按钮
-
-    @AndroidFindBy(id="com.ximalaya.ting.android:id/host_dialog_update_cancel_iv")
-    public MobileElement updateBtn; //升级取消弹窗按钮
-
-
     public void enter(String HomePage) {
         switch (HomePage) {
             case "LiveIndex":
@@ -68,6 +52,13 @@ public class BasePage {
         }
     }
 
+    //首页弹窗广告关闭按钮
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/host_close_firework")
+    private MobileElement interstitial;
+
+    /*
+    关闭首页广告弹层
+     */
     public void closeInterstitial() {
         try {
             if (interstitial.isDisplayed()) {
@@ -78,9 +69,28 @@ public class BasePage {
         }
     }
 
+    //首页权限按钮
+    @AndroidFindBy(id = "com.android.packageinstaller:id/permission_allow_button")
+    public MobileElement permissionAllowBtn;
+
+    /*
+    关闭权限弹窗
+     */
     public void allowPermission() {
         if (DriverHelper.isDisplayed(permissionAllowBtn)) {
             permissionAllowBtn.click();
+        }
+    }
+
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/host_dialog_update_cancel_iv")
+    public MobileElement updateBtn; //升级取消弹窗按钮
+    
+    /*
+    关闭首页升级弹层
+     */
+    public void closeUpdatePop() {
+        if (DriverHelper.isDisplayed(updateBtn)) {
+            updateBtn.click();
         }
     }
 }
