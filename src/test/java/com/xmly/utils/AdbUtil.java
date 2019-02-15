@@ -39,9 +39,23 @@ public class AdbUtil {
         }
     }
 
+    /*
+     *获取当前最顶层页面的activity
+     */
+    public static String getFocusedActivity() throws IOException {
+        String command = "adb shell \"dumpsys activity | grep \"mFocusedActivity\"\"";
+        if (System.getProperty("os.name").equals("Mac OS X")) {
+            command = "adb shell dumpsys activity | grep \"mFocusedActivity\"";
+        }
+        String focusedActivity = null;
+        focusedActivity = CommonUtil.execCmd(command);
+        return focusedActivity;
+    }
+
     //获取非appium的输入法
     public static String getInputMethod() throws IOException, MyException {
         String inputMethod = null;
+        String appiumInputMethod = "io.appium.settings/.UnicodeIME";
         List<String> inputMethods = new ArrayList<>();
         Runtime runtime = Runtime.getRuntime();
         Process proc = runtime.exec("adb shell ime list -s");
@@ -56,12 +70,12 @@ public class AdbUtil {
                 inputMethods.add(line.toString().trim());
             }
 
-            if (inputMethods.size() == 1 && inputMethods.indexOf("io.appium.android.ime/.UnicodeIME") == 0) {
+            if (inputMethods.size() == 1 && inputMethods.indexOf(appiumInputMethod) == 0) {
                 throw new MyException("请安装其他三方输入法");
             } else {
-                if (inputMethods.indexOf("io.appium.android.ime/.UnicodeIME") > 0) {
+                if (inputMethods.indexOf(appiumInputMethod) > 0) {
                     inputMethod = inputMethods.get(0);
-                } else if (inputMethods.indexOf("io.appium.android.ime/.UnicodeIME") == 0) {
+                } else if (inputMethods.indexOf(appiumInputMethod) == 0) {
                     inputMethod = inputMethods.get(1);
                 } else {
                     throw new MyException("没有安装appium输入法");

@@ -64,20 +64,4 @@ public class CommonUtil {
             e.printStackTrace();
         }
     }
-
-    /*
-    检查当前最顶层页面的activity
-     */
-    public static boolean checkFocusedActivity(String activityName) throws IOException {
-        String command = "adb shell \"dumpsys activity | grep \"mFocusedActivity\"\"";
-        if (System.getProperty("os.name").equals("Mac OS X")) {
-            command = "adb shell dumpsys activity | grep \"mFocusedActivity\"";
-        }
-        String focusedActivity = null;
-        focusedActivity = CommonUtil.execCmd(command);
-        if (focusedActivity.indexOf("packageName") != -1) {
-            return true;
-        }
-        return false;
-    }
 }

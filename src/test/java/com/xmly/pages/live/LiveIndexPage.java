@@ -23,8 +23,14 @@ public class LiveIndexPage extends BasePage {
         super(driver);
     }
 
+    //搜索框
     @AndroidFindBy(id = "com.ximalaya.ting.android.main.application:id/main_tv_search")
-    public MobileElement searchBar; //搜索框
+    public MobileElement searchBar;
+
+    //跳转搜索页
+    public void gotoSearchPage() {
+        searchBar.click();
+    }
 
     @AndroidFindBy(id = "com.ximalaya.ting.android.main.application:id/main_search_button")
     public MobileElement searchBtn; //搜索页的搜索按钮
@@ -32,42 +38,21 @@ public class LiveIndexPage extends BasePage {
     @AndroidFindBy(id = "com.ximalaya.ting.android.main.application:id/main_tv_search_bar_action")
     public MobileElement createLiveRoomBtn; //我要直播按钮
 
-
-    //    @AndroidFindAll({
-//            @AndroidBy(uiAutomator = "new UiSelector().text(\"亲度周榜\")"),
-//            @AndroidBy(uiAutomator = "new UiSelector().text(\"小时榜\")"),
-//            @AndroidBy(uiAutomator = "new UiSelector().text(\"周榜\")"),
-//            @AndroidBy(uiAutomator = "new UiSelector().text(\"日周榜\")"),})
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_home_anchor_rank_tv")
-    public MobileElement liveRecord; //主播排行榜
-
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_tab_layout")
-    public List<MobileElement> liveTabs; //分类tab
-
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_item_record_cover")
-    public MobileElement liveRoom; //直播间
-
-    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"结束直播\")")
-    public MobileElement cancelLiveBtn; //直播未正常关闭时弹出提醒弹层
-
-    public int getLiveTabQty() {
-        return liveTabs.size();
-    }
-
     //跳转创建直播间页面
     public void gotoCreateLiveRoomPage() {
         createLiveRoomBtn.click();
     }
 
-    //首页进入直播间
-    public void gotoUserLiveRoomPage() {
-        liveRoom.click();
-    }
-
-    //跳转搜索页
-    public void gotoSearchPage() {
-        searchBar.click();
-    }
+    /*
+    @AndroidFindAll({
+            @AndroidBy(uiAutomator = "new UiSelector().text(\"亲度周榜\")"),
+            @AndroidBy(uiAutomator = "new UiSelector().text(\"小时榜\")"),
+            @AndroidBy(uiAutomator = "new UiSelector().text(\"周榜\")"),
+            @AndroidBy(uiAutomator = "new UiSelector().text(\"日周榜\")"),})
+    */
+    //主播排行榜
+    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_home_anchor_rank_tv")
+    public MobileElement liveRecord;
 
     //跳转榜单页
     public String gotoAnchorRankPage() {
@@ -78,6 +63,29 @@ public class LiveIndexPage extends BasePage {
         return text;
     }
 
+    //分类tab
+    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_tab_layout")
+    public List<MobileElement> liveTabs;
+
+    public int getLiveTabQty() {
+        return liveTabs.size();
+    }
+
+    //直播间
+    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_item_record_cover")
+    public MobileElement liveRoom;
+
+    /*
+     *首页进入直播间
+     */
+    public void gotoUserLiveRoomPage() {
+        liveRoom.click();
+    }
+
+    //直播未正常关闭时弹出提醒弹层
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"结束直播\")")
+    public MobileElement cancelLiveBtn;
+
     //关闭直播未正常关闭时首页弹出的提醒弹层
     public void endLive() {
         if (DriverHelper.isDisplayed(cancelLiveBtn)) {
@@ -85,4 +93,17 @@ public class LiveIndexPage extends BasePage {
         }
     }
 
+    //首页直播动态入口
+    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_dynamic_count_tv")
+    public MobileElement liveDynamicBtn;
+
+    //点击直播动态，并且获取当前文案
+    public String gotoLiveDynamicPage() {
+        String liveDynamicText = null;
+        if (liveDynamicBtn.isDisplayed()) {
+            liveDynamicText = liveDynamicBtn.getText();
+            liveDynamicBtn.click();
+        }
+        return liveDynamicText;
+    }
 }

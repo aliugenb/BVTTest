@@ -6,6 +6,7 @@ import com.xmly.driver.BaseDriver;
 import com.xmly.pages.BasePage;
 import com.xmly.pages.LoginPage;
 import com.xmly.pages.live.CreateLiveRoomPage;
+import com.xmly.pages.live.LiveDynamicPage;
 import com.xmly.pages.live.LiveIndexPage;
 import com.xmly.pages.live.anchorliveroompage.AnchorRoomIndexPage;
 import io.appium.java_client.AppiumDriver;
@@ -29,6 +30,7 @@ public class BaseCase {
     protected static LiveIndexPage liveIndexPage;
     protected static CreateLiveRoomPage createLiveRoomPage;
     protected static AnchorRoomIndexPage anchorRoomIndexPage;
+    protected static LiveDynamicPage liveDynamicPage;
 
     protected static AssertHelper assertHelper;
 
@@ -44,6 +46,7 @@ public class BaseCase {
         liveIndexPage = new LiveIndexPage(driver);
         createLiveRoomPage = new CreateLiveRoomPage(driver);
         anchorRoomIndexPage = new AnchorRoomIndexPage(driver);
+        liveDynamicPage = new LiveDynamicPage(driver);
     }
 
     @AfterClass

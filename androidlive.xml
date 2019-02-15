@@ -11,11 +11,13 @@
 
     <test verbose="3" preserve-order="true" parallel="classes" name="liveindex直播首页检查">
         <classes>
-            <class name="com.xmly.cases.liveindex.android.CaseCheckSearchBar"></class>
-            <!--<class name="com.xmly.cases.liveindex.android.CaseCheckCreateLiveRoomBtn"></class>-->
+            <!--<class name="com.xmly.cases.liveindex.android.CaseCheckSearchBar"></class>-->
+            <class name="com.xmly.cases.liveindex.android.CaseCheckCreateLiveRoomBtn"></class>
             <!--<class name="com.xmly.cases.liveindex.android.CaseCheckLiveRecord"></class>-->
             <!--<class name="com.xmly.cases.liveindex.android.CaseCheckLiveTab"></class>-->
             <!--<class name="com.xmly.cases.liveindex.android.CaseCheckLiveRoom"></class>-->
+            <!--<class name="com.xmly.cases.liveindex.android.CaseLiveDynamicUnlogin"></class>-->
+            <!--<class name="com.xmly.cases.liveindex.android.CaseLiveDynamicLogin"></class>-->
         </classes>
     </test>
     <test verbose="3" preserve-order="true" parallel="classes" name="anchorliveroom主播端直播间检查">

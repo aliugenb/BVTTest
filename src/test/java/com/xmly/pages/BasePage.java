@@ -1,6 +1,7 @@
 package com.xmly.pages;
 
 import com.xmly.common.DriverHelper;
+import com.xmly.utils.CommonUtil;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -84,7 +85,7 @@ public class BasePage {
 
     @AndroidFindBy(id = "com.ximalaya.ting.android:id/host_dialog_update_cancel_iv")
     public MobileElement updateBtn; //升级取消弹窗按钮
-    
+
     /*
     关闭首页升级弹层
      */

@@ -36,23 +36,23 @@ public class LoginPage extends BasePage {
     @AndroidFindBy(id = "com.ximalaya.ting.android.main.application:id/main_login")
     public MobileElement loginBtn;
 
-    private void login(String userName, String passwd) throws InterruptedException {
+    private void login(String userName, String passwd) {
         moreLoginBtn.click();
         loginByPwdBtn.click();
         userNameInput.sendKeys(userName);
-        CommonUtil.sleep(3000);
+        CommonUtil.sleep(6000);
         passwdInput.sendKeys(passwd);
-        CommonUtil.sleep(2000);
+        CommonUtil.sleep(5000);
         loginBtn.click();
     }
 
     //线上账号登录
-    public void onlineLogin() throws InterruptedException {
+    public void onlineLogin() {
         login(onlineUsername, passwd);
     }
 
     //测试账号登录
-    public void testLogin() throws InterruptedException {
+    public void testLogin() {
         login(testUsername, passwd);
 
     }
