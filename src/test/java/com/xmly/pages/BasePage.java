@@ -4,6 +4,7 @@ import com.xmly.common.DriverHelper;
 import com.xmly.utils.CommonUtil;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.pagefactory.AndroidBy;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.NoSuchElementException;
@@ -51,6 +52,22 @@ public class BasePage {
                 homePageLiveTab.click();
                 break;
         }
+    }
+
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/tab_myspace")
+    public MobileElement mySpaceBtn;
+
+    /*
+    判断当前是否登录
+     */
+    public boolean isLogin() {
+        if (mySpaceBtn.isDisplayed()) {
+            String btnText = mySpaceBtn.getText();
+            if (btnText.contains("未登录")) {
+                return true;
+            }
+        }
+        return false;
     }
 
     //首页弹窗广告关闭按钮

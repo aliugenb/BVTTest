@@ -14,12 +14,19 @@ import java.util.concurrent.TimeUnit;
 public class CaseHelper extends BaseCase {
 
     /*
-    跳转直播首页
+    处理app首页弹窗
      */
-    public static void gotoLiveIndex() {
+    public static void appIndexInit() {
         basePage.allowPermission();
         basePage.closeUpdatePop();
         basePage.closeInterstitial();
+    }
+
+    /*
+    跳转直播首页
+     */
+    public static void gotoLiveIndex() {
+        appIndexInit();
         basePage.enter(basePage.LiveHomePage);
         liveIndexPage.endLive();
     }
@@ -28,15 +35,14 @@ public class CaseHelper extends BaseCase {
     跳转发现页
      */
     public static void gotoFindIndex() {
+        appIndexInit();
         basePage.enter(basePage.FindHomePage);
     }
 
     /*
-    直播首页创建直播间
+    通过点击直播首页我要直播按钮登录
      */
-    public static void createAnchorLiveRoom() throws InterruptedException {
-        gotoLiveIndex();
-        basePage.closeInterstitial();
+    public static void login() {
         liveIndexPage.gotoCreateLiveRoomPage();
         try {
             if (loginPage.moreLoginBtn.isDisplayed()) {
@@ -46,6 +52,14 @@ public class CaseHelper extends BaseCase {
         } catch (NoSuchElementException e) {
             System.out.println("登录成功");
         }
+    }
+
+    /*
+    直播首页创建直播间
+     */
+    public static void createAnchorLiveRoom() throws InterruptedException {
+        gotoLiveIndex();
+        login();
         createLiveRoomPage.beginLiveBtn.click();
         TimeUnit.SECONDS.sleep(8);
         anchorRoomIndexPage.cancelShareBtn.click();

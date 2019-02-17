@@ -25,7 +25,7 @@ public class AndroidBaseDriver {
 
     private AppiumDriver<? extends MobileElement> driver;
 
-    public AndroidBaseDriver(String deviceName, String platformVersion){
+    public AndroidBaseDriver(String deviceName, String platformVersion) {
 //        AndroidDeviceInfo deviceInfo = new AndroidDeviceInfo();
 //        String deviceName = deviceInfo.getDeviceName();
 //        String platformVersion = deviceInfo.getOsVersion();
@@ -45,7 +45,7 @@ public class AndroidBaseDriver {
         //设置apk路径
 
         capabilities.setCapability(MobileCapabilityType.APP, apkPath);
-        capabilities.setCapability("autoGrantPermissions", true);
+//        capabilities.setCapability("autoGrantPermissions", true);
 
         //设置新的命令等待时长（应该用不到，设置1h）
         capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, "60");

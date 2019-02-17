@@ -92,4 +92,12 @@ public class AdbUtil {
         }
         return inputMethod;
     }
+
+    public static void setInputMethod(String inputMethod) {
+        String cmd = "adb shell ime set " + inputMethod;
+        String result = CommonUtil.execCmd(cmd);
+        if (result.contains("selected")) {
+            System.out.println("输入法切换成功");
+        }
+    }
 }
