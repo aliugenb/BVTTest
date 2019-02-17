@@ -35,53 +35,29 @@ public class LoginPage extends BasePage {
     @AndroidFindBy(id = "com.ximalaya.ting.android.main.application:id/main_username")
     public MobileElement userNameInput;
 
-    @AndroidFindBy(className = "android.widget.EditText")
-    public List<MobileElement> inputEditText;
-
     @AndroidFindBy(id = "com.ximalaya.ting.android.main.application:id/main_password")
     public MobileElement passwdInput;
 
     @AndroidFindBy(id = "com.ximalaya.ting.android.main.application:id/main_login")
     public MobileElement loginBtn;
 
-    @AndroidFindBy(id = "com.ximalaya.ting.android.main.application:id/main_psw_status_switch")
-    public MobileElement passwdStatusSwitch;
-
-    private void login(String userName, String passwd) throws IOException, MyException {
+    private void login(String userName, String passwd) {
         moreLoginBtn.click();
         loginByPwdBtn.click();
-        System.out.println("开始输入");
-//        userNameInput.sendKeys(userName);
-        inputEditText.get(0).sendKeys(userName);
-        System.out.println("输入账号");
-        CommonUtil.sleep(6000);
-        System.out.println("=================");
-        inputEditText.get(1).sendKeys(passwd);
-//        passwdInput.sendKeys(passwd);
-        CommonUtil.sleep(5000);
+        userNameInput.sendKeys(userName);
+        CommonUtil.sleep(6);
+        passwdInput.sendKeys(passwd);
+        CommonUtil.sleep(6);
         loginBtn.click();
     }
 
     //线上账号登录
     public void onlineLogin() {
-        try {
-            login(onlineUsername, passwd);
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (MyException e) {
-            e.printStackTrace();
-        }
+        login(onlineUsername, passwd);
     }
 
     //测试账号登录
     public void testLogin() {
-        try {
-            login(testUsername, passwd);
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (MyException e) {
-            e.printStackTrace();
-        }
-
+        login(testUsername, passwd);
     }
 }

@@ -22,7 +22,7 @@ public class CaseCheckCreateLiveRoomBtn extends CaseHelper {
         CaseHelper.gotoLiveIndex();
         assertHelper.assertTrue(
                 DriverHelper.isDisplayed(liveIndexPage.createLiveRoomBtn),
-                "判断首页存在我要直播按钮", "CheckCreateLiveRoomBtn搜索框不存在");
+                "判断首页存在我要直播按钮", "CheckCreateLiveRoomBtn我要直播按钮不存在");
 
         liveIndexPage.gotoCreateLiveRoomPage();
         try {
