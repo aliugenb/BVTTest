@@ -1,6 +1,8 @@
 package com.xmly.pages.live;
 
 import com.xmly.pages.BasePage;
+import com.xmly.utils.AdbUtil;
+import com.xmly.utils.KEY;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -18,10 +20,23 @@ public class CreateLiveRoomPage extends BasePage {
         super(driver);
     }
 
-    @AndroidFindBy(id="com.ximalaya.ting.android.live.application:id/live_bottom_right_tv")
+    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_bottom_right_tv")
     public MobileElement beginLiveBtn; //开始直播按钮
 
-    @AndroidFindBy(id="com.ximalaya.ting.android.live.application:id/live_bottom_left_tv")
+    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_bottom_left_tv")
     public MobileElement previewLiveBtn; //创建预告按钮
 
+    //确认取消创建按钮
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/ok_btn")
+    public MobileElement cancelBtn;
+
+    /*
+     * Description:Android取消创建直播间
+     * Param []
+     * return void
+     **/
+    public void cancelCreate() {
+        AdbUtil.pressKey(KEY.BACK);
+        cancelBtn.click();
+    }
 }

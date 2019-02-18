@@ -15,24 +15,25 @@ import io.appium.java_client.touch.offset.PointOption;
  */
 
 public class Swipe {
-    // 下滑
+
+    // 上滑
     public static void SwipeUp(AppiumDriver driver) {
         Dimension size = driver.manage().window().getSize();
         int height = size.height;
         int width = size.width;
-        new TouchAction(driver).longPress(PointOption.point(width / 2, 100))
-                .moveTo(PointOption.point(width / 2, height - 100)).release()
-                .perform();
+        new TouchAction(driver)
+                .longPress(PointOption.point(width / 2, height * 5 / 7))
+                .moveTo(PointOption.point(width / 2, height * 2 / 7)).release().perform();
     }
 
-    // 上滑
+    // 下滑
     public static void SwipeDown(AppiumDriver driver) {
         Dimension size = driver.manage().window().getSize();
         int height = size.height;
         int width = size.width;
-        new TouchAction(driver)
-                .longPress(PointOption.point(width / 2, height - 100))
-                .moveTo(PointOption.point(width / 2, 100)).release().perform();
+        new TouchAction(driver).longPress(PointOption.point(width / 2, height * 2 / 7))
+                .moveTo(PointOption.point(width / 2, height * 5 / 7)).release()
+                .perform();
     }
 
     // 左滑

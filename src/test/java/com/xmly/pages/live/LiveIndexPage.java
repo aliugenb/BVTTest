@@ -2,7 +2,6 @@ package com.xmly.pages.live;
 
 import com.xmly.common.DriverHelper;
 import com.xmly.common.Swipe;
-import com.xmly.driver.Driver;
 import com.xmly.pages.BasePage;
 import com.xmly.pages.live.userliveroompage.RoomType;
 import io.appium.java_client.AppiumDriver;
@@ -15,11 +14,10 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created with IntelliJ IDEA.
+ * ClassName: LiveIndexPage
  * Author: ye.liu
- * Date: 2018/11/8
- * Time: 11:09 AM
- * 直播Tab首页
+ * Date: 2018/11/8 11:09
+ * Description: 直播Tab首页
  */
 
 public class LiveIndexPage extends BasePage {
@@ -84,10 +82,10 @@ public class LiveIndexPage extends BasePage {
     public List<MobileElement> liveRoomMarkList;
 
     /*
-     * @首页进入不同类型直播间
-     * @roomType为空时，进入任意直播间
-     * @首页滑动3次
-     */
+     * Description:根据roomType跳转不同类型的直播间
+     * Param [roomType] 房间类型，为空时默认打开第一个
+     * return void
+     **/
     public void gotoUserLiveRoomByType(String roomType) {
         if (roomType == null || roomType.equals("")) {
             liveRoom.click();
@@ -101,13 +99,18 @@ public class LiveIndexPage extends BasePage {
                         return;
                     }
                 }
-                Swipe.SwipeDown(driver);
+                Swipe.SwipeUp(driver);
                 start++;
             }
             throw new NoSuchElementException("无这种类型的直播间");
         }
     }
 
+    /*
+     * Description:获取当前页面的直播间
+     * Param []
+     * return java.util.Map<java.lang.String,io.appium.java_client.MobileElement>
+     **/
     private Map<String, MobileElement> getLiveRoomList() {
         Map<String, MobileElement> liveRoomList = new HashMap<>();
         for (MobileElement liveRoom : liveRoomMarkList) {
@@ -116,7 +119,7 @@ public class LiveIndexPage extends BasePage {
             if (roomMark.contains("PK")) {
                 roomType = RoomType.PK;
             } else if (roomMark.contains("交友")) {
-                roomType = RoomType.Friend;
+                roomType = RoomType.FRIEND;
             } else {
                 roomType = RoomType.COMMON;
             }
@@ -143,9 +146,7 @@ public class LiveIndexPage extends BasePage {
         }
     }
 
-    /*
-    跳转搜索页
-     */
+    //跳转搜索页
     public void gotoSearchPage() {
         searchBar.click();
     }
@@ -154,7 +155,11 @@ public class LiveIndexPage extends BasePage {
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_dynamic_count_tv")
     public MobileElement liveDynamicBtn;
 
-    //点击直播动态，并且获取当前文案
+    /*
+     * Description:跳转直播动态页面
+     * Param []
+     * return java.lang.String 直播动态入口文案
+     **/
     public String gotoLiveDynamicPage() {
         String liveDynamicText = null;
         if (liveDynamicBtn.isDisplayed()) {

@@ -1,6 +1,10 @@
 package com.xmly.cases;
 
+import com.xmly.common.DriverHelper;
+import com.xmly.common.MyException;
+import com.xmly.utils.CommonUtil;
 import org.openqa.selenium.NoSuchElementException;
+import org.testng.Reporter;
 import org.testng.log4testng.Logger;
 
 import java.util.concurrent.TimeUnit;
@@ -45,13 +49,20 @@ public class CaseHelper extends BaseCase {
      */
     public static void login() {
         liveIndexPage.gotoCreateLiveRoomPage();
+        CommonUtil.sleep(2);
+
         try {
             if (loginPage.moreLoginBtn.isDisplayed()) {
                 loginPage.onlineLogin();
             }
-            liveIndexPage.gotoCreateLiveRoomPage();
         } catch (NoSuchElementException e) {
-            System.out.println("登录成功");
+            if (createLiveRoomPage.beginLiveBtn.isDisplayed()) {
+                createLiveRoomPage.cancelCreate();
+            }
+        } finally {
+            if (liveIndexPage.createLiveRoomBtn.isDisplayed()) {
+                Reporter.log("登录成功");
+            }
         }
     }
 
@@ -61,6 +72,7 @@ public class CaseHelper extends BaseCase {
     public static void createAnchorLiveRoom() throws InterruptedException {
         gotoLiveIndex();
         login();
+        liveIndexPage.gotoCreateLiveRoomPage();
         createLiveRoomPage.beginLiveBtn.click();
         TimeUnit.SECONDS.sleep(8);
         anchorRoomIndexPage.cancelShareBtn.click();

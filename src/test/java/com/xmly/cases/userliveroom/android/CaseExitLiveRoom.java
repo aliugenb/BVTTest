@@ -10,16 +10,17 @@ import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Created with IntelliJ IDEA.
+ * ClassName: CaseExitLiveRoom
  * Author: ye.liu
- * Date: 2019-02-18
- * Time: 17:33
+ * Date: 2019-02-18 17:33
+ * Description:
  */
 
 public class CaseExitLiveRoom extends CaseHelper {
     @Test
     public static void exitLessTenMin() throws InterruptedException {
-        CaseHelper.gotoLiveIndex();
+        gotoLiveIndex();
+        login();
         liveIndexPage.gotoUserLiveRoomByType("");
         TimeUnit.MINUTES.sleep(1);
         userRoomIndexPage.exitLiveRoom(1);
@@ -29,7 +30,8 @@ public class CaseExitLiveRoom extends CaseHelper {
 
     @Test
     public static void exitMoreTenMin() throws InterruptedException {
-        CaseHelper.gotoLiveIndex();
+        gotoLiveIndex();
+        login();
         //进入未关注过主播的直播间
         while (true) {
             liveIndexPage.gotoUserLiveRoomByType("");
@@ -48,6 +50,6 @@ public class CaseExitLiveRoom extends CaseHelper {
         liveIndexPage.gotoUserLiveRoomByBar();
         assertHelper.assertTrue(userRoomIndexPage.isFollow(),
                 "关注主播成功", "CaseExitLiveRoom关注主播失败");
-        Reporter.log("退出直播间时关注主播成功");
+        Reporter.log("退出直播间同时时关注主播成功");
     }
 }

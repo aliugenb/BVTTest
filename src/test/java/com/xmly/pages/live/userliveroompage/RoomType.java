@@ -9,6 +9,6 @@ package com.xmly.pages.live.userliveroompage;
  */
 public interface RoomType {
     String PK = "pk";
-    String Friend = "friend";
+    String FRIEND = "friend";
     String COMMON = "common";
 }
