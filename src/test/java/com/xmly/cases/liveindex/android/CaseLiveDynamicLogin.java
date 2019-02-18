@@ -1,7 +1,12 @@
 package com.xmly.cases.liveindex.android;
 
+import com.aventstack.extentreports.ExtentReports;
 import com.xmly.cases.CaseHelper;
+import org.testng.Reporter;
 import org.testng.annotations.Test;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created with IntelliJ IDEA.
@@ -15,10 +20,23 @@ public class CaseLiveDynamicLogin extends CaseHelper {
         CaseHelper.gotoLiveIndex();
         String text = liveIndexPage.gotoLiveDynamicPage();
         int onlineNum = 0;
-        if (text.indexOf("已关注") != 1) {
-            onlineNum = Integer.parseInt(text.substring(text.indexOf("注"), text.length() - 1));
+        if (text.indexOf("已关注") != -1) {
+            onlineNum = getQty(text);
             assertHelper.assertTrue(onlineNum == liveDynamicPage.getOnlineAnchorQty(),
                     "首页显示的在线数量与直播动态内一致", "CaseLiveDynamicLogin首页显示在线数量与直播动态内不一致");
         }
+        Reporter.log("测试完成");
+    }
+
+    private static int getQty(String str) {
+        int qty = 0;
+        String regEx = "[^0-9]";
+        Pattern p = Pattern.compile(regEx);
+        Matcher m = p.matcher(str);
+        if (m.find()) {
+            String num = m.replaceAll("").trim();
+            qty = Integer.parseInt(num);
+        }
+        return qty;
     }
 }

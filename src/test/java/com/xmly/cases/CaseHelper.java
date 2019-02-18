@@ -1,6 +1,7 @@
 package com.xmly.cases;
 
 import org.openqa.selenium.NoSuchElementException;
+import org.testng.log4testng.Logger;
 
 import java.util.concurrent.TimeUnit;
 

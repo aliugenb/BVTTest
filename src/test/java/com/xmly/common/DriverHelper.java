@@ -74,7 +74,7 @@ public class DriverHelper {
         return null;
     }
 
-    //根据设定时长滑动页面
+    //根据设定时长上下滑动页面
     public static void swipUpAndDownByTime(AppiumDriver driver, int time) throws InterruptedException, IOException, MyException {
         int width = driver.manage().window().getSize().width;
         int height = driver.manage().window().getSize().height;
