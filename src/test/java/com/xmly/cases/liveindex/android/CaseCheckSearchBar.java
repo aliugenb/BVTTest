@@ -15,7 +15,7 @@ import java.io.IOException;
  */
 
 public class CaseCheckSearchBar extends CaseHelper {
-    @Test
+    @Test(description = "首页存在搜索框")
     public static void checkSearchBar() {
         CaseHelper.gotoLiveIndex();
         assertHelper.assertTrue(

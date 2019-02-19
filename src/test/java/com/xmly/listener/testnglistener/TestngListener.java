@@ -1,14 +1,12 @@
 package com.xmly.listener.testnglistener;
 
-import org.testng.TestListenerAdapter;
+import com.xmly.utils.SnapshotAndLog;
+import org.testng.*;
 
 import java.util.*;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.testng.ITestContext;
-import org.testng.ITestListener;
-import org.testng.ITestResult;
 
 /**
  * Created with IntelliJ IDEA.
@@ -64,9 +62,11 @@ public class TestngListener extends TestListenerAdapter {
     }
 
     public void onTestSuccess(ITestResult result) {
+        SnapshotAndLog.snapshotByAppium("TestSuccess");
     }
 
     public void onTestFailure(ITestResult result) {
+
     }
 
     public void onTestSkipped(ITestResult result) {
@@ -77,18 +77,4 @@ public class TestngListener extends TestListenerAdapter {
 
     public void onStart(ITestContext context) {
     }
-
-//    private void takeScreenShot(ITestResult result) {
-//        AndroidDriver driver = Action.getDriver();
-//        File location = new File("Screenshots");
-//        Date now = new Date();
-//        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss");
-//        String screenShotName = location.getAbsolutePath() + File.separator + result.getMethod().getMethodName() + "-" + dateFormat.format(now) + ".png";
-//        File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-//        try {
-//            FileUtils.copyFile(scrFile, new File(screenShotName));
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//}
 }

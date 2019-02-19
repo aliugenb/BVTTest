@@ -12,6 +12,7 @@ import com.aventstack.extentreports.reporter.configuration.Theme;
 import org.testng.*;
 import org.testng.xml.XmlSuite;
 
+import java.io.IOException;
 import java.util.*;
 
 //import com.aventstack.extentreports.reporter.configuration.ChartLocation;
@@ -23,16 +24,16 @@ import java.util.*;
  * Time: 下午4:49
  */
 
-public class ExtentTestNGIReporterListener extends ExtentReport implements IReporter {
-//    //生成的路径以及文件名
-//    private static final String OUTPUT_FOLDER = "result/";
-//    private static final String FILE_NAME = "testNGReport.html";
-//
-//    private ExtentReports extent;
+public class ExtentTestNGIReporterListener implements IReporter {
+    //生成的路径以及文件名
+    private static final String OUTPUT_FOLDER = "result/";
+    private static final String FILE_NAME = "testNGReport.html";
+
+    private ExtentReports extent;
 
     @Override
     public void generateReport(List<XmlSuite> xmlSuites, List<ISuite> suites, String outputDirectory) {
-//        init();
+        init();
         boolean createSuiteNode = false;
         if (suites.size() > 1) {
             createSuiteNode = true;
@@ -48,7 +49,7 @@ public class ExtentTestNGIReporterListener extends ExtentReport implements IRepo
             int suitePassSize = 0;
             int suiteSkipSize = 0;
             ExtentTest suiteTest = null;
-            //存在多个suite的情况下，在报告中将同一个一个suite的测试结果归为一类，创建一级节点。
+            //存在多个suite的情况下，在报告中将同一个suite的测试结果归为一类，创建一级节点。
             if (createSuiteNode) {
                 suiteTest = extent.createTest(suite.getName()).assignCategory(suite.getName());
             }
@@ -57,12 +58,15 @@ public class ExtentTestNGIReporterListener extends ExtentReport implements IRepo
                 createSuiteResultNode = true;
             }
             for (ISuiteResult r : result.values()) {
-                ExtentTest resultNode;
+                ExtentTest resultNode = null;
                 ITestContext context = r.getTestContext();
+
                 if (createSuiteResultNode) {
                     //没有创建suite的情况下，将在SuiteResult的创建为一级节点，否则创建为suite的一个子节点。
                     if (null == suiteTest) {
-                        resultNode = extent.createTest(r.getTestContext().getName());
+                        if (r.getTestContext().getCurrentXmlTest().getXmlClasses().size() > 0) {
+                            resultNode = extent.createTest(r.getTestContext().getName());
+                        }
                     } else {
                         resultNode = suiteTest.createNode(r.getTestContext().getName());
                     }
@@ -102,31 +106,30 @@ public class ExtentTestNGIReporterListener extends ExtentReport implements IRepo
             }
 
         }
-//        for (String s : Reporter.getOutput()) {
-//            extent.setTestRunnerOutput(s);
-//        }
+        for (String s : Reporter.getOutput()) {
+            extent.setTestRunnerOutput(s);
+        }
 
         extent.flush();
     }
 
-//    private void init() {
-//        ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter(OUTPUT_FOLDER + FILE_NAME);
-//        // 设置静态文件的DNS
-//        //怎么样解决cdn.rawgit.com访问不了的情况
-//        htmlReporter.config().setResourceCDN(ResourceCDN.EXTENTREPORTS);
-//
-//        htmlReporter.config().setDocumentTitle("自动化测试报告");
-//        htmlReporter.config().setReportName("自动化测试报告");
-//        htmlReporter.config().setChartVisibilityOnOpen(true);
-//        htmlReporter.config().setTestViewChartLocation(ChartLocation.TOP);
-//        htmlReporter.config().setTheme(Theme.STANDARD);
-//
-//        htmlReporter.config().setCSS(".node.level-1  ul{ display:none;} .node.level-1.active ul{display:block;}");
-//        htmlReporter.config().setProtocol(Protocol.HTTP);
-//        extent = new ExtentReports();
-//        extent.attachReporter(htmlReporter);
-//        extent.setReportUsesManualConfiguration(true);
-//    }
+    private void init() {
+        ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter(OUTPUT_FOLDER + FILE_NAME);
+        // 设置静态文件的DNS
+        htmlReporter.config().setResourceCDN(ResourceCDN.EXTENTREPORTS);
+
+        htmlReporter.config().setDocumentTitle("自动化测试报告");
+        htmlReporter.config().setReportName("自动化测试报告");
+        htmlReporter.config().setChartVisibilityOnOpen(true);
+        htmlReporter.config().setTestViewChartLocation(ChartLocation.TOP);
+        htmlReporter.config().setTheme(Theme.STANDARD);
+
+        htmlReporter.config().setCSS(".node.level-1  ul{ display:none;} .node.level-1.active ul{display:block;}");
+        htmlReporter.config().setProtocol(Protocol.HTTP);
+        extent = new ExtentReports();
+        extent.attachReporter(htmlReporter);
+        extent.setReportUsesManualConfiguration(true);
+    }
 
     private void buildTestNodes(ExtentTest extenttest, IResultMap tests, Status status) {
         //存在父节点时，获取父节点的标签
@@ -162,7 +165,7 @@ public class ExtentTestNGIReporterListener extends ExtentReport implements IRepo
                         name = name.substring(0, 49) + "...";
                     }
                 } else {
-                    name = result.getMethod().getMethodName();
+                    name = result.getMethod().getMethodName() + result.getMethod().getDescription();
                 }
                 if (extenttest == null) {
                     test = extent.createTest(name);
@@ -178,7 +181,16 @@ public class ExtentTestNGIReporterListener extends ExtentReport implements IRepo
                 List<String> outputList = Reporter.getOutput(result);
                 for (String output : outputList) {
                     //将用例的log输出报告中
-                    test.debug(output);
+                    try {
+                        if (output.endsWith(".png")) {
+                            test.addScreenCaptureFromPath(output);
+                        } else {
+                            test.debug(output);
+                        }
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+//                    test.debug(output);
                 }
                 if (result.getThrowable() != null) {
                     test.log(status, result.getThrowable());

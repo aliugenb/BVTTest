@@ -13,11 +13,10 @@ import java.io.IOException;
  * Author: ye.liu
  * Date: 2018/11/27
  * Time: 23:14
- * case编号：LiveIndex_02
  */
 
 public class CaseCheckCreateLiveRoomBtn extends CaseHelper {
-    @Test
+    @Test(description = "检查直播首页存在我要直播按钮")
     public static void checkCreateLiveRoomBtn() throws InterruptedException, IOException, MyException {
         CaseHelper.gotoLiveIndex();
         assertHelper.assertTrue(

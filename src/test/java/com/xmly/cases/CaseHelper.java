@@ -22,7 +22,7 @@ public class CaseHelper extends BaseCase {
     跳转直播首页
      */
     public static void gotoLiveIndex() {
-        basePage.appIndexInit();
+//        basePage.appIndexInit();
         basePage.enter(basePage.LIVEHOMEPAGE);
         liveIndexPage.endLive();
     }

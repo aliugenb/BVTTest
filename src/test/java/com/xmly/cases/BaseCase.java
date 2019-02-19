@@ -26,7 +26,6 @@ import java.io.IOException;
 
 public class BaseCase {
     protected static AppiumDriver<? extends MobileElement> driver;
-    public static ExtentTest extentTest;
 
     protected static BasePage basePage;
     protected static LoginPage loginPage;

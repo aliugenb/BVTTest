@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
  */
 public class CaseLiveDynamicUnlogin extends CaseHelper {
 
-    @Test
+    @Test(description = "登录情况下进入直播动态")
     public static void checkUnlogin() throws InterruptedException {
         CaseHelper.gotoLiveIndex();
         liveIndexPage.gotoLiveDynamicPage();

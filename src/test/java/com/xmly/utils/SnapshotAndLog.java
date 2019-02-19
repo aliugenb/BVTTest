@@ -34,7 +34,7 @@ public class SnapshotAndLog {
             System.out.println("save snapshot path is:" + resultPath + "/"
                     + filename);
             FileUtils.copyFile(scrFile, new File(screenshotPath));
-            Reporter.log("<img src=\"../" + screenshotPath + "\"/>");
+            Reporter.log(filename + ".png");
         } catch (IOException e) {
             System.out.println("Can't save screenshot");
             e.printStackTrace();
@@ -44,7 +44,7 @@ public class SnapshotAndLog {
         }
     }
 
-    public static void snapshotByAdb(String fileName) throws IOException, InterruptedException {
+    public static void snapshotByAdb(String fileName) {
         String savePath = resultPath + "/" + fileName + ".png";
         String screenshotCmd = "adb shell /system/bin/screencap -p /sdcard/screenshot.png";
         String pullCmd = "adb pull /sdcard/screenshot.png " + savePath;

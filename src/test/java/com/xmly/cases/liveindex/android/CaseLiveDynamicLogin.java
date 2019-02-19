@@ -15,7 +15,7 @@ import java.util.regex.Pattern;
  * Time: 16:06
  */
 public class CaseLiveDynamicLogin extends CaseHelper {
-    @Test
+    @Test(description = "未登录情况下进入直播动态")
     public static void checkLogin() {
         CaseHelper.gotoLiveIndex();
         String text = liveIndexPage.gotoLiveDynamicPage();
