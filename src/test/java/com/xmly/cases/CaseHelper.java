@@ -19,20 +19,11 @@ import java.util.concurrent.TimeUnit;
 public class CaseHelper extends BaseCase {
 
     /*
-    处理app首页弹窗
-     */
-    public static void appIndexInit() {
-        basePage.allowPermission();
-        basePage.closeUpdatePop();
-        basePage.closeInterstitial();
-    }
-
-    /*
     跳转直播首页
      */
     public static void gotoLiveIndex() {
-        appIndexInit();
-        basePage.enter(basePage.LiveHomePage);
+        basePage.appIndexInit();
+        basePage.enter(basePage.LIVEHOMEPAGE);
         liveIndexPage.endLive();
     }
 
@@ -40,8 +31,8 @@ public class CaseHelper extends BaseCase {
     跳转发现页
      */
     public static void gotoFindIndex() {
-        appIndexInit();
-        basePage.enter(basePage.FindHomePage);
+        basePage.appIndexInit();
+        basePage.enter(basePage.FINDPAGE);
     }
 
     /*

@@ -23,6 +23,7 @@ public class CaseExitLiveRoom extends CaseHelper {
         login();
         liveIndexPage.gotoUserLiveRoomByType("");
         TimeUnit.MINUTES.sleep(1);
+        userRoomIndexPage.closeFirstChargePop();
         userRoomIndexPage.exitLiveRoom(1);
         assertHelper.assertTrue(DriverHelper.isDisplayed(liveIndexPage.createLiveRoomBtn),
                 "退出直播成功", "CaseExitLiveRoom退出直播间失败");
@@ -32,6 +33,7 @@ public class CaseExitLiveRoom extends CaseHelper {
     public static void exitMoreTenMin() throws InterruptedException {
         gotoLiveIndex();
         login();
+        userRoomIndexPage.closeFirstChargePop();
         //进入未关注过主播的直播间
         while (true) {
             liveIndexPage.gotoUserLiveRoomByType("");

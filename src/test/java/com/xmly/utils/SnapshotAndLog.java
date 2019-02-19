@@ -6,6 +6,7 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.logging.LogEntry;
+import org.testng.Reporter;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -29,9 +30,11 @@ public class SnapshotAndLog {
     public static void snapshotByAppium(String filename) {
         File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         try {
+            String screenshotPath = resultPath + File.separator + filename + ".png";
             System.out.println("save snapshot path is:" + resultPath + "/"
                     + filename);
-            FileUtils.copyFile(scrFile, new File(resultPath + "/" + filename + ".png"));
+            FileUtils.copyFile(scrFile, new File(screenshotPath));
+            Reporter.log("<img src=\"../" + screenshotPath + "\"/>");
         } catch (IOException e) {
             System.out.println("Can't save screenshot");
             e.printStackTrace();
@@ -46,7 +49,7 @@ public class SnapshotAndLog {
         String screenshotCmd = "adb shell /system/bin/screencap -p /sdcard/screenshot.png";
         String pullCmd = "adb pull /sdcard/screenshot.png " + savePath;
         CommonUtil.execCmd(screenshotCmd);
-        CommonUtil.sleep(3000);
+        CommonUtil.sleep(3);
         System.out.println(pullCmd);
         CommonUtil.execCmd(pullCmd);
     }

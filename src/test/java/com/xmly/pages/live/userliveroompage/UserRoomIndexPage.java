@@ -3,6 +3,7 @@ package com.xmly.pages.live.userliveroompage;
 import com.xmly.common.DriverHelper;
 import com.xmly.driver.Driver;
 import com.xmly.pages.BasePage;
+import com.xmly.utils.CommonUtil;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -43,6 +44,13 @@ public class UserRoomIndexPage extends BasePage {
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_followTv")
     public MobileElement followBtn;
 
+    //首充弹窗
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"首充\")")
+    public MobileElement firstChargePop;
+
+    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_webview_close")
+    public MobileElement closeWebviewBtn;
+
     //退出直播按钮
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_btn_close_room")
     public MobileElement closeRoomBtn;
@@ -55,6 +63,19 @@ public class UserRoomIndexPage extends BasePage {
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_close_room_follow_and_exit")
     public MobileElement exitAndFollowBtn;
 
+
+    /*
+     * @Description: 关闭首充弹窗
+     * @Param []
+     * @return void
+     **/
+    public void closeFirstChargePop() {
+        CommonUtil.sleep(70);
+        if (DriverHelper.isDisplayed(firstChargePop)) {
+            closeWebviewBtn.click();
+        }
+    }
+
     /*
     用户端退出直播间
      */
@@ -65,13 +86,6 @@ public class UserRoomIndexPage extends BasePage {
         } else {
             exitRoomBtn.click();
         }
-    }
-
-    /*
-    直播间左滑
-     */
-    public void swipToLeft() {
-
     }
 
     //是否关注了当前主播

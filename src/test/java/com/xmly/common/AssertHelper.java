@@ -2,6 +2,7 @@ package com.xmly.common;
 
 import com.xmly.utils.SnapshotAndLog;
 import org.testng.Assert;
+import org.testng.Reporter;
 
 import java.io.FileNotFoundException;
 
@@ -30,6 +31,7 @@ public class AssertHelper extends Assert {
         SnapshotAndLog.snapshotByAppium(errorName);
         try {
             SnapshotAndLog.logByAppium(errorName);
+            Reporter.log(errorName);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }

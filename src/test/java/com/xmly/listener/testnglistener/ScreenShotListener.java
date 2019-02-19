@@ -1,11 +1,10 @@
 package com.xmly.listener.testnglistener;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
 import com.xmly.common.MyException;
 import com.xmly.driver.BaseDriver;
-import com.xmly.driver.Driver;
-import com.xmly.driver.android.AndroidBaseDriver;
-import com.xmly.driver.ios.IosBaseDriver;
-import com.xmly.utils.FilesInit;
+import com.xmly.listener.reportlistener.ExtentReport;
 import io.appium.java_client.AppiumDriver;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
@@ -17,6 +16,8 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import static com.xmly.utils.FilesInit.resultPath;
 
 /**
  * Created with IntelliJ IDEA.
@@ -37,14 +38,17 @@ public class ScreenShotListener extends TestListenerAdapter {
 
     private void captureScreenShot(ITestResult result) throws MyException {
         AppiumDriver driver = BaseDriver.getDriver();
-
         Date now = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss");
-        String screenShotName = FilesInit.resultPath + File.separator +
+        String screenShotName = resultPath + File.separator +
                 result.getMethod().getMethodName() + "-" + dateFormat.format(now) + ".png";
         File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         try {
             FileUtils.copyFile(scrFile, new File(screenShotName));
+//            result.setParameters();
+            ExtentReports extent = ExtentReport.getExtent();
+            ExtentTest test = extent.createTest(result.getTestClass().getXmlTest().getName());
+            test.fail(result.getMethod().getMethodName()).addScreencastFromPath(screenShotName);
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -1,5 +1,6 @@
 package com.xmly.cases;
 
+import com.aventstack.extentreports.ExtentTest;
 import com.xmly.common.AssertHelper;
 import com.xmly.common.MyException;
 import com.xmly.driver.BaseDriver;
@@ -25,6 +26,7 @@ import java.io.IOException;
 
 public class BaseCase {
     protected static AppiumDriver<? extends MobileElement> driver;
+    public static ExtentTest extentTest;
 
     protected static BasePage basePage;
     protected static LoginPage loginPage;

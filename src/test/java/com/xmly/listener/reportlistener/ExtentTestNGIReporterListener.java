@@ -23,16 +23,16 @@ import java.util.*;
  * Time: 下午4:49
  */
 
-public class ExtentTestNGIReporterListener implements IReporter {
-    //生成的路径以及文件名
-    private static final String OUTPUT_FOLDER = "result/";
-    private static final String FILE_NAME = "testNGReport.html";
-
-    private ExtentReports extent;
+public class ExtentTestNGIReporterListener extends ExtentReport implements IReporter {
+//    //生成的路径以及文件名
+//    private static final String OUTPUT_FOLDER = "result/";
+//    private static final String FILE_NAME = "testNGReport.html";
+//
+//    private ExtentReports extent;
 
     @Override
     public void generateReport(List<XmlSuite> xmlSuites, List<ISuite> suites, String outputDirectory) {
-        init();
+//        init();
         boolean createSuiteNode = false;
         if (suites.size() > 1) {
             createSuiteNode = true;
@@ -109,24 +109,24 @@ public class ExtentTestNGIReporterListener implements IReporter {
         extent.flush();
     }
 
-    private void init() {
-        ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter(OUTPUT_FOLDER + FILE_NAME);
-        // 设置静态文件的DNS
-        //怎么样解决cdn.rawgit.com访问不了的情况
-        htmlReporter.config().setResourceCDN(ResourceCDN.EXTENTREPORTS);
-
-        htmlReporter.config().setDocumentTitle("自动化测试报告");
-        htmlReporter.config().setReportName("自动化测试报告");
-        htmlReporter.config().setChartVisibilityOnOpen(true);
-        htmlReporter.config().setTestViewChartLocation(ChartLocation.TOP);
-        htmlReporter.config().setTheme(Theme.STANDARD);
-
-        htmlReporter.config().setCSS(".node.level-1  ul{ display:none;} .node.level-1.active ul{display:block;}");
-        htmlReporter.config().setProtocol(Protocol.HTTP);
-        extent = new ExtentReports();
-        extent.attachReporter(htmlReporter);
-        extent.setReportUsesManualConfiguration(true);
-    }
+//    private void init() {
+//        ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter(OUTPUT_FOLDER + FILE_NAME);
+//        // 设置静态文件的DNS
+//        //怎么样解决cdn.rawgit.com访问不了的情况
+//        htmlReporter.config().setResourceCDN(ResourceCDN.EXTENTREPORTS);
+//
+//        htmlReporter.config().setDocumentTitle("自动化测试报告");
+//        htmlReporter.config().setReportName("自动化测试报告");
+//        htmlReporter.config().setChartVisibilityOnOpen(true);
+//        htmlReporter.config().setTestViewChartLocation(ChartLocation.TOP);
+//        htmlReporter.config().setTheme(Theme.STANDARD);
+//
+//        htmlReporter.config().setCSS(".node.level-1  ul{ display:none;} .node.level-1.active ul{display:block;}");
+//        htmlReporter.config().setProtocol(Protocol.HTTP);
+//        extent = new ExtentReports();
+//        extent.attachReporter(htmlReporter);
+//        extent.setReportUsesManualConfiguration(true);
+//    }
 
     private void buildTestNodes(ExtentTest extenttest, IResultMap tests, Status status) {
         //存在父节点时，获取父节点的标签
