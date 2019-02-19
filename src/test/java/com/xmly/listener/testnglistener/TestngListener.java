@@ -1,12 +1,23 @@
 package com.xmly.listener.testnglistener;
 
+import com.xmly.common.MyException;
+import com.xmly.driver.BaseDriver;
 import com.xmly.utils.SnapshotAndLog;
+import io.appium.java_client.AppiumDriver;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.testng.*;
 
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import static com.xmly.utils.FilesInit.resultPath;
 
 /**
  * Created with IntelliJ IDEA.
@@ -62,11 +73,11 @@ public class TestngListener extends TestListenerAdapter {
     }
 
     public void onTestSuccess(ITestResult result) {
-        SnapshotAndLog.snapshotByAppium("TestSuccess");
+        SnapshotAndLog.snapshotByAppium(result.getMethod().getMethodName() + "_Success");
     }
 
     public void onTestFailure(ITestResult result) {
-
+        SnapshotAndLog.snapshotByAppium(result.getMethod().getMethodName() + "_Failed");
     }
 
     public void onTestSkipped(ITestResult result) {
@@ -76,5 +87,21 @@ public class TestngListener extends TestListenerAdapter {
     }
 
     public void onStart(ITestContext context) {
+    }
+
+    private void captureScreenShot(ITestResult result) throws MyException {
+        AppiumDriver driver = BaseDriver.getDriver();
+        Date now = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss");
+        String screenShotName = result.getMethod().getMethodName() + "-" + dateFormat.format(now) + ".png";
+        String screenShotPath = resultPath + File.separator + screenShotName;
+        ;
+        File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        try {
+            FileUtils.copyFile(scrFile, new File(screenShotPath));
+            Reporter.log(screenShotName);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

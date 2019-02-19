@@ -190,7 +190,6 @@ public class ExtentTestNGIReporterListener implements IReporter {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-//                    test.debug(output);
                 }
                 if (result.getThrowable() != null) {
                     test.log(status, result.getThrowable());

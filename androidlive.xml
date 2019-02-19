@@ -4,7 +4,6 @@
     <listeners>
         <listener class-name="com.xmly.listener.reportlistener.ExtentTestNGIReporterListener"/>
         <listener class-name="com.xmly.listener.testnglistener.RetryListener"/>
-        <listener class-name="com.xmly.listener.testnglistener.ScreenShotListener"/>
         <listener class-name="com.xmly.listener.testnglistener.TestngListener"/>
     </listeners>
 
