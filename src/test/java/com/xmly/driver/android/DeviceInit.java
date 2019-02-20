@@ -3,6 +3,7 @@ package com.xmly.driver.android;
 import com.xmly.common.Status;
 import com.xmly.utils.AdbUtil;
 import com.xmly.utils.CommonUtil;
+import org.testng.Reporter;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -34,7 +35,7 @@ public class DeviceInit {
 
         while (true) {
             if (isAppInstalled()) {
-                System.out.println("App安装成功");
+                Reporter.log("App安装成功");
                 Status.isInstall = true;
                 return;
             }

@@ -75,7 +75,7 @@ public class DriverHelper {
     }
 
     //根据设定时长上下滑动页面
-    public static void swipUpAndDownByTime(AppiumDriver driver, int time) throws InterruptedException, IOException, MyException {
+    public static void swipUpAndDownByTime(AppiumDriver driver, int time) throws InterruptedException {
         int width = driver.manage().window().getSize().width;
         int height = driver.manage().window().getSize().height;
         long s = (new Date()).getTime();
@@ -96,9 +96,8 @@ public class DriverHelper {
     }
 
     //根据坐标点击
-    public static void clickByCoordinates(AppiumDriver driver, int x, int y) {
+    public static void pressByCoordinates(AppiumDriver driver, int x, int y) {
         TouchAction touchAction = new TouchAction(driver).press(PointOption.point(x, y)).release();
         touchAction.perform();
     }
-
 }

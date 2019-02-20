@@ -5,6 +5,7 @@ import com.xmly.common.Swipe;
 import com.xmly.driver.Driver;
 import com.xmly.pages.BasePage;
 import com.xmly.utils.CommonUtil;
+import com.xmly.utils.SnapshotAndLog;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -94,6 +95,7 @@ public class UserRoomIndexPage extends BasePage {
             Swipe.SwipeLeft(driver);
             closeRoomBtn.click();
         }
+        SnapshotAndLog.snapshotByAppium("用户端关闭直播间弹窗");
         if (min >= 10) {
             exitAndFollowBtn.click();
         } else {

@@ -3,7 +3,6 @@ package com.xmly.cases;
 import com.xmly.utils.CommonUtil;
 import org.openqa.selenium.NoSuchElementException;
 import org.testng.Reporter;
-import org.testng.log4testng.Logger;
 
 import java.util.concurrent.TimeUnit;
 

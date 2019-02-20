@@ -29,6 +29,7 @@ public class CaseExitLiveRoom extends CaseHelper {
         userRoomIndexPage.exitLiveRoom(1);
         assertHelper.assertTrue(DriverHelper.isDisplayed(liveIndexPage.createLiveRoomBtn),
                 "退出直播成功", "CaseExitLiveRoom退出直播间失败");
+        Reporter.log("退出直播间成功");
     }
 
     @Test(description = "用户进入直播间10分钟后退出")
@@ -50,7 +51,6 @@ public class CaseExitLiveRoom extends CaseHelper {
         userRoomIndexPage.exitLiveRoom(11);
         assertHelper.assertTrue(DriverHelper.isDisplayed(liveIndexPage.createLiveRoomBtn),
                 "退出直播间成功", "CaseExitLiveRoom退出直播间失败");
-        Reporter.log("退出直播间成功");
 
         liveIndexPage.gotoUserLiveRoomByBar();
         assertHelper.assertTrue(userRoomIndexPage.isFollow(),

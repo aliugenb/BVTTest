@@ -9,6 +9,7 @@ import io.appium.java_client.pagefactory.AndroidBy;
 import io.appium.java_client.pagefactory.AndroidFindAll;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.PageFactory;
 
@@ -109,21 +110,23 @@ public class BasePage {
         if (DriverHelper.isDisplayed(permissionAllowBtn)) {
             permissionAllowBtn.click();
         }
-        sleep(2);
+        sleep(5);
         //关闭新人红包或者广告弹窗
         if (DriverHelper.isDisplayed(closeInterstitialBtn)) {
             closeInterstitialBtn.click();
         }
-        sleep(2);
+        sleep(5);
         //关闭升级弹层
         if (DriverHelper.isDisplayed(updateBtn)) {
             updateBtn.click();
         }
-        sleep(2);
+        sleep(5);
         //关闭新人引导浮层
         if (DriverHelper.isDisplayed(newerTips)) {
-            sleep(3);
-            Swipe.SwipeUp(driver);
+            Dimension size = driver.manage().window().getSize();
+            int height = size.height;
+            int width = size.width;
+            DriverHelper.pressByCoordinates(driver, width / 2, height / 3);
         }
     }
 }
