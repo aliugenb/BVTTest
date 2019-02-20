@@ -5,6 +5,7 @@ import com.xmly.common.Status;
 import com.xmly.driver.android.AndroidBaseDriver;
 import com.xmly.driver.android.AndroidDeviceInfo;
 import com.xmly.driver.android.DeviceInit;
+import com.xmly.utils.AdbUtil;
 import com.xmly.utils.AppiumServer;
 import com.xmly.utils.SnapshotAndLog;
 import io.appium.java_client.AppiumDriver;
@@ -28,6 +29,9 @@ public abstract class BaseDriver implements Driver {
         }
 
         if (osDriver == Driver.ANDROIDDRIVER) {
+            if (!AdbUtil.isConnect()) {
+                throw new MyException("设备未连接");
+            }
             AndroidDeviceInfo deviceInfo = new AndroidDeviceInfo();
             String deviceName = deviceInfo.getDeviceName();
             String platformVersion = deviceInfo.getOsVersion();

@@ -21,6 +21,15 @@ import java.util.List;
  */
 public class AdbUtil {
 
+    public static boolean isConnect() {
+        String cmd = "adb devices";
+        String result = CommonUtil.execCmd(cmd);
+        if (result.endsWith("device")) {
+            return true;
+        }
+        return false;
+    }
+
     public static void tapByCoordinates(int x, int y) {
         CommonUtil.execCmd("adb shell input tap " + x + " " + y);
     }
