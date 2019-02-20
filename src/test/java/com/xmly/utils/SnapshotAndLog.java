@@ -15,6 +15,8 @@ import java.io.PrintWriter;
 import java.util.List;
 import java.util.logging.Level;
 
+import static com.xmly.utils.CommonUtil.execCmd;
+import static com.xmly.utils.CommonUtil.sleep;
 import static com.xmly.utils.FilesInit.resultPath;
 
 /**
@@ -23,6 +25,7 @@ import static com.xmly.utils.FilesInit.resultPath;
  * Date: 2018/12/4
  * Time: 4:01 PM
  */
+
 public class SnapshotAndLog {
 
     static AppiumDriver driver = BaseDriver.getDriver();
@@ -48,31 +51,35 @@ public class SnapshotAndLog {
         String savePath = resultPath + "/" + fileName + ".png";
         String screenshotCmd = "adb shell /system/bin/screencap -p /sdcard/screenshot.png";
         String pullCmd = "adb pull /sdcard/screenshot.png " + savePath;
-        CommonUtil.execCmd(screenshotCmd);
-        CommonUtil.sleep(3);
+        execCmd(screenshotCmd);
+        sleep(3);
         System.out.println(pullCmd);
-        CommonUtil.execCmd(pullCmd);
+        execCmd(pullCmd);
     }
 
     public static void logByAdb(String name) throws IOException {
         String path = resultPath + "/" + name + ".txt";
         String logCmd = "adb logcat -d -v time > " + path;
         System.out.println(logCmd);
-        CommonUtil.execCmd(logCmd);
+        execCmd(logCmd);
     }
 
     public static void clearAndroidLog() throws IOException {
         String clearCmd = "adb logcat -c";
-        CommonUtil.execCmd(clearCmd);
+        execCmd(clearCmd);
     }
 
-    public static void logByAppium(String fileName) throws FileNotFoundException {
-//        LogEntries logEntries = driver.manage().logs().get("driver");
+    public static void logByAppium(String fileName) {
         List<LogEntry> logEntries = driver.manage().logs().get("logcat").filter(Level.ALL);
         File logFile = new File(resultPath + File.separator + fileName + ".txt");
         logFile.getParentFile().mkdirs();
 
-        PrintWriter log_file_writer = new PrintWriter(logFile);
+        PrintWriter log_file_writer = null;
+        try {
+            log_file_writer = new PrintWriter(logFile);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
         for (LogEntry logEntry : logEntries) {
             if (logEntry.getMessage().contains("ximalaya")) {
                 log_file_writer.println(logEntry);

@@ -19,15 +19,15 @@ public class CaseCall extends CaseHelper {
         anchorRoomIndexPage.gotoCallPage();
         assertHelper.assertTrue(
                 DriverHelper.getText(callPage.onCallNum).equals("连麦未开启"),
-                "判断打开连麦面板时默认关闭", "Call打开连麦面板时连麦未默认关闭");
+                "CaseCall打开连麦面板时默认关闭");
 
         callPage.switchCall(); //开启连麦
         assertHelper.assertTrue(DriverHelper.getText(callPage.onCallNum).contains("连麦接通"),
-                "判断连麦开启", "Call连麦没有正确开启");
+                "CaseCall连麦开启");
 
         callPage.switchCall(); //关闭连麦
         assertHelper.assertTrue(
                 DriverHelper.getText(callPage.onCallNum).equals("连麦未开启"),
-                "判断连麦关闭", "Call连麦没有正确关闭");
+                "CaseCall连麦关闭");
     }
 }

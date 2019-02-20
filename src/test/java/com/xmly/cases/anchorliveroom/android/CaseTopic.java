@@ -22,6 +22,6 @@ public class CaseTopic extends CaseHelper {
         topicPage.setTopic(topicContent);
 
         assertHelper.assertTrue(anchorRoomIndexPage.findByContent(topicContent),
-                "设置话题后直播间展示话题", "Topic没有展示设置的话题");
+                "CaseTopic设置话题成功并直播间展示话题");
     }
 }

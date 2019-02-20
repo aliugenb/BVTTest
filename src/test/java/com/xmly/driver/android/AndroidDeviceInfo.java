@@ -1,11 +1,9 @@
 package com.xmly.driver.android;
 
-import com.xmly.utils.CommonUtil;
-
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import static com.xmly.utils.CommonUtil.execCmd;
 
 /**
  * Created with IntelliJ IDEA.
@@ -33,9 +31,9 @@ public class AndroidDeviceInfo {
     }
 
     public AndroidDeviceInfo() {
-        String version = CommonUtil.execCmd("adb shell getprop ro.build.version.release");
-        String deviceName = CommonUtil.execCmd("adb devices");
-        String productModel = CommonUtil.execCmd("adb shell getprop ro.product.model");
+        String version = execCmd("adb shell getprop ro.build.version.release");
+        String deviceName = execCmd("adb devices");
+        String productModel = execCmd("adb shell getprop ro.product.model");
         Pattern r = Pattern.compile("attached(.*)device");
         Matcher m = r.matcher(deviceName);
         this.OsVersion = version;

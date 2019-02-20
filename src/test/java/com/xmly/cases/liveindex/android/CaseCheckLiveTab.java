@@ -16,6 +16,6 @@ public class CaseCheckLiveTab extends CaseHelper {
     public static void checkLiveTab() {
         CaseHelper.gotoLiveIndex();
         assertHelper.assertTrue(liveIndexPage.getLiveTabQty() == 5,
-                "判断首页tab数量=5", "CheckLiveTab首页tab数量");
+                "CaseCheckLiveTab首页tab数量=5");
     }
 }

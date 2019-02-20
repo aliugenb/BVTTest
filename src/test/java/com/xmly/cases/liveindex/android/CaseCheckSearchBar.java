@@ -15,15 +15,15 @@ import java.io.IOException;
  */
 
 public class CaseCheckSearchBar extends CaseHelper {
-    @Test(description = "首页存在搜索框")
+    @Test(description = "直播首页存在搜索框")
     public static void checkSearchBar() {
         CaseHelper.gotoLiveIndex();
         assertHelper.assertTrue(
                 DriverHelper.isDisplayed(liveIndexPage.searchBar),
-                "判断首页存在搜索框", "CheckSearchBar搜索框不存在");
+                "CaseCheckSearchBar直播首页存在搜索框");
         liveIndexPage.gotoSearchPage();
         assertHelper.assertTrue(
                 DriverHelper.isDisplayed(liveIndexPage.searchBtn),
-                "判断当前在搜索页", "CheckSearchBar未跳转搜索页");
+                "CaseCheckSearchBar从直播首页跳转搜索页");
     }
 }

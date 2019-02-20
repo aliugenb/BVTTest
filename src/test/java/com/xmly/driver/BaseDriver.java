@@ -23,7 +23,7 @@ public abstract class BaseDriver implements Driver {
 
     private static AppiumDriver<? extends MobileElement> driver;
 
-    public static void setDriver(int osDriver) throws MyException, IOException, InterruptedException {
+    public static void setDriver(int osDriver) throws MyException, IOException {
         if (!AppiumServer.startAppium()) {
             throw new MyException("appium未启动");
         }

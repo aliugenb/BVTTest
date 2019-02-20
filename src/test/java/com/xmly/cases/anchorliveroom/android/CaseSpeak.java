@@ -18,6 +18,6 @@ public class CaseSpeak extends CaseHelper {
         CaseHelper.createAnchorLiveRoom();
         anchorRoomIndexPage.speakByContent(content);
         assertHelper.assertTrue(anchorRoomIndexPage.findByContent(content),
-                "发言后显示发送内容", "Speak没有展示发言内容");
+                "CaseSpeak发言成功并显示发送内容");
     }
 }

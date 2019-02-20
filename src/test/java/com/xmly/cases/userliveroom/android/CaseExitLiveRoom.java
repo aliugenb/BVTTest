@@ -28,7 +28,7 @@ public class CaseExitLiveRoom extends CaseHelper {
         userRoomIndexPage.closeFirstChargePop();
         userRoomIndexPage.exitLiveRoom(1);
         assertHelper.assertTrue(DriverHelper.isDisplayed(liveIndexPage.createLiveRoomBtn),
-                "退出直播成功", "CaseExitLiveRoom退出直播间失败");
+                "CaseExitLiveRoom退出直播成功");
         Reporter.log("退出直播间成功");
     }
 
@@ -49,12 +49,11 @@ public class CaseExitLiveRoom extends CaseHelper {
         userRoomIndexPage.closeFirstChargePop();
         TimeUnit.MINUTES.sleep(11);
         userRoomIndexPage.exitLiveRoom(11);
-        assertHelper.assertTrue(DriverHelper.isDisplayed(liveIndexPage.createLiveRoomBtn),
-                "退出直播间成功", "CaseExitLiveRoom退出直播间失败");
+
 
         liveIndexPage.gotoUserLiveRoomByBar();
         assertHelper.assertTrue(userRoomIndexPage.isFollow(),
-                "关注主播成功", "CaseExitLiveRoom关注主播失败");
+                "CaseExitLiveRoom退出直播间同时时关注主播成功");
         Reporter.log("退出直播间同时时关注主播成功");
     }
 }

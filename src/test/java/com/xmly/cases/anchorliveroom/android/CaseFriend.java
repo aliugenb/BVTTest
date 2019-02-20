@@ -21,11 +21,11 @@ public class CaseFriend extends CaseHelper {
         CaseHelper.createAnchorLiveRoom();
         anchorRoomIndexPage.gotoFriendPage();
         assertHelper.assertTrue(DriverHelper.isDisplayed(friendPage.friendConfirmPopup),
-                "弹出交友模式确认弹窗", "Friend交友模式开启未弹出确认弹窗");
+                "CaseFriend点击开启弹出交友模式确认弹窗");
 
         friendPage.enableFriend();
         System.out.println(friendPage.getFriendSeatQty());
         assertHelper.assertTrue(friendPage.getFriendSeatQty() == 8,
-                "判断开启8个交友位置", "Friend交友模式开启后没有8个交友位置");
+                "CaseFriend交友模式8个交友位置");
     }
 }

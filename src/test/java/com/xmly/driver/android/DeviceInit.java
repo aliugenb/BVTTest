@@ -5,11 +5,8 @@ import com.xmly.utils.AdbUtil;
 import com.xmly.utils.CommonUtil;
 import org.testng.Reporter;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.concurrent.TimeUnit;
-
+import static com.xmly.utils.CommonUtil.execCmd;
+import static com.xmly.utils.CommonUtil.sleep;
 import static com.xmly.utils.FilesInit.apkPath;
 
 /**
@@ -24,8 +21,8 @@ public class DeviceInit {
         String installCmd = "adb install " + apkPath;
         String uninstallCmd = "adb uninstall com.ximalaya.ting.android";
         if (isAppInstalled()) {
-            CommonUtil.execCmd(uninstallCmd);
-            CommonUtil.sleep(20);
+            execCmd(uninstallCmd);
+            sleep(20);
         }
 
         AdbInstall adbInstall = new AdbInstall(installCmd);
@@ -39,13 +36,13 @@ public class DeviceInit {
                 Status.isInstall = true;
                 return;
             }
-            CommonUtil.sleep(3);
+            sleep(3);
         }
     }
 
     private static boolean isAppInstalled() {
         String packageCmd = "adb shell pm list package | grep \"ximalaya\"";
-        String result = CommonUtil.execCmd(packageCmd);
+        String result = execCmd(packageCmd);
         System.out.println(result);
 //        if (result != null) {
         if (result.contains("ximalaya")) {
@@ -62,7 +59,7 @@ public class DeviceInit {
         }
 
         public void run() {
-            CommonUtil.execCmd(cmd);
+            execCmd(cmd);
         }
     }
 

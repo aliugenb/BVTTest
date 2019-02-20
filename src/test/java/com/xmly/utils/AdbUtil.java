@@ -16,6 +16,8 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.xmly.utils.CommonUtil.execCmd;
+
 /**
  * adb 控制类
  */
@@ -23,7 +25,7 @@ public class AdbUtil {
 
     public static boolean isConnect() {
         String cmd = "adb devices";
-        String result = CommonUtil.execCmd(cmd);
+        String result = execCmd(cmd);
         if (result.endsWith("device")) {
             return true;
         }
@@ -31,20 +33,20 @@ public class AdbUtil {
     }
 
     public static void tapByCoordinates(int x, int y) {
-        CommonUtil.execCmd("adb shell input tap " + x + " " + y);
+        execCmd("adb shell input tap " + x + " " + y);
     }
 
     //点击系统按钮
     public static void pressKey(KEY keyCode) {
         if (keyCode.equals(KEY.BACK)) {
             //点击返回键
-            CommonUtil.execCmd("adb shell input keyevent 4");
+            execCmd("adb shell input keyevent 4");
         } else if (keyCode.equals(KEY.ENTER)) {
             //点击ENTER键
-            CommonUtil.execCmd("adb shell input keyevent 66");
+            execCmd("adb shell input keyevent 66");
         } else if (keyCode.equals(KEY.HOME)) {
             //点击HOME键
-            CommonUtil.execCmd("adb shell input keyevent 3");
+            execCmd("adb shell input keyevent 3");
         }
     }
 
@@ -57,7 +59,7 @@ public class AdbUtil {
             command = "adb shell dumpsys activity | grep \"mFocusedActivity\"";
         }
         String focusedActivity = null;
-        focusedActivity = CommonUtil.execCmd(command);
+        focusedActivity = execCmd(command);
         return focusedActivity;
     }
 
@@ -104,7 +106,7 @@ public class AdbUtil {
 
     public static void setInputMethod(String inputMethod) {
         String cmd = "adb shell ime set " + inputMethod;
-        String result = CommonUtil.execCmd(cmd);
+        String result = execCmd(cmd);
         if (result.contains("selected")) {
             System.out.println("输入法切换成功");
         }

@@ -4,8 +4,6 @@ import com.xmly.utils.SnapshotAndLog;
 import org.testng.Assert;
 import org.testng.Reporter;
 
-import java.io.FileNotFoundException;
-
 import static org.testng.internal.EclipseInterface.*;
 
 /**
@@ -17,27 +15,23 @@ import static org.testng.internal.EclipseInterface.*;
 
 public class AssertHelper extends Assert {
 
-    public static void assertTrue(boolean condition, String message, String errorMessage) {
+    public static void assertTrue(boolean condition, String message) {
+        String successMessage = "assert_" + message + "_success";
+        String failMessage = "assert_" + message + "_fail";
+
         if (!condition) {
-            failNotEquals(condition, Boolean.TRUE, message, errorMessage);
+            Reporter.log(failMessage, true);
+            SnapshotAndLog.snapshotByAppium(failMessage);
+            SnapshotAndLog.logByAppium(failMessage);
+            failNotEquals(condition, Boolean.TRUE, message);
         } else {
-            SnapshotAndLog.snapshotByAppium(message);
+            Reporter.log(successMessage, true);
+            SnapshotAndLog.snapshotByAppium(successMessage);
         }
     }
 
-    static private void failNotEquals(Object actual, Object expected, String message, String errorMessage) {
-        fail(format(actual, expected, message), errorMessage);
-    }
-
-    static public void fail(String message, String errorMessage) {
-        SnapshotAndLog.snapshotByAppium(errorMessage);
-        try {
-            SnapshotAndLog.logByAppium(errorMessage);
-            Reporter.log(errorMessage);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        throw new AssertionError(message);
+    static private void failNotEquals(Object actual, Object expected, String message) {
+        fail(format(actual, expected, message));
     }
 
     static String format(Object actual, Object expected, String message) {
