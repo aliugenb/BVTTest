@@ -1,6 +1,7 @@
 package com.xmly.pages;
 
 import com.xmly.common.DriverHelper;
+import com.xmly.common.Swipe;
 import com.xmly.utils.CommonUtil;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
@@ -61,16 +62,19 @@ public class BasePage {
     public MobileElement mySpaceBtn;
 
     /*
-    判断当前是否登录
-     */
+     * @Description:根据个人中心tab判断是否登录
+     * @Param []
+     * @return boolean
+     **/
     public boolean isLogin() {
+        boolean flag = false;
         if (mySpaceBtn.isDisplayed()) {
             String btnText = mySpaceBtn.getText();
-            if (btnText.contains("未登录")) {
+            if (!btnText.contains("未登录")) {
                 return true;
             }
         }
-        return false;
+        return flag;
     }
 
     //首页弹窗广告关闭按钮
@@ -118,7 +122,8 @@ public class BasePage {
         sleep(2);
         //关闭新人引导浮层
         if (DriverHelper.isDisplayed(newerTips)) {
-
+            sleep(3);
+            Swipe.SwipeUp(driver);
         }
     }
 }

@@ -17,6 +17,7 @@ public class CaseLiveDynamicUnlogin extends CaseHelper {
     public static void checkUnlogin() throws InterruptedException {
         CaseHelper.gotoLiveIndex();
         liveIndexPage.gotoLiveDynamicPage();
+
         assertHelper.assertTrue(DriverHelper.isDisplayed(liveDynamicPage.goLoginBtn),
                 "未登录时显示登录按钮", "CaseLiveDynamic未显示登录按钮");
         assertHelper.assertTrue(DriverHelper.isDisplayed(liveDynamicPage.hotRecommend),

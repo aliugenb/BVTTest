@@ -2,7 +2,6 @@ package com.xmly.cases.liveindex.android;
 
 import com.xmly.cases.CaseHelper;
 import com.xmly.common.DriverHelper;
-import com.xmly.utils.SnapshotAndLog;
 import org.testng.annotations.Test;
 
 import java.io.FileNotFoundException;
@@ -18,7 +17,7 @@ import java.io.FileNotFoundException;
 
 public class CaseCheckLiveRoom extends CaseHelper {
     @Test
-    public static void checkLiveRoom() throws FileNotFoundException {
+    public static void checkLiveRoom() {
         CaseHelper.gotoLiveIndex();
         assertHelper.assertTrue(DriverHelper.isDisplayed(liveIndexPage.liveRoom));
     }

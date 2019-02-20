@@ -10,6 +10,6 @@ import io.appium.java_client.AppiumDriver;
  * Time: 2:03 PM
  */
 public interface Driver {
-    int AndroidDriver = 1;
-    int IosDriver = 2;
+    int ANDROIDDRIVER = 1;
+    int IOSDRIVER = 2;
 }

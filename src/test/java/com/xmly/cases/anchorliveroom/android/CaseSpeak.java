@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
  */
 public class CaseSpeak extends CaseHelper {
 
-    @Test
+    @Test(description = "主播端发言")
     public static void checkSpeak() throws InterruptedException {
         String content = "大家好";
 

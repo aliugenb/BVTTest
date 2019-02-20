@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
  * Time: 4:27 PM
  */
 public class CaseCall extends CaseHelper {
-    @Test
+    @Test(description = "连麦开关功能正常")
     public static void checkCall() throws InterruptedException {
         CallPage callPage = new CallPage(driver);
         CaseHelper.createAnchorLiveRoom();

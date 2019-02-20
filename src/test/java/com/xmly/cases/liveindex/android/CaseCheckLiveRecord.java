@@ -12,22 +12,11 @@ import org.testng.annotations.Test;
  * 显示亲密度榜
  */
 
-public class CaseCheckLiveRecord extends CaseHelper{
+public class CaseCheckLiveRecord extends CaseHelper {
     @Test(description = "检查首页显示排行榜")
     public static void checkLiveRecord() throws InterruptedException {
         CaseHelper.gotoLiveIndex();
         String recordText = liveIndexPage.gotoAnchorRankPage();
         System.out.println(recordText);
-//        AnchorRankPage anchorRankPage = new AnchorRankPage(driver);
-//        System.out.println(anchorRankPage.intimacyRank.getLocation());
-//        assertHelper.assertTrue(liveIndexPage.liveRecord.isDisplayed());
-//        Set<String> contexts = driver.getContextHandles();
-//        for (String context: contexts){
-//            if (context.toLowerCase().contains("webview")){
-//                driver.context(context);
-//                break;
-//            }
-//        }
-//        System.out.println(driver.findElementByClassName("tab-progress-track").getLocation());
     }
 }

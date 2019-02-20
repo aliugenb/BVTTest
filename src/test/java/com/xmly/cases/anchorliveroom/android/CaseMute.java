@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
  */
 public class CaseMute extends CaseHelper {
 
-    @Test
+    @Test(description = "检查静音功能正常")
     public static void checkMute() throws InterruptedException {
         CaseHelper.createAnchorLiveRoom();
         anchorRoomIndexPage.enableMute();

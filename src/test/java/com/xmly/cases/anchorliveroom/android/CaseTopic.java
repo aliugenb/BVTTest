@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
  * Time: 14:35
  */
 public class CaseTopic extends CaseHelper {
-    @Test
+    @Test(description = "主播端发布话题")
     public static void checkTopic() throws InterruptedException {
 
         String topicContent = "大家好";

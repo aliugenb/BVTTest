@@ -14,7 +14,7 @@ import org.testng.annotations.Test;
 public class CaseFriend extends CaseHelper {
     private static FriendPage friendPage;
 
-    @Test
+    @Test(description = "交友模式开启")
     public static void openFriendModel() throws InterruptedException {
         friendPage = new FriendPage(driver);
 

@@ -1,12 +1,15 @@
 package com.xmly.pages.live.userliveroompage;
 
 import com.xmly.common.DriverHelper;
+import com.xmly.common.Swipe;
 import com.xmly.driver.Driver;
 import com.xmly.pages.BasePage;
 import com.xmly.utils.CommonUtil;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
+import org.testng.Reporter;
+import org.testng.log4testng.Logger;
 
 /**
  * Created with IntelliJ IDEA.
@@ -16,6 +19,8 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
  */
 
 public class UserRoomIndexPage extends BasePage {
+    private Logger logger = Logger.getLogger(getClass());
+
     public UserRoomIndexPage(AppiumDriver<? extends MobileElement> driver) {
         super(driver);
     }
@@ -63,6 +68,8 @@ public class UserRoomIndexPage extends BasePage {
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_close_room_follow_and_exit")
     public MobileElement exitAndFollowBtn;
 
+    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_scroll_svg_guide")
+    public MobileElement swipeGuide;
 
     /*
      * @Description: 关闭首充弹窗
@@ -72,6 +79,7 @@ public class UserRoomIndexPage extends BasePage {
     public void closeFirstChargePop() {
         CommonUtil.sleep(70);
         if (DriverHelper.isDisplayed(firstChargePop)) {
+            logger.info("出现首充弹窗");
             closeWebviewBtn.click();
         }
     }
@@ -81,6 +89,11 @@ public class UserRoomIndexPage extends BasePage {
      */
     public void exitLiveRoom(int min) {
         closeRoomBtn.click();
+        if (DriverHelper.isDisplayed(swipeGuide)) {
+            Reporter.log("出现左右滑动引导浮层");
+            Swipe.SwipeLeft(driver);
+            closeRoomBtn.click();
+        }
         if (min >= 10) {
             exitAndFollowBtn.click();
         } else {

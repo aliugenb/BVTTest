@@ -1,7 +1,5 @@
 package com.xmly.cases;
 
-import com.xmly.common.DriverHelper;
-import com.xmly.common.MyException;
 import com.xmly.utils.CommonUtil;
 import org.openqa.selenium.NoSuchElementException;
 import org.testng.Reporter;
@@ -22,7 +20,7 @@ public class CaseHelper extends BaseCase {
     跳转直播首页
      */
     public static void gotoLiveIndex() {
-//        basePage.appIndexInit();
+        basePage.appIndexInit();
         basePage.enter(basePage.LIVEHOMEPAGE);
         liveIndexPage.endLive();
     }
@@ -39,6 +37,9 @@ public class CaseHelper extends BaseCase {
     通过点击直播首页我要直播按钮登录
      */
     public static void login() {
+        if (basePage.isLogin()) {
+            return;
+        }
         liveIndexPage.gotoCreateLiveRoomPage();
         CommonUtil.sleep(2);
 

@@ -25,7 +25,6 @@ public class CaseLiveDynamicLogin extends CaseHelper {
             assertHelper.assertTrue(onlineNum == liveDynamicPage.getOnlineAnchorQty(),
                     "首页显示的在线数量与直播动态内一致", "CaseLiveDynamicLogin首页显示在线数量与直播动态内不一致");
         }
-        Reporter.log("测试完成");
     }
 
     private static int getQty(String str) {

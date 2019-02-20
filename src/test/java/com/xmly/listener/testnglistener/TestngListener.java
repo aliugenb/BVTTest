@@ -70,13 +70,15 @@ public class TestngListener extends TestListenerAdapter {
     }
 
     public void onTestStart(ITestResult result) {
+        Reporter.log("测试开始");
     }
 
     public void onTestSuccess(ITestResult result) {
-        SnapshotAndLog.snapshotByAppium(result.getMethod().getMethodName() + "_Success");
+        Reporter.log("测试成功");
     }
 
     public void onTestFailure(ITestResult result) {
+        Reporter.log("测试失败");
         SnapshotAndLog.snapshotByAppium(result.getMethod().getMethodName() + "_Failed");
     }
 

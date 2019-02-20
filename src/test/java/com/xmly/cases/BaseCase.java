@@ -14,6 +14,7 @@ import com.xmly.pages.live.userliveroompage.UserRoomIndexPage;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import org.testng.annotations.*;
+import org.testng.log4testng.Logger;
 
 import java.io.IOException;
 

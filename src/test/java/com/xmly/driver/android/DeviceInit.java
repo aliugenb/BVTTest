@@ -76,7 +76,7 @@ public class DeviceInit {
             if (productModel.equals("RNE-AL00")) {
                 CommonUtil.sleep(6);
                 AdbUtil.tapByCoordinates(528, 1283);
-                CommonUtil.sleep(6);
+                CommonUtil.sleep(10);
                 AdbUtil.tapByCoordinates(356, 1204);
             } else {
                 return;

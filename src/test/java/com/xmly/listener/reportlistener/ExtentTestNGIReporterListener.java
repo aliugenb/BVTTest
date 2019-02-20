@@ -13,15 +13,15 @@ import org.testng.*;
 import org.testng.xml.XmlSuite;
 
 import java.io.IOException;
+import java.text.ParsePosition;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 //import com.aventstack.extentreports.reporter.configuration.ChartLocation;
 
 /**
- * Created with IntelliJ IDEA.
  * Author: ye.liu
- * Date: 2018/8/8
- * Time: 下午4:49
+ * Date: 2018/8/8 16:49
  */
 
 public class ExtentTestNGIReporterListener implements IReporter {
@@ -113,14 +113,16 @@ public class ExtentTestNGIReporterListener implements IReporter {
         extent.flush();
     }
 
+
     private void init() {
         ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter(OUTPUT_FOLDER + FILE_NAME);
         // 设置静态文件的DNS
         htmlReporter.config().setResourceCDN(ResourceCDN.EXTENTREPORTS);
 
-        htmlReporter.config().setDocumentTitle("自动化测试报告");
-        htmlReporter.config().setReportName("自动化测试报告");
+        htmlReporter.config().setDocumentTitle("直播Ui测试报告");
+        htmlReporter.config().setReportName("直播Ui测试报告");
         htmlReporter.config().setChartVisibilityOnOpen(true);
+
         htmlReporter.config().setTestViewChartLocation(ChartLocation.TOP);
         htmlReporter.config().setTheme(Theme.STANDARD);
 
@@ -165,7 +167,7 @@ public class ExtentTestNGIReporterListener implements IReporter {
                         name = name.substring(0, 49) + "...";
                     }
                 } else {
-                    name = result.getMethod().getMethodName() + result.getMethod().getDescription();
+                    name = result.getMethod().getMethodName() + " " + result.getMethod().getDescription();
                 }
                 if (extenttest == null) {
                     test = extent.createTest(name);
@@ -196,7 +198,6 @@ public class ExtentTestNGIReporterListener implements IReporter {
                 } else {
                     test.log(status, "Test " + status.toString().toLowerCase() + "ed");
                 }
-
                 test.getModel().setStartTime(getTime(result.getStartMillis()));
                 test.getModel().setEndTime(getTime(result.getEndMillis()));
             }

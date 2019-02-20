@@ -17,21 +17,23 @@ import static org.testng.internal.EclipseInterface.*;
 
 public class AssertHelper extends Assert {
 
-    public static void assertTrue(boolean condition, String message, String errorName) {
+    public static void assertTrue(boolean condition, String message, String errorMessage) {
         if (!condition) {
-            failNotEquals(condition, Boolean.TRUE, message, errorName);
+            failNotEquals(condition, Boolean.TRUE, message, errorMessage);
+        } else {
+            SnapshotAndLog.snapshotByAppium(message);
         }
     }
 
-    static private void failNotEquals(Object actual, Object expected, String message, String errorName) {
-        fail(format(actual, expected, message), errorName);
+    static private void failNotEquals(Object actual, Object expected, String message, String errorMessage) {
+        fail(format(actual, expected, message), errorMessage);
     }
 
-    static public void fail(String message, String errorName) {
-        SnapshotAndLog.snapshotByAppium(errorName);
+    static public void fail(String message, String errorMessage) {
+        SnapshotAndLog.snapshotByAppium(errorMessage);
         try {
-            SnapshotAndLog.logByAppium(errorName);
-            Reporter.log(errorName);
+            SnapshotAndLog.logByAppium(errorMessage);
+            Reporter.log(errorMessage);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }

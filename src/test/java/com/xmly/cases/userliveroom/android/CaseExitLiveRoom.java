@@ -6,6 +6,7 @@ import com.xmly.common.Swipe;
 import com.xmly.driver.Driver;
 import org.testng.Reporter;
 import org.testng.annotations.Test;
+import org.testng.log4testng.Logger;
 
 import java.util.concurrent.TimeUnit;
 
@@ -17,8 +18,9 @@ import java.util.concurrent.TimeUnit;
  */
 
 public class CaseExitLiveRoom extends CaseHelper {
-    @Test
-    public static void exitLessTenMin() throws InterruptedException {
+
+    @Test(description = "用户进入直播间1分钟后退出")
+    public void exitLessTenMin() throws InterruptedException {
         gotoLiveIndex();
         login();
         liveIndexPage.gotoUserLiveRoomByType("");
@@ -29,20 +31,21 @@ public class CaseExitLiveRoom extends CaseHelper {
                 "退出直播成功", "CaseExitLiveRoom退出直播间失败");
     }
 
-    @Test
-    public static void exitMoreTenMin() throws InterruptedException {
+    @Test(description = "用户进入直播间10分钟后退出")
+    public void exitMoreTenMin() throws InterruptedException {
         gotoLiveIndex();
         login();
-        userRoomIndexPage.closeFirstChargePop();
         //进入未关注过主播的直播间
         while (true) {
             liveIndexPage.gotoUserLiveRoomByType("");
             if (!userRoomIndexPage.isFollow()) {
+                Reporter.log("进入测试直播间");
                 break;
             }
             userRoomIndexPage.exitLiveRoom(0);
             Swipe.SwipeUp(driver);
         }
+        userRoomIndexPage.closeFirstChargePop();
         TimeUnit.MINUTES.sleep(11);
         userRoomIndexPage.exitLiveRoom(11);
         assertHelper.assertTrue(DriverHelper.isDisplayed(liveIndexPage.createLiveRoomBtn),

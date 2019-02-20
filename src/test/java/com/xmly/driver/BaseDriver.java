@@ -27,19 +27,19 @@ public abstract class BaseDriver implements Driver {
             throw new MyException("appium未启动");
         }
 
-        if (osDriver == Driver.AndroidDriver) {
+        if (osDriver == Driver.ANDROIDDRIVER) {
             AndroidDeviceInfo deviceInfo = new AndroidDeviceInfo();
             String deviceName = deviceInfo.getDeviceName();
             String platformVersion = deviceInfo.getOsVersion();
             String productModel = deviceInfo.getProductModel();
 
-//            if (!Status.isInstall) {
-//                DeviceInit.installApp(productModel);
-//            }
+            if (!Status.isInstall) {
+                DeviceInit.installApp(productModel);
+            }
             driver = new AndroidBaseDriver(deviceName, platformVersion).getDriver();
 
             SnapshotAndLog.clearAndroidLog();
-        } else if (osDriver == Driver.IosDriver) {
+        } else if (osDriver == Driver.IOSDRIVER) {
 //            BaseDriver.driver = IosBaseDriver.getDriver();
             System.out.println("还没做呢");
         } else {
