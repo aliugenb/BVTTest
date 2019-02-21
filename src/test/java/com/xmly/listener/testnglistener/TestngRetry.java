@@ -29,12 +29,15 @@ public class TestngRetry implements IRetryAnalyzer {
 
     private String getResultStatusName(int status) {
         String resultName = null;
-        if (status == 1)
+        if (status == 1) {
             resultName = "SUCCESS";
-        if (status == 2)
+        }
+        if (status == 2) {
             resultName = "FAILURE";
-        if (status == 3)
+        }
+        if (status == 3) {
             resultName = "SKIP";
+        }
         return resultName;
     }
 

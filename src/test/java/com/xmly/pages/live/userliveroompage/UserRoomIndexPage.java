@@ -2,7 +2,6 @@ package com.xmly.pages.live.userliveroompage;
 
 import com.xmly.common.DriverHelper;
 import com.xmly.common.Swipe;
-import com.xmly.driver.Driver;
 import com.xmly.pages.BasePage;
 import com.xmly.utils.CommonUtil;
 import com.xmly.utils.SnapshotAndLog;
@@ -92,7 +91,7 @@ public class UserRoomIndexPage extends BasePage {
         closeRoomBtn.click();
         if (DriverHelper.isDisplayed(swipeGuide)) {
             Reporter.log("出现左右滑动引导浮层");
-            Swipe.SwipeLeft(driver);
+            Swipe.swipeLeft(driver);
             closeRoomBtn.click();
         }
         SnapshotAndLog.snapshotByAppium("用户端关闭直播间弹窗");

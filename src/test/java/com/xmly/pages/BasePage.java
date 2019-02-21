@@ -45,38 +45,9 @@ public class BasePage {
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"发现\")")
     private MobileElement tabbarFindBtn;
 
-    public void enterPage(String HomePage) {
-        switch (HomePage) {
-            case "LiveIndex":
-                homePageLiveTab.click();
-                break;
-            case "FindIndex":
-                tabbarFindBtn.click();
-                break;
-            default:
-                homePageLiveTab.click();
-                break;
-        }
-    }
 
     @AndroidFindBy(id = "com.ximalaya.ting.android:id/tab_myspace")
     public MobileElement mySpaceBtn;
-
-    /*
-     * @Description:根据个人中心tab判断是否登录
-     * @Param []
-     * @return boolean
-     **/
-    public boolean isLogin() {
-        boolean flag = false;
-        if (mySpaceBtn.isDisplayed()) {
-            String btnText = mySpaceBtn.getText();
-            if (!btnText.contains("未登录")) {
-                return true;
-            }
-        }
-        return flag;
-    }
 
     //首页弹窗广告关闭按钮
     @AndroidFindAll({
@@ -99,6 +70,41 @@ public class BasePage {
     //首页升级弹窗
     @AndroidFindBy(id = "com.ximalaya.ting.android:id/host_dialog_update_cancel_iv")
     public MobileElement updateBtn;
+
+    /*
+     * @Description: 进入直播首页或者发现页
+     * @Param [homePage]
+     * @return void
+     **/
+    public void enterPage(String homePage) {
+        switch (homePage) {
+            case "LiveIndex":
+                homePageLiveTab.click();
+                break;
+            case "FindIndex":
+                tabbarFindBtn.click();
+                break;
+            default:
+                homePageLiveTab.click();
+                break;
+        }
+    }
+
+    /*
+     * @Description:根据个人中心tab判断是否登录
+     * @Param []
+     * @return boolean
+     **/
+    public boolean isLogin() {
+        boolean flag = false;
+        if (mySpaceBtn.isDisplayed()) {
+            String btnText = mySpaceBtn.getText();
+            if (!btnText.contains("未登录")) {
+                return true;
+            }
+        }
+        return flag;
+    }
 
     /*
      * @Description: 关闭首页各种弹层
