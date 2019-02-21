@@ -42,7 +42,7 @@ public abstract class BaseDriver implements Driver {
             }
             driver = new AndroidBaseDriver(deviceName, platformVersion).getDriver();
 
-            SnapshotAndLog.clearAndroidLog();
+            AdbUtil.clearAndroidLog();
         } else if (osDriver == Driver.IOSDRIVER) {
 //            BaseDriver.driver = IosBaseDriver.getDriver();
             System.out.println("还没做呢");
