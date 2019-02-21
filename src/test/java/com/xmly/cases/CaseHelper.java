@@ -1,10 +1,15 @@
 package com.xmly.cases;
 
+import com.xmly.common.DriverHelper;
+import com.xmly.utils.AdbUtil;
 import com.xmly.utils.CommonUtil;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.NoSuchElementException;
 import org.testng.Reporter;
 
 import java.util.concurrent.TimeUnit;
+
+import static com.xmly.utils.CommonUtil.sleep;
 
 /**
  * Created with IntelliJ IDEA.
@@ -40,7 +45,7 @@ public class CaseHelper extends BaseCase {
             return;
         }
         liveIndexPage.gotoCreateLiveRoomPage();
-        CommonUtil.sleep(2);
+        sleep(2);
 
         try {
             if (loginPage.moreLoginBtn.isDisplayed()) {
@@ -67,5 +72,13 @@ public class CaseHelper extends BaseCase {
         createLiveRoomPage.beginLiveBtn.click();
         TimeUnit.SECONDS.sleep(8);
         anchorRoomIndexPage.cancelShareBtn.click();
+        Dimension size = driver.manage().window().getSize();
+        int width = size.width;
+        int height = size.height;
+        //首次创建直播间出现蒙层，点击6次后消失
+        for (int i = 0; i < 6; i++) {
+            DriverHelper.pressByCoordinates(driver, width / 2, height / 2);
+            sleep(1);
+        }
     }
 }

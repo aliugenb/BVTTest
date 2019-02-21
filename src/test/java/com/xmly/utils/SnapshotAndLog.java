@@ -1,5 +1,6 @@
 package com.xmly.utils;
 
+import com.xmly.cases.BaseCase;
 import com.xmly.driver.BaseDriver;
 import io.appium.java_client.AppiumDriver;
 import org.apache.commons.io.FileUtils;
@@ -28,9 +29,8 @@ import static com.xmly.utils.FilesInit.resultPath;
 
 public class SnapshotAndLog {
 
-    static AppiumDriver driver = BaseDriver.getDriver();
-
     public static void snapshotByAppium(String filename) {
+        AppiumDriver driver = BaseDriver.getDriver();
         File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         try {
             String screenshotPath = resultPath + File.separator + filename + ".png";
@@ -70,6 +70,7 @@ public class SnapshotAndLog {
     }
 
     public static void logByAppium(String fileName) {
+        AppiumDriver driver = BaseDriver.getDriver();
         List<LogEntry> logEntries = driver.manage().logs().get("logcat").filter(Level.ALL);
         File logFile = new File(resultPath + File.separator + fileName + ".txt");
         logFile.getParentFile().mkdirs();

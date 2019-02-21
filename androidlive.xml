@@ -22,25 +22,25 @@
     </test>
     <test verbose="3" preserve-order="true" parallel="classes" thread-count="1" name="anchorliveroom主播端直播间检查">
         <classes>
-            <class name="com.xmly.cases.anchorliveroom.android.CaseCall"></class>
-            <class name="com.xmly.cases.anchorliveroom.android.CaseFriend">
-                <methods>
-                    <include name="openFriendModel"/>
-                </methods>
-            </class>
-            <class name="com.xmly.cases.anchorliveroom.android.CaseMute"></class>
-            <class name="com.xmly.cases.anchorliveroom.android.CaseTopic"></class>
-            <class name="com.xmly.cases.anchorliveroom.android.CaseSpeak"></class>
+            <!--<class name="com.xmly.cases.anchorliveroom.android.CaseCall"></class>-->
+            <!--<class name="com.xmly.cases.anchorliveroom.android.CaseFriend">-->
+            <!--<methods>-->
+            <!--<include name="openFriendModel"/>-->
+            <!--</methods>-->
+            <!--</class>-->
+            <!--<class name="com.xmly.cases.anchorliveroom.android.CaseMute"></class>-->
+            <!--<class name="com.xmly.cases.anchorliveroom.android.CaseTopic"></class>-->
+            <!--<class name="com.xmly.cases.anchorliveroom.android.CaseSpeak"></class>-->
         </classes>
     </test>
     <test verbose="3" preserve-order="true" parallel="classes" thread-count="1" name="userliveroom用户端直播间检查">
         <classes>
-            <class name="com.xmly.cases.userliveroom.android.CaseExitLiveRoom">
-                <methods>
-                    <include name="exitLessTenMin"/>
-                    <include name="exitMoreTenMin"/>
-                </methods>
-            </class>
+            <!--<class name="com.xmly.cases.userliveroom.android.CaseExitLiveRoom">-->
+                <!--<methods>-->
+                    <!--&lt;!&ndash;<include name="exitLessTenMin"/>&ndash;&gt;-->
+                    <!--<include name="exitMoreTenMin"/>-->
+                <!--</methods>-->
+            <!--</class>-->
             <!--<class name="com.xmly.cases.anchorliveroom.android.CaseMute"></class>-->
             <!--<class name="com.xmly.cases.anchorliveroom.android.CaseTopic"></class>-->
             <!--<class name="com.xmly.cases.anchorliveroom.android.CaseSpeak"></class>-->

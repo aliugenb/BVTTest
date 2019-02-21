@@ -1,6 +1,5 @@
 package com.xmly.cases;
 
-import com.aventstack.extentreports.ExtentTest;
 import com.xmly.common.AssertHelper;
 import com.xmly.common.MyException;
 import com.xmly.driver.BaseDriver;
@@ -14,7 +13,6 @@ import com.xmly.pages.live.userliveroompage.UserRoomIndexPage;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import org.testng.annotations.*;
-import org.testng.log4testng.Logger;
 
 import java.io.IOException;
 
