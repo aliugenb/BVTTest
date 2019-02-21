@@ -11,13 +11,14 @@
 
     <test verbose="3" preserve-order="true" parallel="classes" thread-count="1" name="liveindex直播首页检查">
         <classes>
-            <class name="com.xmly.cases.liveindex.android.CaseCheckSearchBar"></class>
-            <class name="com.xmly.cases.liveindex.android.CaseCheckCreateLiveRoomBtn"></class>
-            <class name="com.xmly.cases.liveindex.android.CaseCheckLiveRecord"></class>
-            <class name="com.xmly.cases.liveindex.android.CaseCheckLiveTab"></class>
-            <class name="com.xmly.cases.liveindex.android.CaseCheckLiveRoom"></class>
             <class name="com.xmly.cases.liveindex.android.CaseLiveDynamicUnlogin"></class>
-            <class name="com.xmly.cases.liveindex.android.CaseLiveDynamicLogin"></class>
+            <!--<class name="com.xmly.cases.liveindex.android.CaseLiveDynamicLogin"></class>-->
+            <!--<class name="com.xmly.cases.liveindex.android.CaseCheckSearchBar"></class>-->
+            <!--<class name="com.xmly.cases.liveindex.android.CaseCheckCreateLiveRoomBtn"></class>-->
+            <!--<class name="com.xmly.cases.liveindex.android.CaseCheckLiveRecord"></class>-->
+            <!--<class name="com.xmly.cases.liveindex.android.CaseCheckLiveTab"></class>-->
+            <!--<class name="com.xmly.cases.liveindex.android.CaseCheckLiveRoom"></class>-->
+
         </classes>
     </test>
     <test verbose="3" preserve-order="true" parallel="classes" thread-count="1" name="anchorliveroom主播端直播间检查">
@@ -36,10 +37,10 @@
     <test verbose="3" preserve-order="true" parallel="classes" thread-count="1" name="userliveroom用户端直播间检查">
         <classes>
             <!--<class name="com.xmly.cases.userliveroom.android.CaseExitLiveRoom">-->
-                <!--<methods>-->
-                    <!--&lt;!&ndash;<include name="exitLessTenMin"/>&ndash;&gt;-->
-                    <!--<include name="exitMoreTenMin"/>-->
-                <!--</methods>-->
+            <!--<methods>-->
+            <!--&lt;!&ndash;<include name="exitLessTenMin"/>&ndash;&gt;-->
+            <!--<include name="exitMoreTenMin"/>-->
+            <!--</methods>-->
             <!--</class>-->
             <!--<class name="com.xmly.cases.anchorliveroom.android.CaseMute"></class>-->
             <!--<class name="com.xmly.cases.anchorliveroom.android.CaseTopic"></class>-->
