@@ -12,8 +12,10 @@ import org.testng.*;
 
 import java.io.File;
 import java.io.IOException;
+import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -71,9 +73,10 @@ public class TestngListener extends TestListenerAdapter {
     }
 
     public void onTestStart(ITestResult result) {
+        //安卓设备开始测试前清空log
         try {
             if (AdbUtil.isConnect()) {
-                SnapshotAndLog.clearAndroidLog();
+                AdbUtil.clearAndroidLog();
             }
         } catch (IOException e) {
             e.printStackTrace();

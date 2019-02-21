@@ -51,6 +51,16 @@ public class AdbUtil {
     }
 
     /*
+     * @Description: 清空log缓存
+     * @Param []
+     * @return void
+     **/
+    public static void clearAndroidLog() throws IOException {
+        String clearCmd = "adb logcat -c";
+        execCmd(clearCmd);
+    }
+
+    /*
      *获取当前最顶层页面的activity
      */
     public static String getFocusedActivity() throws IOException {

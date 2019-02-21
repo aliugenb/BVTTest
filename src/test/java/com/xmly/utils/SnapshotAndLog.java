@@ -64,11 +64,6 @@ public class SnapshotAndLog {
         execCmd(logCmd);
     }
 
-    public static void clearAndroidLog() throws IOException {
-        String clearCmd = "adb logcat -c";
-        execCmd(clearCmd);
-    }
-
     public static void logByAppium(String fileName) {
         AppiumDriver driver = BaseDriver.getDriver();
         List<LogEntry> logEntries = driver.manage().logs().get("logcat").filter(Level.ALL);

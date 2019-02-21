@@ -44,7 +44,6 @@ public class DeviceInit {
         String packageCmd = "adb shell pm list package | grep \"ximalaya\"";
         String result = execCmd(packageCmd);
         System.out.println(result);
-//        if (result != null) {
         if (result.contains("ximalaya")) {
             return true;
         }
