@@ -11,10 +11,10 @@
 
     <test verbose="3" preserve-order="true" parallel="classes" thread-count="1" name="liveindex直播首页检查">
         <classes>
-            <class name="com.xmly.cases.liveindex.android.CaseLiveDynamicUnlogin"></class>
+            <!--<class name="com.xmly.cases.liveindex.android.CaseLiveDynamicUnlogin"></class>-->
             <!--<class name="com.xmly.cases.liveindex.android.CaseLiveDynamicLogin"></class>-->
-            <!--<class name="com.xmly.cases.liveindex.android.CaseCheckSearchBar"></class>-->
-            <!--<class name="com.xmly.cases.liveindex.android.CaseCheckCreateLiveRoomBtn"></class>-->
+            <class name="com.xmly.cases.liveindex.android.CaseCheckSearchBar"></class>
+            <class name="com.xmly.cases.liveindex.android.CaseCheckCreateLiveRoomBtn"></class>
             <!--<class name="com.xmly.cases.liveindex.android.CaseCheckLiveRecord"></class>-->
             <!--<class name="com.xmly.cases.liveindex.android.CaseCheckLiveTab"></class>-->
             <!--<class name="com.xmly.cases.liveindex.android.CaseCheckLiveRoom"></class>-->

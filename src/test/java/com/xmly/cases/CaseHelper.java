@@ -70,7 +70,7 @@ public class CaseHelper extends BaseCase {
         login();
         liveIndexPage.gotoCreateLiveRoomPage();
         createLiveRoomPage.beginLiveBtn.click();
-        TimeUnit.SECONDS.sleep(8);
+        sleep(8);
         anchorRoomIndexPage.cancelShareBtn.click();
         Dimension size = driver.manage().window().getSize();
         int width = size.width;
