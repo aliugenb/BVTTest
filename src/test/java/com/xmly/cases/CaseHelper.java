@@ -25,7 +25,7 @@ public class CaseHelper extends BaseCase {
      */
     public static void gotoLiveIndex() {
         basePage.appIndexInit();
-        basePage.enter(basePage.LIVEHOMEPAGE);
+        basePage.enterPage(basePage.LIVEHOMEPAGE);
         liveIndexPage.endLive();
     }
 
@@ -34,7 +34,7 @@ public class CaseHelper extends BaseCase {
      */
     public static void gotoFindIndex() {
         basePage.appIndexInit();
-        basePage.enter(basePage.FINDPAGE);
+        basePage.enterPage(basePage.FINDPAGE);
     }
 
     /*

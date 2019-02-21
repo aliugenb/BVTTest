@@ -45,7 +45,7 @@ public class BasePage {
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"发现\")")
     private MobileElement tabbarFindBtn;
 
-    public void enter(String HomePage) {
+    public void enterPage(String HomePage) {
         switch (HomePage) {
             case "LiveIndex":
                 homePageLiveTab.click();

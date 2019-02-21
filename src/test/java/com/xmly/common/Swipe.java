@@ -17,7 +17,7 @@ import io.appium.java_client.touch.offset.PointOption;
 public class Swipe {
 
     // 上滑
-    public static void SwipeUp(AppiumDriver driver) {
+    public static void swipeUp(AppiumDriver driver) {
         Dimension size = driver.manage().window().getSize();
         int height = size.height;
         int width = size.width;
@@ -27,7 +27,7 @@ public class Swipe {
     }
 
     // 下滑
-    public static void SwipeDown(AppiumDriver driver) {
+    public static void swipeDown(AppiumDriver driver) {
         Dimension size = driver.manage().window().getSize();
         int height = size.height;
         int width = size.width;
@@ -37,7 +37,7 @@ public class Swipe {
     }
 
     // 左滑
-    public static void SwipeLeft(AppiumDriver driver) {
+    public static void swipeLeft(AppiumDriver driver) {
         Dimension size = driver.manage().window().getSize();
         int height = size.height;
         int width = size.width;
@@ -47,7 +47,7 @@ public class Swipe {
     }
 
     // 右滑
-    public static void SwipeRight(AppiumDriver driver) {
+    public static void swipeRight(AppiumDriver driver) {
         Dimension size = driver.manage().window().getSize();
         int height = size.height;
         int width = size.width;

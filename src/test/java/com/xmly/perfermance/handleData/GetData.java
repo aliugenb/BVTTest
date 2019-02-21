@@ -10,7 +10,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-public abstract class GetData implements WriteExcel {
+abstract public class GetData implements WriteExcel {
 
     public static String resultPath;
 

@@ -99,7 +99,7 @@ public class LiveIndexPage extends BasePage {
                         return;
                     }
                 }
-                Swipe.SwipeUp(driver);
+                Swipe.swipeUp(driver);
                 start++;
             }
             throw new NoSuchElementException("无这种类型的直播间");

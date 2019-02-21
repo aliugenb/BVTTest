@@ -55,12 +55,12 @@ public class AppiumServer {
         if (!isPortUsing(4723)) {
             return true;
         }
-        String kill_cmd = "kill -9 ";
-        String[] lsof_cmd = new String[]{"sh", "-c", "lsof -i :4723| awk \'{if($1~/node/)print $2}\'"};
+        String killCmd = "kill -9 ";
+        String[] lsofCmd = new String[]{"sh", "-c", "lsof -i :4723| awk \'{if($1~/node/)print $2}\'"};
         String pid = null;
         Process proc = null;
         try {
-            proc = Runtime.getRuntime().exec(lsof_cmd);
+            proc = Runtime.getRuntime().exec(lsofCmd);
             if (proc.waitFor() != 0) {
                 System.err.println("exit value = " + proc.exitValue());
             }
@@ -71,7 +71,7 @@ public class AppiumServer {
                 pid = line.toString().trim();
             }
             if (pid != null) {
-                Runtime.getRuntime().exec(kill_cmd + pid);
+                Runtime.getRuntime().exec(killCmd + pid);
                 if (getAppiumResponseCode() == 0) {
                     return true;
                 }

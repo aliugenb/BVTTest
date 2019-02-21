@@ -13,21 +13,21 @@ import static com.xmly.utils.CommonUtil.execCmd;
  */
 
 public class AndroidDeviceInfo {
-    private String OsVersion;
-    private String DeviceName;
-    private String ProductModel;
+    private String osVersion;
+    private String deviceName;
+    private String productModel;
 
 
     public String getOsVersion() {
-        return OsVersion;
+        return osVersion;
     }
 
     public String getDeviceName() {
-        return DeviceName;
+        return deviceName;
     }
 
     public String getProductModel() {
-        return ProductModel;
+        return productModel;
     }
 
     public AndroidDeviceInfo() {
@@ -36,11 +36,11 @@ public class AndroidDeviceInfo {
         String productModel = execCmd("adb shell getprop ro.product.model");
         Pattern r = Pattern.compile("attached(.*)device");
         Matcher m = r.matcher(deviceName);
-        this.OsVersion = version;
+        this.osVersion = version;
         if (m.find()) {
-            this.DeviceName = m.group(1).trim();
+            this.deviceName = m.group(1).trim();
         }
-        this.ProductModel = productModel.trim();
+        this.productModel = productModel.trim();
     }
 
 //    private static String GetInfo(String cmd) {

@@ -15,9 +15,9 @@
             <!--<class name="com.xmly.cases.liveindex.android.CaseLiveDynamicLogin"></class>-->
             <class name="com.xmly.cases.liveindex.android.CaseCheckSearchBar"></class>
             <class name="com.xmly.cases.liveindex.android.CaseCheckCreateLiveRoomBtn"></class>
-            <!--<class name="com.xmly.cases.liveindex.android.CaseCheckLiveRecord"></class>-->
-            <!--<class name="com.xmly.cases.liveindex.android.CaseCheckLiveTab"></class>-->
-            <!--<class name="com.xmly.cases.liveindex.android.CaseCheckLiveRoom"></class>-->
+            <class name="com.xmly.cases.liveindex.android.CaseCheckLiveRecord"></class>
+            <class name="com.xmly.cases.liveindex.android.CaseCheckLiveTab"></class>
+            <class name="com.xmly.cases.liveindex.android.CaseCheckLiveRoom"></class>
 
         </classes>
     </test>

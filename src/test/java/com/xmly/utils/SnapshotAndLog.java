@@ -75,17 +75,17 @@ public class SnapshotAndLog {
         File logFile = new File(resultPath + File.separator + fileName + ".txt");
         logFile.getParentFile().mkdirs();
 
-        PrintWriter log_file_writer = null;
+        PrintWriter logFileWriter = null;
         try {
-            log_file_writer = new PrintWriter(logFile);
+            logFileWriter = new PrintWriter(logFile);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
         for (LogEntry logEntry : logEntries) {
             if (logEntry.getMessage().contains("ximalaya")) {
-                log_file_writer.println(logEntry);
+                logFileWriter.println(logEntry);
             }
         }
-        log_file_writer.flush();
+        logFileWriter.flush();
     }
 }

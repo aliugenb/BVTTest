@@ -44,7 +44,7 @@ public class CaseExitLiveRoom extends CaseHelper {
                 break;
             }
             userRoomIndexPage.exitLiveRoom(0);
-            Swipe.SwipeUp(driver);
+            Swipe.swipeUp(driver);
         }
         userRoomIndexPage.closeFirstChargePop();
         TimeUnit.MINUTES.sleep(11);
