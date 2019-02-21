@@ -79,7 +79,8 @@ public class TestngListener extends TestListenerAdapter {
 
     public void onTestFailure(ITestResult result) {
         Reporter.log("测试失败");
-        SnapshotAndLog.snapshotByAppium(result.getMethod().getMethodName() + "_Failed");
+        SnapshotAndLog.snapshotByAppium("Exception_" + result.getMethod().getMethodName() + "_Failed");
+        SnapshotAndLog.logByAppium("Exception_" + result.getMethod().getMethodName() + "_Failed");
     }
 
     public void onTestSkipped(ITestResult result) {
