@@ -2,6 +2,7 @@ package com.xmly.listener.testnglistener;
 
 import com.xmly.common.MyException;
 import com.xmly.driver.BaseDriver;
+import com.xmly.utils.AdbUtil;
 import com.xmly.utils.SnapshotAndLog;
 import io.appium.java_client.AppiumDriver;
 import org.apache.commons.io.FileUtils;
@@ -70,6 +71,13 @@ public class TestngListener extends TestListenerAdapter {
     }
 
     public void onTestStart(ITestResult result) {
+        try {
+            if (AdbUtil.isConnect()) {
+                SnapshotAndLog.clearAndroidLog();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         Reporter.log("测试开始");
     }
 

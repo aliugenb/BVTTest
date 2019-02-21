@@ -21,8 +21,8 @@ public class AssertHelper extends Assert {
 
         if (!condition) {
             Reporter.log(failMessage, true);
-            SnapshotAndLog.snapshotByAppium(failMessage);
-            SnapshotAndLog.logByAppium(failMessage);
+//            SnapshotAndLog.snapshotByAppium(failMessage);
+//            SnapshotAndLog.logByAppium(failMessage);
             failNotEquals(condition, Boolean.TRUE, message);
         } else {
             Reporter.log(successMessage, true);
