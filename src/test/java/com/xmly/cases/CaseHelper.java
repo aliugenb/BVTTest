@@ -24,7 +24,7 @@ public class CaseHelper extends BaseCase {
     跳转直播首页
      */
     public static void gotoLiveIndex() {
-        basePage.appIndexInit();
+//        basePage.appIndexInit();
         basePage.enterPage(basePage.LIVEHOMEPAGE);
         liveIndexPage.endLive();
     }
@@ -41,9 +41,9 @@ public class CaseHelper extends BaseCase {
     通过点击直播首页我要直播按钮登录
      */
     public static void login() {
-        if (basePage.isLogin()) {
-            return;
-        }
+//        if (basePage.isLogin()) {
+//            return;
+//        }
         liveIndexPage.gotoCreateLiveRoomPage();
         sleep(2);
 
@@ -70,6 +70,7 @@ public class CaseHelper extends BaseCase {
         login();
         liveIndexPage.gotoCreateLiveRoomPage();
         createLiveRoomPage.beginLiveBtn.click();
+        basePage.permissionAllowBtn.click();
         sleep(8);
         anchorRoomIndexPage.cancelShareBtn.click();
         Dimension size = driver.manage().window().getSize();
@@ -77,7 +78,7 @@ public class CaseHelper extends BaseCase {
         int height = size.height;
         //首次创建直播间出现蒙层，点击6次后消失
         for (int i = 0; i < 6; i++) {
-            DriverHelper.pressByCoordinates(driver, width / 2, height / 2);
+            DriverHelper.clickByCoordinates(driver, width / 2, height / 2);
             sleep(1);
         }
     }

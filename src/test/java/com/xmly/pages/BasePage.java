@@ -132,7 +132,7 @@ public class BasePage {
             Dimension size = driver.manage().window().getSize();
             int height = size.height;
             int width = size.width;
-            DriverHelper.pressByCoordinates(driver, width / 2, height / 3);
+            DriverHelper.clickByCoordinates(driver, width / 2, height / 3);
         }
     }
 }

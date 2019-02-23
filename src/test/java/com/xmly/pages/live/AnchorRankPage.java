@@ -12,6 +12,7 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
  * Time: 3:52 PM
  * 主播榜页面
  */
+
 public class AnchorRankPage extends BasePage {
     public AnchorRankPage(AppiumDriver<? extends MobileElement> driver) {
         super(driver);

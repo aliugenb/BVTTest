@@ -1,11 +1,14 @@
 package com.xmly.pages.live;
 
+import com.xmly.common.DriverHelper;
 import com.xmly.pages.BasePage;
 import com.xmly.utils.AdbUtil;
 import com.xmly.utils.KEY;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
+
+import static com.xmly.utils.CommonUtil.sleep;
 
 /**
  * Created with IntelliJ IDEA.
@@ -36,7 +39,9 @@ public class CreateLiveRoomPage extends BasePage {
      * return void
      **/
     public void cancelCreate() {
-        AdbUtil.pressKey(KEY.BACK);
+//        AdbUtil.pressKey(KEY.BACK);
+        DriverHelper.clickByImage(driver, "/Users/xmly/Documents/xmly/Uitest/src/test/java/com/xmly/pages/live/aa.png");
+        sleep(10);
         cancelBtn.click();
     }
 }

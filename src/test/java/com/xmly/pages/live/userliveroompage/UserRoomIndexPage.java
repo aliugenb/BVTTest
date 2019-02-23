@@ -9,7 +9,6 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.testng.Reporter;
-import org.testng.log4testng.Logger;
 
 /**
  * Created with IntelliJ IDEA.
@@ -19,8 +18,6 @@ import org.testng.log4testng.Logger;
  */
 
 public class UserRoomIndexPage extends BasePage {
-    private Logger logger = Logger.getLogger(getClass());
-
     public UserRoomIndexPage(AppiumDriver<? extends MobileElement> driver) {
         super(driver);
     }
@@ -79,14 +76,16 @@ public class UserRoomIndexPage extends BasePage {
     public void closeFirstChargePop() {
         CommonUtil.sleep(70);
         if (DriverHelper.isDisplayed(firstChargePop)) {
-            logger.info("出现首充弹窗");
+            Reporter.log("出现首充弹窗");
             closeWebviewBtn.click();
         }
     }
 
     /*
-    用户端退出直播间
-     */
+     * @Description: 用户端退出直播间
+     * @Param [min] 一般退出，传入min<10;出现关注&退出按钮后退出，传入min>=10
+     * @return void
+     **/
     public void exitLiveRoom(int min) {
         closeRoomBtn.click();
         if (DriverHelper.isDisplayed(swipeGuide)) {
@@ -94,10 +93,12 @@ public class UserRoomIndexPage extends BasePage {
             Swipe.swipeLeft(driver);
             closeRoomBtn.click();
         }
-        SnapshotAndLog.snapshotByAppium("用户端关闭直播间弹窗");
+        Reporter.log("出现直播间关闭确认弹窗");
         if (min >= 10) {
+            SnapshotAndLog.snapshotByAppium("超出10分钟用户端关闭直播间弹窗");
             exitAndFollowBtn.click();
         } else {
+            SnapshotAndLog.snapshotByAppium("小于10分钟用户端关闭直播间弹窗");
             exitRoomBtn.click();
         }
     }

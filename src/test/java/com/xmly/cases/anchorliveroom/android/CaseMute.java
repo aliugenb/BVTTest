@@ -21,14 +21,14 @@ public class CaseMute extends CaseHelper {
 
         int width = driver.manage().window().getSize().width;
         int height = driver.manage().window().getSize().height;
-        DriverHelper.pressByCoordinates(driver, width / 2, height / 3);
+        DriverHelper.clickByCoordinates(driver, width / 2, height / 3);
         assertHelper.assertTrue(DriverHelper.isDisplayed(anchorRoomIndexPage.micOffIcon),
                 "CaseMute开启静音模式出现静音icon");
 
         anchorRoomIndexPage.disableMute();
         assertHelper.assertTrue(DriverHelper.isDisplayed(anchorRoomIndexPage.enableMuteBtn),
                 "CaseMute关闭静音模式按钮文案变成开麦");
-        DriverHelper.pressByCoordinates(driver, width / 2, height / 3);
+        DriverHelper.clickByCoordinates(driver, width / 2, height / 3);
         assertHelper.assertTrue(!DriverHelper.isDisplayed(anchorRoomIndexPage.micOffIcon),
                 "CaseMute关闭静音模式静音icon消失");
     }

@@ -116,6 +116,16 @@ public class ElementListener implements ElementEventListener, AppiumWebDriverEve
     }
 
     @Override
+    public void beforeGetText(WebElement element, WebDriver driver) {
+
+    }
+
+    @Override
+    public void afterGetText(WebElement element, WebDriver driver, String text) {
+
+    }
+
+    @Override
     public void beforeScript(String script, WebDriver driver) {
 
     }

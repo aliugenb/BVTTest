@@ -12,10 +12,8 @@ import org.testng.*;
 
 import java.io.File;
 import java.io.IOException;
-import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.util.*;
-import java.util.concurrent.TimeUnit;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -81,7 +79,7 @@ public class TestngListener extends TestListenerAdapter {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Reporter.log("测试开始");
+        Reporter.log("Test start");
     }
 
     public void onTestSuccess(ITestResult result) {
