@@ -16,8 +16,8 @@ import java.util.regex.Pattern;
  */
 public class CaseLiveDynamicLogin extends CaseHelper {
     @Test(description = "未登录情况下进入直播动态")
-    public static void checkLogin() {
-        CaseHelper.gotoLiveIndex();
+    public void checkLogin() {
+        gotoLiveIndex();
         String text = liveIndexPage.gotoLiveDynamicPage();
         int onlineNum = 0;
         if (text.indexOf("已关注") != -1) {

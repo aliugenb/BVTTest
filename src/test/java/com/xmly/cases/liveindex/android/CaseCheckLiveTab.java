@@ -13,8 +13,8 @@ import org.testng.annotations.Test;
 
 public class CaseCheckLiveTab extends CaseHelper {
     @Test
-    public static void checkLiveTab() {
-        CaseHelper.gotoLiveIndex();
+    public void checkLiveTab() {
+        gotoLiveIndex();
         assertHelper.assertTrue(liveIndexPage.getLiveTabQty() == 5,
                 "CaseCheckLiveTab首页tab数量=5");
     }

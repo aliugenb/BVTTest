@@ -39,8 +39,8 @@ public class CreateLiveRoomPage extends BasePage {
      * return void
      **/
     public void cancelCreate() {
-//        AdbUtil.pressKey(KEY.BACK);
-        DriverHelper.clickByImage(driver, "/Users/xmly/Documents/xmly/Uitest/src/test/java/com/xmly/pages/live/aa.png");
+        AdbUtil.pressKey(KEY.BACK);
+//        DriverHelper.clickByImage(driver, "/Users/xmly/Documents/xmly/Uitest/src/test/java/com/xmly/pages/live/aa.png");
         sleep(10);
         cancelBtn.click();
     }

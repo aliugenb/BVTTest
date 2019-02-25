@@ -54,7 +54,7 @@ public class AndroidBaseDriver {
         capabilities.setCapability("unicodeKeyboard", true);
         capabilities.setCapability("resetKeyboard", true);
 
-        capabilities.setCapability("automationName", "uiautomator2");
+//        capabilities.setCapability("automationName", "uiautomator2");
         capabilities.setCapability("noSign", true);
         //设置app的主包名和主类名
         capabilities.setCapability("appPackage", "com.ximalaya.ting.android");

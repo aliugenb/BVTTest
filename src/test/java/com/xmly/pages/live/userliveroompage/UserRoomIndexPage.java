@@ -10,6 +10,8 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.testng.Reporter;
 
+import static com.xmly.common.DriverHelper.isDisplayed;
+
 /**
  * Created with IntelliJ IDEA.
  * Author: ye.liu
@@ -42,6 +44,18 @@ public class UserRoomIndexPage extends BasePage {
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_send")
     public MobileElement speakText;
 
+    //上麦按钮
+    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_btn_bottom_friends_seat_request")
+    public MobileElement requestBtn;
+
+    //礼物面板按钮
+    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_btn_gift")
+    public MobileElement giftBtn;
+
+    //PK状态栏
+    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_pk_status")
+    public MobileElement pkStatus;
+
     //关注按钮
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_followTv")
     public MobileElement followBtn;
@@ -57,7 +71,6 @@ public class UserRoomIndexPage extends BasePage {
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_btn_close_room")
     public MobileElement closeRoomBtn;
 
-
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_close_room_exit")
     public MobileElement exitRoomBtn;
 
@@ -68,6 +81,7 @@ public class UserRoomIndexPage extends BasePage {
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_scroll_svg_guide")
     public MobileElement swipeGuide;
 
+
     /*
      * @Description: 关闭首充弹窗
      * @Param []
@@ -75,10 +89,26 @@ public class UserRoomIndexPage extends BasePage {
      **/
     public void closeFirstChargePop() {
         CommonUtil.sleep(70);
-        if (DriverHelper.isDisplayed(firstChargePop)) {
+        if (isDisplayed(firstChargePop)) {
             Reporter.log("出现首充弹窗");
             closeWebviewBtn.click();
         }
+    }
+
+    /*
+     * @Description: 获取当前直播间类型
+     * @Param []
+     * @return java.lang.String
+     **/
+    public String getRoomType() {
+        String roomType = RoomType.COMMON;
+
+        if (isDisplayed(requestBtn)) {
+            roomType = RoomType.FRIEND;
+        } else if (isDisplayed(pkStatus)) {
+            roomType = RoomType.PK;
+        }
+        return roomType;
     }
 
     /*
@@ -88,7 +118,7 @@ public class UserRoomIndexPage extends BasePage {
      **/
     public void exitLiveRoom(int min) {
         closeRoomBtn.click();
-        if (DriverHelper.isDisplayed(swipeGuide)) {
+        if (isDisplayed(swipeGuide)) {
             Reporter.log("出现左右滑动引导浮层");
             Swipe.swipeLeft(driver);
             closeRoomBtn.click();
@@ -106,7 +136,7 @@ public class UserRoomIndexPage extends BasePage {
     //是否关注了当前主播
     public boolean isFollow() {
         boolean flag = false;
-        if (!DriverHelper.isDisplayed(followBtn)) {
+        if (!isDisplayed(followBtn)) {
             flag = true;
         }
         return flag;

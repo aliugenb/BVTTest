@@ -13,8 +13,8 @@ import org.testng.annotations.Test;
 public class CaseMute extends CaseHelper {
 
     @Test(description = "检查静音功能正常")
-    public static void checkMute() throws InterruptedException {
-        CaseHelper.createAnchorLiveRoom();
+    public void checkMute() throws InterruptedException {
+        createAnchorLiveRoom();
         anchorRoomIndexPage.enableMute();
         assertHelper.assertTrue(DriverHelper.isDisplayed(anchorRoomIndexPage.disableMuteBtn),
                 "CaseMute开启静音模式按钮文案变成静音");

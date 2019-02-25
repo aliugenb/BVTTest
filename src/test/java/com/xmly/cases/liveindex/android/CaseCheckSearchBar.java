@@ -16,8 +16,8 @@ import java.io.IOException;
 
 public class CaseCheckSearchBar extends CaseHelper {
     @Test(description = "直播首页存在搜索框")
-    public static void checkSearchBar() {
-        CaseHelper.gotoLiveIndex();
+    public void checkSearchBar() {
+        gotoLiveIndex();
         assertHelper.assertTrue(DriverHelper.isDisplayed(liveIndexPage.searchBar),
                 "CaseCheckSearchBar直播首页存在搜索框");
         liveIndexPage.gotoSearchPage();

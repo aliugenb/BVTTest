@@ -12,10 +12,10 @@ import org.testng.annotations.Test;
 public class CaseSpeak extends CaseHelper {
 
     @Test(description = "主播端发言")
-    public static void checkSpeak() throws InterruptedException {
+    public void checkSpeak() throws InterruptedException {
         String content = "大家好";
 
-        CaseHelper.createAnchorLiveRoom();
+        createAnchorLiveRoom();
         anchorRoomIndexPage.speakByContent(content);
         assertHelper.assertTrue(anchorRoomIndexPage.findByContent(content),
                 "CaseSpeak发言成功并显示发送内容");

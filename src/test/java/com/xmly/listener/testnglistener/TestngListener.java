@@ -15,9 +15,6 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import static com.xmly.utils.FilesInit.resultPath;
 
 /**
@@ -28,20 +25,20 @@ import static com.xmly.utils.FilesInit.resultPath;
  */
 
 public class TestngListener extends TestListenerAdapter {
-    private static Logger logger = LogManager.getLogger(ITestListener.class);
+//    private static Logger logger = LogManager.getLogger(ITestListener.class);
 
     @Override
     public void onFinish(ITestContext testContext) {
         ArrayList<ITestResult> testsToBeRemoved = new ArrayList<ITestResult>();
         Set<Integer> passedTestIds = new HashSet<Integer>();
         for (ITestResult passedTest : testContext.getPassedTests().getAllResults()) {
-            logger.info("PassedTests = " + passedTest.getName());
+//            logger.info("PassedTests = " + passedTest.getName());
             passedTestIds.add(getId(passedTest));
         }
 
         Set<Integer> failedTestIds = new HashSet<Integer>();
         for (ITestResult failedTest : testContext.getFailedTests().getAllResults()) {
-            logger.info("failedTest = " + failedTest.getName());
+//            logger.info("failedTest = " + failedTest.getName());
             // id = class + method + dataprovider
             int failedTestId = getId(failedTest);
 
@@ -56,7 +53,7 @@ public class TestngListener extends TestListenerAdapter {
                 .hasNext(); ) {
             ITestResult testResult = iterator.next();
             if (testsToBeRemoved.contains(testResult)) {
-                logger.info("Remove repeat Fail Test: " + testResult.getName());
+//                logger.info("Remove repeat Fail Test: " + testResult.getName());
                 iterator.remove();
             }
         }

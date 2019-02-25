@@ -13,9 +13,9 @@ import org.testng.annotations.Test;
  */
 public class CaseCall extends CaseHelper {
     @Test(description = "连麦开关功能正常")
-    public static void checkCall() throws InterruptedException {
+    public void checkCall() throws InterruptedException {
         CallPage callPage = new CallPage(driver);
-        CaseHelper.createAnchorLiveRoom();
+        createAnchorLiveRoom();
         anchorRoomIndexPage.gotoCallPage();
         assertHelper.assertTrue(
                 DriverHelper.getText(callPage.onCallNum).equals("连麦未开启"),

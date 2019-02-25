@@ -14,8 +14,8 @@ import org.testng.annotations.Test;
 public class CaseLiveDynamicUnlogin extends CaseHelper {
 
     @Test(description = "登录情况下进入直播动态")
-    public static void checkUnlogin() throws InterruptedException {
-        CaseHelper.gotoLiveIndex();
+    public void checkUnlogin() throws InterruptedException {
+        gotoLiveIndex();
         liveIndexPage.gotoLiveDynamicPage();
 
         assertHelper.assertTrue(DriverHelper.isDisplayed(liveDynamicPage.goLoginBtn),

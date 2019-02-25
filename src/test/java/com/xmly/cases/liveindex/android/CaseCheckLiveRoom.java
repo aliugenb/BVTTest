@@ -17,8 +17,8 @@ import java.io.FileNotFoundException;
 
 public class CaseCheckLiveRoom extends CaseHelper {
     @Test
-    public static void checkLiveRoom() {
-        CaseHelper.gotoLiveIndex();
+    public void checkLiveRoom() {
+        gotoLiveIndex();
         assertHelper.assertTrue(DriverHelper.isDisplayed(liveIndexPage.liveRoom));
     }
 }

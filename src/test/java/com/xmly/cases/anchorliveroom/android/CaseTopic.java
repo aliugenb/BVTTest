@@ -12,11 +12,11 @@ import org.testng.annotations.Test;
  */
 public class CaseTopic extends CaseHelper {
     @Test(description = "主播端发布话题")
-    public static void checkTopic() throws InterruptedException {
+    public void checkTopic() throws InterruptedException {
 
         String topicContent = "大家好";
         TopicPage topicPage = new TopicPage(driver);
-        CaseHelper.createAnchorLiveRoom();
+        createAnchorLiveRoom();
 
         anchorRoomIndexPage.gotoTopicPage();
         topicPage.setTopic(topicContent);

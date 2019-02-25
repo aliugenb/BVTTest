@@ -12,13 +12,13 @@ import org.testng.annotations.Test;
  * Time: 11:14
  */
 public class CaseFriend extends CaseHelper {
-    private static FriendPage friendPage;
+    private FriendPage friendPage;
 
     @Test(description = "交友模式开启")
-    public static void openFriendModel() throws InterruptedException {
+    public void openFriendModel() throws InterruptedException {
         friendPage = new FriendPage(driver);
 
-        CaseHelper.createAnchorLiveRoom();
+        createAnchorLiveRoom();
         anchorRoomIndexPage.gotoFriendPage();
         assertHelper.assertTrue(DriverHelper.isDisplayed(friendPage.friendConfirmPopup),
                 "CaseFriend点击开启弹出交友模式确认弹窗");

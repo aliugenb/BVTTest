@@ -34,8 +34,7 @@ public class SnapshotAndLog {
         File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         try {
             String screenshotPath = resultPath + File.separator + filename + ".png";
-            System.out.println("save snapshot path is:" + resultPath + "/"
-                    + filename);
+            System.out.println("save snapshot path is:" + screenshotPath);
             FileUtils.copyFile(scrFile, new File(screenshotPath));
             Reporter.log(filename + ".png");
         } catch (IOException e) {

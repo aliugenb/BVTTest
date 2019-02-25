@@ -78,6 +78,10 @@ public class LiveIndexPage extends BasePage {
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_item_record_cover")
     public MobileElement liveRoom;
 
+    //    @AndroidFindBy(uiAutomator = "new UiScrollable(new UiSelector().scrollable(true).instance(0)).getChildByText(new UiSelector().className(\"android.widget.TextView\"), \"Tabs\")")
+    @AndroidFindBy(uiAutomator = "new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(new UiSelector().textContains(\"交友模式\").instance(0))")
+    public MobileElement friendRoom;
+
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_item_record_anchor_right_mark2")
     public List<MobileElement> liveRoomMarkList;
 

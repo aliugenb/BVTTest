@@ -6,12 +6,9 @@ import io.appium.java_client.TouchAction;
 import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.NoSuchElementException;
 import org.testng.Reporter;
-//import org.apache.commons.codec.binary.Base64;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Files;
@@ -92,7 +89,7 @@ public class DriverHelper {
     }
 
     public static String getReferenceImageB64() {
-        File img = new File("/Users/xmly/Desktop/bb.png");
+        File img = new File("/Users/xmly/Desktop/aa.png");
 //        URL refImgUrl = getClass().getClassLoader().getResource("Edition031_Reference_Image.png");
         File refImgFile = Paths.get(img.toURI()).toFile();
 //        File refImgFile = new File("/Users/xmly/Documents/xmly/Uitest/src/test/java/com/xmly/pages/live/aa.png");
