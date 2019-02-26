@@ -4,6 +4,8 @@ import com.xmly.cases.CaseHelper;
 import com.xmly.common.DriverHelper;
 import com.xmly.driver.Driver;
 import com.xmly.pages.live.userliveroompage.RoomType;
+import io.appium.java_client.MobileBy;
+import io.appium.java_client.MobileElement;
 import org.testng.annotations.Test;
 
 /**
@@ -27,17 +29,20 @@ public class CaseEnterLiveRoom extends CaseHelper {
 
     @Test(description = "进入交友模式房间")
     public void enterFriendRoom() {
-//        liveIndexPage.gotoUserLiveRoomByType(RoomType.FRIEND);
         gotoLiveIndex();
-        liveIndexPage.friendRoom.click();
+        login();
+        liveIndexPage.gotoUserLiveRoomByType(RoomType.FRIEND);
+//        driver.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().resourceId(\"com.ximalaya.ting.android.main.application:id/main_content\")).scrollIntoView(new UiSelector().text(\"交友模式\"))")).click();
         assertHelper.assertTrue(userRoomIndexPage.getRoomType() == RoomType.FRIEND,
-                getCurClassName() + "已进入普通模式直播间");
+                getCurClassName() + "已进入交友模式直播间");
+        userRoomIndexPage.exitLiveRoom(0);
     }
 
-//    @Test(description = "进入PK模式房间")
-//    public void enterPkRoom() {
-//        liveIndexPage.gotoUserLiveRoomByType(RoomType.PK);
-//        assertHelper.assertTrue(userRoomIndexPage.getRoomType() == RoomType.FRIEND,
-//                getCurClassName() + "已进入pk模式直播间");
-//    }
+    @Test(description = "进入PK模式房间")
+    public void enterPkRoom() {
+//        driver.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().resourceId(\"com.ximalaya.ting.android.main.application:id/main_content\")).scrollIntoView(new UiSelector().text(\"正在PK\"))")).click();
+        liveIndexPage.gotoUserLiveRoomByType(RoomType.PK);
+        assertHelper.assertTrue(userRoomIndexPage.getRoomType() == RoomType.PK,
+                getCurClassName() + "已进入pk模式直播间");
+    }
 }

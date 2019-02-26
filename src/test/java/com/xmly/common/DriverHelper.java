@@ -1,19 +1,11 @@
 package com.xmly.common;
 
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.NoSuchElementException;
-import org.testng.Reporter;
-
-import java.io.File;
-import java.io.IOException;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.Base64;
 
 /**
  * Created with IntelliJ IDEA.
@@ -62,44 +54,6 @@ public class DriverHelper {
             return null;
         }
         return null;
-    }
-
-    //根据图片点击
-    public static void clickByImage(AppiumDriver driver, String imgPath) {
-//        String imgFile = imgPath;
-//        InputStream in = null;
-//        byte[] data = null;
-//        try {
-//            in = new FileInputStream(imgFile);
-//            data = new byte[in.available()];
-//            in.read(data);
-//            in.close();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        Base64 base64 = new Base64();
-//        String b64Img = new String(base64.encodeBase64(data));
-        String b64Img = getReferenceImageB64();
-        System.out.println(b64Img);
-        Reporter.log(String.valueOf(driver.findElementByImage(b64Img).isDisplayed()));
-        if (driver.findElementByImage(b64Img).isDisplayed()) {
-            driver.findElementByImage(b64Img).click();
-            System.out.println("点击成功");
-        }
-    }
-
-    public static String getReferenceImageB64() {
-        File img = new File("/Users/xmly/Desktop/aa.png");
-//        URL refImgUrl = getClass().getClassLoader().getResource("Edition031_Reference_Image.png");
-        File refImgFile = Paths.get(img.toURI()).toFile();
-//        File refImgFile = new File("/Users/xmly/Documents/xmly/Uitest/src/test/java/com/xmly/pages/live/aa.png");
-        String b64 = null;
-        try {
-            b64 = Base64.getEncoder().encodeToString(Files.readAllBytes(refImgFile.toPath()));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return b64;
     }
 
     //根据坐标点击

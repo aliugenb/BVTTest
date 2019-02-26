@@ -3,12 +3,16 @@ package com.xmly.common;
 
 import com.xmly.utils.CommonUtil;
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileCommand;
+import io.appium.java_client.MobileElement;
 import org.openqa.selenium.Dimension;
 
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.touch.offset.PointOption;
 
 import java.util.Date;
+
+import static com.xmly.utils.CommonUtil.sleep;
 
 /**
  * Created with IntelliJ IDEA.
@@ -60,7 +64,7 @@ public class Swipe {
     }
 
     //根据设定时长上下滑动页面
-    public static void swipUpAndDownByTime(AppiumDriver driver, int time) throws InterruptedException {
+    public static void swipUpAndDownByTime(AppiumDriver driver, int time) {
         int width = driver.manage().window().getSize().width;
         int height = driver.manage().window().getSize().height;
         long s = (new Date()).getTime();
@@ -69,13 +73,13 @@ public class Swipe {
                 TouchAction action = new TouchAction(driver).press(PointOption.point(width / 2, height * 5 / 7))
                         .waitAction().moveTo(PointOption.point(width / 2, height * 2 / 7)).release();
                 action.perform();
-                Thread.sleep(1000);
+                sleep(1);
             }
             for (int i2 = 0; i2 <= 5; i2++) {
                 TouchAction action1 = new TouchAction(driver).press(PointOption.point(width / 2, height * 2 / 7))
                         .waitAction().moveTo(PointOption.point(width / 2, height * 5 / 7)).release();
                 action1.perform();
-                Thread.sleep(1000);
+                sleep(1);
             }
         }
     }

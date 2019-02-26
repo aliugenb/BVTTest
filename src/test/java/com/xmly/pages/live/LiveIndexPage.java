@@ -1,10 +1,12 @@
 package com.xmly.pages.live;
 
 import com.xmly.common.DriverHelper;
+import com.xmly.common.FindElementHelper;
 import com.xmly.common.Swipe;
 import com.xmly.pages.BasePage;
 import com.xmly.pages.live.userliveroompage.RoomType;
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.NoSuchElementException;
@@ -12,6 +14,8 @@ import org.openqa.selenium.NoSuchElementException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static com.xmly.common.FindElementHelper.findElementBySwipe;
 
 /**
  * ClassName: LiveIndexPage
@@ -78,9 +82,13 @@ public class LiveIndexPage extends BasePage {
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_item_record_cover")
     public MobileElement liveRoom;
 
-    //    @AndroidFindBy(uiAutomator = "new UiScrollable(new UiSelector().scrollable(true).instance(0)).getChildByText(new UiSelector().className(\"android.widget.TextView\"), \"Tabs\")")
-    @AndroidFindBy(uiAutomator = "new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(new UiSelector().textContains(\"交友模式\").instance(0))")
+    //    @AndroidFindBy(uiAutomator = "new UiScrollable(new UiSelector().resourceId(\"com.ximalaya.ting.android.main.application:id/main_content\")).scrollIntoView(new UiSelector().text(\"交友模式\"))")
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"交友模式\")")
     public MobileElement friendRoom;
+
+    //    @AndroidFindBy(uiAutomator = "new UiScrollable(new UiSelector().resourceId(\"com.ximalaya.ting.android.main.application:id/main_content\")).scrollIntoView(new UiSelector().text(\"正在PK\"))")
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"正在PK\")")
+    public MobileElement pkRoom;
 
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_item_record_anchor_right_mark2")
     public List<MobileElement> liveRoomMarkList;
@@ -93,20 +101,12 @@ public class LiveIndexPage extends BasePage {
     public void gotoUserLiveRoomByType(String roomType) {
         if (roomType == null || roomType.equals("")) {
             liveRoom.click();
-        } else {
-            int start = 0;
-            while (start < 3) {
-                Map<String, MobileElement> liveRoomList = getLiveRoomList();
-                for (String key : liveRoomList.keySet()) {
-                    if (key == roomType) {
-                        liveRoomList.get(key).click();
-                        return;
-                    }
-                }
-                Swipe.swipeUp(driver);
-                start++;
-            }
-            throw new NoSuchElementException("无这种类型的直播间");
+        } else if (roomType.equals(RoomType.FRIEND)) {
+            findElementBySwipe(driver, friendRoom, 5, "up").click();
+        } else if (roomType.equals(RoomType.PK)) {
+            findElementBySwipe(driver, pkRoom, 5, "up").click();
+        } else if (roomType.equals(RoomType.COMMON)) {
+
         }
     }
 
@@ -144,7 +144,7 @@ public class LiveIndexPage extends BasePage {
     public MobileElement cancelLiveBtn;
 
     //关闭直播未正常关闭时首页弹出的提醒弹层
-    public void endLive() {
+    public void liveIndexInit() {
         if (DriverHelper.isDisplayed(cancelLiveBtn)) {
             cancelLiveBtn.click();
         }
