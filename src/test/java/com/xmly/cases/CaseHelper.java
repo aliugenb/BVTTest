@@ -1,13 +1,9 @@
 package com.xmly.cases;
 
 import com.xmly.common.DriverHelper;
-import com.xmly.utils.AdbUtil;
-import com.xmly.utils.CommonUtil;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.NoSuchElementException;
 import org.testng.Reporter;
-
-import java.util.concurrent.TimeUnit;
 
 import static com.xmly.utils.CommonUtil.sleep;
 
@@ -20,13 +16,19 @@ import static com.xmly.utils.CommonUtil.sleep;
 
 public class CaseHelper extends BaseCase {
 
+    protected String curClassName = null;
+
+    public String getCurClassName() {
+        return getClass().getName();
+    }
+
     /*
     跳转直播首页
      */
     public static void gotoLiveIndex() {
 //        basePage.appIndexInit();
         basePage.enterPage(basePage.LIVEHOMEPAGE);
-        liveIndexPage.endLive();
+//        liveIndexPage.liveIndexInit();
     }
 
     /*
@@ -41,9 +43,9 @@ public class CaseHelper extends BaseCase {
     通过点击直播首页我要直播按钮登录
      */
     public static void login() {
-//        if (basePage.isLogin()) {
-//            return;
-//        }
+        if (basePage.isLogin()) {
+            return;
+        }
         liveIndexPage.gotoCreateLiveRoomPage();
         sleep(2);
 
@@ -63,8 +65,10 @@ public class CaseHelper extends BaseCase {
     }
 
     /*
-    直播首页创建直播间
-     */
+     * @Description: 直播间首页创建直播页
+     * @Param []
+     * @return void
+     **/
     public static void createAnchorLiveRoom() throws InterruptedException {
         gotoLiveIndex();
         login();
