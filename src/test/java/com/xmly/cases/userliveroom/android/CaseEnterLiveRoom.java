@@ -18,7 +18,6 @@ public class CaseEnterLiveRoom extends CaseHelper {
 //    @Test(description = "进入普通房间")
 //    public void enterCommonRoom() {
 //        gotoLiveIndex();
-//        login();
 //        liveIndexPage.gotoUserLiveRoomByType(RoomType.COMMON);
 //        assertHelper.assertTrue(userRoomIndexPage.getRoomType() == RoomType.COMMON,
 //                getCurClassName() + "已进入普通直播间");
@@ -30,9 +29,7 @@ public class CaseEnterLiveRoom extends CaseHelper {
     @Test(description = "进入交友模式房间")
     public void enterFriendRoom() {
         gotoLiveIndex();
-        login();
         liveIndexPage.gotoUserLiveRoomByType(RoomType.FRIEND);
-//        driver.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().resourceId(\"com.ximalaya.ting.android.main.application:id/main_content\")).scrollIntoView(new UiSelector().text(\"交友模式\"))")).click();
         assertHelper.assertTrue(userRoomIndexPage.getRoomType() == RoomType.FRIEND,
                 getCurClassName() + "已进入交友模式直播间");
         userRoomIndexPage.exitLiveRoom(0);
@@ -40,7 +37,6 @@ public class CaseEnterLiveRoom extends CaseHelper {
 
     @Test(description = "进入PK模式房间")
     public void enterPkRoom() {
-//        driver.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().resourceId(\"com.ximalaya.ting.android.main.application:id/main_content\")).scrollIntoView(new UiSelector().text(\"正在PK\"))")).click();
         liveIndexPage.gotoUserLiveRoomByType(RoomType.PK);
         assertHelper.assertTrue(userRoomIndexPage.getRoomType() == RoomType.PK,
                 getCurClassName() + "已进入pk模式直播间");

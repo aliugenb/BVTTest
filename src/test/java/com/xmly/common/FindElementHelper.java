@@ -33,17 +33,18 @@ public class FindElementHelper {
                     return element;
                 }
             } catch (NoSuchElementException e) {
-                if (direction.equals("up")) {
-                    Swipe.swipeUp(driver);
-                }
-                if (direction.equals("down")) {
-                    Swipe.swipeDown(driver);
+                switch (direction) {
+                    case "up":
+                        Swipe.swipeUp(driver);
+                        break;
+                    case "down":
+                        Swipe.swipeDown(driver);
+                        break;
                 }
             }
             start++;
         }
-
-        return element;
+        throw new NoSuchElementException("未没找到相应元素");
     }
 
     /*
@@ -51,8 +52,8 @@ public class FindElementHelper {
      * @Param [driver]
      * @return void
      **/
-    public static void findElement(AppiumDriver driver) {
-        driver.findElement(MobileBy.AndroidUIAutomator(""));
+    public static MobileElement findElementByAndroidUIAutomator(AppiumDriver driver, String uiobject) {
+        return (MobileElement) driver.findElement(MobileBy.AndroidUIAutomator(uiobject));
     }
 
     /*

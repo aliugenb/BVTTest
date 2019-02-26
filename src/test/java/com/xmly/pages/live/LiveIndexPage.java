@@ -102,34 +102,10 @@ public class LiveIndexPage extends BasePage {
         if (roomType == null || roomType.equals("")) {
             liveRoom.click();
         } else if (roomType.equals(RoomType.FRIEND)) {
-            findElementBySwipe(driver, friendRoom, 5, "up").click();
+            findElementBySwipe(driver, friendRoom, 10, "up").click();
         } else if (roomType.equals(RoomType.PK)) {
-            findElementBySwipe(driver, pkRoom, 5, "up").click();
-        } else if (roomType.equals(RoomType.COMMON)) {
-
+            findElementBySwipe(driver, pkRoom, 10, "up").click();
         }
-    }
-
-    /*
-     * Description:获取当前页面的直播间
-     * Param []
-     * return java.util.Map<java.lang.String,io.appium.java_client.MobileElement>
-     **/
-    private Map<String, MobileElement> getLiveRoomList() {
-        Map<String, MobileElement> liveRoomList = new HashMap<>();
-        for (MobileElement liveRoom : liveRoomMarkList) {
-            String roomMark = liveRoom.getText();
-            String roomType = null;
-            if (roomMark.contains("PK")) {
-                roomType = RoomType.PK;
-            } else if (roomMark.contains("交友")) {
-                roomType = RoomType.FRIEND;
-            } else {
-                roomType = RoomType.COMMON;
-            }
-            liveRoomList.put(roomType, liveRoom);
-        }
-        return liveRoomList;
     }
 
     /*

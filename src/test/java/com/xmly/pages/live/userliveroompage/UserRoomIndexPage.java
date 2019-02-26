@@ -125,10 +125,10 @@ public class UserRoomIndexPage extends BasePage {
         }
         Reporter.log("出现直播间关闭确认弹窗");
         if (min >= 10) {
-            SnapshotAndLog.snapshotByAppium("超出10分钟用户端关闭直播间弹窗");
+            SnapshotAndLog.snapshotByAppium("超出10分钟用户端关闭直播间");
             exitAndFollowBtn.click();
         } else {
-            SnapshotAndLog.snapshotByAppium("小于10分钟用户端关闭直播间弹窗");
+            SnapshotAndLog.snapshotByAppium("小于10分钟用户端关闭直播间");
             exitRoomBtn.click();
         }
     }
