@@ -34,11 +34,17 @@ public class FindElementHelper {
                 }
             } catch (NoSuchElementException e) {
                 switch (direction) {
-                    case "up":
+                    case SwipeDirection.UP:
                         Swipe.swipeUp(driver);
                         break;
-                    case "down":
+                    case SwipeDirection.DOWN:
                         Swipe.swipeDown(driver);
+                        break;
+                    case SwipeDirection.RIGHT:
+                        Swipe.swipeRight(driver);
+                        break;
+                    case SwipeDirection.LEFT:
+                        Swipe.swipeLeft(driver);
                         break;
                 }
             }
@@ -48,7 +54,7 @@ public class FindElementHelper {
     }
 
     /*
-     * @Description: 根据uiautomator查找元素
+     * @Description: android根据uiautomator查找元素
      * @Param [driver]
      * @return void
      **/

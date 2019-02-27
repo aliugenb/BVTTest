@@ -111,6 +111,10 @@ public class UserRoomIndexPage extends BasePage {
         return roomType;
     }
 
+    public void gotoUserSpeakPage() {
+        speakText.click();
+    }
+
     /*
      * @Description: 用户端退出直播间
      * @Param [min] 一般退出，传入min<10;出现关注&退出按钮后退出，传入min>=10

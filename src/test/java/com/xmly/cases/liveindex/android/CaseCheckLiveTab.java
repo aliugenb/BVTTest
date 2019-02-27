@@ -1,6 +1,7 @@
 package com.xmly.cases.liveindex.android;
 
 import com.xmly.cases.CaseHelper;
+import org.testng.Reporter;
 import org.testng.annotations.Test;
 
 /**
@@ -15,7 +16,10 @@ public class CaseCheckLiveTab extends CaseHelper {
     @Test
     public void checkLiveTab() {
         gotoLiveIndex();
-        assertHelper.assertTrue(liveIndexPage.getLiveTabQty() == 5,
-                "CaseCheckLiveTab首页tab数量=5");
+//        assertHelper.assertTrue(liveIndexPage.getLiveTabQty() == 5, "CaseCheckLiveTab首页tab数量=5");
+        Reporter.log(String.valueOf(liveIndexPage.liveTabs.get(0).getLocation()));
+        System.out.println(liveIndexPage.liveTabs.get(0).getCoordinates().inViewPort());
+//        Reporter.log(String.valueOf(liveIndexPage.liveTabs.get(0).getCoordinates().onScreen()));
+//        Reporter.log(String.valueOf(liveIndexPage.liveTabs.get(0).getCoordinates().onPage()));
     }
 }

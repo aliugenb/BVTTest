@@ -63,6 +63,13 @@ public class Swipe {
                 .perform();
     }
 
+    //根据指定坐标滑动
+    public static void swipeByCoordinates(int xStart, int yStart, int xEnd, int yEnd, AppiumDriver driver) {
+        new TouchAction(driver).longPress(PointOption.point(xStart, yStart))
+                .moveTo(PointOption.point(xEnd, yEnd)).release()
+                .perform();
+    }
+
     //根据设定时长上下滑动页面
     public static void swipUpAndDownByTime(AppiumDriver driver, int time) {
         int width = driver.manage().window().getSize().width;

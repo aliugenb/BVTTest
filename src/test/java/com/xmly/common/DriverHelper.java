@@ -1,11 +1,11 @@
 package com.xmly.common;
 
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.Point;
 
 /**
  * Created with IntelliJ IDEA.
@@ -41,18 +41,22 @@ public class DriverHelper {
     }
 
     //获取元素中心点击坐标
-    public static String getCenterCoordinates(MobileElement mobileElement) {
-        try {
-            if (mobileElement.isDisplayed()) {
-                String coordinates = null;
-                int x = mobileElement.getCenter().getX();
-                int y = mobileElement.getCenter().getY();
-                coordinates = "" + x + " " + y + "";
-                return coordinates;
-            }
-        } catch (NoSuchElementException e) {
-            return null;
-        }
+    public static Point getCenter(MobileElement element) {
+        return element.getCenter();
+    }
+
+    public static Point get
+
+    public static Point getLowerRight(MobileElement element) {
+        Point point = element.getLocation();
+    }
+
+    /*
+     * @Description: 获取元素顶部坐标
+     * @Param [element]
+     * @return java.lang.String
+     **/
+    public static String getAboveCoordinates(MobileElement element) {
         return null;
     }
 

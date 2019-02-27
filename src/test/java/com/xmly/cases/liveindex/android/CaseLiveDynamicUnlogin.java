@@ -19,19 +19,19 @@ public class CaseLiveDynamicUnlogin extends CaseHelper {
         liveIndexPage.gotoLiveDynamicPage();
 
         assertHelper.assertTrue(DriverHelper.isDisplayed(liveDynamicPage.goLoginBtn),
-                "CaseLiveDynamicUnlogin未登录时显示登录按钮");
+                getCurClassName() + "未登录时显示登录按钮");
         assertHelper.assertTrue(DriverHelper.isDisplayed(liveDynamicPage.hotRecommend),
-                "CaseLiveDynamicUnlogin未登录时显示推荐直播间列表");
+                getCurClassName() + "未登录时显示推荐直播间列表");
 
         liveDynamicPage.goToLogin();
         loginPage.onlineLogin();
 
         if (DriverHelper.isDisplayed(liveDynamicPage.hotRecommend)) {
             assertHelper.assertTrue(DriverHelper.isDisplayed(liveDynamicPage.noFollowAnchorText),
-                    "CaseLiveDynamicUnlogin登录后未关注主播显示\"未关注xxx\"文案");
+                    getCurClassName() + "登录后未关注主播显示\"未关注xxx\"文案");
         } else {
             assertHelper.assertTrue(DriverHelper.isDisplayed(liveDynamicPage.anchorNickName),
-                    "CaseLiveDynamicUnlogin登录后显示关注主播");
+                    getCurClassName() + "登录后显示关注主播");
         }
     }
 }

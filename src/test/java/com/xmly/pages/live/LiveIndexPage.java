@@ -3,6 +3,7 @@ package com.xmly.pages.live;
 import com.xmly.common.DriverHelper;
 import com.xmly.common.FindElementHelper;
 import com.xmly.common.Swipe;
+import com.xmly.common.SwipeDirection;
 import com.xmly.pages.BasePage;
 import com.xmly.pages.live.userliveroompage.RoomType;
 import io.appium.java_client.AppiumDriver;
@@ -74,6 +75,9 @@ public class LiveIndexPage extends BasePage {
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_tab_layout")
     public List<MobileElement> liveTabs;
 
+    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_type_tab_new")
+    public MobileElement liveTab;
+
     public int getLiveTabQty() {
         return liveTabs.size();
     }
@@ -102,9 +106,9 @@ public class LiveIndexPage extends BasePage {
         if (roomType == null || roomType.equals("")) {
             liveRoom.click();
         } else if (roomType.equals(RoomType.FRIEND)) {
-            findElementBySwipe(driver, friendRoom, 10, "up").click();
+            findElementBySwipe(driver, friendRoom, 10, SwipeDirection.UP).click();
         } else if (roomType.equals(RoomType.PK)) {
-            findElementBySwipe(driver, pkRoom, 10, "up").click();
+            findElementBySwipe(driver, pkRoom, 10, SwipeDirection.UP).click();
         }
     }
 
