@@ -14,11 +14,10 @@ import static com.xmly.utils.CommonUtil.sleep;
  * Author: ye.liu
  * Date: 2018/11/28
  * Time: 7:43 PM
- * 热门分类tab存在并且有5个
  */
 
 public class CaseCheckLiveTab extends CaseHelper {
-    @Test
+    @Test(description = "直播间首页tab滑动")
     public void checkLiveTab() {
         gotoLiveIndex();
         assertHelper.assertTrue(liveIndexPage.liveTabs.size() == 5, "CaseCheckLiveTab首页tab数量=5");
@@ -32,15 +31,16 @@ public class CaseCheckLiveTab extends CaseHelper {
 
         //滑动tab到顶部
         Swipe.swipeByCoordinates(liveTabX, initialLiveTabY, liveTabX, targetLiveTabY, driver);
-
+        Swipe.swipeUp(driver);
         assertHelper.assertTrue(DriverHelper.isDisplayed(liveIndexPage.liveTabs.get(0)),
-                getCurClassName() + "上滑到顶部后位置固定");
+                getCurClassName() + "上滑到顶部后位置固定不隐藏");
 
-
+        //滑动tab到初始位置
         Swipe.swipeByCoordinates(liveTabX, targetLiveTabY, liveTabX, initialLiveTabY, driver);
         Swipe.swipeDown(driver);
         sleep(2);
-        assertHelper.assertTrue(liveIndexPage.liveTabs.get(0).getLocation() == initialPoint,
+        Point lastPoint = liveIndexPage.liveTabs.get(0).getLocation();
+        assertHelper.assertTrue((initialPoint.getX() == lastPoint.getX()) && (initialPoint.getY() == lastPoint.getY()),
                 getCurClassName() + "下滑后恢复到默认位置");
     }
 }
