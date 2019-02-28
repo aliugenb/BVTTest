@@ -32,7 +32,7 @@ public class LiveIndexPage extends BasePage {
     }
 
     //搜索框
-    @AndroidFindBy(id = "com.ximalaya.ting.android.main.application:id/main_tv_search")
+    @AndroidFindBy(id = "com.ximalaya.ting.android.main.application:id/main_vg_search_bar")
     public MobileElement searchBar;
 
     //肚脐眼
@@ -46,18 +46,6 @@ public class LiveIndexPage extends BasePage {
     @AndroidFindBy(id = "com.ximalaya.ting.android.main.application:id/main_tv_search_bar_action")
     public MobileElement createLiveRoomBtn; //我要直播按钮
 
-    //跳转创建直播间页面
-    public void gotoCreateLiveRoomPage() {
-        createLiveRoomBtn.click();
-    }
-
-    /*
-    @AndroidFindAll({
-            @AndroidBy(uiAutomator = "new UiSelector().text(\"亲度周榜\")"),
-            @AndroidBy(uiAutomator = "new UiSelector().text(\"小时榜\")"),
-            @AndroidBy(uiAutomator = "new UiSelector().text(\"周榜\")"),
-            @AndroidBy(uiAutomator = "new UiSelector().text(\"日周榜\")"),})
-    */
     //主播排行榜
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_home_anchor_rank_tv")
     public MobileElement liveRecord;
@@ -78,22 +66,19 @@ public class LiveIndexPage extends BasePage {
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_type_tab_new")
     public MobileElement liveTab;
 
-    public int getLiveTabQty() {
-        return liveTabs.size();
-    }
-
     //直播间
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_item_record_cover")
     public MobileElement liveRoom;
 
-    //    @AndroidFindBy(uiAutomator = "new UiScrollable(new UiSelector().resourceId(\"com.ximalaya.ting.android.main.application:id/main_content\")).scrollIntoView(new UiSelector().text(\"交友模式\"))")
+    //交友模式直播间
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"交友模式\")")
     public MobileElement friendRoom;
 
-    //    @AndroidFindBy(uiAutomator = "new UiScrollable(new UiSelector().resourceId(\"com.ximalaya.ting.android.main.application:id/main_content\")).scrollIntoView(new UiSelector().text(\"正在PK\"))")
+    //PK模式直播间
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"正在PK\")")
     public MobileElement pkRoom;
 
+    //直播间列表
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_item_record_anchor_right_mark2")
     public List<MobileElement> liveRoomMarkList;
 
@@ -112,9 +97,12 @@ public class LiveIndexPage extends BasePage {
         }
     }
 
-    /*
-    通过肚脐眼进入直播间
-     */
+    //跳转创建直播间页面
+    public void gotoCreateLiveRoomPage() {
+        createLiveRoomBtn.click();
+    }
+
+    //通过肚脐眼进入直播间
     public void gotoUserLiveRoomByBar() {
         barPlayBtn.click();
     }
