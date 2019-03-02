@@ -21,10 +21,9 @@ public class CaseCheckCreateLiveRoomBtn extends CaseHelper {
         gotoLiveIndex();
         assertHelper.assertTrue(DriverHelper.isDisplayed(liveIndexPage.createLiveRoomBtn),
                 "CheckCreateLiveRoomBtn首页存在我要直播按钮");
-//        login();
+        login();
         liveIndexPage.gotoCreateLiveRoomPage();
-//        assertHelper.assertTrue(DriverHelper.isDisplayed(createLiveRoomPage.beginLiveBtn),
-//                "CheckCreateLiveRoomBtn判断创建页面存在开始按钮");
-        assertHelper.assertTrue(driver.findElementByImage(FindElementHelper.getReferenceImageB64()).isDisplayed());
+        assertHelper.assertTrue(DriverHelper.isDisplayed(createLiveRoomPage.beginLiveBtn),
+                "CheckCreateLiveRoomBtn判断创建页面存在开始按钮");
     }
 }

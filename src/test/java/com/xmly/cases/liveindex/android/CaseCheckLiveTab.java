@@ -24,21 +24,19 @@ public class CaseCheckLiveTab extends CaseHelper {
 
         Point initialPoint = liveIndexPage.liveTabs.get(0).getLocation();
 
-        int liveTabX = DriverHelper.getLowerRight(liveIndexPage.liveTabs.get(0)).getX();
-        int initialLiveTabY = DriverHelper.getUpperLeft(liveIndexPage.liveTabs.get(0)).getY();
-
-        int targetLiveTabY = DriverHelper.getLowerRight(liveIndexPage.searchBar).getY();
 
         //滑动tab到顶部
-        Swipe.swipeByCoordinates(liveTabX, initialLiveTabY, liveTabX, targetLiveTabY, driver);
-        Swipe.swipeUp(driver);
+        for (int i = 0; i < 2; i++) {
+            Swipe.swipeUp(driver);
+        }
         assertHelper.assertTrue(DriverHelper.isDisplayed(liveIndexPage.liveTabs.get(0)),
                 getCurClassName() + "上滑到顶部后位置固定不隐藏");
 
         //滑动tab到初始位置
-        Swipe.swipeByCoordinates(liveTabX, targetLiveTabY, liveTabX, initialLiveTabY, driver);
-        Swipe.swipeDown(driver);
-        sleep(2);
+        for (int i = 0; i < 3; i++) {
+            Swipe.swipeDown(driver);
+        }
+        sleep(5);
         Point lastPoint = liveIndexPage.liveTabs.get(0).getLocation();
         assertHelper.assertTrue((initialPoint.getX() == lastPoint.getX()) && (initialPoint.getY() == lastPoint.getY()),
                 getCurClassName() + "下滑后恢复到默认位置");
