@@ -28,7 +28,7 @@ public class CaseHelper extends BaseCase {
     public static void gotoLiveIndex() {
 //        basePage.appIndexInit();
         basePage.enterPage(basePage.LIVEHOMEPAGE);
-//        liveIndexPage.liveIndexInit();
+        liveIndexPage.liveIndexInit();
     }
 
     /*
@@ -73,8 +73,7 @@ public class CaseHelper extends BaseCase {
         gotoLiveIndex();
         login();
         liveIndexPage.gotoCreateLiveRoomPage();
-        createLiveRoomPage.beginLiveBtn.click();
-        basePage.permissionAllowBtn.click();
+        createLiveRoomPage.createAnchorRoom();
         sleep(8);
         anchorRoomIndexPage.cancelShareBtn.click();
         Dimension size = driver.manage().window().getSize();

@@ -3,7 +3,10 @@ package com.xmly.cases.anchorliveroom.android;
 import com.xmly.cases.CaseHelper;
 import com.xmly.common.DriverHelper;
 import com.xmly.pages.live.anchorliveroompage.FriendPage;
+import org.testng.Reporter;
 import org.testng.annotations.Test;
+
+import static com.xmly.common.DriverHelper.isDisplayed;
 
 /**
  * Created with IntelliJ IDEA.
@@ -12,20 +15,37 @@ import org.testng.annotations.Test;
  * Time: 11:14
  */
 public class CaseFriend extends CaseHelper {
-    private FriendPage friendPage;
+    private static FriendPage friendPage;
+    private static String aa;
 
     @Test(description = "交友模式开启")
     public void openFriendModel() throws InterruptedException {
         friendPage = new FriendPage(driver);
-
+        aa = "bbb";
         createAnchorLiveRoom();
         anchorRoomIndexPage.gotoFriendPage();
-        assertHelper.assertTrue(DriverHelper.isDisplayed(friendPage.friendConfirmPopup),
-                "CaseFriend点击开启弹出交友模式确认弹窗");
+        assertHelper.assertTrue(isDisplayed(friendPage.friendConfirmPopup),
+                getCurClassName() + "点击开启弹出交友模式确认弹窗");
 
         friendPage.enableFriend();
-        System.out.println(friendPage.getFriendSeatQty());
-        assertHelper.assertTrue(friendPage.getFriendSeatQty() == 8,
-                "CaseFriend交友模式8个交友位置");
+//        assertHelper.assertTrue(friendPage.friendSeats.size() == 8,
+//                getCurClassName() + "交友模式开启并展示8个交友位置");
+    }
+
+    @Test(description = "锁定交友位置")
+    public void lockSeat() {
+        assertHelper.assertTrue(friendPage.getSeatLockBtnText().equals("锁定位置"),
+                getCurClassName() + "点击位置弹出锁定文案");
+        friendPage.seatLockBtn.click();
+        assertHelper.assertTrue(friendPage.getSeatLockBtnText().equals("解锁位置"),
+                getCurClassName() + "点击位置弹出解锁文案");
+        friendPage.seatLockBtn.click();
+    }
+
+    @Test
+    public void startTeamPkModel() {
+        friendPage.setModel();
+        assertHelper.assertTrue(isDisplayed(friendPage.friendPkIcon),
+                getCurClassName() + "PK模式开启");
     }
 }

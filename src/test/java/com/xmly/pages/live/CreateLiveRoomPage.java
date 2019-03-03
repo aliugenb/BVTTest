@@ -33,6 +33,22 @@ public class CreateLiveRoomPage extends BasePage {
     @AndroidFindBy(id = "com.ximalaya.ting.android:id/ok_btn")
     public MobileElement cancelBtn;
 
+    @AndroidFindBy(id = "com.android.packageinstaller:id/permission_allow_button")
+    public MobileElement permissionAllowBtn;
+
+    /*
+     * Description：创建直播间
+     * Param []
+     * return void
+     **/
+    public void createAnchorRoom() {
+        beginLiveBtn.click();
+        if (DriverHelper.isDisplayed(permissionAllowBtn)) {
+            permissionAllowBtn.click();
+            beginLiveBtn.click();
+        }
+    }
+
     /*
      * Description:Android取消创建直播间
      * Param []

@@ -19,21 +19,53 @@ public class FriendPage extends AnchorRoomIndexPage {
     }
 
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_seat_name_tv")
-    public List<MobileElement> friendSeats; //交友模式位置
+    public MobileElement friendSeats; //交友模式位置
 
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_dialog_center_btn")
     public MobileElement friendConfirmPopup; //交友模式开启确认弹窗
 
+    //锁定位置按钮
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_operation_desc_tv")
-    public MobileElement forbbidenSeatBtn; //锁定位置按钮
+    public MobileElement seatLockBtn;
+
+    //交友模式设置入口
+    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_ll_chat_chairs_waiting")
+    public MobileElement friendSettingEnter;
+
+    //玩法设置
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"玩法设置\")")
+    public MobileElement friendSettingsBtn;
+
+    //团战pk模式
+    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_friends_pk_mode")
+    public MobileElement friendPkMode;
+
+    //开启团战pk模式
+    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_open_friends_pk_tv")
+    public MobileElement startFriendPkBtn;
+
+    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_friends_pk")
+    public MobileElement friendPkIcon;
 
     //开启交友模式
     public void enableFriend() {
         friendConfirmPopup.click();
     }
 
-    //获取交友模式位置数量
-    public int getFriendSeatQty() {
-        return friendSeats.size();
+    /*
+     * Description：点击锁定按钮并返回文案
+     * Param []
+     * return java.lang.String
+     **/
+    public String getSeatLockBtnText() {
+        friendSeats.click();
+        return seatLockBtn.getText();
+    }
+
+    public void startFriendPkMode() {
+        friendSettingEnter.click();
+        friendSettingsBtn.click();
+        friendPkMode.click();
+        startFriendPkBtn.click();
     }
 }
