@@ -19,9 +19,9 @@ public class CaseCheckSearchBar extends CaseHelper {
     public void checkSearchBar() {
         gotoLiveIndex();
         assertHelper.assertTrue(DriverHelper.isDisplayed(liveIndexPage.searchBar),
-                "CaseCheckSearchBar直播首页存在搜索框");
+                getCurClassName() + "直播首页存在搜索框");
         liveIndexPage.gotoSearchPage();
         assertHelper.assertTrue(DriverHelper.isDisplayed(liveIndexPage.searchBtn),
-                "CaseCheckSearchBar从直播首页跳转搜索页");
+                getCurClassName() + "从直播首页跳转搜索页");
     }
 }

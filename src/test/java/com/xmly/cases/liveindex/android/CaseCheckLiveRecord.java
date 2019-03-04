@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
  */
 
 public class CaseCheckLiveRecord extends CaseHelper {
-    @Test(description = "检查首页显示排行榜")
+    @Test(description = "首页显示排行榜")
     public void checkLiveRecord() throws InterruptedException {
         gotoLiveIndex();
         String recordText = liveIndexPage.gotoAnchorRankPage();

@@ -20,10 +20,10 @@ public class CaseCheckCreateLiveRoomBtn extends CaseHelper {
     public void checkCreateLiveRoomBtn() throws InterruptedException, IOException, MyException {
         gotoLiveIndex();
         assertHelper.assertTrue(DriverHelper.isDisplayed(liveIndexPage.createLiveRoomBtn),
-                "CheckCreateLiveRoomBtn首页存在我要直播按钮");
+                getCurClassName() + "首页存在我要直播按钮");
         login();
         liveIndexPage.gotoCreateLiveRoomPage();
         assertHelper.assertTrue(DriverHelper.isDisplayed(createLiveRoomPage.beginLiveBtn),
-                "CheckCreateLiveRoomBtn判断创建页面存在开始按钮");
+                getCurClassName() + "判断创建页面存在开始按钮");
     }
 }

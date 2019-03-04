@@ -26,7 +26,10 @@ public class CaseHelper extends BaseCase {
     跳转直播首页
      */
     public static void gotoLiveIndex() {
-        basePage.appIndexInit();
+        sleep(10);
+        if (!DriverHelper.isDisplayed(basePage.homePageLiveTab)) {
+            basePage.appIndexInit();
+        }
         basePage.enterPage(basePage.LIVEHOMEPAGE);
         liveIndexPage.liveIndexInit();
     }

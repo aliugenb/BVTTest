@@ -16,7 +16,7 @@ import java.io.FileNotFoundException;
  */
 
 public class CaseCheckLiveRoom extends CaseHelper {
-    @Test
+    @Test(description = "首页直播间展示正常")
     public void checkLiveRoom() {
         gotoLiveIndex();
         assertHelper.assertTrue(DriverHelper.isDisplayed(liveIndexPage.liveRoom));

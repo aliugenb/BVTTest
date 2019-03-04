@@ -23,7 +23,7 @@ public class CaseLiveDynamicLogin extends CaseHelper {
         if (text.indexOf("已关注") != -1) {
             onlineNum = getQty(text);
             assertHelper.assertTrue(onlineNum == liveDynamicPage.getOnlineAnchorQty(),
-                    "CaseLiveDynamicLogin首页显示的在线数量与直播动态内一致");
+                    getCurClassName()+"首页显示的在线数量与直播动态内一致");
         }
     }
 

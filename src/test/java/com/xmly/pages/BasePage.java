@@ -40,7 +40,7 @@ public class BasePage {
     }
 
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"直播\")")
-    private MobileElement homePageLiveTab;
+    public MobileElement homePageLiveTab;
 
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"发现\")")
     private MobileElement tabbarFindBtn;
