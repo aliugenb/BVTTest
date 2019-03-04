@@ -25,9 +25,9 @@
             <class name="com.xmly.cases.anchorliveroom.android.CaseCall"></class>
             <class name="com.xmly.cases.anchorliveroom.android.CaseFriend">
                 <methods>
-                    <include name="openFriendModel"/>
+                    <include name="openFriendMode"/>
                     <include name="lockSeat"/>
-                    <include name="setTeamPkModel"/>
+                    <include name="setTeamPkMode"/>
                 </methods>
             </class>
             <class name="com.xmly.cases.anchorliveroom.android.CaseMute"></class>

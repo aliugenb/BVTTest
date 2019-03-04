@@ -19,7 +19,7 @@ public class CaseFriend extends CaseHelper {
     private static String aa;
 
     @Test(description = "交友模式开启")
-    public void openFriendModel() throws InterruptedException {
+    public void openFriendMode() throws InterruptedException {
         friendPage = new FriendPage(driver);
         aa = "bbb";
         createAnchorLiveRoom();
@@ -43,8 +43,8 @@ public class CaseFriend extends CaseHelper {
     }
 
     @Test
-    public void startTeamPkModel() {
-        friendPage.setModel();
+    public void startTeamPkMode() {
+        friendPage.startFriendPkMode();
         assertHelper.assertTrue(isDisplayed(friendPage.friendPkIcon),
                 getCurClassName() + "PK模式开启");
     }
