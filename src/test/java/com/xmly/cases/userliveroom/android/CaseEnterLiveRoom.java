@@ -35,7 +35,7 @@ public class CaseEnterLiveRoom extends CaseHelper {
         userRoomIndexPage.exitLiveRoom(0);
     }
 
-    @Test(description = "进入PK模式房间")
+    @Test(description = "进入PK模式房间", dependsOnMethods = {"enterFriendRoom"})
     public void enterPkRoom() {
         liveIndexPage.gotoUserLiveRoomByType(RoomType.PK);
         assertHelper.assertTrue(userRoomIndexPage.getRoomType() == RoomType.PK,

@@ -1,9 +1,12 @@
 package com.xmly.driver.android;
 
-import com.xmly.common.Status;
 import com.xmly.utils.AdbUtil;
 import com.xmly.utils.CommonUtil;
 import org.testng.Reporter;
+
+import java.io.FileNotFoundException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 import static com.xmly.utils.CommonUtil.execCmd;
 import static com.xmly.utils.CommonUtil.sleep;
@@ -17,9 +20,12 @@ import static com.xmly.utils.FilesInit.apkPath;
  */
 
 public class DeviceInit {
-    public static void installApp(String productModel) {
+    public static void installApp(String productModel) throws FileNotFoundException {
         String installCmd = "adb install " + apkPath;
         String uninstallCmd = "adb uninstall com.ximalaya.ting.android";
+        if (!Files.exists(Paths.get(apkPath))) {
+            throw new FileNotFoundException("apk文件未找到");
+        }
         if (isAppInstalled()) {
             execCmd(uninstallCmd);
             sleep(10);

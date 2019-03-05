@@ -31,14 +31,16 @@ public class DriverHelper {
 
     //获取元素对应的文本
     public static String getText(MobileElement mobileElement) {
+        String text = "";
         try {
             if (mobileElement.isDisplayed()) {
-                return mobileElement.getText();
+                text = mobileElement.getText();
+                return text;
             }
         } catch (NoSuchElementException e) {
-            return null;
+            return text;
         }
-        return null;
+        return text;
     }
 
     /*
