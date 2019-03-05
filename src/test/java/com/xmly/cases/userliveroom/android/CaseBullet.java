@@ -13,7 +13,7 @@ public class CaseBullet extends CaseHelper {
     @Test(description = "普通弹幕")
     public void checkCommonBullet() {
         gotoLiveIndex();
-        login();
+        loginByClickLiveBtn();
         liveIndexPage.gotoUserLiveRoomByType("");
         userRoomIndexPage.gotoUserSpeakPage();
     }

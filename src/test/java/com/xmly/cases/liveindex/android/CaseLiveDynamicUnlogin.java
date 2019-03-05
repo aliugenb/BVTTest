@@ -24,7 +24,7 @@ public class CaseLiveDynamicUnlogin extends CaseHelper {
                 getCurClassName() + "未登录时显示推荐直播间列表");
 
         liveDynamicPage.goToLogin();
-        CaseHelper.login();
+        loginByLoginPage();
 
         if (DriverHelper.isDisplayed(liveDynamicPage.hotRecommend)) {
             assertHelper.assertTrue(DriverHelper.isDisplayed(liveDynamicPage.noFollowAnchorText),

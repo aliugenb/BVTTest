@@ -45,8 +45,8 @@ public class CaseHelper extends BaseCase {
         basePage.enterPage(basePage.FINDPAGE);
     }
 
-    //账号登录
-    public static void Login() {
+    //出现登录页面后登录
+    public static void loginByLoginPage() {
         loginPage.login(USERNAME, PASSWD);
         //登录成功后首页可能弹出正在直播提示
         sleep(3);
@@ -56,7 +56,7 @@ public class CaseHelper extends BaseCase {
     /*
     通过点击直播首页我要直播按钮登录
      */
-    public static void login() {
+    public static void loginByClickLiveBtn() {
         if (basePage.isLogin()) {
             return;
         }
@@ -65,7 +65,7 @@ public class CaseHelper extends BaseCase {
 
         try {
             if (loginPage.moreLoginBtn.isDisplayed()) {
-                Login();
+                loginByLoginPage();
             }
         } catch (NoSuchElementException e) {
             if (createLiveRoomPage.beginLiveBtn.isDisplayed()) {
@@ -85,7 +85,7 @@ public class CaseHelper extends BaseCase {
      **/
     public static void createAnchorLiveRoom() {
         gotoLiveIndex();
-        login();
+        loginByClickLiveBtn();
         liveIndexPage.gotoCreateLiveRoomPage();
         createLiveRoomPage.createAnchorRoom();
         sleep(10);

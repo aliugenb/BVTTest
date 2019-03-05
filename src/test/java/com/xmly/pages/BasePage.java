@@ -98,7 +98,7 @@ public class BasePage {
      **/
     public boolean isLogin() {
         boolean flag = false;
-        if (mySpaceBtn.isDisplayed()) {
+        if (DriverHelper.isDisplayed(mySpaceBtn)) {
             String btnText = mySpaceBtn.getText();
             if (!btnText.contains("未登录")) {
                 return true;

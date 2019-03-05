@@ -21,7 +21,7 @@ public class CaseCheckCreateLiveRoomBtn extends CaseHelper {
         gotoLiveIndex();
         assertHelper.assertTrue(DriverHelper.isDisplayed(liveIndexPage.createLiveRoomBtn),
                 getCurClassName() + "首页存在我要直播按钮");
-        login();
+        loginByClickLiveBtn();
         liveIndexPage.gotoCreateLiveRoomPage();
         assertHelper.assertTrue(DriverHelper.isDisplayed(createLiveRoomPage.beginLiveBtn),
                 getCurClassName() + "判断创建页面存在开始按钮");
