@@ -2,8 +2,6 @@ package com.xmly.pages;
 
 import com.xmly.common.DriverHelper;
 import com.xmly.common.Status;
-import com.xmly.common.Swipe;
-import com.xmly.utils.CommonUtil;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidBy;
@@ -11,7 +9,6 @@ import io.appium.java_client.pagefactory.AndroidFindAll;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.Dimension;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.PageFactory;
 
 import java.time.Duration;
@@ -29,7 +26,7 @@ public class BasePage {
 
     public AppiumDriver<? extends MobileElement> driver;
 
-    private final int TIMEOUT = 10;
+    private final int TIMEOUT = 15;
     public static final String LIVEHOMEPAGE = "LiveIndex";
     public static final String FINDPAGE = "FindIndex";
 

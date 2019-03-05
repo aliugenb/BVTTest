@@ -15,9 +15,7 @@
             <!--<class name="com.xmly.cases.liveindex.android.CaseLiveDynamicLogin"></class>-->
             <!--<class name="com.xmly.cases.liveindex.android.CaseCheckSearchBar"></class>-->
             <!--<class name="com.xmly.cases.liveindex.android.CaseCheckCreateLiveRoomBtn"></class>-->
-            <!--<class name="com.xmly.cases.liveindex.android.CaseCheckLiveRecord"></class>-->
             <!--<class name="com.xmly.cases.liveindex.android.CaseCheckLiveTab"></class>-->
-            <!--<class name="com.xmly.cases.liveindex.android.CaseCheckLiveRoom"></class>-->
         <!--</classes>-->
     <!--</test>-->
     <!--<test verbose="3" preserve-order="true" parallel="classes" thread-count="1" name="anchorliveroom主播端直播间检查">-->
@@ -43,10 +41,16 @@
                     <!--<include name="exitMoreTenMin"/>-->
                 <!--</methods>-->
             <!--</class>-->
-            <class name="com.xmly.cases.userliveroom.android.CaseEnterLiveRoom">
+            <!--<class name="com.xmly.cases.userliveroom.android.CaseEnterLiveRoom">-->
+                <!--<methods>-->
+                    <!--<include name="enterFriendRoom"/>-->
+                    <!--<include name="enterPkRoom"/>-->
+                <!--</methods>-->
+            <!--</class>-->
+            <class name="com.xmly.cases.userliveroom.android.CaseBullet">
                 <methods>
-                    <include name="enterFriendRoom"/>
-                    <include name="enterPkRoom"/>
+                    <include name="checkCommonBullet"/>
+                    <include name="checkFansBullet"/>
                 </methods>
             </class>
             <!--<class name="com.xmly.cases.anchorliveroom.android.CaseTopic"></class>-->

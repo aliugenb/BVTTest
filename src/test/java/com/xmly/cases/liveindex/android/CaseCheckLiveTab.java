@@ -4,7 +4,6 @@ import com.xmly.cases.CaseHelper;
 import com.xmly.common.DriverHelper;
 import com.xmly.common.Swipe;
 import org.openqa.selenium.Point;
-import org.testng.Reporter;
 import org.testng.annotations.Test;
 
 import static com.xmly.utils.CommonUtil.sleep;
