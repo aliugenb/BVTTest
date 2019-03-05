@@ -23,16 +23,19 @@ public class CreateLiveRoomPage extends BasePage {
         super(driver);
     }
 
+    //开始直播按钮
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_bottom_right_tv")
-    public MobileElement beginLiveBtn; //开始直播按钮
+    public MobileElement beginLiveBtn;
 
+    //创建预告按钮
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_bottom_left_tv")
-    public MobileElement previewLiveBtn; //创建预告按钮
+    public MobileElement previewLiveBtn;
 
     //确认取消创建按钮
     @AndroidFindBy(id = "com.ximalaya.ting.android:id/ok_btn")
     public MobileElement cancelBtn;
 
+    //首次创建直播需麦克风权限
     @AndroidFindBy(id = "com.android.packageinstaller:id/permission_allow_button")
     public MobileElement permissionAllowBtn;
 
@@ -45,7 +48,6 @@ public class CreateLiveRoomPage extends BasePage {
         beginLiveBtn.click();
         if (DriverHelper.isDisplayed(permissionAllowBtn)) {
             permissionAllowBtn.click();
-            beginLiveBtn.click();
         }
     }
 
@@ -56,7 +58,6 @@ public class CreateLiveRoomPage extends BasePage {
      **/
     public void cancelCreate() {
         AdbUtil.pressKey(KEY.BACK);
-//        DriverHelper.clickByImage(driver, "/Users/xmly/Documents/xmly/Uitest/src/test/java/com/xmly/pages/live/aa.png");
         sleep(10);
         cancelBtn.click();
     }

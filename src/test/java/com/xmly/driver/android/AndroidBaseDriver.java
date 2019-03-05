@@ -26,10 +26,6 @@ public class AndroidBaseDriver {
     private AppiumDriver<? extends MobileElement> driver;
 
     public AndroidBaseDriver(String deviceName, String platformVersion) {
-//        AndroidDeviceInfo deviceInfo = new AndroidDeviceInfo();
-//        String deviceName = deviceInfo.getDeviceName();
-//        String platformVersion = deviceInfo.getOsVersion();
-//        String productModel = deviceInfo.getProductModel();
 
         //设置自动化相关参数
         DesiredCapabilities capabilities = new DesiredCapabilities();

@@ -19,7 +19,7 @@ public class FriendPage extends AnchorRoomIndexPage {
     }
 
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_seat_name_tv")
-    public MobileElement friendSeats; //交友模式位置
+    public List<MobileElement> friendSeats; //交友模式位置
 
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_dialog_center_btn")
     public MobileElement friendConfirmPopup; //交友模式开启确认弹窗
@@ -58,7 +58,7 @@ public class FriendPage extends AnchorRoomIndexPage {
      * return java.lang.String
      **/
     public String getSeatLockBtnText() {
-        friendSeats.click();
+        friendSeats.get(0).click();
         return seatLockBtn.getText();
     }
 

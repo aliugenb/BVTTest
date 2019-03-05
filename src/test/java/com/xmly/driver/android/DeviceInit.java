@@ -22,7 +22,7 @@ public class DeviceInit {
         String uninstallCmd = "adb uninstall com.ximalaya.ting.android";
         if (isAppInstalled()) {
             execCmd(uninstallCmd);
-            sleep(20);
+            sleep(10);
         }
 
         AdbInstall adbInstall = new AdbInstall(installCmd);
@@ -33,7 +33,7 @@ public class DeviceInit {
         while (true) {
             if (isAppInstalled()) {
                 Reporter.log("App安装成功");
-                Status.isInstall = true;
+//                Status.isInstall = true;
                 return;
             }
             sleep(3);
@@ -73,15 +73,11 @@ public class DeviceInit {
             if (productModel.equals("RNE-AL00")) {
                 CommonUtil.sleep(6);
                 AdbUtil.tapByCoordinates(528, 1283);
-                CommonUtil.sleep(10);
+                CommonUtil.sleep(20);
                 AdbUtil.tapByCoordinates(356, 1204);
             } else {
                 return;
             }
         }
-    }
-
-    public static void main(String[] args) {
-        DeviceInit.installApp("RNE-AL00");
     }
 }

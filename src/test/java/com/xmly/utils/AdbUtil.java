@@ -23,6 +23,11 @@ import static com.xmly.utils.CommonUtil.execCmd;
  */
 public class AdbUtil {
 
+    public static void killApp(String packageName) {
+        String killCmd = "adb shell am force-stop " + packageName;
+        execCmd(killCmd);
+    }
+
     public static boolean isConnect() {
         String cmd = "adb devices";
         String result = execCmd(cmd);

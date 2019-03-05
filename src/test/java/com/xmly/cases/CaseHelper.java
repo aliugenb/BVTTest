@@ -16,6 +16,9 @@ import static com.xmly.utils.CommonUtil.sleep;
 
 public class CaseHelper extends BaseCase {
 
+    final public static String USERNAME = "17602176634";
+    final public static String PASSWD = "a123456";
+
     protected String curClassName = null;
 
     public String getCurClassName() {
@@ -42,6 +45,14 @@ public class CaseHelper extends BaseCase {
         basePage.enterPage(basePage.FINDPAGE);
     }
 
+    //账号登录
+    public static void Login() {
+        loginPage.login(USERNAME, PASSWD);
+        //登录成功后首页可能弹出正在直播提示
+        sleep(3);
+        liveIndexPage.liveIndexInit();
+    }
+
     /*
     通过点击直播首页我要直播按钮登录
      */
@@ -54,7 +65,7 @@ public class CaseHelper extends BaseCase {
 
         try {
             if (loginPage.moreLoginBtn.isDisplayed()) {
-                loginPage.onlineLogin();
+                Login();
             }
         } catch (NoSuchElementException e) {
             if (createLiveRoomPage.beginLiveBtn.isDisplayed()) {
@@ -72,12 +83,12 @@ public class CaseHelper extends BaseCase {
      * @Param []
      * @return void
      **/
-    public static void createAnchorLiveRoom() throws InterruptedException {
+    public static void createAnchorLiveRoom() {
         gotoLiveIndex();
         login();
         liveIndexPage.gotoCreateLiveRoomPage();
         createLiveRoomPage.createAnchorRoom();
-        sleep(8);
+        sleep(10);
         anchorRoomIndexPage.cancelShareBtn.click();
         Dimension size = driver.manage().window().getSize();
         int width = size.width;
@@ -85,7 +96,7 @@ public class CaseHelper extends BaseCase {
         //首次创建直播间出现蒙层，点击6次后消失
         for (int i = 0; i < 6; i++) {
             DriverHelper.clickByCoordinates(driver, width / 2, height / 2);
-            sleep(1);
+            sleep(2);
         }
     }
 }

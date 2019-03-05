@@ -18,9 +18,7 @@ import java.util.List;
  */
 public class LoginPage extends BasePage {
 
-    public static final String onlineUsername = "17602176634";
-    public static final String testUsername = "18616219964";
-    public static final String passwd = "a123456";
+
 
     public LoginPage(AppiumDriver<? extends MobileElement> driver) {
         super(driver);
@@ -41,7 +39,7 @@ public class LoginPage extends BasePage {
     @AndroidFindBy(id = "com.ximalaya.ting.android.main.application:id/main_login")
     public MobileElement loginBtn;
 
-    private void login(String userName, String passwd) {
+    public void login(String userName, String passwd) {
         moreLoginBtn.click();
         loginByPwdBtn.click();
         userNameInput.sendKeys(userName);
@@ -49,15 +47,5 @@ public class LoginPage extends BasePage {
         passwdInput.sendKeys(passwd);
         CommonUtil.sleep(6);
         loginBtn.click();
-    }
-
-    //线上账号登录
-    public void onlineLogin() {
-        login(onlineUsername, passwd);
-    }
-
-    //测试账号登录
-    public void testLogin() {
-        login(testUsername, passwd);
     }
 }

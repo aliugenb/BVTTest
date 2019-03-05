@@ -37,7 +37,7 @@ public class BaseCase {
     protected static AssertHelper assertHelper;
 
     @Parameters({"osDriver"})
-    @BeforeTest
+    @BeforeClass
     public static void setUp(int osDriver) throws MyException, IOException, InterruptedException {
         BaseDriver.setDriver(osDriver);
         driver = BaseDriver.getDriver();
@@ -52,7 +52,7 @@ public class BaseCase {
         userRoomIndexPage = new UserRoomIndexPage(driver);
     }
 
-    @AfterTest
+    @AfterClass
     public static void tearDown() {
         driver.quit();
     }
