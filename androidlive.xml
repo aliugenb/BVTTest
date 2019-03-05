@@ -27,7 +27,7 @@
                 <methods>
                     <include name="openFriendMode"/>
                     <include name="lockSeat"/>
-                    <include name="setTeamPkMode"/>
+                    <!--<include name="setTeamPkMode"/>-->
                 </methods>
             </class>
             <class name="com.xmly.cases.anchorliveroom.android.CaseMute"></class>
