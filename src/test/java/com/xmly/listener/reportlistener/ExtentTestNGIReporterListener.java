@@ -9,7 +9,6 @@ import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.aventstack.extentreports.reporter.configuration.ChartLocation;
 import com.aventstack.extentreports.reporter.configuration.Protocol;
 import com.aventstack.extentreports.reporter.configuration.Theme;
-import com.xmly.utils.ReportUtil;
 import org.testng.*;
 import org.testng.xml.XmlSuite;
 
@@ -112,12 +111,6 @@ public class ExtentTestNGIReporterListener implements IReporter {
         }
 
         extent.flush();
-
-        try {
-            ReportUtil.reportByDingDing();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
 
