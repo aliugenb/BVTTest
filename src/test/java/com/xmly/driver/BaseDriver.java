@@ -37,9 +37,9 @@ public class BaseDriver implements Driver {
             String platformVersion = deviceInfo.getOsVersion();
             String productModel = deviceInfo.getProductModel();
 
-            if (!Status.isInstall) {
-                DeviceInit.installApp(productModel);
-            }
+//            if (!Status.isInstall) {
+//                DeviceInit.installApp(productModel);
+//            }
             driver = new AndroidBaseDriver(deviceName, platformVersion).getDriver();
 
             AdbUtil.clearAndroidLog();
