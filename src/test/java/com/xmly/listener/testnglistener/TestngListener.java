@@ -3,7 +3,6 @@ package com.xmly.listener.testnglistener;
 import com.xmly.common.MyException;
 import com.xmly.driver.BaseDriver;
 import com.xmly.utils.AdbUtil;
-import com.xmly.utils.ReportUtil;
 import com.xmly.utils.SnapshotAndLog;
 import io.appium.java_client.AppiumDriver;
 import org.apache.commons.io.FileUtils;
@@ -57,12 +56,6 @@ public class TestngListener extends TestListenerAdapter {
 //                logger.info("Remove repeat Fail Test: " + testResult.getName());
                 iterator.remove();
             }
-        }
-
-        try {
-            ReportUtil.reportByDingDing();
-        } catch (IOException e) {
-            e.printStackTrace();
         }
 
     }
