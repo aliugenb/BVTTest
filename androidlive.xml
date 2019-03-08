@@ -28,7 +28,7 @@
                     <!--&lt;!&ndash;<include name="setTeamPkMode"/>&ndash;&gt;-->
                 <!--</methods>-->
             <!--</class>-->
-            <class name="com.xmly.cases.anchorliveroom.android.CaseMute"></class>
+            <!--<class name="com.xmly.cases.anchorliveroom.android.CaseMute"></class>-->
             <!--<class name="com.xmly.cases.anchorliveroom.android.CaseTopic"></class>-->
             <!--<class name="com.xmly.cases.anchorliveroom.android.CaseSpeak"></class>-->
         </classes>
