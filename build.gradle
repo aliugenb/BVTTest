@@ -8,7 +8,7 @@ version '1.0-SNAPSHOT'
 sourceCompatibility = 1.8
 
 repositories {
-    maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+    maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
     mavenCentral()
 }
 
@@ -40,6 +40,8 @@ dependencies {
     compile group: 'org.freemarker', name: 'freemarker', version: '2.3.28'
     compile group: 'org.mongodb', name: 'bson', version: '3.3.0'
 
+    compile 'com.offbytwo.jenkins:jenkins-client:0.3.8'
+
 
 }
 
@@ -47,12 +49,16 @@ tasks.matching { it instanceof Test }.all {
     testLogging.events = ["failed", "passed", "skipped"]
 }
 
+String os = project.properties.os
+
 test {
-    useTestNG {
-        if ("$os" == "android") {
+    if ("$os" == "android") {
+        useTestNG {
             suites(file("androidlive.xml"))
         }
-        if ("$os" == "ios") {
+    }
+    if ("$os" == "ios") {
+        useTestNG {
             suites(file("ioslive.xml"))
         }
     }
