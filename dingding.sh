@@ -4,7 +4,7 @@ curl 'https://oapi.dingtalk.com/robot/send?access_token=bd1124386fa17ac91e9f8386
    -d '
   {"msgtype": "text",
     "text": {
-        "content": "我就是我, 是不一样的烟火"
+        "content": "测试执行完毕，结果查看：http://192.168.62.79:10086/job/appiumtest/TestNG_20Report/"
      },
      "at": {
          "atMobiles": [
