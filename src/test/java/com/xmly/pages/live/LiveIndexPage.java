@@ -1,9 +1,6 @@
 package com.xmly.pages.live;
 
-import com.xmly.common.DriverHelper;
-import com.xmly.common.FindElementHelper;
-import com.xmly.common.Swipe;
-import com.xmly.common.SwipeDirection;
+import com.xmly.common.*;
 import com.xmly.pages.BasePage;
 import com.xmly.pages.live.userliveroompage.RoomType;
 import io.appium.java_client.AppiumDriver;
@@ -81,21 +78,6 @@ public class LiveIndexPage extends BasePage {
     //直播间列表
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_item_record_anchor_right_mark2")
     public List<MobileElement> liveRoomMarkList;
-
-    /*
-     * Description:根据roomType跳转不同类型的直播间
-     * Param [roomType] 房间类型，为空时默认打开第一个
-     * return void
-     **/
-    public void gotoUserLiveRoomByType(String roomType) {
-        if (roomType == null || roomType.equals("")) {
-            liveRoom.click();
-        } else if (roomType.equals(RoomType.FRIEND)) {
-            findElementBySwipe(driver, friendRoom, 10, SwipeDirection.UP).click();
-        } else if (roomType.equals(RoomType.PK)) {
-            findElementBySwipe(driver, pkRoom, 10, SwipeDirection.UP).click();
-        }
-    }
 
     //跳转创建直播间页面
     public void gotoCreateLiveRoomPage() {

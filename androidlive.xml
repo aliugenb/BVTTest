@@ -13,7 +13,7 @@
         <classes>
             <!--<class name="com.xmly.cases.liveindex.android.CaseLiveDynamicUnlogin"></class>-->
             <!--<class name="com.xmly.cases.liveindex.android.CaseLiveDynamicLogin"></class>-->
-            <class name="com.xmly.cases.liveindex.android.CaseCheckSearchBar"></class>
+            <!--<class name="com.xmly.cases.liveindex.android.CaseCheckSearchBar"></class>-->
             <!--<class name="com.xmly.cases.liveindex.android.CaseCheckCreateLiveRoomBtn"></class>-->
             <!--<class name="com.xmly.cases.liveindex.android.CaseCheckLiveTab"></class>-->
         </classes>
@@ -47,12 +47,13 @@
                     <!--<include name="enterPkRoom"/>-->
                 <!--</methods>-->
             <!--</class>-->
-            <!--<class name="com.xmly.cases.userliveroom.android.CaseBullet">-->
-                <!--<methods>-->
-                    <!--<include name="checkCommonBullet"/>-->
-                    <!--<include name="checkFansBullet"/>-->
-                <!--</methods>-->
-            <!--</class>-->
+            <class name="com.xmly.cases.userliveroom.android.CaseBullet">
+                <methods>
+                    <include name="checkCommonBullet"/>
+                    <include name="checkFansBullet"/>
+                    <include name="checkNobleBullet"/>
+                </methods>
+            </class>
             <!--<class name="com.xmly.cases.anchorliveroom.android.CaseTopic"></class>-->
             <!--<class name="com.xmly.cases.anchorliveroom.android.CaseSpeak"></class>-->
         </classes>

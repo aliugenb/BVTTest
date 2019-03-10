@@ -111,8 +111,22 @@ public class UserRoomIndexPage extends BasePage {
         return roomType;
     }
 
+    /*
+     * @Description: 打开发言面板
+     * @Param []
+     * @return void
+     **/
     public void gotoUserSpeakPage() {
         speakText.click();
+    }
+
+    /*
+     * @Description: 打开礼物面板
+     * @Param []
+     * @return void
+     **/
+    public void gotoGiftPanelPage() {
+        giftBtn.click();
     }
 
     /*

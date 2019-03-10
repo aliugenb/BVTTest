@@ -19,11 +19,8 @@ public class CaseExitLiveRoom extends CaseHelper {
 
     @Test(description = "用户进入直播间1分钟后退出")
     public void exitLessTenMin() throws InterruptedException {
-        gotoLiveIndex();
-        loginByClickLiveBtn();
-        liveIndexPage.gotoUserLiveRoomByType("");
+        gotoUserLiveRoomAfterLogin();
         TimeUnit.MINUTES.sleep(1);
-        userRoomIndexPage.closeFirstChargePop();
         userRoomIndexPage.exitLiveRoom(1);
         assertHelper.assertTrue(DriverHelper.isDisplayed(liveIndexPage.createLiveRoomBtn),
                 getCurClassName() + "退出直播成功");
@@ -36,7 +33,7 @@ public class CaseExitLiveRoom extends CaseHelper {
         loginByClickLiveBtn();
         //进入未关注过主播的直播间
         while (true) {
-            liveIndexPage.gotoUserLiveRoomByType("");
+            gotoUserLiveRoomByType("");
             if (!userRoomIndexPage.isFollow()) {
                 Reporter.log("进入测试直播间");
                 break;
@@ -44,7 +41,6 @@ public class CaseExitLiveRoom extends CaseHelper {
             userRoomIndexPage.exitLiveRoom(0);
             Swipe.swipeUp(driver);
         }
-        userRoomIndexPage.closeFirstChargePop();
         TimeUnit.MINUTES.sleep(11);
         userRoomIndexPage.exitLiveRoom(11);
 

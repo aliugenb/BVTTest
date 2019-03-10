@@ -1,10 +1,14 @@
 package com.xmly.cases;
 
 import com.xmly.common.DriverHelper;
+import com.xmly.common.Status;
+import com.xmly.common.SwipeDirection;
+import com.xmly.pages.live.userliveroompage.RoomType;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.NoSuchElementException;
 import org.testng.Reporter;
 
+import static com.xmly.common.FindElementHelper.findElementBySwipe;
 import static com.xmly.utils.CommonUtil.sleep;
 
 /**
@@ -35,6 +39,12 @@ public class CaseHelper extends BaseCase {
         }
         basePage.enterPage(basePage.LIVEHOMEPAGE);
         liveIndexPage.liveIndexInit();
+
+        //关闭第一次安装出现的首充弹窗
+        if (!Status.isInstall) {
+            gotoUserLiveRoomByType("");
+            userRoomIndexPage.closeFirstChargePop();
+        }
     }
 
     /*
@@ -97,6 +107,43 @@ public class CaseHelper extends BaseCase {
         for (int i = 0; i < 6; i++) {
             DriverHelper.clickByCoordinates(driver, width / 2, height / 2);
             sleep(2);
+        }
+    }
+
+    /*
+     * @Description:用户端登录后进入直播间
+     * @Param []
+     * @return void
+     **/
+    public static void gotoUserLiveRoomAfterLogin() {
+        gotoLiveIndex();
+        loginByClickLiveBtn();
+        gotoUserLiveRoomByType("");
+    }
+
+    /*
+     * Description:根据roomType跳转不同类型的直播间
+     * Param [roomType] 房间类型，为空时默认打开第一个
+     * return void
+     **/
+    public static void gotoUserLiveRoomByType(String roomType) {
+        if (roomType == null || roomType.equals("")) {
+            liveIndexPage.liveRoom.click();
+        } else if (roomType.equals(RoomType.FRIEND)) {
+            findElementBySwipe(driver, liveIndexPage.friendRoom, 10, SwipeDirection.UP).click();
+        } else if (roomType.equals(RoomType.PK)) {
+            findElementBySwipe(driver, liveIndexPage.pkRoom, 10, SwipeDirection.UP).click();
+        }
+    }
+
+    /*
+     * @Description: 关闭webview
+     * @Param []
+     * @return void
+     **/
+    public static void closeWebView() {
+        if (DriverHelper.isDisplayed(userRoomIndexPage.closeWebviewBtn)) {
+            userRoomIndexPage.closeWebviewBtn.click();
         }
     }
 }

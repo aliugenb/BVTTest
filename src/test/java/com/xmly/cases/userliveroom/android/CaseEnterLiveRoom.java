@@ -29,7 +29,7 @@ public class CaseEnterLiveRoom extends CaseHelper {
     @Test(description = "进入交友模式房间")
     public void enterFriendRoom() {
         gotoLiveIndex();
-        liveIndexPage.gotoUserLiveRoomByType(RoomType.FRIEND);
+        gotoUserLiveRoomByType(RoomType.FRIEND);
         assertHelper.assertTrue(userRoomIndexPage.getRoomType() == RoomType.FRIEND,
                 getCurClassName() + "已进入交友模式直播间");
         userRoomIndexPage.exitLiveRoom(0);
@@ -37,7 +37,7 @@ public class CaseEnterLiveRoom extends CaseHelper {
 
     @Test(description = "进入PK模式房间", dependsOnMethods = {"enterFriendRoom"})
     public void enterPkRoom() {
-        liveIndexPage.gotoUserLiveRoomByType(RoomType.PK);
+        gotoUserLiveRoomByType(RoomType.PK);
         assertHelper.assertTrue(userRoomIndexPage.getRoomType() == RoomType.PK,
                 getCurClassName() + "已进入pk模式直播间");
     }

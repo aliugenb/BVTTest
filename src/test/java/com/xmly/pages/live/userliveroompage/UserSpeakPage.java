@@ -28,15 +28,25 @@ public class UserSpeakPage extends UserRoomIndexPage {
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_fans_bullet_tv")
     public MobileElement fansBullet;
 
+    //加入粉丝团按钮
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_fans_guide_tv")
     public MobileElement joinFansClubBtn;
 
-    @AndroidFindBy(accessibility = "立即加入(19喜钻）")
-    public MobileElement joinBy;
+    //粉丝团立即加入按钮
+    @AndroidFindBy(uiAutomator = "new UiSelector().textContains(\"立即加入\")")
+    public MobileElement joinImmediately;
 
     //贵族弹幕
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_noble_bullet_tv")
     public MobileElement nobleBullet;
+
+    //开通贵族按钮
+    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_btn_open_noble")
+    public MobileElement joinNobleBtn;
+
+    //贵族弹幕弹窗关闭按钮
+    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_fans_guide_close")
+    public MobileElement closeJoinNoblePopBtn;
 
     //发言框
     @AndroidFindBy(id = "com.ximalaya.ting.android:id/comment_body")

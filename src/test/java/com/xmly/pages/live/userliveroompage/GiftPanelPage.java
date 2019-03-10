@@ -19,4 +19,30 @@ public class GiftPanelPage extends UserRoomIndexPage {
 
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_tab_indicator_red_point")
     public List<MobileElement> tabList;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"初级宝箱\")")
+    public MobileElement treasureBox;
+
+    public void clickTabByType(String tabType) {
+        switch (tabType) {
+            case GiftTabType.BAG:
+                tabList.get(0).click();
+                break;
+            case GiftTabType.GIFT:
+                tabList.get(1).click();
+                break;
+            case GiftTabType.TREASURE:
+                tabList.get(2).click();
+                break;
+            case GiftTabType.FANS:
+                tabList.get(3).click();
+                break;
+            case BulletType.NOBLE:
+                tabList.get(4).click();
+                break;
+            default:
+                tabList.get(1).click();
+                break;
+        }
+    }
 }
