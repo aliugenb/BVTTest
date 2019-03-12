@@ -19,7 +19,7 @@ import java.io.IOException;
  * Date: 2019/1/7
  * Time: 2:45 PM
  */
-public class BaseDriver implements Driver {
+public class BaseDriver {
 
     private static AppiumDriver<? extends MobileElement> driver;
 
