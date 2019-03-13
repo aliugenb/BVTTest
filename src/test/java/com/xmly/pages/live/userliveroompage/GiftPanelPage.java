@@ -17,11 +17,24 @@ public class GiftPanelPage extends UserRoomIndexPage {
         super(driver);
     }
 
+    //tab列表
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_tab_indicator_red_point")
     public List<MobileElement> tabList;
 
+    @AndroidFindBy(uiAutomator = "new UiSelector().textContains(\"你的背包\")")
+    public MobileElement bag;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"粉红小猪\")")
+    public MobileElement gift;
+
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"初级宝箱\")")
     public MobileElement treasureBox;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"幸运草\")")
+    public MobileElement fansGift;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"蓝色妖姬\")")
+    public MobileElement nobleGift;
 
     public void clickTabByType(String tabType) {
         switch (tabType) {

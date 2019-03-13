@@ -44,6 +44,7 @@ public class CaseHelper extends BaseCase {
         if (!Status.isInstall) {
             gotoUserLiveRoomByType("");
             userRoomIndexPage.closeFirstChargePop();
+            userRoomIndexPage.exitLiveRoom(0);
         }
     }
 
