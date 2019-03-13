@@ -2,10 +2,7 @@ package com.xmly.cases.userliveroom.android;
 
 import com.xmly.cases.CaseHelper;
 import com.xmly.common.DriverHelper;
-import com.xmly.driver.Driver;
-import com.xmly.pages.live.userliveroompage.RoomType;
-import io.appium.java_client.MobileBy;
-import io.appium.java_client.MobileElement;
+import com.xmly.pages.live.RoomType;
 import org.testng.annotations.Test;
 
 /**
@@ -28,11 +25,11 @@ public class CaseEnterLiveRoom extends CaseHelper {
 
     @Test(description = "进入交友模式房间")
     public void enterFriendRoom() {
-        gotoLiveIndex();
+        gotoUserLiveRoomAfterLogin();
         gotoUserLiveRoomByType(RoomType.FRIEND);
         assertHelper.assertTrue(userRoomIndexPage.getRoomType() == RoomType.FRIEND,
                 getCurClassName() + "已进入交友模式直播间");
-        userRoomIndexPage.exitLiveRoom(0);
+        userRoomIndexPage.exitNormalLiveRoom(0);
     }
 
     @Test(description = "进入PK模式房间", dependsOnMethods = {"enterFriendRoom"})
@@ -40,5 +37,17 @@ public class CaseEnterLiveRoom extends CaseHelper {
         gotoUserLiveRoomByType(RoomType.PK);
         assertHelper.assertTrue(userRoomIndexPage.getRoomType() == RoomType.PK,
                 getCurClassName() + "已进入pk模式直播间");
+        userRoomIndexPage.exitNormalLiveRoom(0);
     }
+
+    @Test(description = "进入结束的直播间", dependsOnMethods = {"enterPkRoom"})
+    public void enterEndRoom() {
+        liveIndexPage.gotoLiveDynamicPage();
+        liveDynamicPage.enterRoomByType(RoomType.END);
+        assertHelper.assertTrue(DriverHelper.isDisplayed(userRoomIndexPage.appointmentLiveRoom),
+                getCurClassName() + "进入预告直播间展示预告信息");
+        userRoomIndexPage.exitAppointmentRoom();
+    }
+
+//    @Test
 }

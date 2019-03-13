@@ -3,7 +3,10 @@ package com.xmly.pages.live.userliveroompage;
 import com.xmly.common.DriverHelper;
 import com.xmly.common.Swipe;
 import com.xmly.pages.BasePage;
+import com.xmly.pages.live.RoomType;
+import com.xmly.utils.AdbUtil;
 import com.xmly.utils.CommonUtil;
+import com.xmly.utils.KEY;
 import com.xmly.utils.SnapshotAndLog;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
@@ -23,6 +26,14 @@ public class UserRoomIndexPage extends BasePage {
     public UserRoomIndexPage(AppiumDriver<? extends MobileElement> driver) {
         super(driver);
     }
+
+    //预约直播
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"开播时间\")")
+    public MobileElement appointment;
+
+    //结束的直播主播名称
+    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_audience_finish_host_name")
+    public MobileElement endLiveAnchorName;
 
     //直播主题
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_showTopic")
@@ -130,11 +141,11 @@ public class UserRoomIndexPage extends BasePage {
     }
 
     /*
-     * @Description: 用户端退出直播间
+     * @Description: 用户端退出正常状态的直播间
      * @Param [min] 一般退出，传入min<10;出现关注&退出按钮后退出，传入min>=10
      * @return void
      **/
-    public void exitLiveRoom(int min) {
+    public void exitNormalLiveRoom(int min) {
         closeRoomBtn.click();
         if (isDisplayed(swipeGuide)) {
             Reporter.log("出现左右滑动引导浮层");
@@ -158,5 +169,22 @@ public class UserRoomIndexPage extends BasePage {
             flag = true;
         }
         return flag;
+    }
+
+    /*
+     * Description：退出预告和结束的直播间
+     * Param []
+     * return void
+     **/
+    public void exitAbnormalLiveRoom(String roomType) {
+        if (roomType.equals(RoomType.APPOINTMENT)) {
+            if(DriverHelper.isDisplayed(appointmentLiveRoom))
+            closeRoomBtn.click();
+            closeRoomBtn.click();
+        }
+        if (roomType.equals(RoomType.END)) {
+            AdbUtil.pressKey(KEY.BACK);
+            closeRoomBtn.click();
+        }
     }
 }

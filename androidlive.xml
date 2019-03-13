@@ -54,7 +54,7 @@
                     <!--<include name="checkNobleBullet"/>-->
                 <!--</methods>-->
             <!--</class>-->
-            <class name="com.xmly.cases.userliveroom.android.CaseGIftPanel"></class>
+            <!--<class name="com.xmly.cases.userliveroom.android.CaseGIftPanel"></class>-->
             <!--<class name="com.xmly.cases.anchorliveroom.android.CaseSpeak"></class>-->
         </classes>
     </test>

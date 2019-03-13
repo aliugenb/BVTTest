@@ -1,19 +1,12 @@
-package com.xmly.pages.live;
+package com.xmly.pages.live.liveindexpage;
 
-import com.xmly.common.*;
+import com.xmly.common.DriverHelper;
 import com.xmly.pages.BasePage;
-import com.xmly.pages.live.userliveroompage.RoomType;
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
-import org.openqa.selenium.NoSuchElementException;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
-import static com.xmly.common.FindElementHelper.findElementBySwipe;
 
 /**
  * ClassName: LiveIndexPage

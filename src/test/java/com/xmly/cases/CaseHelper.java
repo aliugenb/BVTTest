@@ -3,7 +3,7 @@ package com.xmly.cases;
 import com.xmly.common.DriverHelper;
 import com.xmly.common.Status;
 import com.xmly.common.SwipeDirection;
-import com.xmly.pages.live.userliveroompage.RoomType;
+import com.xmly.pages.live.RoomType;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.NoSuchElementException;
 import org.testng.Reporter;
@@ -44,7 +44,7 @@ public class CaseHelper extends BaseCase {
         if (!Status.isInstall) {
             gotoUserLiveRoomByType("");
             userRoomIndexPage.closeFirstChargePop();
-            userRoomIndexPage.exitLiveRoom(0);
+            userRoomIndexPage.exitNormalLiveRoom(0);
         }
     }
 

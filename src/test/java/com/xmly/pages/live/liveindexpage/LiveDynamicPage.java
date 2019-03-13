@@ -1,12 +1,14 @@
-package com.xmly.pages.live;
+package com.xmly.pages.live.liveindexpage;
 
-import com.xmly.cases.CaseHelper;
-import com.xmly.pages.BasePage;
+import com.xmly.common.SwipeDirection;
+import com.xmly.pages.live.RoomType;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 
 import java.util.List;
+
+import static com.xmly.common.FindElementHelper.findElementBySwipe;
 
 /**
  * Created with IntelliJ IDEA.
@@ -15,7 +17,7 @@ import java.util.List;
  * Time: 15:29
  * 直播动态页面
  */
-public class LiveDynamicPage extends BasePage {
+public class LiveDynamicPage extends LiveIndexPage {
     public LiveDynamicPage(AppiumDriver<? extends MobileElement> driver) {
         super(driver);
     }
@@ -41,6 +43,10 @@ public class LiveDynamicPage extends BasePage {
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"当前还没有你关注的主播正在直播哦~\")")
     public MobileElement noFollowAnchorText;
 
+    //关注的主播头像
+    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_anchor_avatar")
+    public MobileElement anchorHeader;
+
     //关注的主播昵称
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_anchor_name_tv")
     public MobileElement anchorNickName;
@@ -48,6 +54,14 @@ public class LiveDynamicPage extends BasePage {
     //当前正在直播的主播数量
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"直播中\")")
     public List<MobileElement> onlineAnchors;
+
+    //已结束的主播
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"直播结束\")")
+    public MobileElement endLiveRoom;
+
+    //预告的直播
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"即将直播\")")
+    public MobileElement appointmentRoom;
 
     /*
     获取在线主播数量
@@ -58,5 +72,20 @@ public class LiveDynamicPage extends BasePage {
             onlineNum = onlineAnchors.size();
         }
         return onlineNum;
+    }
+
+    /*
+     * Description：roomType为空时点击第一个直播间，其他根据传参
+     * Param [roomType]
+     * return void
+     **/
+    public void enterRoomByType(String roomType) {
+        if (roomType == null || roomType.equals("")) {
+            anchorHeader.click();
+        } else if (roomType.equals(RoomType.END)) {
+            findElementBySwipe(driver, endLiveRoom, 10, SwipeDirection.UP).click();
+        } else if (roomType.equals(RoomType.APPOINTMENT)) {
+            findElementBySwipe(driver, appointmentRoom, 10, SwipeDirection.UP).click();
+        }
     }
 }

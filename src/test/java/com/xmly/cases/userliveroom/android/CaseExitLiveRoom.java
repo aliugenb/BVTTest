@@ -21,7 +21,7 @@ public class CaseExitLiveRoom extends CaseHelper {
     public void exitLessTenMin() throws InterruptedException {
         gotoUserLiveRoomAfterLogin();
         TimeUnit.MINUTES.sleep(1);
-        userRoomIndexPage.exitLiveRoom(1);
+        userRoomIndexPage.exitNormalLiveRoom(1);
         assertHelper.assertTrue(DriverHelper.isDisplayed(liveIndexPage.createLiveRoomBtn),
                 getCurClassName() + "退出直播成功");
         Reporter.log("退出直播间成功");
@@ -38,11 +38,11 @@ public class CaseExitLiveRoom extends CaseHelper {
                 Reporter.log("进入测试直播间");
                 break;
             }
-            userRoomIndexPage.exitLiveRoom(0);
+            userRoomIndexPage.exitNormalLiveRoom(0);
             Swipe.swipeUp(driver);
         }
         TimeUnit.MINUTES.sleep(11);
-        userRoomIndexPage.exitLiveRoom(11);
+        userRoomIndexPage.exitNormalLiveRoom(11);
 
 
         liveIndexPage.gotoUserLiveRoomByBar();
