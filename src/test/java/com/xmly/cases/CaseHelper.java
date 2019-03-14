@@ -80,6 +80,7 @@ public class CaseHelper extends BaseCase {
         }
         sleep(5);
         Status.isFristStart = false;
+        Reporter.log("首页弹窗关闭，进入测试");
     }
 
     /*

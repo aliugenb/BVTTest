@@ -107,8 +107,8 @@ public class UserRoomIndexPage extends BasePage {
         if (!Status.isChargePop) {
             CommonUtil.sleep(60);
             if (isDisplayed(firstChargePop)) {
-                Reporter.log("出现首充弹窗");
                 closeWebviewBtn.click();
+                Reporter.log("关闭首充弹窗");
                 Status.isChargePop = true;
             }
         }
