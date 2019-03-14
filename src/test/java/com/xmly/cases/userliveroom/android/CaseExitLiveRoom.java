@@ -19,7 +19,7 @@ public class CaseExitLiveRoom extends CaseHelper {
 
     @Test(description = "用户进入直播间1分钟后退出")
     public void exitLessTenMin() throws InterruptedException {
-        gotoUserLiveRoomAfterLogin();
+        gotoUserLiveRoomAfterLogin("");
         TimeUnit.MINUTES.sleep(1);
         userRoomIndexPage.exitNormalLiveRoom(1);
         assertHelper.assertTrue(DriverHelper.isDisplayed(liveIndexPage.createLiveRoomBtn),
@@ -27,7 +27,7 @@ public class CaseExitLiveRoom extends CaseHelper {
         Reporter.log("退出直播间成功");
     }
 
-    @Test(description = "用户进入直播间10分钟后退出")
+    @Test(description = "用户进入直播间10分钟后退出",dependsOnMethods = {"exitLessTenMin"})
     public void exitMoreTenMin() throws InterruptedException {
         gotoLiveIndex();
         loginByClickLiveBtn();

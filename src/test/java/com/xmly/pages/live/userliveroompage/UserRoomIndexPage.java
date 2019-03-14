@@ -1,6 +1,7 @@
 package com.xmly.pages.live.userliveroompage;
 
 import com.xmly.common.DriverHelper;
+import com.xmly.common.Status;
 import com.xmly.common.Swipe;
 import com.xmly.pages.BasePage;
 import com.xmly.pages.live.RoomType;
@@ -27,13 +28,17 @@ public class UserRoomIndexPage extends BasePage {
         super(driver);
     }
 
-    //预约直播
+    //预约直播的开播时间
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"开播时间\")")
-    public MobileElement appointment;
+    public MobileElement liveStartTime;
 
     //结束的直播主播名称
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_audience_finish_host_name")
     public MobileElement endLiveAnchorName;
+
+    //直播间状态
+    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_room_status")
+    public MobileElement liveRoomStatus;
 
     //直播主题
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_showTopic")
@@ -99,10 +104,13 @@ public class UserRoomIndexPage extends BasePage {
      * @return void
      **/
     public void closeFirstChargePop() {
-        CommonUtil.sleep(70);
-        if (isDisplayed(firstChargePop)) {
-            Reporter.log("出现首充弹窗");
-            closeWebviewBtn.click();
+        if (!Status.isChargePop) {
+            CommonUtil.sleep(60);
+            if (isDisplayed(firstChargePop)) {
+                Reporter.log("出现首充弹窗");
+                closeWebviewBtn.click();
+                Status.isChargePop = true;
+            }
         }
     }
 
@@ -118,6 +126,10 @@ public class UserRoomIndexPage extends BasePage {
             roomType = RoomType.FRIEND;
         } else if (isDisplayed(pkStatus)) {
             roomType = RoomType.PK;
+        } else if (isDisplayed(liveStartTime)) {
+            roomType = RoomType.APPOINTMENT;
+        } else if (isDisplayed(endLiveAnchorName)) {
+            roomType = RoomType.END;
         }
         return roomType;
     }
@@ -178,8 +190,9 @@ public class UserRoomIndexPage extends BasePage {
      **/
     public void exitAbnormalLiveRoom(String roomType) {
         if (roomType.equals(RoomType.APPOINTMENT)) {
-            if(DriverHelper.isDisplayed(appointmentLiveRoom))
-            closeRoomBtn.click();
+            if (DriverHelper.isDisplayed(liveStartTime)) {
+                closeRoomBtn.click();
+            }
             closeRoomBtn.click();
         }
         if (roomType.equals(RoomType.END)) {

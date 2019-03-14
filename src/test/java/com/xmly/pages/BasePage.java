@@ -131,7 +131,7 @@ public class BasePage {
                 int width = size.width;
                 DriverHelper.clickByCoordinates(driver, width / 2, height / 3);
             }
-            Status.isInstall = true;
+            Status.isFristStart = true;
         }
         //关闭新人红包或者广告弹窗
         if (DriverHelper.isDisplayed(closeInterstitialBtn)) {

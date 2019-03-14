@@ -25,8 +25,7 @@ public class CaseEnterLiveRoom extends CaseHelper {
 
     @Test(description = "进入交友模式房间")
     public void enterFriendRoom() {
-        gotoUserLiveRoomAfterLogin();
-        gotoUserLiveRoomByType(RoomType.FRIEND);
+        gotoUserLiveRoomAfterLogin(RoomType.FRIEND);
         assertHelper.assertTrue(userRoomIndexPage.getRoomType() == RoomType.FRIEND,
                 getCurClassName() + "已进入交友模式直播间");
         userRoomIndexPage.exitNormalLiveRoom(0);
@@ -44,10 +43,15 @@ public class CaseEnterLiveRoom extends CaseHelper {
     public void enterEndRoom() {
         liveIndexPage.gotoLiveDynamicPage();
         liveDynamicPage.enterRoomByType(RoomType.END);
-        assertHelper.assertTrue(DriverHelper.isDisplayed(userRoomIndexPage.appointmentLiveRoom),
-                getCurClassName() + "进入预告直播间展示预告信息");
-        userRoomIndexPage.exitAppointmentRoom();
+        assertHelper.assertTrue(DriverHelper.isDisplayed(userRoomIndexPage.endLiveAnchorName),
+                getCurClassName() + "进入已结束的直播间");
+        userRoomIndexPage.exitAbnormalLiveRoom(RoomType.END);
     }
 
-//    @Test
+    @Test(description = "进入预告直播间", dependsOnMethods = {"enterEndRoom"})
+    public void enterAppointmentRoom() {
+        liveDynamicPage.enterRoomByType(RoomType.APPOINTMENT);
+        assertHelper.assertTrue(DriverHelper.isDisplayed(userRoomIndexPage.liveStartTime),
+                getCurClassName() + "进入预告直播间展示预告开始时间");
+    }
 }

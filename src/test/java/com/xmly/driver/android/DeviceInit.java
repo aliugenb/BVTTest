@@ -1,5 +1,6 @@
 package com.xmly.driver.android;
 
+import com.xmly.common.Status;
 import com.xmly.utils.AdbUtil;
 import com.xmly.utils.CommonUtil;
 import org.testng.Reporter;
@@ -39,7 +40,7 @@ public class DeviceInit {
         while (true) {
             if (isAppInstalled()) {
                 Reporter.log("App安装成功");
-//                Status.isInstall = true;
+                Status.isInstall = true;
                 return;
             }
             sleep(3);

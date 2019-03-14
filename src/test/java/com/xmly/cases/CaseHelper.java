@@ -34,25 +34,58 @@ public class CaseHelper extends BaseCase {
      */
     public static void gotoLiveIndex() {
         sleep(10);
-        if (!DriverHelper.isDisplayed(basePage.homePageLiveTab)) {
-            basePage.appIndexInit();
-        }
+        appInit();
         basePage.enterPage(basePage.LIVEHOMEPAGE);
-        liveIndexPage.liveIndexInit();
-
-        //关闭第一次安装出现的首充弹窗
-        if (!Status.isInstall) {
-            gotoUserLiveRoomByType("");
-            userRoomIndexPage.closeFirstChargePop();
-            userRoomIndexPage.exitNormalLiveRoom(0);
+        if (!DriverHelper.isDisplayed(liveIndexPage.liveRoom)) {
+            basePage.enterPage(basePage.LIVEHOMEPAGE);
         }
+        liveIndexPage.liveIndexInit();
+    }
+
+    /*
+     * @Description: 关闭首页各种弹窗，关闭直播间内首充弹窗
+     * @Param []
+     * @return void
+     **/
+    public static void appInit() {
+        if (Status.isFristStart) {
+            for (int i = 0; i < 3; i++) {
+                //关闭权限弹层
+                if (DriverHelper.isDisplayed(liveIndexPage.permissionAllowBtn)) {
+                    liveIndexPage.permissionAllowBtn.click();
+                }
+                sleep(10);
+                driver.closeApp();
+                sleep(3);
+                driver.launchApp();
+                sleep(10);
+            }
+
+//            //关闭新人引导浮层
+//            if (DriverHelper.isDisplayed(liveIndexPage.newerTips)) {
+//                Dimension size = driver.manage().window().getSize();
+//                int height = size.height;
+//                int width = size.width;
+//                DriverHelper.clickByCoordinates(driver, width / 2, height / 3);
+//            }
+        }
+        //关闭广告弹窗
+        if (DriverHelper.isDisplayed(liveIndexPage.closeInterstitialBtn)) {
+            liveIndexPage.closeInterstitialBtn.click();
+        }
+        sleep(5);
+        //关闭升级弹层
+        if (DriverHelper.isDisplayed(liveIndexPage.updateBtn)) {
+            liveIndexPage.updateBtn.click();
+        }
+        sleep(5);
+        Status.isFristStart = false;
     }
 
     /*
     跳转发现页
      */
     public static void gotoFindIndex() {
-        basePage.appIndexInit();
         basePage.enterPage(basePage.FINDPAGE);
     }
 
@@ -112,14 +145,14 @@ public class CaseHelper extends BaseCase {
     }
 
     /*
-     * @Description:用户端登录后进入直播间
+     * @Description:用户端登录后进入指定直播间
      * @Param []
      * @return void
      **/
-    public static void gotoUserLiveRoomAfterLogin() {
+    public static void gotoUserLiveRoomAfterLogin(String roomType) {
         gotoLiveIndex();
         loginByClickLiveBtn();
-        gotoUserLiveRoomByType("");
+        gotoUserLiveRoomByType(roomType);
     }
 
     /*
@@ -135,6 +168,7 @@ public class CaseHelper extends BaseCase {
         } else if (roomType.equals(RoomType.PK)) {
             findElementBySwipe(driver, liveIndexPage.pkRoom, 10, SwipeDirection.UP).click();
         }
+        userRoomIndexPage.closeFirstChargePop();
     }
 
     /*

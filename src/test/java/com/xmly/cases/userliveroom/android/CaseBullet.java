@@ -19,7 +19,7 @@ public class CaseBullet extends CaseHelper {
 
     @Test(description = "普通弹幕")
     public void checkCommonBullet() {
-        gotoUserLiveRoomAfterLogin();
+        gotoUserLiveRoomAfterLogin("");
         userRoomIndexPage.gotoUserSpeakPage();
         userSpeakPage = new UserSpeakPage(driver);
 

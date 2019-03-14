@@ -28,7 +28,10 @@ public class GiftPanelPage extends UserRoomIndexPage {
     public MobileElement gift;
 
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"初级宝箱\")")
-    public MobileElement treasureBox;
+    public MobileElement primaryTreasureBox;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"至尊宝箱\")")
+    public MobileElement supremacyTreasureBox;
 
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"幸运草\")")
     public MobileElement fansGift;

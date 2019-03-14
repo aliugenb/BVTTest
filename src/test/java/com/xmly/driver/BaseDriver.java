@@ -7,7 +7,6 @@ import com.xmly.driver.android.AndroidDeviceInfo;
 import com.xmly.driver.android.DeviceInit;
 import com.xmly.utils.AdbUtil;
 import com.xmly.utils.AppiumServer;
-import com.xmly.utils.SnapshotAndLog;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 
@@ -41,6 +40,8 @@ public class BaseDriver {
                 DeviceInit.installApp(productModel);
             }
             driver = new AndroidBaseDriver(deviceName, platformVersion).getDriver();
+
+//            driver = EventFiringWebDriverFactory.getEventFiringWebDriver(driver, new ElementListener());
 
             AdbUtil.clearAndroidLog();
         } else if (osDriver == Driver.IOSDRIVER) {
