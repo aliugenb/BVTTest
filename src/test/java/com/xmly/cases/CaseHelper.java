@@ -134,13 +134,17 @@ public class CaseHelper extends BaseCase {
         createLiveRoomPage.createAnchorRoom();
         sleep(10);
         anchorRoomIndexPage.cancelShareBtn.click();
-        Dimension size = driver.manage().window().getSize();
-        int width = size.width;
-        int height = size.height;
-        //首次创建直播间出现蒙层，点击6次后消失
-        for (int i = 0; i < 6; i++) {
-            DriverHelper.clickByCoordinates(driver, width / 2, height / 2);
-            sleep(2);
+
+        if (Status.isFirstCreateRoom) {
+            Dimension size = driver.manage().window().getSize();
+            int width = size.width;
+            int height = size.height;
+            //首次创建直播间出现蒙层，点击6次后消失
+            for (int i = 0; i < 6; i++) {
+                DriverHelper.clickByCoordinates(driver, width / 2, height / 2);
+                sleep(2);
+            }
+            Status.isFirstCreateRoom = false;
         }
     }
 
