@@ -35,7 +35,7 @@ public class CaseBullet extends CaseHelper {
 
     }
 
-    @Test(description = "粉丝弹幕", dependsOnMethods = {"checkCommonBullet"})
+    @Test(description = "粉丝弹幕")
     public void checkFansBullet() {
         //打开弹幕
         userSpeakPage.switchBullet();
@@ -51,7 +51,7 @@ public class CaseBullet extends CaseHelper {
                 getCurClassName() + "弹幕仍然开启并默认选中普通弹幕");
     }
 
-    @Test(description = "贵族弹幕", dependsOnMethods = {"checkFansBullet"})
+    @Test(description = "贵族弹幕")
     public void checkNobleBullet() {
         userSpeakPage.clickBulletByType(BulletType.NOBLE);
         assertHelper.assertTrue(DriverHelper.isDisplayed(userSpeakPage.joinNobleBtn),

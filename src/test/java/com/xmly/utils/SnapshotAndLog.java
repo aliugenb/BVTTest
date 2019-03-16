@@ -1,6 +1,5 @@
 package com.xmly.utils;
 
-import com.xmly.cases.BaseCase;
 import com.xmly.driver.BaseDriver;
 import io.appium.java_client.AppiumDriver;
 import org.apache.commons.io.FileUtils;
@@ -47,7 +46,7 @@ public class SnapshotAndLog {
     }
 
     public static void snapshotByAdb(String fileName) {
-        String savePath = resultPath + "/" + fileName + ".png";
+        String savePath = resultPath + File.separator + fileName + ".png";
         String screenshotCmd = "adb shell /system/bin/screencap -p /sdcard/screenshot.png";
         String pullCmd = "adb pull /sdcard/screenshot.png " + savePath;
         execCmd(screenshotCmd);
@@ -57,7 +56,7 @@ public class SnapshotAndLog {
     }
 
     public static void logByAdb(String name) throws IOException {
-        String path = resultPath + "/" + name + ".txt";
+        String path = resultPath + File.separator + name + ".txt";
         String logCmd = "adb logcat -d -v time > " + path;
         System.out.println(logCmd);
         execCmd(logCmd);

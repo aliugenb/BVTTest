@@ -12,7 +12,7 @@ public class Status {
     volatile public static boolean isInstall = false;
 
     //判断app是否首次启动
-    volatile public static boolean isFristStart = true;
+    volatile public static boolean isFirstStart = true;
 
     //判断是否已出现过首充弹窗
     volatile public static boolean isChargePop = false;

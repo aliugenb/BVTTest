@@ -36,10 +36,11 @@ public class CaseHelper extends BaseCase {
         sleep(10);
         appInit();
         basePage.enterPage(basePage.LIVEHOMEPAGE);
+        liveIndexPage.liveIndexInit();
         if (!DriverHelper.isDisplayed(liveIndexPage.liveRoom)) {
             basePage.enterPage(basePage.LIVEHOMEPAGE);
+            liveIndexPage.liveIndexInit();
         }
-        liveIndexPage.liveIndexInit();
     }
 
     /*
@@ -48,7 +49,7 @@ public class CaseHelper extends BaseCase {
      * @return void
      **/
     public static void appInit() {
-        if (Status.isFristStart) {
+        if (Status.isFirstStart) {
             for (int i = 0; i < 3; i++) {
                 //关闭权限弹层
                 if (DriverHelper.isDisplayed(liveIndexPage.permissionAllowBtn)) {
@@ -79,7 +80,7 @@ public class CaseHelper extends BaseCase {
             liveIndexPage.updateBtn.click();
         }
         sleep(5);
-        Status.isFristStart = false;
+        Status.isFirstStart = false;
         Reporter.log("首页弹窗关闭，进入测试");
     }
 

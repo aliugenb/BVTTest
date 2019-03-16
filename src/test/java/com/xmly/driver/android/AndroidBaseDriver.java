@@ -44,7 +44,7 @@ public class AndroidBaseDriver {
 //        capabilities.setCapability("autoGrantPermissions", true);
 
         //设置新的命令等待时长（应该用不到，设置1h）
-        capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, "3600");
+        capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 3600);
 
         //使用自带输入法，输入中文
         capabilities.setCapability("unicodeKeyboard", true);

@@ -15,20 +15,18 @@ public class FilesInit {
     public static String resultPath;
     public static String apkPath;
 
-    public static final String testNGReportFile = "testNGReport.html";
-
     static {
         File classpathRoot = new File(System.getProperty("user.dir"));
         File resultDir = new File(classpathRoot, "result");
         File appDir = new File(classpathRoot, "apps");
         File apk = new File(appDir, "xmly.apk");
 
-        resultPath = resultDir.getAbsolutePath();
+        resultPath = resultDir.getAbsolutePath() + File.separator + formatDate();
         apkPath = apk.getAbsolutePath();
 
     }
 
-    private String formatDate() {
+    private static String formatDate() {
         Date now = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss");
         return dateFormat.format(now);

@@ -26,7 +26,6 @@ public class BaseDriver {
         if (!AppiumServer.startAppium()) {
             throw new MyException("appium未启动");
         }
-
         if (osDriver == Driver.ANDROIDDRIVER) {
             if (!AdbUtil.isConnect()) {
                 throw new MyException("设备未连接");

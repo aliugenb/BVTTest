@@ -31,7 +31,7 @@ public class CaseEnterLiveRoom extends CaseHelper {
         userRoomIndexPage.exitNormalLiveRoom(0);
     }
 
-    @Test(description = "进入PK模式房间", dependsOnMethods = {"enterFriendRoom"})
+    @Test(description = "进入PK模式房间")
     public void enterPkRoom() {
         gotoUserLiveRoomByType(RoomType.PK);
         assertHelper.assertTrue(userRoomIndexPage.getRoomType() == RoomType.PK,
@@ -39,7 +39,7 @@ public class CaseEnterLiveRoom extends CaseHelper {
         userRoomIndexPage.exitNormalLiveRoom(0);
     }
 
-    @Test(description = "进入结束的直播间", dependsOnMethods = {"enterPkRoom"})
+    @Test(description = "进入结束的直播间")
     public void enterEndRoom() {
         liveIndexPage.gotoLiveDynamicPage();
         liveDynamicPage.enterRoomByType(RoomType.END);
@@ -48,7 +48,7 @@ public class CaseEnterLiveRoom extends CaseHelper {
         userRoomIndexPage.exitAbnormalLiveRoom(RoomType.END);
     }
 
-    @Test(description = "进入预告直播间", dependsOnMethods = {"enterEndRoom"})
+    @Test(description = "进入预告直播间")
     public void enterAppointmentRoom() {
         liveDynamicPage.enterRoomByType(RoomType.APPOINTMENT);
         assertHelper.assertTrue(DriverHelper.isDisplayed(userRoomIndexPage.liveStartTime),

@@ -1,9 +1,7 @@
 package com.xmly.cases.anchorliveroom.android;
 
 import com.xmly.cases.CaseHelper;
-import com.xmly.common.DriverHelper;
 import com.xmly.pages.live.anchorliveroompage.FriendPage;
-import org.testng.Reporter;
 import org.testng.annotations.Test;
 
 import static com.xmly.common.DriverHelper.isDisplayed;
@@ -30,7 +28,7 @@ public class CaseFriend extends CaseHelper {
                 getCurClassName() + "交友模式开启并展示8个交友位置");
     }
 
-    @Test(description = "锁定交友位置", dependsOnMethods = {"openFriendMode"})
+    @Test(description = "锁定交友位置")
     public void lockSeat() {
         assertHelper.assertTrue(friendPage.getSeatLockBtnText().equals("锁定位置"),
                 getCurClassName() + "点击位置弹出锁定文案");

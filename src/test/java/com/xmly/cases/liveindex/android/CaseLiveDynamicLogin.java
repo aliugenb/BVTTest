@@ -1,8 +1,6 @@
 package com.xmly.cases.liveindex.android;
 
-import com.aventstack.extentreports.ExtentReports;
 import com.xmly.cases.CaseHelper;
-import org.testng.Reporter;
 import org.testng.annotations.Test;
 
 import java.util.regex.Matcher;
@@ -15,9 +13,10 @@ import java.util.regex.Pattern;
  * Time: 16:06
  */
 public class CaseLiveDynamicLogin extends CaseHelper {
-    @Test(description = "未登录情况下进入直播动态")
+    @Test(description = "登录情况下进入直播动态")
     public void checkLogin() {
         gotoLiveIndex();
+        loginByClickLiveBtn();
         String text = liveIndexPage.gotoLiveDynamicPage();
         int onlineNum = 0;
         if (text.indexOf("已关注") != -1) {

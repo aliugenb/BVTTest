@@ -27,7 +27,7 @@ public class CaseExitLiveRoom extends CaseHelper {
         Reporter.log("退出直播间成功");
     }
 
-    @Test(description = "用户进入直播间10分钟后退出",dependsOnMethods = {"exitLessTenMin"})
+    @Test(description = "用户进入直播间10分钟后退出")
     public void exitMoreTenMin() throws InterruptedException {
         gotoLiveIndex();
         loginByClickLiveBtn();

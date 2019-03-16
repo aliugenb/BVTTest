@@ -69,7 +69,7 @@ public class UserRoomIndexPage extends BasePage {
     public MobileElement giftBtn;
 
     //PK状态栏
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_pk_status")
+    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_pk_status_bg")
     public MobileElement pkStatus;
 
     //关注按钮
@@ -197,7 +197,7 @@ public class UserRoomIndexPage extends BasePage {
         }
         if (roomType.equals(RoomType.END)) {
             AdbUtil.pressKey(KEY.BACK);
-            closeRoomBtn.click();
+            exitNormalLiveRoom(0);
         }
     }
 }
