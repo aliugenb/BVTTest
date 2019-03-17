@@ -63,6 +63,19 @@ public class LiveDynamicPage extends LiveIndexPage {
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"即将直播\")")
     public MobileElement appointmentRoom;
 
+    //左上角退出按钮
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/back_btn")
+    public MobileElement backBtn;
+
+    /*
+     * Description：退出直播动态页
+     * Param []
+     * return void
+     **/
+    public void exitLiveDynamicPage() {
+        backBtn.click();
+    }
+
     /*
     获取在线主播数量
      */
@@ -81,7 +94,7 @@ public class LiveDynamicPage extends LiveIndexPage {
      **/
     public void enterRoomByType(String roomType) {
         if (roomType == null || roomType.equals("")) {
-            anchorHeader.click();
+            anchorNickName.click();
         } else if (roomType.equals(RoomType.END)) {
             findElementBySwipe(driver, endLiveRoom, 10, SwipeDirection.UP).click();
         } else if (roomType.equals(RoomType.APPOINTMENT)) {

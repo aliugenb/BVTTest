@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
  * Date: 2019-02-23 15:56
  * Description:
  */
-public class CaseEnterLiveRoom extends CaseHelper {
+public class CaseEnterLiveRoomByType extends CaseHelper {
 //    @Test(description = "进入普通房间")
 //    public void enterCommonRoom() {
 //        gotoLiveIndex();
@@ -28,27 +28,28 @@ public class CaseEnterLiveRoom extends CaseHelper {
         gotoUserLiveRoomAfterLogin(RoomType.FRIEND);
         assertHelper.assertTrue(userRoomIndexPage.getRoomType() == RoomType.FRIEND,
                 getCurClassName() + "已进入交友模式直播间");
-        userRoomIndexPage.exitNormalLiveRoom(0);
+        exitAnchorLiveRoom(RoomType.FRIEND);
     }
 
-    @Test(description = "进入PK模式房间")
+    @Test(description = "进入PK模式房间", priority = 1)
     public void enterPkRoom() {
         gotoUserLiveRoomByType(RoomType.PK);
         assertHelper.assertTrue(userRoomIndexPage.getRoomType() == RoomType.PK,
                 getCurClassName() + "已进入pk模式直播间");
-        userRoomIndexPage.exitNormalLiveRoom(0);
+        exitAnchorLiveRoom(RoomType.PK);
     }
 
-    @Test(description = "进入结束的直播间")
+    @Test(description = "进入结束的直播间", priority = 2)
     public void enterEndRoom() {
+        gotoLiveIndex();
         liveIndexPage.gotoLiveDynamicPage();
         liveDynamicPage.enterRoomByType(RoomType.END);
         assertHelper.assertTrue(DriverHelper.isDisplayed(userRoomIndexPage.endLiveAnchorName),
                 getCurClassName() + "进入已结束的直播间");
-        userRoomIndexPage.exitAbnormalLiveRoom(RoomType.END);
+        exitAnchorLiveRoom(RoomType.END);
     }
 
-    @Test(description = "进入预告直播间")
+    @Test(description = "进入预告直播间", priority = 3)
     public void enterAppointmentRoom() {
         liveDynamicPage.enterRoomByType(RoomType.APPOINTMENT);
         assertHelper.assertTrue(DriverHelper.isDisplayed(userRoomIndexPage.liveStartTime),

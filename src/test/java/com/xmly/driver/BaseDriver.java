@@ -1,10 +1,8 @@
 package com.xmly.driver;
 
 import com.xmly.common.MyException;
-import com.xmly.common.Status;
 import com.xmly.driver.android.AndroidBaseDriver;
 import com.xmly.driver.android.AndroidDeviceInfo;
-import com.xmly.driver.android.DeviceInit;
 import com.xmly.utils.AdbUtil;
 import com.xmly.utils.AppiumServer;
 import io.appium.java_client.AppiumDriver;
@@ -35,9 +33,9 @@ public class BaseDriver {
             String platformVersion = deviceInfo.getOsVersion();
             String productModel = deviceInfo.getProductModel();
 
-            if (!Status.isInstall) {
-                DeviceInit.installApp(productModel);
-            }
+//            if (!Status.isInstall) {
+//                DeviceInit.installApp(productModel);
+//            }
             driver = new AndroidBaseDriver(deviceName, platformVersion).getDriver();
 
 //            driver = EventFiringWebDriverFactory.getEventFiringWebDriver(driver, new ElementListener());

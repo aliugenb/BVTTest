@@ -1,6 +1,9 @@
 package com.xmly.utils;
 
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -12,6 +15,9 @@ import java.util.Date;
  */
 
 public class FilesInit {
+    public static String timeNow;
+
+    public static String projectPath;
     public static String resultPath;
     public static String apkPath;
 
@@ -21,7 +27,10 @@ public class FilesInit {
         File appDir = new File(classpathRoot, "apps");
         File apk = new File(appDir, "xmly.apk");
 
-        resultPath = resultDir.getAbsolutePath() + File.separator + formatDate();
+        timeNow = formatDate();
+
+        projectPath = classpathRoot.getAbsolutePath();
+        resultPath = resultDir.getAbsolutePath() + File.separator + timeNow;
         apkPath = apk.getAbsolutePath();
 
     }
@@ -30,5 +39,14 @@ public class FilesInit {
         Date now = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss");
         return dateFormat.format(now);
+    }
+
+    public static void copyFile(String filePath, String dirPath) throws IOException {
+        if (!Files.exists(Paths.get(filePath))) {
+            System.out.println("原始文件不存在");
+            return;
+        }
+
+        Files.copy(Paths.get(filePath), Paths.get(dirPath));
     }
 }

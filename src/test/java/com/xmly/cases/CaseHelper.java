@@ -34,7 +34,7 @@ public class CaseHelper extends BaseCase {
      */
     public static void gotoLiveIndex() {
         sleep(10);
-        appInit();
+//        appInit();
         basePage.enterPage(basePage.LIVEHOMEPAGE);
         liveIndexPage.liveIndexInit();
         if (!DriverHelper.isDisplayed(liveIndexPage.liveRoom)) {
@@ -162,29 +162,48 @@ public class CaseHelper extends BaseCase {
     }
 
     /*
-     * Description:根据roomType跳转不同类型的直播间
+     * Description:根据roomType跳转pk和交友模式的直播间
      * Param [roomType] 房间类型，为空时默认打开第一个
      * return void
      **/
     public static void gotoUserLiveRoomByType(String roomType) {
         if (roomType == null || roomType.equals("")) {
             liveIndexPage.liveRoom.click();
-        } else if (roomType.equals(RoomType.FRIEND)) {
-            findElementBySwipe(driver, liveIndexPage.friendRoom, 10, SwipeDirection.UP).click();
-        } else if (roomType.equals(RoomType.PK)) {
-            findElementBySwipe(driver, liveIndexPage.pkRoom, 10, SwipeDirection.UP).click();
+        } else {
+            while (true) {
+                if (roomType.equals(RoomType.FRIEND)) {
+                    findElementBySwipe(driver, liveIndexPage.friendRoom, 10, SwipeDirection.UP).click();
+                } else if (roomType.equals(RoomType.PK)) {
+                    findElementBySwipe(driver, liveIndexPage.pkRoom, 10, SwipeDirection.UP).click();
+                }
+                String curRoomType = userRoomIndexPage.getRoomType();
+                if (curRoomType.equals(roomType)) {
+                    Reporter.log("已进入" + roomType + "对应的直播间");
+                    return;
+                } else {
+                    exitAnchorLiveRoom(curRoomType);
+                    Reporter.log("进入" + curRoomType + "直播间,退出重试");
+                }
+            }
+
         }
-        userRoomIndexPage.closeFirstChargePop();
     }
 
     /*
-     * @Description: 关闭webview
-     * @Param []
-     * @return void
+     * Description：用户退出直播间
+     * Param [roomType]
+     * return void
      **/
-    public static void closeWebView() {
-        if (DriverHelper.isDisplayed(userRoomIndexPage.closeWebviewBtn)) {
-            userRoomIndexPage.closeWebviewBtn.click();
+    public static void exitAnchorLiveRoom(String roomType) {
+        if (roomType.equals(RoomType.END) || roomType.equals(RoomType.APPOINTMENT)) {
+            userRoomIndexPage.exitAbnormalLiveRoom(roomType);
+        } else {
+            if (roomType.equals(RoomType.PK)) {
+                if (DriverHelper.isDisplayed(userRoomIndexPage.friendPkResultPop)) {
+                    userRoomIndexPage.friendPkResultCloseBtn.click();
+                }
+            }
+            userRoomIndexPage.exitNormalLiveRoom();
         }
     }
 }

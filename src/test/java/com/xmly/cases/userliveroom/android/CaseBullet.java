@@ -44,7 +44,7 @@ public class CaseBullet extends CaseHelper {
         userSpeakPage.joinFansClubBtn.click();
         assertHelper.assertTrue(DriverHelper.isDisplayed(userSpeakPage.joinImmediately),
                 getCurClassName() + "粉丝团立即加入按钮");
-        closeWebView();
+        userRoomIndexPage.closeWebView();
 
         userRoomIndexPage.gotoUserSpeakPage();
         assertHelper.assertTrue(userSpeakPage.getEditText().contains("发送直播间弹幕"),
