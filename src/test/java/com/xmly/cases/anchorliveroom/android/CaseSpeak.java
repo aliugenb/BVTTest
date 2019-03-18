@@ -17,7 +17,9 @@ public class CaseSpeak extends CaseHelper {
 
         createAnchorLiveRoom();
         anchorRoomIndexPage.speakByContent(content);
-        assertHelper.assertTrue(anchorRoomIndexPage.findByContent(content),
-                "CaseSpeak发言成功并显示发送内容");
+//        assertHelper.assertTrue(anchorRoomIndexPage.findByContent(content),
+//                "CaseSpeak发言成功并显示发送内容");
+        assertHelper.assertTrue(anchorRoomIndexPage.lastContent().getText().equals(content),
+                getCurClassName() + "发言成功并显示发送内容");
     }
 }

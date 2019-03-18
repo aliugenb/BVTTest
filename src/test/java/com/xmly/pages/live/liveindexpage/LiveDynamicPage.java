@@ -40,7 +40,7 @@ public class LiveDynamicPage extends LiveIndexPage {
     }
 
     //无关注的主播
-    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"当前还没有你关注的主播正在直播哦~\")")
+    @AndroidFindBy(uiAutomator = "new UiSelector().textContains(\"当前还没有你关注的主播\")")
     public MobileElement noFollowAnchorText;
 
     //关注的主播头像

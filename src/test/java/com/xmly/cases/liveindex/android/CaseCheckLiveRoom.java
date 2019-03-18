@@ -4,8 +4,6 @@ import com.xmly.cases.CaseHelper;
 import com.xmly.common.DriverHelper;
 import org.testng.annotations.Test;
 
-import java.io.FileNotFoundException;
-
 /**
  * Created with IntelliJ IDEA.
  * Author: ye.liu
@@ -19,6 +17,10 @@ public class CaseCheckLiveRoom extends CaseHelper {
     @Test(description = "首页直播间展示正常")
     public void checkLiveRoom() {
         gotoLiveIndex();
-        assertHelper.assertTrue(DriverHelper.isDisplayed(liveIndexPage.liveRoom));
+        assertHelper.assertTrue(DriverHelper.isDisplayed(liveIndexPage.liveRoom),
+                getCurClassName()+"直播首页直播间正常展示");
+
+        liveIndexPage.musicTab.click();
+        
     }
 }

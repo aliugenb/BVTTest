@@ -7,6 +7,8 @@ import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
+
 /**
  * Created with IntelliJ IDEA.
  * Author: ye.liu
@@ -42,11 +44,15 @@ public class FilesInit {
     }
 
     public static void copyFile(String filePath, String dirPath) throws IOException {
-        if (!Files.exists(Paths.get(filePath))) {
+        if (Files.notExists(Paths.get(filePath))) {
             System.out.println("原始文件不存在");
             return;
         }
 
-        Files.copy(Paths.get(filePath), Paths.get(dirPath));
+        if (Files.notExists(Paths.get(dirPath))) {
+            Files.createDirectories(Paths.get(dirPath));
+        }
+
+        Files.copy(Paths.get(filePath), Paths.get(dirPath), REPLACE_EXISTING);
     }
 }

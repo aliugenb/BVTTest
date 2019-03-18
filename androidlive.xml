@@ -9,19 +9,24 @@
 
     <parameter name="osDriver" value="1"/>
 
-    <!--<test verbose="3" preserve-order="true" parallel="classes" thread-count="1" name="liveindex直播首页检查">-->
-        <!--<classes>-->
+    <test verbose="3" preserve-order="true" parallel="classes" thread-count="1" name="liveindex直播首页检查">
+        <classes>
             <!--<class name="com.xmly.cases.liveindex.android.CaseLiveDynamicUnlogin"></class>-->
             <!--<class name="com.xmly.cases.liveindex.android.CaseLiveDynamicLogin"></class>-->
             <!--<class name="com.xmly.cases.liveindex.android.CaseCheckSearchBar"></class>-->
             <!--<class name="com.xmly.cases.liveindex.android.CaseCheckCreateLiveRoomBtn"></class>-->
             <!--<class name="com.xmly.cases.liveindex.android.CaseCheckLiveTab"></class>-->
-        <!--</classes>-->
-    <!--</test>-->
+            <!--<class name="com.xmly.cases.liveindex.android.CaseCheckLiveRoom"></class>-->
+        </classes>
+    </test>
 
-    <!--<test verbose="3" preserve-order="true" parallel="classes" thread-count="1" name="anchorliveroom主播端直播间检查">-->
-        <!--<classes>-->
+    <test verbose="3" preserve-order="true" parallel="classes" thread-count="1" name="anchorliveroom主播端直播间检查">
+        <classes>
             <!--<class name="com.xmly.cases.anchorliveroom.android.CaseCall"></class>-->
+            <!--<class name="com.xmly.cases.anchorliveroom.android.CaseMute"></class>-->
+            <!--<class name="com.xmly.cases.anchorliveroom.android.CaseTopic"></class>-->
+            <!--<class name="com.xmly.cases.anchorliveroom.android.CaseSpeak"></class>-->
+            <!--<class name="com.xmly.cases.anchorliveroom.android.CaseSendPicture"></class>-->
             <!--<class name="com.xmly.cases.anchorliveroom.android.CaseFriend">-->
                 <!--<methods>-->
                     <!--<include name="openFriendMode"/>-->
@@ -29,23 +34,26 @@
                     <!--&lt;!&ndash;<include name="setTeamPkMode"/>&ndash;&gt;-->
                 <!--</methods>-->
             <!--</class>-->
-            <!--<class name="com.xmly.cases.anchorliveroom.android.CaseMute"></class>-->
-            <!--<class name="com.xmly.cases.anchorliveroom.android.CaseTopic"></class>-->
-            <!--<class name="com.xmly.cases.anchorliveroom.android.CaseSpeak"></class>-->
-        <!--</classes>-->
-    <!--</test>-->
+        </classes>
+    </test>
 
-    <test verbose="3" preserve-order="true" parallel="classes" thread-count="1" name="userliveroom用户端直播间检查">
-        <classes>
-            <!--<class name="com.xmly.cases.userliveroom.android.CaseEnterLiveRoomByPath"></class>-->
-            <class name="com.xmly.cases.userliveroom.android.CaseEnterLiveRoomByType">
+    <!--<test verbose="3" preserve-order="true" parallel="classes" thread-count="1" name="userliveroom用户端直播间检查">-->
+        <!--<classes>-->
+            <!--<class name="com.xmly.cases.userliveroom.android.CaseEnterLiveRoomByPath">-->
+                <!--<methods>-->
+                    <!--<include name="enterByLiveIndex"/>-->
+                    <!--<include name="enterByLiveDynamicPage"/>-->
+                    <!--<include name="enterBySearch"/>-->
+                <!--</methods>-->
+            <!--</class>-->
+            <!--<class name="com.xmly.cases.userliveroom.android.CaseEnterLiveRoomByType">-->
                 <!--<methods>-->
                     <!--<include name="enterFriendRoom"/>-->
                     <!--<include name="enterPkRoom"/>-->
                     <!--<include name="enterEndRoom"/>-->
                     <!--<include name="enterAppointmentRoom"/>-->
                 <!--</methods>-->
-            </class>
+            <!--</class>-->
             <!--<class name="com.xmly.cases.userliveroom.android.CaseEnterLiveRoomByType">-->
                 <!--<methods>-->
                     <!--<include name="enterFriendRoom"/>-->
@@ -68,6 +76,6 @@
                     <!--<include name="exitMoreTenMin"/>-->
                 <!--</methods>-->
             <!--</class>-->
-        </classes>
-    </test>
+        <!--</classes>-->
+    <!--</test>-->
 </suite>

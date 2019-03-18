@@ -4,6 +4,7 @@ import com.xmly.common.DriverHelper;
 import com.xmly.common.Status;
 import com.xmly.common.SwipeDirection;
 import com.xmly.pages.live.RoomType;
+import io.appium.java_client.MobileElement;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.NoSuchElementException;
 import org.testng.Reporter;
@@ -162,7 +163,7 @@ public class CaseHelper extends BaseCase {
     }
 
     /*
-     * Description:根据roomType跳转pk和交友模式的直播间
+     * Description:直播首页根据roomType跳转pk和交友模式的直播间
      * Param [roomType] 房间类型，为空时默认打开第一个
      * return void
      **/
@@ -171,13 +172,19 @@ public class CaseHelper extends BaseCase {
             liveIndexPage.liveRoom.click();
         } else {
             while (true) {
+                MobileElement liveRoom = null;
                 if (roomType.equals(RoomType.FRIEND)) {
-                    findElementBySwipe(driver, liveIndexPage.friendRoom, 10, SwipeDirection.UP).click();
+                    liveRoom = findElementBySwipe(driver, liveIndexPage.friendRoom, 10, SwipeDirection.UP);
                 } else if (roomType.equals(RoomType.PK)) {
-                    findElementBySwipe(driver, liveIndexPage.pkRoom, 10, SwipeDirection.UP).click();
+                    liveRoom = findElementBySwipe(driver, liveIndexPage.pkRoom, 10, SwipeDirection.UP);
+                }
+                if (!liveIndexPage.isUnderLiveDynamicBtn(liveRoom)) {
+                    liveRoom.click();
+                } else {
+                    continue;
                 }
                 String curRoomType = userRoomIndexPage.getRoomType();
-                if (curRoomType.equals(roomType)) {
+                if (curRoomType != null && curRoomType.equals(roomType)) {
                     Reporter.log("已进入" + roomType + "对应的直播间");
                     return;
                 } else {
@@ -198,7 +205,7 @@ public class CaseHelper extends BaseCase {
         if (roomType.equals(RoomType.END) || roomType.equals(RoomType.APPOINTMENT)) {
             userRoomIndexPage.exitAbnormalLiveRoom(roomType);
         } else {
-            if (roomType.equals(RoomType.PK)) {
+            if (roomType.equals(RoomType.FRIEND)) {
                 if (DriverHelper.isDisplayed(userRoomIndexPage.friendPkResultPop)) {
                     userRoomIndexPage.friendPkResultCloseBtn.click();
                 }

@@ -22,7 +22,7 @@ public class CaseEnterLiveRoomByPath extends CaseHelper {
         exitAnchorLiveRoom(roomType);
     }
 
-    @Test(description = "直播动态进入直播间", priority = 1)
+    @Test(description = "直播动态进入直播间")
     public void enterByLiveDynamicPage() {
         loginByClickLiveBtn();
         liveIndexPage.gotoLiveDynamicPage();
@@ -34,7 +34,7 @@ public class CaseEnterLiveRoomByPath extends CaseHelper {
         liveDynamicPage.exitLiveDynamicPage();
     }
 
-    @Test(description = "通过搜索结果页进入直播间", priority = 2)
+    @Test(description = "通过搜索结果页进入直播间")
     public void enterBySearch() throws MyException {
         liveIndexPage.gotoSearchPage();
         String searchText = "倾城之恋_";

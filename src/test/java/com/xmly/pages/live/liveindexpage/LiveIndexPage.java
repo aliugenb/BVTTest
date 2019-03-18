@@ -5,6 +5,7 @@ import com.xmly.pages.BasePage;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
+import org.openqa.selenium.Point;
 
 import java.util.List;
 
@@ -40,21 +41,15 @@ public class LiveIndexPage extends BasePage {
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_home_anchor_rank_tv")
     public MobileElement liveRecord;
 
-    //跳转榜单页
-    public String gotoAnchorRankPage() {
-        String text = null;
-        MobileElement record = liveRecord;
-        text = record.getText();
-        record.click();
-        return text;
-    }
-
     //分类tab
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_tab_layout")
     public List<MobileElement> liveTabs;
 
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_type_tab_new")
-    public MobileElement liveTab;
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.ximalaya.ting.android.live.application:id/live_tab_layout\").childSelector(new UiSelector().text(\"音乐\"))")
+    public MobileElement musicTab;
+
+    @AndroidFindBy(uiAutomator = "(\"new UiSelector().resourceId(\"com.ximalaya.ting.android.live.application:id/live_tab_layout\").childSelector(new UiSelector().text(\"交友\"))")
+    public MobileElement friendTab;
 
     //直播间
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_item_record_cover")
@@ -72,6 +67,23 @@ public class LiveIndexPage extends BasePage {
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_item_record_anchor_right_mark2")
     public List<MobileElement> liveRoomMarkList;
 
+    //首页直播动态入口
+    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_dynamic_count_tv")
+    public MobileElement liveDynamicBtn;
+
+    //直播未正常关闭时弹出提醒弹层
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"结束直播\")")
+    public MobileElement cancelLiveBtn;
+
+    //跳转榜单页
+    public String gotoAnchorRankPage() {
+        String text = null;
+        MobileElement record = liveRecord;
+        text = record.getText();
+        record.click();
+        return text;
+    }
+
     //跳转创建直播间页面
     public void gotoCreateLiveRoomPage() {
         createLiveRoomBtn.click();
@@ -81,10 +93,6 @@ public class LiveIndexPage extends BasePage {
     public void gotoUserLiveRoomByBar() {
         barPlayBtn.click();
     }
-
-    //直播未正常关闭时弹出提醒弹层
-    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"结束直播\")")
-    public MobileElement cancelLiveBtn;
 
     //关闭直播未正常关闭时首页弹出的提醒弹层
     public void liveIndexInit() {
@@ -98,10 +106,6 @@ public class LiveIndexPage extends BasePage {
         searchBar.click();
     }
 
-    //首页直播动态入口
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_dynamic_count_tv")
-    public MobileElement liveDynamicBtn;
-
     /*
      * Description:跳转直播动态页面
      * Param []
@@ -114,5 +118,25 @@ public class LiveIndexPage extends BasePage {
             liveDynamicBtn.click();
         }
         return liveDynamicText;
+    }
+
+    /*
+     * @Description:交友模式和pk直播间标签会被直播动态入口遮挡，做下判断
+     * @Param [liveRoomMark]
+     * @return boolean
+     **/
+    public boolean isUnderLiveDynamicBtn(MobileElement liveRoomMark) {
+        boolean flag = false;
+
+        Point liveRoomMarkPoint = DriverHelper.getCenter(liveRoomMark);
+        Point LiveDynamicBtnLowerRight = DriverHelper.getLowerRight(liveDynamicBtn);
+        Point LiveDynamicBtnUpperLeft = DriverHelper.getUpperLeft(liveDynamicBtn);
+
+        if (liveRoomMarkPoint.getX() < LiveDynamicBtnUpperLeft.getX() && liveRoomMarkPoint.getX() > LiveDynamicBtnLowerRight.getX()
+                && liveRoomMarkPoint.getY() < LiveDynamicBtnUpperLeft.getY() && liveRoomMarkPoint.getY() > LiveDynamicBtnLowerRight.getY()) {
+            flag = true;
+        }
+
+        return flag;
     }
 }
