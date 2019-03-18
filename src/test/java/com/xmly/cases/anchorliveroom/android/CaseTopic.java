@@ -21,7 +21,7 @@ public class CaseTopic extends CaseHelper {
         anchorRoomIndexPage.gotoTopicPage();
         topicPage.setTopic(topicContent);
 
-        assertHelper.assertTrue(anchorRoomIndexPage.findByContent(topicContent),
+        assertHelper.assertTrue(anchorRoomIndexPage.lastContent().getText().equals(topicContent),
                 "CaseTopic设置话题成功并直播间展示话题");
     }
 }

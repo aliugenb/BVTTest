@@ -25,7 +25,7 @@
             <!--<class name="com.xmly.cases.anchorliveroom.android.CaseCall"></class>-->
             <!--<class name="com.xmly.cases.anchorliveroom.android.CaseMute"></class>-->
             <!--<class name="com.xmly.cases.anchorliveroom.android.CaseTopic"></class>-->
-            <!--<class name="com.xmly.cases.anchorliveroom.android.CaseSpeak"></class>-->
+            <class name="com.xmly.cases.anchorliveroom.android.CaseSpeak"></class>
             <!--<class name="com.xmly.cases.anchorliveroom.android.CaseSendPicture"></class>-->
             <!--<class name="com.xmly.cases.anchorliveroom.android.CaseFriend">-->
                 <!--<methods>-->
