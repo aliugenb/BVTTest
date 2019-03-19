@@ -5,7 +5,7 @@ import com.xmly.common.MyException;
 import com.xmly.driver.BaseDriver;
 import com.xmly.pages.BasePage;
 import com.xmly.pages.LoginPage;
-import com.xmly.pages.live.CreateLiveRoomPage;
+import com.xmly.pages.live.createliveroompage.CreateLiveRoomPage;
 import com.xmly.pages.live.liveindexpage.LiveDynamicPage;
 import com.xmly.pages.live.liveindexpage.LiveIndexPage;
 import com.xmly.pages.live.anchorliveroompage.AnchorRoomIndexPage;

@@ -9,6 +9,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created with IntelliJ IDEA.
@@ -37,6 +38,7 @@ public class BaseDriver {
 //                DeviceInit.installApp(productModel);
 //            }
             driver = new AndroidBaseDriver(deviceName, platformVersion).getDriver();
+            driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 
 //            driver = EventFiringWebDriverFactory.getEventFiringWebDriver(driver, new ElementListener());
 

@@ -28,6 +28,13 @@ public class DriverHelper {
         return false;
     }
 
+    //点击可能存在的元素,如权限弹层之类
+    public static void clickByPossibleElement(MobileElement mobileElement) {
+        if (isDisplayed(mobileElement)) {
+            mobileElement.click();
+        }
+    }
+
 
     //获取元素对应的文本
     public static String getText(MobileElement mobileElement) {

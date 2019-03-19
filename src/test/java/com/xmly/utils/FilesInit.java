@@ -32,14 +32,14 @@ public class FilesInit {
         timeNow = formatDate();
 
         projectPath = classpathRoot.getAbsolutePath();
-        resultPath = resultDir.getAbsolutePath() + File.separator + timeNow;
+        resultPath = resultDir.getAbsolutePath();
         apkPath = apk.getAbsolutePath();
 
     }
 
     private static String formatDate() {
         Date now = new Date();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
         return dateFormat.format(now);
     }
 

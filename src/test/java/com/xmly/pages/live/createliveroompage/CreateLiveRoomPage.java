@@ -1,4 +1,4 @@
-package com.xmly.pages.live;
+package com.xmly.pages.live.createliveroompage;
 
 import com.xmly.common.DriverHelper;
 import com.xmly.pages.BasePage;
@@ -35,9 +35,36 @@ public class CreateLiveRoomPage extends BasePage {
     @AndroidFindBy(id = "com.ximalaya.ting.android:id/ok_btn")
     public MobileElement cancelBtn;
 
+    //直播间标题输入框
+    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_compose_title_et")
+    public MobileElement titleEditText;
+
+    //直播间话题输入框
+    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_compose_topic_et")
+    public MobileElement topicEditText;
+
+    //直播间封面
+    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_compose_base_cover_iv")
+    public MobileElement roomCover;
+
     //首次创建直播需麦克风权限
     @AndroidFindBy(id = "com.android.packageinstaller:id/permission_allow_button")
     public MobileElement permissionAllowBtn;
+
+    //打开上传封面页面
+    public void gotoUploadCoverPage() {
+        roomCover.click();
+    }
+
+    public void setTitle(String title) {
+        titleEditText.sendKeys(title);
+
+    }
+
+    public void setTopic(String topic) {
+        topicEditText.sendKeys(topic);
+
+    }
 
     /*
      * Description：创建直播间
@@ -46,9 +73,7 @@ public class CreateLiveRoomPage extends BasePage {
      **/
     public void createAnchorRoom() {
         beginLiveBtn.click();
-        if (DriverHelper.isDisplayed(permissionAllowBtn)) {
-            permissionAllowBtn.click();
-        }
+        DriverHelper.clickByPossibleElement(permissionAllowBtn);
     }
 
     /*

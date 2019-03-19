@@ -29,14 +29,15 @@ import static com.xmly.utils.FilesInit.timeNow;
 
 public class SnapshotAndLog {
 
-    public static void snapshotByAppium(String filename) {
+    public static void snapshotByAppium(String fileName) {
         AppiumDriver driver = BaseDriver.getDriver();
         File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         try {
-            String screenshotPath = resultPath + File.separator + filename + ".png";
+            String actFileName = timeNow + "_" + fileName + ".png";
+            String screenshotPath = resultPath + File.separator + actFileName;
             System.out.println("save snapshot path is:" + screenshotPath);
             FileUtils.copyFile(scrFile, new File(screenshotPath));
-            Reporter.log(timeNow + File.separator + filename + ".png");
+            Reporter.log(actFileName);
         } catch (IOException e) {
             System.out.println("Can't save screenshot");
             e.printStackTrace();
@@ -66,7 +67,7 @@ public class SnapshotAndLog {
     public static void logByAppium(String fileName) {
         AppiumDriver driver = BaseDriver.getDriver();
         List<LogEntry> logEntries = driver.manage().logs().get("logcat").filter(Level.ALL);
-        File logFile = new File(resultPath + File.separator + fileName + ".txt");
+        File logFile = new File(resultPath + File.separator + timeNow + "_" + fileName + ".txt");
         logFile.getParentFile().mkdirs();
 
         PrintWriter logFileWriter = null;

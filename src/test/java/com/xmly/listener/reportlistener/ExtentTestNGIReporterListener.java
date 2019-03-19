@@ -17,6 +17,7 @@ import java.io.IOException;
 import java.util.*;
 
 import static com.xmly.utils.FilesInit.resultPath;
+import static com.xmly.utils.FilesInit.timeNow;
 
 //import com.aventstack.extentreports.reporter.configuration.ChartLocation;
 
@@ -28,7 +29,7 @@ import static com.xmly.utils.FilesInit.resultPath;
 public class ExtentTestNGIReporterListener implements IReporter {
     //生成的路径以及文件名
     private static final String OUTPUT_FOLDER = resultPath;
-    private static final String FILE_NAME = "testNGReport.html";
+    private static final String FILE_NAME = timeNow + "_testNGReport.html";
 
     private ExtentReports extent;
 

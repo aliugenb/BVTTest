@@ -9,7 +9,6 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.NoSuchElementException;
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Created with IntelliJ IDEA.
@@ -73,10 +72,37 @@ public class AnchorRoomIndexPage extends BasePage {
 
     //更多-静音
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"静音\")")
-    public MobileElement disableMuteBtn; //关闭静音
+    public MobileElement disableMuteBtn;
 
+    //静音模式开启icon
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_iv_mic_off")
-    public MobileElement micOffIcon; //静音模式开启icon
+    public MobileElement micOffIcon;
+
+    //更多-上热门
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"上热门\")")
+    public MobileElement hotRocketBtn;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"开启热门火箭\")")
+    public MobileElement enableHotRocketBtn;
+
+    //关闭热门火箭
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"关闭热门火箭\")")
+    public MobileElement disableHotRocketBtn;
+
+    //右侧小火箭图标
+    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/rocket")
+    public MobileElement hotRocket;
+
+    //确认关闭按钮
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/ok_btn")
+    public MobileElement okBtn;
+
+    //更多-背包
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"背包\")")
+    public MobileElement anchorBag;
+
+    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_tab_indicator_red_point")
+    public List<MobileElement> tabs;
 
     //发言输入框
     @AndroidFindBy(id = "com.ximalaya.ting.android:id/comment_body")
@@ -88,16 +114,16 @@ public class AnchorRoomIndexPage extends BasePage {
 
     //退出直播相关
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_back_btn")
-    public MobileElement exitLiveBtn; //退出直播
+    public MobileElement exitLiveBtn;
 
     @AndroidFindAll({
             @AndroidBy(uiAutomator = "new UiSelector().text(\"结束直播\")"),
             @AndroidBy(id = "com.ximalaya.ting.android.live.application:id/live_ok")
     })
-    public MobileElement endLiveBtn; //结束直播
+    public MobileElement endLiveBtn;
 
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_cancel")
-    public MobileElement cancelEndLiveBtn; //取消退出直播按钮
+    public MobileElement cancelEndLiveBtn;
 
     //断流报错页面
     @AndroidFindAll({
@@ -127,6 +153,21 @@ public class AnchorRoomIndexPage extends BasePage {
         }
     }
 
+    //开启热门火箭
+    public void enableHotRocket() {
+        moreBtn.click();
+        hotRocketBtn.click();
+        enableHotRocketBtn.click();
+    }
+
+    //关闭热门火箭
+    public void disableHotRocket() {
+        moreBtn.click();
+        hotRocketBtn.click();
+        disableHotRocketBtn.click();
+        okBtn.click();
+    }
+
     //进入开启交友模式页面
     public void gotoFriendPage() {
         moreBtn.click();
@@ -148,6 +189,12 @@ public class AnchorRoomIndexPage extends BasePage {
     public void gotoPicturePage() {
         moreBtn.click();
         pictureBtn.click();
+    }
+
+    //打开主播端礼物背包
+    public void openBag() {
+        moreBtn.click();
+        anchorBag.click();
     }
 
     /*
@@ -176,9 +223,8 @@ public class AnchorRoomIndexPage extends BasePage {
      * @Param []
      * @return void
      **/
-    public void endAnchorLive() throws InterruptedException {
+    public void exitAnchorLive() {
         exitLiveBtn.click();
-        TimeUnit.SECONDS.sleep(2);
         endLiveBtn.click();
     }
 }

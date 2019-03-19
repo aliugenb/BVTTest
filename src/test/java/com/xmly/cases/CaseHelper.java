@@ -53,9 +53,7 @@ public class CaseHelper extends BaseCase {
         if (Status.isFirstStart) {
             for (int i = 0; i < 3; i++) {
                 //关闭权限弹层
-                if (DriverHelper.isDisplayed(liveIndexPage.permissionAllowBtn)) {
-                    liveIndexPage.permissionAllowBtn.click();
-                }
+                DriverHelper.clickByPossibleElement(liveIndexPage.permissionAllowBtn);
                 sleep(10);
                 driver.closeApp();
                 sleep(3);

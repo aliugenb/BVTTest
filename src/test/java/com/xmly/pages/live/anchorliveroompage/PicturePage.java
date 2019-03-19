@@ -8,7 +8,7 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
  * ClassName: PicturePage
  * Author: ye.liu
  * Date: 2019-03-18 19:28
- * Description:
+ * Description:发送图片选择页面
  */
 public class PicturePage extends AnchorRoomIndexPage {
     public PicturePage(AppiumDriver<? extends MobileElement> driver) {
