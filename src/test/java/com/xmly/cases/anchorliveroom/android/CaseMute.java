@@ -18,16 +18,15 @@ public class CaseMute extends CaseHelper {
         assertHelper.assertTrue(DriverHelper.isDisplayed(anchorRoomIndexPage.disableMuteBtn),
                 getCurClassName() + "开启静音模式按钮文案变成静音");
 
-        int width = driver.manage().window().getSize().width;
-        int height = driver.manage().window().getSize().height;
-        DriverHelper.clickByCoordinates(driver, width / 2, height / 3);
+
+        DriverHelper.clickByCoordinates(driver, deviceWidth / 2, deviceHeight / 3);
         assertHelper.assertTrue(DriverHelper.isDisplayed(anchorRoomIndexPage.micOffIcon),
                 getCurClassName() + "开启静音模式出现静音icon");
 
         anchorRoomIndexPage.disableMute();
         assertHelper.assertTrue(DriverHelper.isDisplayed(anchorRoomIndexPage.enableMuteBtn),
                 getCurClassName() + "关闭静音模式按钮文案变成开麦");
-        DriverHelper.clickByCoordinates(driver, width / 2, height / 3);
+        DriverHelper.clickByCoordinates(driver, deviceWidth / 2, deviceHeight / 3);
         assertHelper.assertTrue(!DriverHelper.isDisplayed(anchorRoomIndexPage.micOffIcon),
                 getCurClassName() + "关闭静音模式静音icon消失");
     }

@@ -25,11 +25,17 @@ public class TopicPage extends AnchorRoomIndexPage {
     public MobileElement topicConfirmBtn;
 
 
-
     //设置话题内容
     public void setTopic(String content) throws InterruptedException {
         topicInput.sendKeys(content);
         TimeUnit.SECONDS.sleep(5);
         topicConfirmBtn.click();
+    }
+
+    //获取直播间话题
+    public String getTopic() {
+        String topic = "";
+        topic = topicInput.getText();
+        return topic;
     }
 }

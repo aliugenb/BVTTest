@@ -1,5 +1,6 @@
 package com.xmly.pages.live.createliveroompage;
 
+import com.xmly.cases.CaseHelper;
 import com.xmly.common.DriverHelper;
 import com.xmly.pages.BasePage;
 import com.xmly.utils.AdbUtil;
@@ -47,6 +48,18 @@ public class CreateLiveRoomPage extends BasePage {
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_compose_base_cover_iv")
     public MobileElement roomCover;
 
+    //标签下拉菜单
+    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_category_select_arrow")
+    public MobileElement selectArrow;
+
+    //直播间标签，选中有声书
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"有声书\")")
+    public MobileElement liveCategoryTitle;
+
+    //通知粉丝
+    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_notify_fans_switch")
+    public MobileElement notifyFansBtn;
+
     //首次创建直播需麦克风权限
     @AndroidFindBy(id = "com.android.packageinstaller:id/permission_allow_button")
     public MobileElement permissionAllowBtn;
@@ -56,6 +69,7 @@ public class CreateLiveRoomPage extends BasePage {
         roomCover.click();
     }
 
+    //设置直播间标题
     public void setTitle(String title) {
         titleEditText.sendKeys(title);
 
@@ -66,12 +80,19 @@ public class CreateLiveRoomPage extends BasePage {
 
     }
 
+    //设置直播间标签为有声书
+    public void setCategory() {
+        selectArrow.click();
+        liveCategoryTitle.click();
+    }
+
     /*
      * Description：创建直播间
      * Param []
      * return void
      **/
     public void createAnchorRoom() {
+        notifyFansBtn.click();
         beginLiveBtn.click();
         DriverHelper.clickByPossibleElement(permissionAllowBtn);
     }

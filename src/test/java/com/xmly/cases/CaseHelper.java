@@ -5,7 +5,6 @@ import com.xmly.common.Status;
 import com.xmly.common.SwipeDirection;
 import com.xmly.pages.live.RoomType;
 import io.appium.java_client.MobileElement;
-import org.openqa.selenium.Dimension;
 import org.openqa.selenium.NoSuchElementException;
 import org.testng.Reporter;
 
@@ -63,10 +62,7 @@ public class CaseHelper extends BaseCase {
 
 //            //关闭新人引导浮层
 //            if (DriverHelper.isDisplayed(liveIndexPage.newerTips)) {
-//                Dimension size = driver.manage().window().getSize();
-//                int height = size.height;
-//                int width = size.width;
-//                DriverHelper.clickByCoordinates(driver, width / 2, height / 3);
+//                DriverHelper.clickByCoordinates(driver, deviceWidth / 2, deviceHeight / 3);
 //            }
         }
         //关闭广告弹窗
@@ -134,19 +130,7 @@ public class CaseHelper extends BaseCase {
         liveIndexPage.gotoCreateLiveRoomPage();
         createLiveRoomPage.createAnchorRoom();
         sleep(10);
-        anchorRoomIndexPage.cancelShareBtn.click();
-
-        if (Status.isFirstCreateRoom) {
-            Dimension size = driver.manage().window().getSize();
-            int width = size.width;
-            int height = size.height;
-            //首次创建直播间出现蒙层，点击6次后消失
-            for (int i = 0; i < 6; i++) {
-                DriverHelper.clickByCoordinates(driver, width / 2, height / 2);
-                sleep(2);
-            }
-            Status.isFirstCreateRoom = false;
-        }
+        anchorRoomIndexPage.anchroRoomInit();
     }
 
     /*

@@ -36,9 +36,12 @@ public class BaseCase {
 
     protected static AssertHelper assertHelper;
 
+    protected static int deviceWidth;
+    protected static int deviceHeight;
+
     @Parameters({"osDriver"})
     @BeforeClass
-    public static void setUp(int osDriver) throws MyException, IOException, InterruptedException {
+    public static void setUp(int osDriver) throws MyException, IOException {
         BaseDriver.setDriver(osDriver);
         driver = BaseDriver.getDriver();
         assertHelper = new AssertHelper();
@@ -50,6 +53,9 @@ public class BaseCase {
         createLiveRoomPage = new CreateLiveRoomPage(driver);
         anchorRoomIndexPage = new AnchorRoomIndexPage(driver);
         userRoomIndexPage = new UserRoomIndexPage(driver);
+
+        deviceWidth = driver.manage().window().getSize().width;
+        deviceHeight = driver.manage().window().getSize().height;
     }
 
     @AfterClass
