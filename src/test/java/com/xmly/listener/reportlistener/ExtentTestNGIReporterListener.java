@@ -9,7 +9,6 @@ import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.aventstack.extentreports.reporter.configuration.ChartLocation;
 import com.aventstack.extentreports.reporter.configuration.Protocol;
 import com.aventstack.extentreports.reporter.configuration.Theme;
-import com.xmly.utils.FilesInit;
 import org.testng.*;
 import org.testng.xml.XmlSuite;
 
@@ -17,7 +16,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.*;
 
-import static com.xmly.utils.FilesInit.projectPath;
 import static com.xmly.utils.FilesInit.resultPath;
 
 //import com.aventstack.extentreports.reporter.configuration.ChartLocation;
@@ -29,7 +27,7 @@ import static com.xmly.utils.FilesInit.resultPath;
 
 public class ExtentTestNGIReporterListener implements IReporter {
     //生成的路径以及文件名
-    private static final String OUTPUT_FOLDER = "result" + File.separator;
+    private static final String OUTPUT_FOLDER = resultPath;
     private static final String FILE_NAME = "testNGReport.html";
 
     private ExtentReports extent;
@@ -115,16 +113,16 @@ public class ExtentTestNGIReporterListener implements IReporter {
 
         extent.flush();
 
-        try {
-            FilesInit.copyFile(projectPath + File.separator + OUTPUT_FOLDER + FILE_NAME, resultPath + File.separator + FILE_NAME);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            FilesInit.copyFile(projectPath + File.separator + OUTPUT_FOLDER + FILE_NAME, resultPath + File.separator + FILE_NAME);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
     }
 
 
     private void init() {
-        ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter(OUTPUT_FOLDER + FILE_NAME);
+        ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter(OUTPUT_FOLDER + File.separator + FILE_NAME);
         // 设置静态文件的DNS
         htmlReporter.config().setResourceCDN(ResourceCDN.EXTENTREPORTS);
 
