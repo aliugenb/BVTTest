@@ -61,7 +61,7 @@ public class LiveDynamicPage extends LiveIndexPage {
 
     //预告的直播
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"即将直播\")")
-    public MobileElement appointmentRoom;
+    public MobileElement previewRoom;
 
     //左上角退出按钮
     @AndroidFindBy(id = "com.ximalaya.ting.android:id/back_btn")
@@ -97,8 +97,8 @@ public class LiveDynamicPage extends LiveIndexPage {
             anchorNickName.click();
         } else if (roomType.equals(RoomType.END)) {
             findElementBySwipe(driver, endLiveRoom, 10, SwipeDirection.UP).click();
-        } else if (roomType.equals(RoomType.APPOINTMENT)) {
-            findElementBySwipe(driver, appointmentRoom, 10, SwipeDirection.UP).click();
+        } else if (roomType.equals(RoomType.PREVIEW)) {
+            findElementBySwipe(driver, previewRoom, 10, SwipeDirection.UP).click();
         }
     }
 }

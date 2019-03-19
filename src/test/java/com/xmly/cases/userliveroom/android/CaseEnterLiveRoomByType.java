@@ -51,7 +51,7 @@ public class CaseEnterLiveRoomByType extends CaseHelper {
 
     @Test(description = "进入预告直播间")
     public void enterAppointmentRoom() {
-        liveDynamicPage.enterRoomByType(RoomType.APPOINTMENT);
+        liveDynamicPage.enterRoomByType(RoomType.PREVIEW);
         assertHelper.assertTrue(DriverHelper.isDisplayed(userRoomIndexPage.liveStartTime),
                 getCurClassName() + "进入预告直播间展示预告开始时间");
     }

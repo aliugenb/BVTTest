@@ -17,5 +17,5 @@ public interface RoomType {
     //结束的直播间
     String END = "end";
     //预告直播间
-    String APPOINTMENT = "appointment";
+    String PREVIEW = "preview";
 }

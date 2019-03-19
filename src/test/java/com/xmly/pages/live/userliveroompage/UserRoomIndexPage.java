@@ -147,7 +147,7 @@ public class UserRoomIndexPage extends BasePage {
         } else if (isDisplayed(pkStatus)) {
             roomType = RoomType.PK;
         } else if (isDisplayed(liveStartTime) || getText(liveRoomStatus).equals("待播中")) {
-            roomType = RoomType.APPOINTMENT;
+            roomType = RoomType.PREVIEW;
         } else if (isDisplayed(endLiveAnchorName) || getText(liveRoomStatus).equals("直播结束")) {
             roomType = RoomType.END;
         } else if (isDisplayed(fansClubBtn)) {
@@ -210,7 +210,7 @@ public class UserRoomIndexPage extends BasePage {
      * return void
      **/
     public void exitAbnormalLiveRoom(String roomType) {
-        if (roomType.equals(RoomType.APPOINTMENT)) {
+        if (roomType.equals(RoomType.PREVIEW)) {
             if (isDisplayed(liveStartTime)) {
                 closeRoomBtn.click();
             }

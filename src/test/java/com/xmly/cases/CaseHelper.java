@@ -184,7 +184,7 @@ public class CaseHelper extends BaseCase {
      * return void
      **/
     public static void exitAnchorLiveRoom(String roomType) {
-        if (roomType.equals(RoomType.END) || roomType.equals(RoomType.APPOINTMENT)) {
+        if (roomType.equals(RoomType.END) || roomType.equals(RoomType.PREVIEW)) {
             userRoomIndexPage.exitAbnormalLiveRoom(roomType);
         } else {
             if (roomType.equals(RoomType.FRIEND)) {
