@@ -4,10 +4,9 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
-import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
 
 /**
  * Created with IntelliJ IDEA.
@@ -53,6 +52,6 @@ public class FilesInit {
             Files.createDirectories(Paths.get(dirPath));
         }
 
-        Files.copy(Paths.get(filePath), Paths.get(dirPath), REPLACE_EXISTING);
+        Files.copy(Paths.get(filePath), Paths.get(dirPath), StandardCopyOption.REPLACE_EXISTING);
     }
 }
