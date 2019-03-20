@@ -16,7 +16,8 @@ public class CaseDeletePreview extends CaseHelper {
         gotoLiveIndex();
         loginByClickLiveBtn();
         liveIndexPage.gotoCreateLiveRoomPage();
-        if(!DriverHelper.isDisplayed(createLiveRoomPage.editPreviewBtn)){
+        if(!DriverHelper.isDisplayed(createLiveRoomPage.previewTitle)){
+            System.out.println("已存在直播预告");
             createLiveRoomPage.createPreviewLive();
         }
         createLiveRoomPage.deletePreview();

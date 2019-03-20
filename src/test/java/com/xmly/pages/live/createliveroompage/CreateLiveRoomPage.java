@@ -24,8 +24,12 @@ public class CreateLiveRoomPage extends BasePage {
     }
 
     //开始直播按钮
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_bottom_right_tv")
+//    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_bottom_right_tv")
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"开始直播\")")
     public MobileElement beginLiveBtn;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"立即开播\")")
+    public MobileElement startPreviewLiveBtn;
 
     //创建预告按钮
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"创建预告\")")
@@ -40,7 +44,7 @@ public class CreateLiveRoomPage extends BasePage {
     public MobileElement previewTitle;
 
     //编辑预告按钮
-    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"编辑\")")
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.ximalaya.ting.android.live.application:id/live_title_layout\").childSelector(new UiSelector().text(\"编辑\"))")
     public MobileElement editPreviewBtn;
 
     //编辑保存预告
@@ -112,7 +116,7 @@ public class CreateLiveRoomPage extends BasePage {
      * return void
      **/
     public void createAnchorRoom() {
-        notifyFansBtn.click();
+//        notifyFansBtn.click();
         beginLiveBtn.click();
         DriverHelper.clickByPossibleElement(permissionAllowBtn);
     }
@@ -127,7 +131,7 @@ public class CreateLiveRoomPage extends BasePage {
     //编辑预告
     public void editPreview(String title, String topic) {
         editPreviewBtn.click();
-        sleep(2);
+        sleep(3);
         setTopic(topic);
         setTitle(title);
         notifyFansBtn.click();
@@ -139,6 +143,11 @@ public class CreateLiveRoomPage extends BasePage {
         editPreviewBtn.click();
         deletePreviewBtn.click();
         cancelBtn.click();
+    }
+
+    public void startPreviewLive() {
+        startPreviewLiveBtn.click();
+        DriverHelper.clickByPossibleElement(permissionAllowBtn);
     }
 
     /*

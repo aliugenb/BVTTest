@@ -21,7 +21,8 @@ public class CaseEditPreview extends CaseHelper {
         gotoLiveIndex();
         loginByClickLiveBtn();
         liveIndexPage.gotoCreateLiveRoomPage();
-        if (!DriverHelper.isDisplayed(createLiveRoomPage.editPreviewBtn)) {
+        if (!DriverHelper.isDisplayed(createLiveRoomPage.previewTitle)) {
+            System.out.println("已存在直播预告");
             createLiveRoomPage.createPreviewLive();
         }
 
@@ -32,7 +33,7 @@ public class CaseEditPreview extends CaseHelper {
         sleep(5);
         SnapshotAndLog.snapshotByAppium("编辑预告直播间的话题和title");
 
-        createLiveRoomPage.createAnchorRoom();
+        createLiveRoomPage.startPreviewLive();
         anchorRoomIndexPage.anchroRoomInit();
 
         anchorRoomIndexPage.gotoTopicPage();

@@ -38,7 +38,7 @@ public class BaseDriver {
 //                DeviceInit.installApp(productModel);
 //            }
             driver = new AndroidBaseDriver(deviceName, platformVersion).getDriver();
-            driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+            driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 
 //            driver = EventFiringWebDriverFactory.getEventFiringWebDriver(driver, new ElementListener());
 

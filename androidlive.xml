@@ -25,7 +25,9 @@
             <!--<class name="com.xmly.cases.createliveroom.android.CaseCreateLiveRoom"></class>-->
             <!--<class name="com.xmly.cases.createliveroom.android.CaseCreatePreviewRoom"></class>-->
             <class name="com.xmly.cases.createliveroom.android.CaseEditPreview"></class>
-            <class name="com.xmly.cases.createliveroom.android.CaseDeletePreview"></class>
+            <!--<class name="com.xmly.cases.createliveroom.android.CaseDeletePreview"></class>-->
+
+
             <!--<class name="com.xmly.cases.anchorliveroom.android.CaseMute"></class>-->
             <!--<class name="com.xmly.cases.anchorliveroom.android.CaseTopic"></class>-->
             <!--<class name="com.xmly.cases.anchorliveroom.android.CaseSpeak"></class>-->

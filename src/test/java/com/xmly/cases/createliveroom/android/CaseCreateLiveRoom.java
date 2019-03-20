@@ -22,7 +22,7 @@ public class CaseCreateLiveRoom extends CaseHelper {
         gotoLiveIndex();
         loginByClickLiveBtn();
         liveIndexPage.gotoCreateLiveRoomPage();
-        if(DriverHelper.isDisplayed(createLiveRoomPage.editPreviewBtn)){
+        if(DriverHelper.isDisplayed(createLiveRoomPage.previewTitle)){
             createLiveRoomPage.deletePreview();
             liveIndexPage.gotoCreateLiveRoomPage();
         }
