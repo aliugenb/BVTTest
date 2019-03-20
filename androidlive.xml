@@ -24,7 +24,7 @@
         <classes>
             <!--<class name="com.xmly.cases.createliveroom.android.CaseCreateLiveRoom"></class>-->
             <!--<class name="com.xmly.cases.createliveroom.android.CaseCreatePreviewRoom"></class>-->
-            <class name="com.xmly.cases.createliveroom.android.CaseEditPreview"></class>
+            <!--<class name="com.xmly.cases.createliveroom.android.CaseEditPreview"></class>-->
             <!--<class name="com.xmly.cases.createliveroom.android.CaseDeletePreview"></class>-->
 
 
@@ -38,11 +38,11 @@
         </classes>
     </test>
 
-    <!--<test verbose="3" preserve-order="true" parallel="classes" thread-count="1" name="anchorliveroom主播端直播间检查">-->
-        <!--<classes>-->
+    <test verbose="3" preserve-order="true" parallel="classes" thread-count="1" name="anchorliveroom主播端直播间检查">
+        <classes>
             <!--<class name="com.xmly.cases.anchorliveroom.android.CaseCall"></class>-->
             <!--<class name="com.xmly.cases.anchorliveroom.android.CaseMute"></class>-->
-            <!--<class name="com.xmly.cases.anchorliveroom.android.CaseTopic"></class>-->
+            <class name="com.xmly.cases.anchorliveroom.android.CaseTopic"></class>
             <!--<class name="com.xmly.cases.anchorliveroom.android.CaseSpeak"></class>-->
             <!--<class name="com.xmly.cases.anchorliveroom.android.CaseSendPicture"></class>-->
             <!--<class name="com.xmly.cases.anchorliveroom.android.CaseHotRocket"></class>-->
@@ -51,12 +51,12 @@
                 <!--<methods>-->
                     <!--<include name="openFriendMode"/>-->
                     <!--<include name="lockSeat"/>-->
-                    <!--&lt;!&ndash;<include name="setTeamPkMode"/>&ndash;&gt;-->
+                    <!--<include name="setTeamPkMode"/>-->
                 <!--</methods>-->
             <!--</class>-->
             <!--<class name="com.xmly.cases.anchorliveroom.android.CaseAncheorExitRoom"></class>-->
-        <!--</classes>-->
-    <!--</test>-->
+        </classes>
+    </test>
 
     <!--<test verbose="3" preserve-order="true" parallel="classes" thread-count="1" name="userliveroom用户端直播间检查">-->
         <!--<classes>-->

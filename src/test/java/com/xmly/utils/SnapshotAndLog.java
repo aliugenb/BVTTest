@@ -18,7 +18,6 @@ import java.util.logging.Level;
 import static com.xmly.utils.CommonUtil.execCmd;
 import static com.xmly.utils.CommonUtil.sleep;
 import static com.xmly.utils.FilesInit.resultPath;
-import static com.xmly.utils.FilesInit.timeNow;
 
 /**
  * Created with IntelliJ IDEA.
@@ -33,11 +32,11 @@ public class SnapshotAndLog {
         AppiumDriver driver = BaseDriver.getDriver();
         File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         try {
-            String actFileName = timeNow + "_" + fileName + ".png";
+            String actFileName = fileName + ".png";
             String screenshotPath = resultPath + File.separator + actFileName;
             System.out.println("save snapshot path is:" + screenshotPath);
             FileUtils.copyFile(scrFile, new File(screenshotPath));
-            Reporter.log(actFileName);
+            Reporter.log(timescreenshotPath);
         } catch (IOException e) {
             System.out.println("Can't save screenshot");
             e.printStackTrace();
@@ -67,7 +66,7 @@ public class SnapshotAndLog {
     public static void logByAppium(String fileName) {
         AppiumDriver driver = BaseDriver.getDriver();
         List<LogEntry> logEntries = driver.manage().logs().get("logcat").filter(Level.ALL);
-        File logFile = new File(resultPath + File.separator + timeNow + "_" + fileName + ".txt");
+        File logFile = new File(resultPath + File.separator + fileName + ".txt");
         logFile.getParentFile().mkdirs();
 
         PrintWriter logFileWriter = null;

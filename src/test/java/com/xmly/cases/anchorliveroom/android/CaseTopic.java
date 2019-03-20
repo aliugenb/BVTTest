@@ -2,6 +2,7 @@ package com.xmly.cases.anchorliveroom.android;
 
 import com.xmly.cases.CaseHelper;
 import com.xmly.pages.live.anchorliveroompage.TopicPage;
+import org.testng.Reporter;
 import org.testng.annotations.Test;
 
 /**
@@ -20,8 +21,8 @@ public class CaseTopic extends CaseHelper {
 
         anchorRoomIndexPage.gotoTopicPage();
         topicPage.setTopic(topicContent);
-
-        assertHelper.assertTrue(anchorRoomIndexPage.lastContent().getText().equals(topicContent),
+        Reporter.log(anchorRoomIndexPage.lastContent().getText());
+        assertHelper.assertTrue(anchorRoomIndexPage.lastContent().getText().contains(topicContent),
                 "CaseTopic设置话题成功并直播间展示话题");
     }
 }
