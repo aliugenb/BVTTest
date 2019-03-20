@@ -5,8 +5,6 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 
-import java.util.List;
-
 import static com.xmly.utils.CommonUtil.sleep;
 
 /**
@@ -20,13 +18,16 @@ public class UploadCoverPage extends CreateLiveRoomPage {
         super(driver);
     }
 
-    //上传方式选择
-    @AndroidFindBy(id = "com.ximalaya.ting.android:id/group_item")
-    public List<MobileElement> items;
-
+    //上传方式为相册
+    @AndroidFindBy(uiAutomator = "new UiSelector().textContains(\"相册\")")
+    public MobileElement byAlbumBtn;
 
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"杂志锁屏\")")
     public MobileElement pictreAlbum;
+
+    //上传方式为拍照
+    @AndroidFindBy(uiAutomator = "new UiSelector().textContains(\"拍照\")")
+    public MobileElement byCaptureBtn;
 
     //拍照权限确认按钮
     @AndroidFindBy(id = "com.android.packageinstaller:id/permission_allow_button")
@@ -46,8 +47,7 @@ public class UploadCoverPage extends CreateLiveRoomPage {
 
     //通过相册上传
     public void uploadByAlbum() {
-        items.get(0).click();
-
+        byAlbumBtn.click();
         pictreAlbum.click();
         sleep(5);
         DriverHelper.clickWindowCenter(driver);
@@ -58,7 +58,7 @@ public class UploadCoverPage extends CreateLiveRoomPage {
 
     //通过拍照上传
     public void uploadByCapture() {
-        items.get(1).click();
+        byCaptureBtn.click();
         DriverHelper.clickByPossibleElement(permissionallowBtn);
 
         shutterBtn.click();

@@ -110,7 +110,7 @@ public class CaseHelper extends BaseCase {
             }
         } catch (NoSuchElementException e) {
             if (createLiveRoomPage.beginLiveBtn.isDisplayed()) {
-                createLiveRoomPage.cancelCreate();
+                createLiveRoomPage.exitCreate();
             }
         } finally {
             if (liveIndexPage.createLiveRoomBtn.isDisplayed()) {

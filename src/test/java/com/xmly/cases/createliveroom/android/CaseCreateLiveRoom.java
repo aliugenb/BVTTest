@@ -10,17 +10,22 @@ import org.testng.annotations.Test;
 import static com.xmly.utils.CommonUtil.sleep;
 
 /**
- * ClassName: CreateLiveRoom
+ * ClassName: CaseCreateLiveRoom
  * Author: ye.liu
  * Date: 2019-03-19 16:48
- * Description:
+ * Description:创建立即开播的直播间
  */
-public class CreateLiveRoom extends CaseHelper {
+public class CaseCreateLiveRoom extends CaseHelper {
+
     @Test(description = "检查正常创建直播间")
     public void createLiveRoom() {
         gotoLiveIndex();
         loginByClickLiveBtn();
         liveIndexPage.gotoCreateLiveRoomPage();
+        if(DriverHelper.isDisplayed(createLiveRoomPage.editPreviewBtn)){
+            createLiveRoomPage.deletePreview();
+            liveIndexPage.gotoCreateLiveRoomPage();
+        }
         createLiveRoomPage.gotoUploadCoverPage();
 
         UploadCoverPage uploadCoverPage = new UploadCoverPage(driver);

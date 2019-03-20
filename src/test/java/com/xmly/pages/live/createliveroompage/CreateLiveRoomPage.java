@@ -1,6 +1,5 @@
 package com.xmly.pages.live.createliveroompage;
 
-import com.xmly.cases.CaseHelper;
 import com.xmly.common.DriverHelper;
 import com.xmly.pages.BasePage;
 import com.xmly.utils.AdbUtil;
@@ -29,8 +28,28 @@ public class CreateLiveRoomPage extends BasePage {
     public MobileElement beginLiveBtn;
 
     //创建预告按钮
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_bottom_left_tv")
-    public MobileElement previewLiveBtn;
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"创建预告\")")
+    public MobileElement createPreviewLiveBtn;
+
+    //发布预告按钮
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"发布预告\")")
+    public MobileElement sendPreviewBtn;
+
+    //页面title显示直播预告
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"直播预告\")")
+    public MobileElement previewTitle;
+
+    //编辑预告按钮
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"编辑\")")
+    public MobileElement editPreviewBtn;
+
+    //编辑保存预告
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"保存预告\")")
+    public MobileElement savePreviewBtn;
+
+    //编辑删除预告
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"删除预告\")")
+    public MobileElement deletePreviewBtn;
 
     //确认取消创建按钮
     @AndroidFindBy(id = "com.ximalaya.ting.android:id/ok_btn")
@@ -75,6 +94,7 @@ public class CreateLiveRoomPage extends BasePage {
 
     }
 
+    //设置话题
     public void setTopic(String topic) {
         topicEditText.sendKeys(topic);
 
@@ -97,14 +117,38 @@ public class CreateLiveRoomPage extends BasePage {
         DriverHelper.clickByPossibleElement(permissionAllowBtn);
     }
 
+    //创建预告
+    public void createPreviewLive() {
+        createPreviewLiveBtn.click();
+        sleep(3);
+        sendPreviewBtn.click();
+    }
+
+    //编辑预告
+    public void editPreview(String title, String topic) {
+        editPreviewBtn.click();
+        sleep(2);
+        setTopic(topic);
+        setTitle(title);
+        notifyFansBtn.click();
+        savePreviewBtn.click();
+    }
+
+    //删除预告
+    public void deletePreview() {
+        editPreviewBtn.click();
+        deletePreviewBtn.click();
+        cancelBtn.click();
+    }
+
     /*
-     * Description:Android取消创建直播间
+     * Description:Android退出创建直播间页面
      * Param []
      * return void
      **/
-    public void cancelCreate() {
+    public void exitCreate() {
         AdbUtil.pressKey(KEY.BACK);
         sleep(10);
-        cancelBtn.click();
+        DriverHelper.clickByPossibleElement(cancelBtn);
     }
 }
