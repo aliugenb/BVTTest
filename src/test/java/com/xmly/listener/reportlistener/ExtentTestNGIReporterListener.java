@@ -9,12 +9,16 @@ import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.aventstack.extentreports.reporter.configuration.ChartLocation;
 import com.aventstack.extentreports.reporter.configuration.Protocol;
 import com.aventstack.extentreports.reporter.configuration.Theme;
+import com.xmly.utils.FilesInit;
 import org.testng.*;
 import org.testng.xml.XmlSuite;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
+
+import static com.xmly.utils.FilesInit.projectPath;
+import static com.xmly.utils.FilesInit.resultPath;
 
 //import com.aventstack.extentreports.reporter.configuration.ChartLocation;
 
@@ -111,11 +115,11 @@ public class ExtentTestNGIReporterListener implements IReporter {
 
         extent.flush();
 
-//        try {
-//            FilesInit.copyFile(projectPath + File.separator + OUTPUT_FOLDER + FILE_NAME, resultPath + File.separator + FILE_NAME);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+        try {
+            FilesInit.copyFile(projectPath + File.separator + OUTPUT_FOLDER + FILE_NAME, resultPath + File.separator + FILE_NAME);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 

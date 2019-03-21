@@ -75,6 +75,10 @@ public class LiveIndexPage extends BasePage {
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"结束直播\")")
     public MobileElement cancelLiveBtn;
 
+    //直播未正常关闭时弹出提醒弹层
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"继续直播\")")
+    public MobileElement continueLiveBtn;
+
     //跳转榜单页
     public String gotoAnchorRankPage() {
         String text = null;
@@ -89,6 +93,10 @@ public class LiveIndexPage extends BasePage {
         createLiveRoomBtn.click();
     }
 
+    public void gotoAnchorRoomByLivePop() {
+        DriverHelper.clickByPossibleElement(continueLiveBtn);
+    }
+
     //通过肚脐眼进入直播间
     public void gotoUserLiveRoomByBar() {
         barPlayBtn.click();
@@ -96,9 +104,7 @@ public class LiveIndexPage extends BasePage {
 
     //关闭直播未正常关闭时首页弹出的提醒弹层
     public void liveIndexInit() {
-        if (DriverHelper.isDisplayed(cancelLiveBtn)) {
-            cancelLiveBtn.click();
-        }
+        DriverHelper.clickByPossibleElement(cancelLiveBtn);
     }
 
     //跳转搜索页

@@ -18,6 +18,7 @@ import java.util.logging.Level;
 import static com.xmly.utils.CommonUtil.execCmd;
 import static com.xmly.utils.CommonUtil.sleep;
 import static com.xmly.utils.FilesInit.resultPath;
+import static com.xmly.utils.FilesInit.timeNow;
 
 /**
  * Created with IntelliJ IDEA.
@@ -36,7 +37,7 @@ public class SnapshotAndLog {
             String screenshotPath = resultPath + File.separator + actFileName;
             System.out.println("save snapshot path is:" + screenshotPath);
             FileUtils.copyFile(scrFile, new File(screenshotPath));
-            Reporter.log(timescreenshotPath);
+            Reporter.log(timeNow + File.separator + actFileName);
         } catch (IOException e) {
             System.out.println("Can't save screenshot");
             e.printStackTrace();

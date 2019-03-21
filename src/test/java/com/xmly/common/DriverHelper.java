@@ -25,7 +25,7 @@ public class DriverHelper {
     }
 
     /*
-     * @Description: 判断元素是否存在，无NoSuchElementException抛出
+     * @Description: 判断元素是否存在，无Exception抛出
      * @Param [mobileElement]
      * @return boolean
      **/
@@ -34,7 +34,7 @@ public class DriverHelper {
             if (mobileElement.isDisplayed()) {
                 return true;
             }
-        } catch (NoSuchElementException e) {
+        } catch (Exception e) {
             return false;
         }
         return false;

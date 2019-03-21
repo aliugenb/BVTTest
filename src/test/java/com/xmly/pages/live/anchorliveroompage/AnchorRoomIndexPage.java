@@ -58,6 +58,9 @@ public class AnchorRoomIndexPage extends BasePage {
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"交友模式\")")
     public MobileElement friendBtn;
 
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"关闭交友\")")
+    public MobileElement closefriendBtn;
+
     //更多-话题
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"话题\")")
     public MobileElement topicBtn;
@@ -176,6 +179,12 @@ public class AnchorRoomIndexPage extends BasePage {
     public void gotoFriendPage() {
         moreBtn.click();
         friendBtn.click();
+    }
+
+    public void exitFriendMode() {
+        moreBtn.click();
+        closefriendBtn.click();
+        okBtn.click();
     }
 
     //进入开启连麦页面

@@ -16,7 +16,7 @@ public class CaseFriend extends CaseHelper {
     private static FriendPage friendPage;
 
     @Test(description = "交友模式开启")
-    public void openFriendMode() throws InterruptedException {
+    public void enableFriendMode() throws InterruptedException {
         friendPage = new FriendPage(driver);
         createAnchorLiveRoom();
         anchorRoomIndexPage.gotoFriendPage();
@@ -24,8 +24,8 @@ public class CaseFriend extends CaseHelper {
                 getCurClassName() + "点击开启弹出交友模式确认弹窗");
 
         friendPage.enableFriend();
-        assertHelper.assertTrue(friendPage.friendSeats.size() == 8,
-                getCurClassName() + "交友模式开启并展示8个交友位置");
+        assertHelper.assertTrue(isDisplayed(friendPage.friendSeat),
+                getCurClassName() + "交友模式开启并展示交友位置");
     }
 
     @Test(description = "锁定交友位置")
@@ -38,10 +38,10 @@ public class CaseFriend extends CaseHelper {
         friendPage.seatLockBtn.click();
     }
 
-//    @Test
-//    public void startTeamPkMode() {
-//        friendPage.startFriendPkMode();
-//        assertHelper.assertTrue(isDisplayed(friendPage.friendPkIcon),
-//                getCurClassName() + "PK模式开启");
-//    }
+    @Test(description = "退出交友模式")
+    public void exitFriendMode() {
+        anchorRoomIndexPage.exitFriendMode();
+        assertHelper.assertTrue(!isDisplayed(friendPage.friendSeat),
+                getCurClassName() + "退出交友模式");
+    }
 }

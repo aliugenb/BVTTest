@@ -1,4 +1,4 @@
-package com.xmly.driver;
+package com.xmly.common;
 
 import com.google.common.base.Function;
 import io.appium.java_client.AppiumDriver;

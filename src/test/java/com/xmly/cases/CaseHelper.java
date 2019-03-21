@@ -195,4 +195,11 @@ public class CaseHelper extends BaseCase {
             userRoomIndexPage.exitNormalLiveRoom();
         }
     }
+
+    public static void restartApp() {
+        driver.closeApp();
+        sleep(3);
+        driver.launchApp();
+        appInit();
+    }
 }

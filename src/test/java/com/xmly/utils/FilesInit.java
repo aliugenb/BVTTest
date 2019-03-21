@@ -31,7 +31,7 @@ public class FilesInit {
         timeNow = formatDate();
 
         projectPath = classpathRoot.getAbsolutePath();
-        resultPath = resultDir.getAbsolutePath();
+        resultPath = resultDir.getAbsolutePath() + File.separator + timeNow;
         apkPath = apk.getAbsolutePath();
 
     }
