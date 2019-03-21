@@ -23,9 +23,18 @@ import static com.xmly.utils.CommonUtil.execCmd;
  */
 public class AdbUtil {
 
+    public static void uninstallApp(String packageName) {
+        if (AdbUtil.isConnect()) {
+            String uninstallCmd = "adb uninstall " + packageName;
+            execCmd(uninstallCmd);
+        }
+    }
+
     public static void killApp(String packageName) {
-        String killCmd = "adb shell am force-stop " + packageName;
-        execCmd(killCmd);
+        if(AdbUtil.isConnect()){
+            String killCmd = "adb shell am force-stop " + packageName;
+            execCmd(killCmd);
+        }
     }
 
     public static boolean isConnect() {
@@ -60,15 +69,17 @@ public class AdbUtil {
      * @Param []
      * @return void
      **/
-    public static void clearAndroidLog() throws IOException {
-        String clearCmd = "adb logcat -c";
-        execCmd(clearCmd);
+    public static void clearAndroidLog() {
+        if(AdbUtil.isConnect()){
+            String clearCmd = "adb logcat -c";
+            execCmd(clearCmd);
+        }
     }
 
     /*
      *获取当前最顶层页面的activity
      */
-    public static String getFocusedActivity() throws IOException {
+    public static String getFocusedActivity() {
         String command = "adb shell \"dumpsys activity | grep \"mFocusedActivity\"\"";
         if (System.getProperty("os.name").equals("Mac OS X")) {
             command = "adb shell dumpsys activity | grep \"mFocusedActivity\"";

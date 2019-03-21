@@ -1,13 +1,12 @@
 package com.xmly.cases;
 
-import com.xmly.common.DriverHelper;
-import com.xmly.common.Status;
 import com.xmly.common.SwipeDirection;
 import com.xmly.pages.live.RoomType;
 import io.appium.java_client.MobileElement;
 import org.openqa.selenium.NoSuchElementException;
 import org.testng.Reporter;
 
+import static com.xmly.common.DriverHelper.*;
 import static com.xmly.common.FindElementHelper.findElementBySwipe;
 import static com.xmly.utils.CommonUtil.sleep;
 
@@ -33,14 +32,21 @@ public class CaseHelper extends BaseCase {
     跳转直播首页
      */
     public static void gotoLiveIndex() {
+        int count = 0;
         sleep(10);
-//        appInit();
-        basePage.enterPage(basePage.LIVEHOMEPAGE);
-        liveIndexPage.liveIndexInit();
-        if (!DriverHelper.isDisplayed(liveIndexPage.liveRoom)) {
-            basePage.enterPage(basePage.LIVEHOMEPAGE);
-            liveIndexPage.liveIndexInit();
+        if (isDisplayed(basePage.homePageLiveTab)) {
+            basePage.homePageLiveTab.click();
+            sleep(10);
+            if (liveIndexPage.liveIndexInit()) {
+                return;
+            }
         }
+        appIndexInit();
+        count++;
+        if (count > 2) {
+            restartApp();
+        }
+        gotoLiveIndex();
     }
 
     /*
@@ -48,35 +54,15 @@ public class CaseHelper extends BaseCase {
      * @Param []
      * @return void
      **/
-    public static void appInit() {
-        if (Status.isFirstStart) {
-            for (int i = 0; i < 3; i++) {
-                //关闭权限弹层
-                DriverHelper.clickByPossibleElement(liveIndexPage.permissionAllowBtn);
-                sleep(10);
-                driver.closeApp();
-                sleep(3);
-                driver.launchApp();
-                sleep(10);
-            }
-
-//            //关闭新人引导浮层
-//            if (DriverHelper.isDisplayed(liveIndexPage.newerTips)) {
-//                DriverHelper.clickByCoordinates(driver, deviceWidth / 2, deviceHeight / 3);
-//            }
-        }
+    public static void appIndexInit() {
+        //关闭权限弹层
+        clickByPossibleElement(liveIndexPage.permissionAllowBtn);
+        sleep(5);
         //关闭广告弹窗
-        if (DriverHelper.isDisplayed(liveIndexPage.closeInterstitialBtn)) {
-            liveIndexPage.closeInterstitialBtn.click();
-        }
+        clickByPossibleElement(liveIndexPage.closeInterstitialBtn);
         sleep(5);
         //关闭升级弹层
-        if (DriverHelper.isDisplayed(liveIndexPage.updateBtn)) {
-            liveIndexPage.updateBtn.click();
-        }
-        sleep(5);
-        Status.isFirstStart = false;
-        Reporter.log("首页弹窗关闭，进入测试");
+        clickByPossibleElement(liveIndexPage.updateBtn);
     }
 
     /*
@@ -89,9 +75,7 @@ public class CaseHelper extends BaseCase {
     //出现登录页面后登录
     public static void loginByLoginPage() {
         loginPage.login(USERNAME, PASSWD);
-        //登录成功后首页可能弹出正在直播提示
-        sleep(3);
-        liveIndexPage.liveIndexInit();
+        sleep(5);
     }
 
     /*
@@ -113,7 +97,7 @@ public class CaseHelper extends BaseCase {
                 createLiveRoomPage.exitCreate();
             }
         } finally {
-            if (liveIndexPage.createLiveRoomBtn.isDisplayed()) {
+            if (liveIndexPage.liveIndexInit()) {
                 Reporter.log("登录成功");
             }
         }
@@ -125,12 +109,24 @@ public class CaseHelper extends BaseCase {
      * @return void
      **/
     public static void createAnchorLiveRoom() {
-        gotoLiveIndex();
-        loginByClickLiveBtn();
-        liveIndexPage.gotoCreateLiveRoomPage();
-        createLiveRoomPage.createAnchorRoom();
-        sleep(10);
-        anchorRoomIndexPage.anchroRoomInit();
+        try {
+            gotoLiveIndex();
+            loginByClickLiveBtn();
+            liveIndexPage.gotoCreateLiveRoomPage();
+            createLiveRoomPage.createAnchorRoom();
+            sleep(10);
+            anchorRoomIndexPage.anchroRoomInit();
+            anchorRoomIndexPage.moreBtn.click();
+            if (isDisplayed(anchorRoomIndexPage.friendBtn)) {
+                clickByCoordinates(driver, deviceWidth / 2, deviceHeight / 3);
+                return;
+            }
+            restartApp();
+            createAnchorLiveRoom();
+        } catch (Exception e) {
+            restartApp();
+            createAnchorLiveRoom();
+        }
     }
 
     /*
@@ -188,7 +184,7 @@ public class CaseHelper extends BaseCase {
             userRoomIndexPage.exitAbnormalLiveRoom(roomType);
         } else {
             if (roomType.equals(RoomType.FRIEND)) {
-                if (DriverHelper.isDisplayed(userRoomIndexPage.friendPkResultPop)) {
+                if (isDisplayed(userRoomIndexPage.friendPkResultPop)) {
                     userRoomIndexPage.friendPkResultCloseBtn.click();
                 }
             }
@@ -200,6 +196,6 @@ public class CaseHelper extends BaseCase {
         driver.closeApp();
         sleep(3);
         driver.launchApp();
-        appInit();
+        sleep(5);
     }
 }

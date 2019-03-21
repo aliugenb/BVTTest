@@ -1,7 +1,6 @@
 package com.xmly.pages.live.anchorliveroompage;
 
 import com.xmly.common.DriverHelper;
-import com.xmly.common.Status;
 import com.xmly.pages.BasePage;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
@@ -247,15 +246,12 @@ public class AnchorRoomIndexPage extends BasePage {
     }
 
     //关闭创建直播间后的分享页面及首次引导弹层
-    public void anchroRoomInit() {
+    public void anchroRoomInit() throws NoSuchElementException {
         cancelShareBtn.click();
-        if (Status.isFirstCreateRoom) {
-            //首次创建直播间出现蒙层，点击6次后消失
-            for (int i = 0; i < 6; i++) {
-                DriverHelper.clickWindowCenter(driver);
-                sleep(2);
-            }
-            Status.isFirstCreateRoom = false;
+        //首次创建直播间出现蒙层
+        for (int i = 0; i < 10; i++) {
+            DriverHelper.clickWindowCenter(driver);
+            sleep(2);
         }
     }
 }

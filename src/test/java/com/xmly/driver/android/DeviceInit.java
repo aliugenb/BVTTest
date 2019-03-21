@@ -23,12 +23,11 @@ import static com.xmly.utils.FilesInit.apkPath;
 public class DeviceInit {
     public static void installApp(String productModel) throws FileNotFoundException {
         String installCmd = "adb install " + apkPath;
-        String uninstallCmd = "adb uninstall com.ximalaya.ting.android";
         if (!Files.exists(Paths.get(apkPath))) {
             throw new FileNotFoundException("apk文件未找到");
         }
         if (isAppInstalled()) {
-            execCmd(uninstallCmd);
+            AdbUtil.uninstallApp("com.ximalaya.ting.android");
             sleep(10);
         }
 

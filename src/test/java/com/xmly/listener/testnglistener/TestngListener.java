@@ -69,22 +69,16 @@ public class TestngListener extends TestListenerAdapter {
 
     public void onTestStart(ITestResult result) {
         //安卓设备开始测试前清空log
-        try {
-            if (AdbUtil.isConnect()) {
-                AdbUtil.clearAndroidLog();
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        Reporter.log("Test start");
+        AdbUtil.clearAndroidLog();
+        Reporter.log("Test Start");
     }
 
     public void onTestSuccess(ITestResult result) {
-        Reporter.log("测试成功");
+        Reporter.log("Test Success");
     }
 
     public void onTestFailure(ITestResult result) {
-        Reporter.log("测试失败");
+        Reporter.log("Test Failed");
         SnapshotAndLog.snapshotByAppium("Exception_" + result.getMethod().getMethodName() + "_Failed");
         SnapshotAndLog.logByAppium("Exception_" + result.getMethod().getMethodName() + "_Failed");
     }
@@ -96,6 +90,7 @@ public class TestngListener extends TestListenerAdapter {
     }
 
     public void onStart(ITestContext context) {
+        AdbUtil.uninstallApp("com.ximalaya.ting.android");
     }
 
     private void captureScreenShot(ITestResult result) throws MyException {

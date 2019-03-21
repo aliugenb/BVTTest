@@ -32,11 +32,7 @@ public class BaseDriver {
             AndroidDeviceInfo deviceInfo = new AndroidDeviceInfo();
             String deviceName = deviceInfo.getDeviceName();
             String platformVersion = deviceInfo.getOsVersion();
-            String productModel = deviceInfo.getProductModel();
 
-//            if (!Status.isInstall) {
-//                DeviceInit.installApp(productModel);
-//            }
             driver = new AndroidBaseDriver(deviceName, platformVersion).getDriver();
             driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 

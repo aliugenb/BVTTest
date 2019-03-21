@@ -26,6 +26,7 @@ public class CaseMute extends CaseHelper {
         anchorRoomIndexPage.disableMute();
         assertHelper.assertTrue(DriverHelper.isDisplayed(anchorRoomIndexPage.enableMuteBtn),
                 getCurClassName() + "关闭静音模式按钮文案变成开麦");
+
         DriverHelper.clickByCoordinates(driver, deviceWidth / 2, deviceHeight / 3);
         assertHelper.assertTrue(!DriverHelper.isDisplayed(anchorRoomIndexPage.micOffIcon),
                 getCurClassName() + "关闭静音模式静音icon消失");

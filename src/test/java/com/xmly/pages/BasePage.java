@@ -1,19 +1,15 @@
 package com.xmly.pages;
 
 import com.xmly.common.DriverHelper;
-import com.xmly.common.Status;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidBy;
 import io.appium.java_client.pagefactory.AndroidFindAll;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import org.openqa.selenium.Dimension;
 import org.openqa.selenium.support.PageFactory;
 
 import java.time.Duration;
-
-import static com.xmly.utils.CommonUtil.sleep;
 
 /**
  * Created with IntelliJ IDEA.
@@ -102,46 +98,5 @@ public class BasePage {
             }
         }
         return flag;
-    }
-
-    /*
-     * @Description: 关闭首页各种弹层
-     * @Param []
-     * @return void
-     **/
-    public void appIndexInit() {
-        //关闭权限弹层
-        if (DriverHelper.isDisplayed(permissionAllowBtn)) {
-            permissionAllowBtn.click();
-        }
-        sleep(10);
-
-        if (!Status.isInstall) {
-            driver.closeApp();
-            sleep(3);
-            driver.launchApp();
-            sleep(10);
-            if (DriverHelper.isDisplayed(permissionAllowBtn)) {
-                permissionAllowBtn.click();
-            }
-            //关闭新人引导浮层
-            if (DriverHelper.isDisplayed(newerTips)) {
-                Dimension size = driver.manage().window().getSize();
-                int height = size.height;
-                int width = size.width;
-                DriverHelper.clickByCoordinates(driver, width / 2, height / 3);
-            }
-            Status.isFirstStart = true;
-        }
-        //关闭新人红包或者广告弹窗
-        if (DriverHelper.isDisplayed(closeInterstitialBtn)) {
-            closeInterstitialBtn.click();
-        }
-        sleep(5);
-        //关闭升级弹层
-        if (DriverHelper.isDisplayed(updateBtn)) {
-            updateBtn.click();
-        }
-        sleep(5);
     }
 }

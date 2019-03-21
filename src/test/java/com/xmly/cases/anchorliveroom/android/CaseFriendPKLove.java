@@ -43,6 +43,7 @@ public class CaseFriendPKLove extends CaseHelper {
     @Test(description = "杀掉app重进直播间仍然在PK模式")
     public void isStillPkAfterRestart() {
         restartApp();
+        appIndexInit();
         basePage.enterPage(LIVEHOMEPAGE);
         sleep(10);
         liveIndexPage.gotoAnchorRoomByLivePop();

@@ -1,6 +1,7 @@
 package com.xmly.pages.live.liveindexpage;
 
 import com.xmly.common.DriverHelper;
+import com.xmly.common.Swipe;
 import com.xmly.pages.BasePage;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
@@ -103,8 +104,19 @@ public class LiveIndexPage extends BasePage {
     }
 
     //关闭直播未正常关闭时首页弹出的提醒弹层
-    public void liveIndexInit() {
+    public boolean liveIndexInit() {
         DriverHelper.clickByPossibleElement(cancelLiveBtn);
+        if (DriverHelper.isDisplayed(liveRoom)) {
+            return true;
+        }
+        int count = 0;
+        Swipe.swipeDown(driver);
+        count++;
+        if (count > 5) {
+            return false;
+        }
+        liveIndexInit();
+        return false;
     }
 
     //跳转搜索页

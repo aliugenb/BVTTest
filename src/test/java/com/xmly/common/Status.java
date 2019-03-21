@@ -8,7 +8,7 @@ package com.xmly.common;
  */
 
 public class Status {
-    //判断app是否已安装
+    //判断app是否安装s
     volatile public static boolean isInstall = false;
 
     //判断app是否首次启动
@@ -16,7 +16,4 @@ public class Status {
 
     //判断是否已出现过首充弹窗
     volatile public static boolean isChargePop = false;
-
-    //判断是否首次创建直播间
-    volatile public static boolean isFirstCreateRoom = true;
 }
