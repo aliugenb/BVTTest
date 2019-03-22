@@ -20,15 +20,6 @@
         </classes>
     </test>
 
-    <test verbose="3" preserve-order="true" parallel="classes" thread-count="1" name="createliveroom主播端创建直播间检查">
-        <classes>
-            <class name="com.xmly.cases.createliveroom.android.CaseCreateLiveRoom"></class>
-            <class name="com.xmly.cases.createliveroom.android.CaseCreatePreviewRoom"></class>
-            <!--<class name="com.xmly.cases.createliveroom.android.CaseEditPreview"></class>-->
-            <!--<class name="com.xmly.cases.createliveroom.android.CaseDeletePreview"></class>-->
-        </classes>
-    </test>
-
     <test verbose="3" preserve-order="true" parallel="classes" thread-count="1" name="anchorliveroom主播端直播间检查">
         <classes>
             <class name="com.xmly.cases.anchorliveroom.android.CaseCall"></class>
@@ -88,6 +79,15 @@
                     <include name="exitMoreTenMin"/>
                 </methods>
             </class>
+        </classes>
+    </test>
+
+    <test verbose="3" preserve-order="true" parallel="classes" thread-count="1" name="createliveroom主播端创建直播间检查">
+        <classes>
+            <class name="com.xmly.cases.createliveroom.android.CaseCreateLiveRoom"></class>
+            <class name="com.xmly.cases.createliveroom.android.CaseCreatePreviewRoom"></class>
+            <!--<class name="com.xmly.cases.createliveroom.android.CaseEditPreview"></class>-->
+            <!--<class name="com.xmly.cases.createliveroom.android.CaseDeletePreview"></class>-->
         </classes>
     </test>
 </suite>
