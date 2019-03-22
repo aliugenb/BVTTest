@@ -96,9 +96,9 @@ public class LiveDynamicPage extends LiveIndexPage {
         if (roomType == null || roomType.equals("")) {
             anchorNickName.click();
         } else if (roomType.equals(RoomType.END)) {
-            findElementBySwipe(driver, endLiveRoom, 10, SwipeDirection.UP).click();
+            findElementBySwipe(driver, endLiveRoom, 5, SwipeDirection.UP).click();
         } else if (roomType.equals(RoomType.PREVIEW)) {
-            findElementBySwipe(driver, previewRoom, 10, SwipeDirection.UP).click();
+            findElementBySwipe(driver, previewRoom, 5, SwipeDirection.UP).click();
         }
     }
 }

@@ -17,7 +17,7 @@ public class Run {
     public static Path tarTestNGReportPath;
 
 
-//    public static void main(String[] args) throws IOException, InterruptedException {
+    //    public static void main(String[] args) throws IOException, InterruptedException {
 //        if (stopAppium()) {
 //            startAppium();
 //        }

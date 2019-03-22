@@ -2,6 +2,7 @@ package com.xmly.cases.userliveroom.android;
 
 import com.xmly.cases.CaseHelper;
 import com.xmly.common.DriverHelper;
+import com.xmly.common.MyException;
 import com.xmly.common.Swipe;
 import com.xmly.pages.live.userliveroompage.GiftPanelPage;
 import com.xmly.pages.live.userliveroompage.GiftTabType;
@@ -18,7 +19,7 @@ public class CaseGIftPanel extends CaseHelper {
     private static GiftPanelPage giftPanelPage;
 
     @Test(description = "礼物面板点击各个tab")
-    public void checkClickTab() {
+    public void checkClickTab() throws MyException {
         gotoUserLiveRoomAfterLogin("");
         userRoomIndexPage.gotoGiftPanelPage();
         giftPanelPage = new GiftPanelPage(driver);

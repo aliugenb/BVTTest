@@ -1,8 +1,8 @@
 package com.xmly.cases;
 
+import com.xmly.common.MyException;
 import com.xmly.common.SwipeDirection;
 import com.xmly.pages.live.RoomType;
-import io.appium.java_client.MobileElement;
 import org.openqa.selenium.NoSuchElementException;
 import org.testng.Reporter;
 
@@ -31,19 +31,21 @@ public class CaseHelper extends BaseCase {
     /*
     跳转直播首页
      */
+    private static int appInitCount = 0;
+
     public static void gotoLiveIndex() {
-        int count = 0;
         sleep(10);
         if (isDisplayed(basePage.homePageLiveTab)) {
             basePage.homePageLiveTab.click();
             sleep(10);
             if (liveIndexPage.liveIndexInit()) {
+                appInitCount = 0;
                 return;
             }
         }
         appIndexInit();
-        count++;
-        if (count > 2) {
+        appInitCount++;
+        if (appInitCount > 3) {
             restartApp();
         }
         gotoLiveIndex();
@@ -134,44 +136,78 @@ public class CaseHelper extends BaseCase {
      * @Param []
      * @return void
      **/
-    public static void gotoUserLiveRoomAfterLogin(String roomType) {
+    public static void gotoUserLiveRoomAfterLogin(String roomType) throws MyException {
         gotoLiveIndex();
         loginByClickLiveBtn();
         gotoUserLiveRoomByType(roomType);
     }
+
 
     /*
      * Description:直播首页根据roomType跳转pk和交友模式的直播间
      * Param [roomType] 房间类型，为空时默认打开第一个
      * return void
      **/
-    public static void gotoUserLiveRoomByType(String roomType) {
+    private static int enterRoomCount = 0;
+
+    public static void gotoUserLiveRoomByType(String roomType) throws MyException {
         if (roomType == null || roomType.equals("")) {
-            liveIndexPage.liveRoom.click();
+            liveIndexPage.gotoUndefinedLiveRoom();
         } else {
-            while (true) {
-                MobileElement liveRoom = null;
+            try {
                 if (roomType.equals(RoomType.FRIEND)) {
-                    liveRoom = findElementBySwipe(driver, liveIndexPage.friendRoom, 10, SwipeDirection.UP);
+                    findElementBySwipe(driver, liveIndexPage.friendRoom, 5, SwipeDirection.UP).click();
                 } else if (roomType.equals(RoomType.PK)) {
-                    liveRoom = findElementBySwipe(driver, liveIndexPage.pkRoom, 10, SwipeDirection.UP);
+                    findElementBySwipe(driver, liveIndexPage.pkRoom, 5, SwipeDirection.UP).click();
                 }
-                if (!liveIndexPage.isUnderLiveDynamicBtn(liveRoom)) {
-                    liveRoom.click();
-                } else {
-                    continue;
-                }
+                userRoomIndexPage.closeFirstChargePop();
                 String curRoomType = userRoomIndexPage.getRoomType();
                 if (curRoomType != null && curRoomType.equals(roomType)) {
                     Reporter.log("已进入" + roomType + "对应的直播间");
+                    enterRoomCount = 0;
                     return;
-                } else {
-                    exitAnchorLiveRoom(curRoomType);
-                    Reporter.log("进入" + curRoomType + "直播间,退出重试");
                 }
+                exitAnchorLiveRoom(curRoomType);
+                Reporter.log("进入了" + curRoomType + "直播间,第" + enterRoomCount + "次退出重试");
+
+                if (enterRoomCount > 10) {
+                    throw new MyException("找不到这个类型的直播间");
+                }
+                if (enterRoomCount > 5) {
+                    restartApp();
+                    gotoLiveIndex();
+                }
+                gotoUserLiveRoomByType(roomType);
+            } catch (MyException e) {
+                throw e;
+            } catch (Exception e1) {
+
             }
 
+
+//            while (true) {
+//                MobileElement liveRoom = null;
+//                if (roomType.equals(RoomType.FRIEND)) {
+//                    liveRoom = findElementBySwipe(driver, liveIndexPage.friendRoom, 10, SwipeDirection.UP);
+//                } else if (roomType.equals(RoomType.PK)) {
+//                    liveRoom = findElementBySwipe(driver, liveIndexPage.pkRoom, 10, SwipeDirection.UP);
+//                }
+//                if (!liveIndexPage.isUnderLiveDynamicBtn(liveRoom)) {
+//                    liveRoom.click();
+//                } else {
+//                    continue;
+//                }
+//                String curRoomType = userRoomIndexPage.getRoomType();
+//                if (curRoomType != null && curRoomType.equals(roomType)) {
+//                    Reporter.log("已进入" + roomType + "对应的直播间");
+//                    break;
+//                } else {
+//                    exitAnchorLiveRoom(curRoomType);
+//                    Reporter.log("进入" + curRoomType + "直播间,退出重试");
+//                }
+//            }
         }
+        userRoomIndexPage.closeFirstChargePop();
     }
 
     /*

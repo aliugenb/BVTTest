@@ -2,6 +2,7 @@ package com.xmly.cases.userliveroom.android;
 
 import com.xmly.cases.CaseHelper;
 import com.xmly.common.DriverHelper;
+import com.xmly.common.MyException;
 import com.xmly.pages.live.RoomType;
 import org.testng.annotations.Test;
 
@@ -24,7 +25,7 @@ public class CaseEnterLiveRoomByType extends CaseHelper {
 //    }
 
     @Test(description = "进入交友模式房间")
-    public void enterFriendRoom() {
+    public void enterFriendRoom() throws MyException {
         gotoUserLiveRoomAfterLogin(RoomType.FRIEND);
         assertHelper.assertTrue(userRoomIndexPage.getRoomType() == RoomType.FRIEND,
                 getCurClassName() + "已进入交友模式直播间");
@@ -32,7 +33,7 @@ public class CaseEnterLiveRoomByType extends CaseHelper {
     }
 
     @Test(description = "进入PK模式房间")
-    public void enterPkRoom() {
+    public void enterPkRoom() throws MyException {
         gotoUserLiveRoomByType(RoomType.PK);
         assertHelper.assertTrue(userRoomIndexPage.getRoomType() == RoomType.PK,
                 getCurClassName() + "已进入pk模式直播间");
@@ -41,6 +42,7 @@ public class CaseEnterLiveRoomByType extends CaseHelper {
 
     @Test(description = "进入结束的直播间")
     public void enterEndRoom() {
+        restartApp();
         gotoLiveIndex();
         liveIndexPage.gotoLiveDynamicPage();
         liveDynamicPage.enterRoomByType(RoomType.END);

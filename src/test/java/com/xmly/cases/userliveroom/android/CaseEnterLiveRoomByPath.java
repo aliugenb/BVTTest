@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
  */
 public class CaseEnterLiveRoomByPath extends CaseHelper {
     @Test(description = "首页进入直播间")
-    public void enterByLiveIndex() {
+    public void enterByLiveIndex() throws MyException {
         gotoLiveIndex();
         gotoUserLiveRoomByType("");
         String roomType = userRoomIndexPage.getRoomType();

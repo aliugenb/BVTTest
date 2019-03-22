@@ -92,7 +92,7 @@ public class TestngListener extends TestListenerAdapter {
     }
 
     public void onStart(ITestContext context) {
-        AdbUtil.uninstallApp("com.ximalaya.ting.android");
+//        AdbUtil.uninstallApp("com.ximalaya.ting.android");
     }
 
     private void captureScreenShot(ITestResult result) {

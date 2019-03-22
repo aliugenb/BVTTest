@@ -94,6 +94,7 @@ public class LiveIndexPage extends BasePage {
         createLiveRoomBtn.click();
     }
 
+    //通过未关闭直播的弹窗进入直播间
     public void gotoAnchorRoomByLivePop() {
         DriverHelper.clickByPossibleElement(continueLiveBtn);
     }
@@ -103,16 +104,24 @@ public class LiveIndexPage extends BasePage {
         barPlayBtn.click();
     }
 
+    //进入页面第一个直播间
+    public void gotoUndefinedLiveRoom() {
+        liveRoom.click();
+    }
+
     //关闭直播未正常关闭时首页弹出的提醒弹层
+    private int liveInitCount = 0;
+
     public boolean liveIndexInit() {
         DriverHelper.clickByPossibleElement(cancelLiveBtn);
-        if (DriverHelper.isDisplayed(liveRoom)) {
+        if (DriverHelper.isDisplayed(liveDynamicBtn)) {
+            liveInitCount = 0;
             return true;
         }
-        int count = 0;
+
         Swipe.swipeDown(driver);
-        count++;
-        if (count > 5) {
+        liveInitCount++;
+        if (liveInitCount > 5) {
             return false;
         }
         liveIndexInit();

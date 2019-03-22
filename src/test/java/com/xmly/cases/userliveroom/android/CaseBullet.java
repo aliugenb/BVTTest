@@ -2,6 +2,7 @@ package com.xmly.cases.userliveroom.android;
 
 import com.xmly.cases.CaseHelper;
 import com.xmly.common.DriverHelper;
+import com.xmly.common.MyException;
 import com.xmly.pages.live.userliveroompage.BulletType;
 import com.xmly.pages.live.userliveroompage.UserSpeakPage;
 import com.xmly.utils.AdbUtil;
@@ -18,7 +19,7 @@ public class CaseBullet extends CaseHelper {
     private static UserSpeakPage userSpeakPage;
 
     @Test(description = "普通弹幕")
-    public void checkCommonBullet() {
+    public void checkCommonBullet() throws MyException {
         gotoUserLiveRoomAfterLogin("");
         userRoomIndexPage.gotoUserSpeakPage();
         userSpeakPage = new UserSpeakPage(driver);

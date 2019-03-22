@@ -2,6 +2,7 @@ package com.xmly.cases.userliveroom.android;
 
 import com.xmly.cases.CaseHelper;
 import com.xmly.common.DriverHelper;
+import com.xmly.common.MyException;
 import com.xmly.common.Swipe;
 import org.testng.Reporter;
 import org.testng.annotations.Test;
@@ -18,8 +19,9 @@ import java.util.concurrent.TimeUnit;
 public class CaseExitLiveRoom extends CaseHelper {
 
     @Test(description = "用户进入直播间1分钟后退出")
-    public void exitLessTenMin() throws InterruptedException {
-        gotoUserLiveRoomAfterLogin("");
+    public void exitLessTenMin() throws InterruptedException, MyException {
+        gotoLiveIndex();
+        gotoUserLiveRoomByType("");
         TimeUnit.MINUTES.sleep(1);
         exitAnchorLiveRoom(userRoomIndexPage.getRoomType());
         assertHelper.assertTrue(DriverHelper.isDisplayed(liveIndexPage.createLiveRoomBtn),
@@ -28,7 +30,7 @@ public class CaseExitLiveRoom extends CaseHelper {
     }
 
     @Test(description = "用户进入直播间10分钟后退出")
-    public void exitMoreTenMin() throws InterruptedException {
+    public void exitMoreTenMin() throws InterruptedException, MyException {
         gotoLiveIndex();
         loginByClickLiveBtn();
         //进入未关注过主播的直播间
