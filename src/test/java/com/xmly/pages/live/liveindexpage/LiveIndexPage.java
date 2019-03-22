@@ -114,7 +114,7 @@ public class LiveIndexPage extends BasePage {
 
     public boolean liveIndexInit() {
         DriverHelper.clickByPossibleElement(cancelLiveBtn);
-        if (DriverHelper.isDisplayed(liveDynamicBtn)) {
+        if (DriverHelper.isDisplayed(liveRoom)) {
             liveInitCount = 0;
             return true;
         }

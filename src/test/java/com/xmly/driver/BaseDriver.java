@@ -1,6 +1,7 @@
 package com.xmly.driver;
 
 import com.xmly.common.MyException;
+import com.xmly.common.Status;
 import com.xmly.driver.android.AndroidBaseDriver;
 import com.xmly.driver.android.AndroidDeviceInfo;
 import com.xmly.utils.AdbUtil;
@@ -29,6 +30,11 @@ public class BaseDriver {
             if (!AdbUtil.isConnect()) {
                 throw new MyException("设备未连接");
             }
+            if (Status.isFirstTest) {
+                AdbUtil.uninstallApp("com.ximalaya.ting.android");
+                Status.isFirstTest = false;
+            }
+
             AndroidDeviceInfo deviceInfo = new AndroidDeviceInfo();
             String deviceName = deviceInfo.getDeviceName();
             String platformVersion = deviceInfo.getOsVersion();

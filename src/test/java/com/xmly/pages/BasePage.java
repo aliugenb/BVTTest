@@ -56,7 +56,6 @@ public class BasePage {
 
     //首页权限管理
     @AndroidFindAll({
-            @AndroidBy(uiAutomator = "new UiSelector().textContains(\"允许\")"),
             @AndroidBy(uiAutomator = "new UiSelector().text(\"确定\")"),
             @AndroidBy(id = "com.android.packageinstaller:id/permission_allow_button")
     })

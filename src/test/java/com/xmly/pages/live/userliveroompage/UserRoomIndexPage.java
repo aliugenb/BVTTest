@@ -125,12 +125,13 @@ public class UserRoomIndexPage extends BasePage {
      **/
     public void closeFirstChargePop() {
         if (!Status.isChargePop) {
-            sleep(60);
+            sleep(70);
             if (isDisplayed(firstChargePop)) {
+                Reporter.log("出现首充弹窗");
+                SnapshotAndLog.snapshotByAppium("出现首充弹窗");
                 closeWebView();
-                Reporter.log("关闭首充弹窗");
-                Status.isChargePop = true;
             }
+            Status.isChargePop = true;
         }
     }
 
@@ -182,11 +183,10 @@ public class UserRoomIndexPage extends BasePage {
     public void exitNormalLiveRoom() {
         closeRoomBtn.click();
         if (isDisplayed(swipeGuide)) {
-            Reporter.log("出现左右滑动引导浮层");
+            SnapshotAndLog.snapshotByAppium("出现左右滑动引导浮层");
             Swipe.swipeLeft(driver);
             closeRoomBtn.click();
         }
-        Reporter.log("出现直播间关闭确认弹窗");
         if (isDisplayed(exitAndFollowBtn)) {
             SnapshotAndLog.snapshotByAppium("出现退出并关闭按钮");
             exitAndFollowBtn.click();

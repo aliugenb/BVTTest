@@ -183,29 +183,6 @@ public class CaseHelper extends BaseCase {
             } catch (Exception e1) {
 
             }
-
-
-//            while (true) {
-//                MobileElement liveRoom = null;
-//                if (roomType.equals(RoomType.FRIEND)) {
-//                    liveRoom = findElementBySwipe(driver, liveIndexPage.friendRoom, 10, SwipeDirection.UP);
-//                } else if (roomType.equals(RoomType.PK)) {
-//                    liveRoom = findElementBySwipe(driver, liveIndexPage.pkRoom, 10, SwipeDirection.UP);
-//                }
-//                if (!liveIndexPage.isUnderLiveDynamicBtn(liveRoom)) {
-//                    liveRoom.click();
-//                } else {
-//                    continue;
-//                }
-//                String curRoomType = userRoomIndexPage.getRoomType();
-//                if (curRoomType != null && curRoomType.equals(roomType)) {
-//                    Reporter.log("已进入" + roomType + "对应的直播间");
-//                    break;
-//                } else {
-//                    exitAnchorLiveRoom(curRoomType);
-//                    Reporter.log("进入" + curRoomType + "直播间,退出重试");
-//                }
-//            }
         }
         userRoomIndexPage.closeFirstChargePop();
     }

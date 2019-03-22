@@ -8,11 +8,11 @@ package com.xmly.common;
  */
 
 public class Status {
-    //判断app是否安装s
+    //判断app是否安装
     volatile public static boolean isInstall = false;
 
-    //判断app是否首次启动
-    volatile public static boolean isFirstStart = true;
+    //判断是否首次启动测试
+    volatile public static boolean isFirstTest = true;
 
     //判断是否已出现过首充弹窗
     volatile public static boolean isChargePop = false;
