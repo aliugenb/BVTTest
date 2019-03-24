@@ -106,6 +106,14 @@ public class UserRoomIndexPage extends BasePage {
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_scroll_svg_guide")
     public MobileElement swipeGuide;
 
+    /*
+     * Description：获取主播昵称
+     * Param []
+     * return java.lang.String
+     **/
+    public String getAnchorName() {
+        return anchorNickName.getText();
+    }
 
     /*
      * @Description: 关闭webview

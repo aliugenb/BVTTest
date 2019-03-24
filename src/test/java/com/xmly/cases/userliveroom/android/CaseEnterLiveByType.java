@@ -7,12 +7,12 @@ import com.xmly.pages.live.RoomType;
 import org.testng.annotations.Test;
 
 /**
- * ClassName: CaseEnterLiveRoom
+ * ClassName: CaseEnterLiveByType
  * Author: ye.liu
  * Date: 2019-02-23 15:56
  * Description:
  */
-public class CaseEnterLiveRoomByType extends CaseHelper {
+public class CaseEnterLiveByType extends CaseHelper {
 //    @Test(description = "进入普通房间")
 //    public void enterCommonRoom() {
 //        gotoLiveIndex();

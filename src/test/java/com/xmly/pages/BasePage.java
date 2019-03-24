@@ -25,6 +25,7 @@ public class BasePage {
     private final int TIMEOUT = 20;
     public static final String LIVEHOMEPAGE = "LiveIndex";
     public static final String FINDPAGE = "FindIndex";
+    public static final String MYLISTEN = "MyListen";
 
     public BasePage(AppiumDriver<? extends MobileElement> driver) {
         this.driver = driver;
@@ -38,6 +39,9 @@ public class BasePage {
 
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"发现\")")
     private MobileElement tabbarFindBtn;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"我听\")")
+    private MobileElement tabbarMylistenBtn;
 
 
     @AndroidFindBy(id = "com.ximalaya.ting.android:id/tab_myspace")
@@ -72,11 +76,14 @@ public class BasePage {
      **/
     public void enterPage(String homePage) {
         switch (homePage) {
-            case "LiveIndex":
+            case LIVEHOMEPAGE:
                 homePageLiveTab.click();
                 break;
-            case "FindIndex":
+            case FINDPAGE:
                 tabbarFindBtn.click();
+                break;
+            case MYLISTEN:
+                tabbarMylistenBtn.click();
                 break;
             default:
                 homePageLiveTab.click();

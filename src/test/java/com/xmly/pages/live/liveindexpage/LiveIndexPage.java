@@ -100,7 +100,7 @@ public class LiveIndexPage extends BasePage {
     }
 
     //通过肚脐眼进入直播间
-    public void gotoUserLiveRoomByBar() {
+    public void gotoLiveRoomByTabbarPlay() {
         barPlayBtn.click();
     }
 

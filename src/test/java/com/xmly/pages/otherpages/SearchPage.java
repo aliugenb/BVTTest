@@ -1,7 +1,8 @@
-package com.xmly.pages;
+package com.xmly.pages.otherpages;
 
 import com.xmly.common.DriverHelper;
 import com.xmly.common.MyException;
+import com.xmly.pages.BasePage;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
