@@ -30,13 +30,12 @@ public class AndroidBaseDriver {
 //        capabilities.setCapability(MobileCapabilityType.BROWSER_NAME, "");
 //        capabilities.setCapability(MobileCapabilityType.AUTO_WEBVIEW, true);
 
+        //设置系统参数
         capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, deviceName);
-
-        //设置安卓系统版本
         capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, platformVersion);
-        //设置apk路径
 
+        //设置apk路径
         capabilities.setCapability(MobileCapabilityType.APP, apkPath);
 //        capabilities.setCapability("autoGrantPermissions", true);
 
@@ -49,6 +48,7 @@ public class AndroidBaseDriver {
 
         capabilities.setCapability("automationName", "uiautomator2");
         capabilities.setCapability("noSign", true);
+
         //设置app的主包名和主类名
         capabilities.setCapability("appPackage", "com.ximalaya.ting.android");
         capabilities.setCapability("appActivity", "com.ximalaya.ting.android.host.activity.WelComeActivity");
