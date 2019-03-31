@@ -47,7 +47,7 @@ public class CaseExitLiveRoom extends CaseHelper {
         exitAnchorLiveRoom(userRoomIndexPage.getRoomType());
 
 
-        liveIndexPage.gotoUserLiveRoomByBar();
+        liveIndexPage.gotoLiveRoomByTabbarPlay();
         assertHelper.assertTrue(userRoomIndexPage.isFollow(),
                 getCurClassName() + "退出直播间同时时关注主播成功");
         Reporter.log("退出直播间同时时关注主播成功");

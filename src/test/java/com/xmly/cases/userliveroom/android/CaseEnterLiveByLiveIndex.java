@@ -2,16 +2,15 @@ package com.xmly.cases.userliveroom.android;
 
 import com.xmly.cases.CaseHelper;
 import com.xmly.common.MyException;
-import com.xmly.pages.SearchPage;
 import org.testng.annotations.Test;
 
 /**
- * ClassName: CaseEnterLiveRoomByPath
+ * ClassName: CaseEnterLiveByLiveIndex
  * Author: ye.liu
  * Date: 2019-03-16 20:24
  * Description:
  */
-public class CaseEnterLiveRoomByPath extends CaseHelper {
+public class CaseEnterLiveByLiveIndex extends CaseHelper {
     @Test(description = "首页进入直播间")
     public void enterByLiveIndex() throws MyException {
         gotoLiveIndex();
@@ -27,22 +26,9 @@ public class CaseEnterLiveRoomByPath extends CaseHelper {
         loginByClickLiveBtn();
         liveIndexPage.gotoLiveDynamicPage();
         liveDynamicPage.enterRoomByType("");
-        String roomType = userRoomIndexPage.getRoomType();
-        assertHelper.assertTrue(roomType != null,
+        assertHelper.assertTrue(userRoomIndexPage.getRoomType() != null,
                 getCurClassName() + "直播动态首页进入直播间");
-        exitAnchorLiveRoom(roomType);
-        liveDynamicPage.exitLiveDynamicPage();
     }
 
-    @Test(description = "通过搜索结果页进入直播间")
-    public void enterBySearch() throws MyException {
-        liveIndexPage.gotoSearchPage();
-        String searchText = "倾城之恋_";
-        SearchPage searchPage = new SearchPage(driver);
-        searchPage.enterLiveRoomBySearch(searchText);
-        String roomType = userRoomIndexPage.getRoomType();
-        assertHelper.assertTrue(roomType != null,
-                getCurClassName() + "搜索结果页进入直播间");
-        exitAnchorLiveRoom(roomType);
-    }
+
 }

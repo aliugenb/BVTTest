@@ -48,16 +48,19 @@
         <!--</classes>-->
     <!--</test>-->
 
-    <!--<test verbose="3" preserve-order="true" parallel="classes" thread-count="1" name="userliveroom用户端直播间检查">-->
-        <!--<classes>-->
-            <!--<class name="com.xmly.cases.userliveroom.android.CaseEnterLiveRoomByPath">-->
+    <test verbose="3" preserve-order="true" parallel="classes" thread-count="1" name="userliveroom用户端直播间检查">
+        <classes>
+            <!--<class name="com.xmly.cases.userliveroom.android.CaseEnterLiveByLiveIndex">-->
                 <!--<methods>-->
                     <!--<include name="enterByLiveIndex"/>-->
                     <!--<include name="enterByLiveDynamicPage"/>-->
-                    <!--<include name="enterBySearch"/>-->
                 <!--</methods>-->
             <!--</class>-->
-            <!--<class name="com.xmly.cases.userliveroom.android.CaseEnterLiveRoomByType">-->
+            <!--<class name="com.xmly.cases.userliveroom.android.CaseEnterLiveBySearch"></class>-->
+            <!--<class name="com.xmly.cases.userliveroom.android.CaseEnterLiveByMyListen"></class>-->
+            <!--<class name="com.xmly.cases.userliveroom.android.CaseEnterLiveByVoiceFriend"></class>-->
+            <class name="com.xmly.cases.userliveroom.android.CaseEnterLiveByTabbarPlay"></class>
+            <!--<class name="com.xmly.cases.userliveroom.android.CaseEnterLiveByType">-->
                 <!--<methods>-->
                     <!--<include name="enterFriendRoom"/>-->
                     <!--<include name="enterPkRoom"/>-->
@@ -79,15 +82,15 @@
                     <!--<include name="exitMoreTenMin"/>-->
                 <!--</methods>-->
             <!--</class>-->
-        <!--</classes>-->
-    <!--</test>-->
-
-    <test verbose="3" preserve-order="true" parallel="classes" thread-count="1" name="createliveroom主播端创建直播间检查">
-        <classes>
-            <class name="com.xmly.cases.createliveroom.android.CaseCreateLiveRoom"></class>
-            <class name="com.xmly.cases.createliveroom.android.CaseCreatePreviewRoom"></class>
-            <!--<class name="com.xmly.cases.createliveroom.android.CaseEditPreview"></class>-->
-            <!--<class name="com.xmly.cases.createliveroom.android.CaseDeletePreview"></class>-->
         </classes>
     </test>
+
+    <!--<test verbose="3" preserve-order="true" parallel="classes" thread-count="1" name="createliveroom主播端创建直播间检查">-->
+        <!--<classes>-->
+            <!--<class name="com.xmly.cases.createliveroom.android.CaseCreateLiveRoom"></class>-->
+            <!--<class name="com.xmly.cases.createliveroom.android.CaseCreatePreviewRoom"></class>-->
+            <!--&lt;!&ndash;<class name="com.xmly.cases.createliveroom.android.CaseEditPreview"></class>&ndash;&gt;-->
+            <!--&lt;!&ndash;<class name="com.xmly.cases.createliveroom.android.CaseDeletePreview"></class>&ndash;&gt;-->
+        <!--</classes>-->
+    <!--</test>-->
 </suite>

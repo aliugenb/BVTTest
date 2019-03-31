@@ -68,15 +68,6 @@ public class LiveDynamicPage extends LiveIndexPage {
     public MobileElement backBtn;
 
     /*
-     * Description：退出直播动态页
-     * Param []
-     * return void
-     **/
-    public void exitLiveDynamicPage() {
-        backBtn.click();
-    }
-
-    /*
     获取在线主播数量
      */
     public int getOnlineAnchorQty() {
