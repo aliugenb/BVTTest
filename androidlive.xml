@@ -50,38 +50,40 @@
 
     <test verbose="3" preserve-order="true" parallel="classes" thread-count="1" name="userliveroom用户端直播间检查">
         <classes>
-            <!--<class name="com.xmly.cases.userliveroom.android.CaseEnterLiveByLiveIndex">-->
-                <!--<methods>-->
-                    <!--<include name="enterByLiveIndex"/>-->
-                    <!--<include name="enterByLiveDynamicPage"/>-->
-                <!--</methods>-->
-            <!--</class>-->
-            <!--<class name="com.xmly.cases.userliveroom.android.CaseEnterLiveBySearch"></class>-->
-            <!--<class name="com.xmly.cases.userliveroom.android.CaseEnterLiveByMyListen"></class>-->
-            <!--<class name="com.xmly.cases.userliveroom.android.CaseEnterLiveByVoiceFriend"></class>-->
-            <class name="com.xmly.cases.userliveroom.android.CaseEnterLiveByTabbarPlay"></class>
-            <!--<class name="com.xmly.cases.userliveroom.android.CaseEnterLiveByType">-->
-                <!--<methods>-->
-                    <!--<include name="enterFriendRoom"/>-->
-                    <!--<include name="enterPkRoom"/>-->
-                    <!--<include name="enterEndRoom"/>-->
-                    <!--<include name="enterAppointmentRoom"/>-->
-                <!--</methods>-->
-            <!--</class>-->
-            <!--<class name="com.xmly.cases.userliveroom.android.CaseGIftPanel"></class>-->
-            <!--<class name="com.xmly.cases.userliveroom.android.CaseBullet">-->
-                <!--<methods>-->
-                    <!--<include name="checkCommonBullet"/>-->
-                    <!--<include name="checkFansBullet"/>-->
-                    <!--<include name="checkNobleBullet"/>-->
-                <!--</methods>-->
-            <!--</class>-->
-            <!--<class name="com.xmly.cases.userliveroom.android.CaseExitLiveRoom">-->
-                <!--<methods>-->
-                    <!--<include name="exitLessTenMin"/>-->
-                    <!--<include name="exitMoreTenMin"/>-->
-                <!--</methods>-->
-            <!--</class>-->
+<!--            <class name="com.xmly.cases.userliveroom.android.CaseEnterLiveByLiveIndex">-->
+<!--                <methods>-->
+<!--                    <include name="enterByLiveIndex"/>-->
+<!--                    <include name="enterByLiveDynamicPage"/>-->
+<!--                </methods>-->
+<!--            </class>-->
+<!--            <class name="com.xmly.cases.userliveroom.android.CaseEnterLiveBySearch"></class>-->
+<!--            <class name="com.xmly.cases.userliveroom.android.CaseEnterLiveByMyListen"></class>-->
+<!--            <class name="com.xmly.cases.userliveroom.android.CaseEnterLiveByPersonal"></class>-->
+<!--            <class name="com.xmly.cases.userliveroom.android.CaseEnterLiveByVoiceFriend"></class>-->
+<!--            <class name="com.xmly.cases.userliveroom.android.CaseEnterLiveByTabbarPlay"></class>-->
+<!--            <class name="com.xmly.cases.userliveroom.android.CaseEnterLiveByType">-->
+<!--                <methods>-->
+<!--                    <include name="enterFriendRoom"/>-->
+<!--                    <include name="enterPkRoom"/>-->
+<!--                    <include name="enterEndRoom"/>-->
+<!--                    <include name="enterAppointmentRoom"/>-->
+<!--                </methods>-->
+<!--            </class>-->
+<!--            <class name="com.xmly.cases.userliveroom.android.CaseGIftPanel"></class>-->
+            <class name="com.xmly.cases.userliveroom.android.CaseSwitchRoomBySwipe"></class>
+<!--            <class name="com.xmly.cases.userliveroom.android.CaseBullet">-->
+<!--                <methods>-->
+<!--                    <include name="checkCommonBullet"/>-->
+<!--                    <include name="checkFansBullet"/>-->
+<!--                    <include name="checkNobleBullet"/>-->
+<!--                </methods>-->
+<!--            </class>-->
+<!--            <class name="com.xmly.cases.userliveroom.android.CaseExitLiveRoom">-->
+<!--                <methods>-->
+<!--                    <include name="exitLessTenMin"/>-->
+<!--                    <include name="exitMoreTenMin"/>-->
+<!--                </methods>-->
+<!--            </class>-->
         </classes>
     </test>
 

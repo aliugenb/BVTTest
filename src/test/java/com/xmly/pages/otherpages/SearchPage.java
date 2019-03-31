@@ -32,6 +32,14 @@ public class SearchPage extends BasePage {
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.ximalaya.ting.android.main.application:id/main_id_stickynavlayout_indicator\").childSelector(new UiSelector().text(\"直播\"))")
     public MobileElement liveTabInSearchResult;
 
+    //搜索结果页主播tab
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.ximalaya.ting.android.main.application:id/main_id_stickynavlayout_indicator\").childSelector(new UiSelector().text(\"主播\"))")
+    public MobileElement anchorTabInSearchResult;
+
+    //主播tab下正在直播的主播
+    @AndroidFindBy(id = "com.ximalaya.ting.android.main.application:id/main_live_status")
+    public MobileElement liveAnchor;
+
     //搜索结果页直播间入口
     @AndroidFindBy(id = "com.ximalaya.ting.android.main.application:id/main_item_record_cover")
     public MobileElement liveRoomInSearchResult;
@@ -57,6 +65,25 @@ public class SearchPage extends BasePage {
         }
         liveTabInSearchResult.click();
         liveRoomInSearchResult.click();
+    }
+
+    /*
+     * Description：搜索结果页进入主播个人页
+     * Param [searchText]
+     * return void
+     **/
+    public void gotoPersonalPage(String searchText) throws MyException {
+        if (searchText == null) {
+            throw new MyException("搜索文案传入错误");
+        }
+        searchEditText.sendKeys(searchText);
+        searchBtn.click();
+        sleep(5);
+        if (!DriverHelper.isDisplayed(anchorTabInSearchResult)) {
+            throw new MyException("搜索结果没有主播");
+        }
+        anchorTabInSearchResult.click();
+        liveAnchor.click();
     }
 
     /*
