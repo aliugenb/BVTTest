@@ -119,7 +119,6 @@ public class LiveIndexPage extends BasePage {
             return true;
         }
 
-        Swipe.swipeDown(driver);
         liveInitCount++;
         if (liveInitCount > 5) {
             return false;

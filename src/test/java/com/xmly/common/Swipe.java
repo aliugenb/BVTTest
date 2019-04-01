@@ -21,7 +21,7 @@ import static com.xmly.utils.CommonUtil.sleep;
  */
 
 public class Swipe {
-    private static final int SWIPE_DURTION = 5;
+    private static final int SWIPE_DURATION = 8;
 
     // 上滑
     public static void swipeUp(AppiumDriver driver) {
@@ -29,7 +29,7 @@ public class Swipe {
         int height = size.height;
         int width = size.width;
         new TouchAction(driver)
-                .longPress(PointOption.point(width / 2, height * 5 / 7)).waitAction(WaitOptions.waitOptions(Duration.ofSeconds(SWIPE_DURTION)))
+                .longPress(PointOption.point(width / 2, height * 5 / 7)).waitAction(WaitOptions.waitOptions(Duration.ofSeconds(SWIPE_DURATION)))
                 .moveTo(PointOption.point(width / 2, height * 2 / 7)).release().perform();
     }
 
@@ -38,7 +38,7 @@ public class Swipe {
         Dimension size = driver.manage().window().getSize();
         int height = size.height;
         int width = size.width;
-        new TouchAction(driver).longPress(PointOption.point(width / 2, height * 2 / 7)).waitAction(WaitOptions.waitOptions(Duration.ofSeconds(SWIPE_DURTION)))
+        new TouchAction(driver).longPress(PointOption.point(width / 2, height * 2 / 7)).waitAction(WaitOptions.waitOptions(Duration.ofSeconds(SWIPE_DURATION)))
                 .moveTo(PointOption.point(width / 2, height * 5 / 7)).release()
                 .perform();
     }
@@ -49,7 +49,7 @@ public class Swipe {
         int height = size.height;
         int width = size.width;
         new TouchAction(driver)
-                .longPress(PointOption.point(width - 100, height / 2)).waitAction(WaitOptions.waitOptions(Duration.ofSeconds(SWIPE_DURTION)))
+                .longPress(PointOption.point(width - 100, height / 2)).waitAction(WaitOptions.waitOptions(Duration.ofSeconds(SWIPE_DURATION)))
                 .moveTo(PointOption.point(100, height / 2)).release().perform();
     }
 
@@ -58,7 +58,7 @@ public class Swipe {
         Dimension size = driver.manage().window().getSize();
         int height = size.height;
         int width = size.width;
-        new TouchAction(driver).longPress(PointOption.point(100, height / 2)).waitAction(WaitOptions.waitOptions(Duration.ofSeconds(SWIPE_DURTION)))
+        new TouchAction(driver).longPress(PointOption.point(100, height / 2)).waitAction(WaitOptions.waitOptions(Duration.ofSeconds(SWIPE_DURATION)))
                 .moveTo(PointOption.point(width - 100, height / 2)).release()
                 .perform();
     }
