@@ -1,7 +1,6 @@
 package com.xmly.pages.live.liveindexpage;
 
 import com.xmly.common.DriverHelper;
-import com.xmly.common.Swipe;
 import com.xmly.pages.BasePage;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
@@ -9,6 +8,10 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.Point;
 
 import java.util.List;
+
+import static com.xmly.common.DriverHelper.clickWindowCenter;
+import static com.xmly.common.DriverHelper.isDisplayed;
+import static com.xmly.utils.CommonUtil.sleep;
 
 /**
  * ClassName: LiveIndexPage
@@ -23,6 +26,14 @@ public class LiveIndexPage extends BasePage {
         super(driver);
     }
 
+    //首次进入引导蒙层
+    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_home_guide_layer_layout")
+    public MobileElement homeGuide;
+
+    //关闭引导蒙层
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"我知道了\")")
+    public MobileElement closeGuide;
+
     //搜索框
     @AndroidFindBy(id = "com.ximalaya.ting.android.main.application:id/main_vg_search_bar")
     public MobileElement searchBar;
@@ -35,8 +46,14 @@ public class LiveIndexPage extends BasePage {
     @AndroidFindBy(id = "com.ximalaya.ting.android.main.application:id/main_search_button")
     public MobileElement searchBtn; //搜索页的搜索按钮
 
-    @AndroidFindBy(id = "com.ximalaya.ting.android.main.application:id/main_tv_search_bar_action")
-    public MobileElement createLiveRoomBtn; //我要直播按钮
+    //我要直播和我的直播入口
+    @AndroidFindBy(id = "com.ximalaya.ting.android.main.application:id/main_iv_search_bar_live_start")
+    public MobileElement liveOptionsBtn;
+
+
+    //我要直播按钮
+    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_home_start_live")
+    public MobileElement createLiveRoomBtn;
 
     //主播排行榜
     @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_home_anchor_rank_tv")
@@ -91,6 +108,7 @@ public class LiveIndexPage extends BasePage {
 
     //跳转创建直播间页面
     public void gotoCreateLiveRoomPage() {
+        liveOptionsBtn.click();
         createLiveRoomBtn.click();
     }
 
@@ -109,12 +127,22 @@ public class LiveIndexPage extends BasePage {
         liveRoom.click();
     }
 
-    //关闭直播未正常关闭时首页弹出的提醒弹层
+    /*
+     * @Description: 关闭直播未正常关闭时首页弹出的提醒弹层
+     * 关闭首次引导蒙层
+     * @Param
+     * @return
+     **/
     private int liveInitCount = 0;
 
     public boolean liveIndexInit() {
         DriverHelper.clickByPossibleElement(cancelLiveBtn);
-        if (DriverHelper.isDisplayed(liveRoom)) {
+        if (isDisplayed(homeGuide)) {
+            clickWindowCenter(driver);
+            sleep(2);
+            closeGuide.click();
+        }
+        if (isDisplayed(liveRoom)) {
             liveInitCount = 0;
             return true;
         }

@@ -24,7 +24,7 @@ public class CaseExitLiveRoom extends CaseHelper {
         gotoUserLiveRoomByType("");
         TimeUnit.MINUTES.sleep(1);
         exitAnchorLiveRoom(userRoomIndexPage.getRoomType());
-        assertHelper.assertTrue(DriverHelper.isDisplayed(liveIndexPage.createLiveRoomBtn),
+        assertHelper.assertTrue(DriverHelper.isDisplayed(liveIndexPage.liveOptionsBtn),
                 getCurClassName() + "退出直播成功");
         Reporter.log("退出直播间成功");
     }

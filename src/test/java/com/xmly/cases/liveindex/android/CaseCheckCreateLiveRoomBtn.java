@@ -2,11 +2,7 @@ package com.xmly.cases.liveindex.android;
 
 import com.xmly.cases.CaseHelper;
 import com.xmly.common.DriverHelper;
-import com.xmly.common.FindElementHelper;
-import com.xmly.common.MyException;
 import org.testng.annotations.Test;
-
-import java.io.IOException;
 
 /**
  * Created with IntelliJ IDEA.
@@ -17,9 +13,9 @@ import java.io.IOException;
 
 public class CaseCheckCreateLiveRoomBtn extends CaseHelper {
     @Test(description = "检查直播首页存在我要直播按钮")
-    public void checkCreateLiveRoomBtn() throws InterruptedException, IOException, MyException {
+    public void checkCreateLiveRoomBtn() {
         gotoLiveIndex();
-        assertHelper.assertTrue(DriverHelper.isDisplayed(liveIndexPage.createLiveRoomBtn),
+        assertHelper.assertTrue(DriverHelper.isDisplayed(liveIndexPage.liveOptionsBtn),
                 getCurClassName() + "首页存在我要直播按钮");
         loginByClickLiveBtn();
         liveIndexPage.gotoCreateLiveRoomPage();
