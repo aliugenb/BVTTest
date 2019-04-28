@@ -44,7 +44,7 @@ public class CaseFriendPKLove extends CaseHelper {
     public void isStillPkAfterRestart() {
         restartApp();
         appIndexInit();
-        basePage.enterPage(LIVEHOMEPAGE);
+        basePage.gotoPage(LIVEHOMEPAGE);
         sleep(10);
         liveIndexPage.gotoAnchorRoomByLivePop();
         anchorRoomIndexPage.anchroRoomInit();

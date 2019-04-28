@@ -36,7 +36,7 @@ public class CaseHelper extends BaseCase {
     public static void gotoLiveIndex() {
         sleep(10);
         if (isDisplayed(basePage.homePageLiveTab)) {
-            basePage.enterPage(basePage.LIVEHOMEPAGE);
+            basePage.gotoPage(basePage.LIVEHOMEPAGE);
             sleep(10);
             if (liveIndexPage.liveIndexInit()) {
                 appInitCount = 0;
@@ -71,14 +71,14 @@ public class CaseHelper extends BaseCase {
     //跳转发现页
     public static void gotoFindIndex() {
         gotoLiveIndex();
-        basePage.enterPage(basePage.FINDPAGE);
+        basePage.gotoPage(basePage.FINDPAGE);
     }
 
     //跳转我听页面
     public static void gotoMyListen() {
         gotoLiveIndex();
         loginByClickLiveBtn();
-        basePage.enterPage(basePage.MYLISTEN);
+        basePage.gotoPage(basePage.MYLISTEN);
     }
 
     //出现登录页面后登录

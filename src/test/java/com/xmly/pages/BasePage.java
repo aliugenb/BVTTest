@@ -74,7 +74,7 @@ public class BasePage {
      * @Param [homePage]
      * @return void
      **/
-    public void enterPage(String homePage) {
+    public void gotoPage(String homePage) {
         switch (homePage) {
             case LIVEHOMEPAGE:
                 homePageLiveTab.click();
