@@ -16,7 +16,7 @@ public class PersonalPage extends BasePage {
         super(driver);
     }
 
-    @AndroidFindBy(id = "com.ximalaya.ting.android.main.application:id/main_tv_live_title")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/main_tv_live_title")
     public MobileElement liveTitle;
 
     public void enterLiveRoom(){

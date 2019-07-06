@@ -19,7 +19,7 @@ public class MyListenPage extends BasePage {
     }
 
 
-    @AndroidFindBy(id = "com.ximalaya.ting.android.main.application:id/main_woting_anchor_multi_image")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/main_woting_anchor_multi_image")
     public MobileElement onlineLiveRoom;
 
     public void enterLive(){

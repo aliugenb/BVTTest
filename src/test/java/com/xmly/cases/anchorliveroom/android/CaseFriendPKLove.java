@@ -47,7 +47,7 @@ public class CaseFriendPKLove extends CaseHelper {
         basePage.gotoPage(LIVEHOMEPAGE);
         sleep(10);
         liveIndexPage.gotoAnchorRoomByLivePop();
-        anchorRoomIndexPage.anchroRoomInit();
+        anchorRoomIndexPage.anchorRoomInit();
 
         assertHelper.assertTrue(isDisplayed(friendPage.friendPkIcon),
                 getCurClassName() + "杀掉app重进直播间仍然在PK模式");

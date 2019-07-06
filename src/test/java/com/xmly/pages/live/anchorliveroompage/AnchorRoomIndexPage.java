@@ -246,7 +246,7 @@ public class AnchorRoomIndexPage extends BasePage {
     }
 
     //关闭创建直播间后的分享页面及首次引导弹层
-    public void anchroRoomInit() throws NoSuchElementException {
+    public void anchorRoomInit() throws NoSuchElementException {
         cancelShareBtn.click();
         //首次创建直播间出现蒙层
         for (int i = 0; i < 10; i++) {

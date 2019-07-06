@@ -50,12 +50,12 @@ public class BasePage {
     //首页弹窗广告关闭按钮
     @AndroidFindAll({
             @AndroidBy(id = "com.ximalaya.ting.android:id/host_close_firework"),
-            @AndroidBy(id = "com.ximalaya.ting.android.main.application:id/main_iv_close")
+            @AndroidBy(id = "com.ximalaya.ting.android:id/main_iv_close")
     })
     public MobileElement closeInterstitialBtn;
 
     //首页新人引导蒙层
-    @AndroidFindBy(id = "com.ximalaya.ting.android.main.application:id/main_tv_tips")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/main_tv_tips")
     public MobileElement newerTips;
 
     //首页权限管理

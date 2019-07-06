@@ -35,7 +35,7 @@ public class LiveIndexPage extends BasePage {
     public MobileElement closeGuide;
 
     //搜索框
-    @AndroidFindBy(id = "com.ximalaya.ting.android.main.application:id/main_vg_search_bar")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/main_tv_search")
     public MobileElement searchBar;
 
     //肚脐眼
@@ -43,11 +43,11 @@ public class LiveIndexPage extends BasePage {
     public MobileElement barPlayBtn;
 
 
-    @AndroidFindBy(id = "com.ximalaya.ting.android.main.application:id/main_search_button")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/search_search_button")
     public MobileElement searchBtn; //搜索页的搜索按钮
 
     //我要直播和我的直播入口
-    @AndroidFindBy(id = "com.ximalaya.ting.android.main.application:id/main_iv_search_bar_live_start")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/main_iv_search_bar_live_start")
     public MobileElement liveOptionsBtn;
 
 

@@ -48,7 +48,7 @@ public class CaseCreateLiveRoom extends CaseHelper {
         SnapshotAndLog.snapshotByAppium("设置直播间标签为有声书");
 
         createLiveRoomPage.createAnchorRoom();
-        anchorRoomIndexPage.anchroRoomInit();
+        anchorRoomIndexPage.anchorRoomInit();
 
         assertHelper.assertTrue(DriverHelper.isDisplayed(anchorRoomIndexPage.pkBtn),
                 getCurClassName() + "创建直播成功");

@@ -1,14 +1,9 @@
 package com.xmly.pages;
 
-import com.xmly.common.MyException;
-import com.xmly.utils.AdbUtil;
 import com.xmly.utils.CommonUtil;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
-
-import java.io.IOException;
-import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -24,19 +19,19 @@ public class LoginPage extends BasePage {
         super(driver);
     }
 
-    @AndroidFindBy(id = "com.ximalaya.ting.android.main.application:id/main_login_more")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/main_login_more")
     public MobileElement moreLoginBtn;
 
-    @AndroidFindBy(id = "com.ximalaya.ting.android.main.application:id/main_login_with_pwd")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/main_login_with_pwd")
     public MobileElement loginByPwdBtn;
 
-    @AndroidFindBy(id = "com.ximalaya.ting.android.main.application:id/main_username")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/main_username")
     public MobileElement userNameInput;
 
-    @AndroidFindBy(id = "com.ximalaya.ting.android.main.application:id/main_password")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/main_password")
     public MobileElement passwdInput;
 
-    @AndroidFindBy(id = "com.ximalaya.ting.android.main.application:id/main_login")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/main_login")
     public MobileElement loginBtn;
 
     public void login(String userName, String passwd) {

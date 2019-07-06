@@ -34,7 +34,7 @@ public class CaseEditPreview extends CaseHelper {
         SnapshotAndLog.snapshotByAppium("编辑预告直播间的话题和title");
 
         createLiveRoomPage.startPreviewLive();
-        anchorRoomIndexPage.anchroRoomInit();
+        anchorRoomIndexPage.anchorRoomInit();
 
         anchorRoomIndexPage.gotoTopicPage();
         TopicPage topicPage = new TopicPage(driver);

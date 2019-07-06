@@ -21,31 +21,31 @@ public class SearchPage extends BasePage {
     }
 
     //搜索输入框
-    @AndroidFindBy(id = "com.ximalaya.ting.android.main.application:id/main_search_et")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/main_search_et")
     public MobileElement searchEditText;
 
     //搜索按钮
-    @AndroidFindBy(id = "com.ximalaya.ting.android.main.application:id/main_search_button")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/main_search_button")
     public MobileElement searchBtn;
 
     //搜索结果页直播tab
-    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.ximalaya.ting.android.main.application:id/main_id_stickynavlayout_indicator\").childSelector(new UiSelector().text(\"直播\"))")
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.ximalaya.ting.android:id/main_id_stickynavlayout_indicator\").childSelector(new UiSelector().text(\"直播\"))")
     public MobileElement liveTabInSearchResult;
 
     //搜索结果页主播tab
-    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.ximalaya.ting.android.main.application:id/main_id_stickynavlayout_indicator\").childSelector(new UiSelector().text(\"主播\"))")
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.ximalaya.ting.android:id/main_id_stickynavlayout_indicator\").childSelector(new UiSelector().text(\"主播\"))")
     public MobileElement anchorTabInSearchResult;
 
     //主播tab下正在直播的主播
-    @AndroidFindBy(id = "com.ximalaya.ting.android.main.application:id/main_live_status")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/main_live_status")
     public MobileElement liveAnchor;
 
     //搜索结果页直播间入口
-    @AndroidFindBy(id = "com.ximalaya.ting.android.main.application:id/main_item_record_cover")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/main_item_record_cover")
     public MobileElement liveRoomInSearchResult;
 
 
-    @AndroidFindBy(id = "com.ximalaya.ting.android.main.application:id/main_back_btn")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/main_back_btn")
     public MobileElement backBtn;
 
     /*

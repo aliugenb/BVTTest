@@ -124,7 +124,7 @@ public class CaseHelper extends BaseCase {
             liveIndexPage.gotoCreateLiveRoomPage();
             createLiveRoomPage.createAnchorRoom();
             sleep(10);
-            anchorRoomIndexPage.anchroRoomInit();
+            anchorRoomIndexPage.anchorRoomInit();
             anchorRoomIndexPage.moreBtn.click();
             if (isDisplayed(anchorRoomIndexPage.friendBtn)) {
                 clickByCoordinates(driver, deviceWidth / 2, deviceHeight / 3);

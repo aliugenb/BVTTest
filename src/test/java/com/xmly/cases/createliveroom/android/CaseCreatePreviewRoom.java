@@ -31,7 +31,7 @@ public class CaseCreatePreviewRoom extends CaseHelper {
                 getCurClassName() + "退出预告再次进入仍显示直播预告");
 
         createLiveRoomPage.startPreviewLive();
-        anchorRoomIndexPage.anchroRoomInit();
+        anchorRoomIndexPage.anchorRoomInit();
         assertHelper.assertTrue(DriverHelper.isDisplayed(anchorRoomIndexPage.pkBtn),
                 getCurClassName() + "预告直播立即开始直播成功");
     }
