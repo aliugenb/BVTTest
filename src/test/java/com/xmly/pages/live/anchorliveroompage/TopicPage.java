@@ -18,10 +18,10 @@ public class TopicPage extends AnchorRoomIndexPage {
         super(driver);
     }
 
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_announceEt")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/live_announceEt")
     public MobileElement topicInput;
 
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/actionTv")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/actionTv")
     public MobileElement topicConfirmBtn;
 
 

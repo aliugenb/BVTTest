@@ -16,6 +16,6 @@ public class PKPage extends AnchorRoomIndexPage {
         super(driver);
     }
 
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_iv_pk")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/live_iv_pk")
     public MobileElement pkBtn; //pk按钮
 }

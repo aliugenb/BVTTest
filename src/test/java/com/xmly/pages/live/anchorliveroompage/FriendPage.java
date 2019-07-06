@@ -19,19 +19,19 @@ public class FriendPage extends AnchorRoomIndexPage {
     }
 
     //交友模式麦位
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_seat_name_tv")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/live_seat_name_tv")
     public MobileElement friendSeat;
 
     //交友模式开启确认弹窗
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_dialog_center_btn")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/live_dialog_center_btn")
     public MobileElement friendConfirmPopup;
 
     //锁定位置按钮
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_operation_desc_tv")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/live_operation_desc_tv")
     public MobileElement seatLockBtn;
 
     //交友模式设置入口
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_ll_chat_chairs_waiting")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/live_ll_chat_chairs_waiting")
     public MobileElement friendSettingEnter;
 
     //玩法设置
@@ -39,34 +39,34 @@ public class FriendPage extends AnchorRoomIndexPage {
     public MobileElement friendSettingsBtn;
 
     //心动模式
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_friends_love_moment_mode")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/live_friends_love_moment_mode")
     public MobileElement friendLoveMode;
 
     //开启心动模式
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_heart_moment_start")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/live_heart_moment_start")
     public MobileElement startFriendLoveModeBtn;
 
     //团战pk模式
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_friends_pk_mode")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/live_friends_pk_mode")
     public MobileElement friendPkMode;
 
     //开启团战pk模式
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_open_friends_pk_tv")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/live_open_friends_pk_tv")
     public MobileElement startFriendPkBtn;
 
     //团战PK Vs icon
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_friends_pk")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/live_friends_pk")
     public MobileElement friendPkIcon;
 
     //关闭团战PK模式
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_close_friends_pk_tv")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/live_close_friends_pk_tv")
     public MobileElement endFriendPkBtn;
 
     //关闭确认按钮
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"确定\")")
     public MobileElement okBtn;
 
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_friends_pk_result_top_iv")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/live_friends_pk_result_top_iv")
     public MobileElement friendPkResultPop;
 
 

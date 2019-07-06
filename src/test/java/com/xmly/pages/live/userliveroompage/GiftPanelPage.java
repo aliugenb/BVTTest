@@ -18,7 +18,7 @@ public class GiftPanelPage extends UserRoomIndexPage {
     }
 
     //tab列表
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_tab_indicator_red_point")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/live_tab_indicator_red_point")
     public List<MobileElement> tabList;
 
     @AndroidFindBy(uiAutomator = "new UiSelector().textContains(\"你的背包\")")

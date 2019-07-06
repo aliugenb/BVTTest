@@ -27,7 +27,7 @@ public class LiveIndexPage extends BasePage {
     }
 
     //首次进入引导蒙层
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_home_guide_layer_layout")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/live_home_guide_layer_layout")
     public MobileElement homeGuide;
 
     //关闭引导蒙层
@@ -52,25 +52,25 @@ public class LiveIndexPage extends BasePage {
 
 
     //我要直播按钮
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_home_start_live")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/live_home_start_live")
     public MobileElement createLiveRoomBtn;
 
     //主播排行榜
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_home_anchor_rank_tv")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/live_home_anchor_rank_tv")
     public MobileElement liveRecord;
 
     //分类tab
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_tab_layout")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/live_tab_layout")
     public List<MobileElement> liveTabs;
 
-    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.ximalaya.ting.android.live.application:id/live_tab_layout\").childSelector(new UiSelector().text(\"音乐\"))")
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.ximalaya.ting.android:id/live_tab_layout\").childSelector(new UiSelector().text(\"音乐\"))")
     public MobileElement musicTab;
 
-    @AndroidFindBy(uiAutomator = "(\"new UiSelector().resourceId(\"com.ximalaya.ting.android.live.application:id/live_tab_layout\").childSelector(new UiSelector().text(\"交友\"))")
+    @AndroidFindBy(uiAutomator = "(\"new UiSelector().resourceId(\"com.ximalaya.ting.android:id/live_tab_layout\").childSelector(new UiSelector().text(\"交友\"))")
     public MobileElement friendTab;
 
     //直播间
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_item_record_cover")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/live_item_record_cover")
     public MobileElement liveRoom;
 
     //交友模式直播间
@@ -82,11 +82,11 @@ public class LiveIndexPage extends BasePage {
     public MobileElement pkRoom;
 
     //直播间列表
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_item_record_anchor_right_mark2")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/live_item_record_anchor_right_mark2")
     public List<MobileElement> liveRoomMarkList;
 
     //首页直播动态入口
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_dynamic_count_tv")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/live_dynamic_count_tv")
     public MobileElement liveDynamicBtn;
 
     //直播未正常关闭时弹出提醒弹层

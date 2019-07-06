@@ -30,19 +30,19 @@ public class AnchorRoomIndexPage extends BasePage {
     public MobileElement cancelShareBtn;
 
     //主播间消息
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_content")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/live_content")
     public List<MobileElement> liveContents;
 
     //更多按钮
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_ll_more")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/live_ll_more")
     public MobileElement moreBtn;
 
     //pk按钮
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_iv_pk")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/live_iv_pk")
     public MobileElement pkBtn;
 
     //连麦按钮
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_defaultCallIv")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/live_defaultCallIv")
     public MobileElement callBtn;
 
     //音效模式
@@ -50,7 +50,7 @@ public class AnchorRoomIndexPage extends BasePage {
     public MobileElement listenBtn;
 
     //添加背景音乐按钮
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_chat_bottom_music")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/live_chat_bottom_music")
     public MobileElement addBgmBtn;
 
     //更多-交友模式
@@ -81,7 +81,7 @@ public class AnchorRoomIndexPage extends BasePage {
     public MobileElement disableMuteBtn;
 
     //静音模式开启icon
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_iv_mic_off")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/live_iv_mic_off")
     public MobileElement micOffIcon;
 
     //更多-上热门
@@ -96,7 +96,7 @@ public class AnchorRoomIndexPage extends BasePage {
     public MobileElement disableHotRocketBtn;
 
     //右侧小火箭图标
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/rocket")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/rocket")
     public MobileElement hotRocket;
 
     //确认关闭按钮
@@ -107,7 +107,7 @@ public class AnchorRoomIndexPage extends BasePage {
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"背包\")")
     public MobileElement anchorBag;
 
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_tab_indicator_red_point")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/live_tab_indicator_red_point")
     public List<MobileElement> tabs;
 
     //发言输入框
@@ -119,16 +119,16 @@ public class AnchorRoomIndexPage extends BasePage {
     public MobileElement sendBtn;
 
     //退出直播相关
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_back_btn")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/live_back_btn")
     public MobileElement exitLiveBtn;
 
     @AndroidFindAll({
             @AndroidBy(uiAutomator = "new UiSelector().text(\"结束直播\")"),
-            @AndroidBy(id = "com.ximalaya.ting.android.live.application:id/live_ok")
+            @AndroidBy(id = "com.ximalaya.ting.android:id/live_ok")
     })
     public MobileElement endLiveBtn;
 
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_cancel")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/live_cancel")
     public MobileElement cancelEndLiveBtn;
 
     //断流报错页面

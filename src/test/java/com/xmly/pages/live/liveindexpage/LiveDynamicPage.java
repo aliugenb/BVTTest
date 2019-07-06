@@ -23,7 +23,7 @@ public class LiveDynamicPage extends LiveIndexPage {
     }
 
     //未登录情况下去登录按钮
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_dynamic_go_login_tv")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/live_dynamic_go_login_tv")
     public MobileElement goLoginBtn;
 
     //未登录情况下显示热门主播推荐
@@ -44,11 +44,11 @@ public class LiveDynamicPage extends LiveIndexPage {
     public MobileElement noFollowAnchorText;
 
     //关注的主播头像
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_anchor_avatar")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/live_anchor_avatar")
     public MobileElement anchorHeader;
 
     //关注的主播昵称
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_anchor_name_tv")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/live_anchor_name_tv")
     public MobileElement anchorNickName;
 
     //当前正在直播的主播数量

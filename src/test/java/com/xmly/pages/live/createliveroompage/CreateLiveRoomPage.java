@@ -24,7 +24,7 @@ public class CreateLiveRoomPage extends BasePage {
     }
 
     //开始直播按钮
-//    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_bottom_right_tv")
+//    @AndroidFindBy(id = "com.ximalaya.ting.android:id/live_bottom_right_tv")
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"开始直播\")")
     public MobileElement beginLiveBtn;
 
@@ -44,7 +44,7 @@ public class CreateLiveRoomPage extends BasePage {
     public MobileElement previewTitle;
 
     //编辑预告按钮
-    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.ximalaya.ting.android.live.application:id/live_title_layout\").childSelector(new UiSelector().text(\"编辑\"))")
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.ximalaya.ting.android:id/live_title_layout\").childSelector(new UiSelector().text(\"编辑\"))")
     public MobileElement editPreviewBtn;
 
     //编辑保存预告
@@ -60,19 +60,19 @@ public class CreateLiveRoomPage extends BasePage {
     public MobileElement cancelBtn;
 
     //直播间标题输入框
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_compose_title_et")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/live_compose_title_et")
     public MobileElement titleEditText;
 
     //直播间话题输入框
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_compose_topic_et")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/live_compose_topic_et")
     public MobileElement topicEditText;
 
     //直播间封面
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_compose_base_cover_iv")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/live_compose_base_cover_iv")
     public MobileElement roomCover;
 
     //标签下拉菜单
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_category_select_arrow")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/live_category_select_arrow")
     public MobileElement selectArrow;
 
     //直播间标签，选中有声书
@@ -80,7 +80,7 @@ public class CreateLiveRoomPage extends BasePage {
     public MobileElement liveCategoryTitle;
 
     //通知粉丝
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_notify_fans_switch")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/live_notify_fans_switch")
     public MobileElement notifyFansBtn;
 
     //首次创建直播需麦克风权限

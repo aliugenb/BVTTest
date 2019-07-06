@@ -34,76 +34,76 @@ public class UserRoomIndexPage extends BasePage {
     public MobileElement liveStartTime;
 
     //结束的直播主播名称
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_audience_finish_host_name")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/live_audience_finish_host_name")
     public MobileElement endLiveAnchorName;
 
     //直播间状态
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_room_status")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/live_room_status")
     public MobileElement liveRoomStatus;
 
     //直播主题
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_showTopic")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/live_showTopic")
     public MobileElement liveTopic;
 
     //主播粉丝团
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_fans_club")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/live_fans_club")
     public MobileElement fansClubBtn;
 
     //主播昵称
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_anchor_name_tv")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/live_anchor_name_tv")
     public MobileElement anchorNickName;
 
     //贵族列表
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_online_noble_tv")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/live_online_noble_tv")
     public MobileElement onlineNobleList;
 
     //发言框
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_send")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/live_send")
     public MobileElement speakText;
 
     //上麦按钮
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_btn_bottom_friends_seat_request")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/live_btn_bottom_friends_seat_request")
     public MobileElement requestBtn;
 
     //团战pk结果页
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_friends_pk_result_top_iv")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/live_friends_pk_result_top_iv")
     public MobileElement friendPkResultPop;
 
     //团战PK结果页关闭按钮
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_close_btn")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/live_close_btn")
     public MobileElement friendPkResultCloseBtn;
 
     //礼物面板按钮
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_btn_gift")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/live_btn_gift")
     public MobileElement giftBtn;
 
     //PK状态栏
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_pk_status_bg")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/live_pk_status_bg")
     public MobileElement pkStatus;
 
     //关注按钮
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_followTv")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/live_followTv")
     public MobileElement followBtn;
 
     //首充弹窗
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"首充\")")
     public MobileElement firstChargePop;
 
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_webview_close")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/live_webview_close")
     public MobileElement closeWebviewBtn;
 
     //退出直播按钮
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_btn_close_room")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/live_btn_close_room")
     public MobileElement closeRoomBtn;
 
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_close_room_exit")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/live_close_room_exit")
     public MobileElement exitRoomBtn;
 
     //关注并退出直播间按钮
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_close_room_follow_and_exit")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/live_close_room_follow_and_exit")
     public MobileElement exitAndFollowBtn;
 
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_scroll_svg_guide")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/live_scroll_svg_guide")
     public MobileElement swipeGuide;
 
     /*

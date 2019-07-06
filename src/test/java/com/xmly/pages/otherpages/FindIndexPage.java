@@ -22,7 +22,7 @@ public class FindIndexPage extends BasePage {
     public MobileElement friendByVoice;
 
     //语音交友页面的直播间
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_item_record_cover")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/live_item_record_cover")
     public MobileElement liveRoomInVoice;
 
 

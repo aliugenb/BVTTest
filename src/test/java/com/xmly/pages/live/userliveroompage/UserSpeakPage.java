@@ -17,19 +17,19 @@ public class UserSpeakPage extends UserRoomIndexPage {
     }
 
     //弹幕功能开关
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_time_result_tv")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/live_time_result_tv")
     public MobileElement bulletSwitchBtn;
 
     //普通弹幕
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_normal_bullet_tv")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/live_normal_bullet_tv")
     public MobileElement commonBullet;
 
     //粉丝弹幕
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_fans_bullet_tv")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/live_fans_bullet_tv")
     public MobileElement fansBullet;
 
     //加入粉丝团按钮
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_fans_guide_tv")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/live_fans_guide_tv")
     public MobileElement joinFansClubBtn;
 
     //粉丝团立即加入按钮
@@ -37,15 +37,15 @@ public class UserSpeakPage extends UserRoomIndexPage {
     public MobileElement joinImmediately;
 
     //贵族弹幕
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_noble_bullet_tv")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/live_noble_bullet_tv")
     public MobileElement nobleBullet;
 
     //开通贵族按钮
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_btn_open_noble")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/live_btn_open_noble")
     public MobileElement joinNobleBtn;
 
     //贵族弹幕弹窗关闭按钮
-    @AndroidFindBy(id = "com.ximalaya.ting.android.live.application:id/live_fans_guide_close")
+    @AndroidFindBy(id = "com.ximalaya.ting.android:id/live_fans_guide_close")
     public MobileElement closeJoinNoblePopBtn;
 
     //发言框
