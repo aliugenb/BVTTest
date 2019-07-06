@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
  * ClassName: CaseEnterLiveByVoiceFriend
  * Author: ye.liu
  * Date: 2019-02-27 23:43
- * Description:
+ * Description: 入口已关闭
  */
 public class CaseEnterLiveByVoiceFriend extends CaseHelper {
     @Test(description = "通过发现页语音交友进入直播间")

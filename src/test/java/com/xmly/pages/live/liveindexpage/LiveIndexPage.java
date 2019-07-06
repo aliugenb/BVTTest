@@ -42,10 +42,6 @@ public class LiveIndexPage extends BasePage {
     @AndroidFindBy(id = "com.ximalaya.ting.android:id/host_round_progressbar_play_progress")
     public MobileElement barPlayBtn;
 
-
-    @AndroidFindBy(id = "com.ximalaya.ting.android:id/search_search_button")
-    public MobileElement searchBtn; //搜索页的搜索按钮
-
     //我要直播和我的直播入口
     @AndroidFindBy(id = "com.ximalaya.ting.android:id/main_iv_search_bar_live_start")
     public MobileElement liveOptionsBtn;

@@ -2,9 +2,8 @@ package com.xmly.cases.liveindex.android;
 
 import com.xmly.cases.CaseHelper;
 import com.xmly.common.DriverHelper;
+import com.xmly.pages.otherpages.SearchPage;
 import org.testng.annotations.Test;
-
-import java.io.IOException;
 
 /**
  * Created with IntelliJ IDEA.
@@ -21,7 +20,8 @@ public class CaseCheckSearchBar extends CaseHelper {
         assertHelper.assertTrue(DriverHelper.isDisplayed(liveIndexPage.searchBar),
                 getCurClassName() + "直播首页存在搜索框");
         liveIndexPage.gotoSearchPage();
-        assertHelper.assertTrue(DriverHelper.isDisplayed(liveIndexPage.searchBtn),
+        SearchPage searchPage = new SearchPage(driver);
+        assertHelper.assertTrue(DriverHelper.isDisplayed(searchPage.searchBtn),
                 getCurClassName() + "从直播首页跳转搜索页");
     }
 }
