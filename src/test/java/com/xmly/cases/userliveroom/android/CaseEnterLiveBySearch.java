@@ -16,7 +16,7 @@ public class CaseEnterLiveBySearch extends CaseHelper {
     public void enterBySearch() throws MyException {
         gotoLiveIndex();
         liveIndexPage.gotoSearchPage();
-        String searchText = "倾城之恋_";
+        String searchText = "音动_24H娱乐";
         SearchPage searchPage = new SearchPage(driver);
         searchPage.enterLiveRoomBySearch(searchText);
         assertHelper.assertTrue(userRoomIndexPage.getRoomType() != null,

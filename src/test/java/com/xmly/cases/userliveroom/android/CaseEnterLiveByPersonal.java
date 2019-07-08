@@ -17,7 +17,7 @@ public class CaseEnterLiveByPersonal extends CaseHelper {
     public void enterByPersonal() throws MyException {
         gotoLiveIndex();
         liveIndexPage.gotoSearchPage();
-        String searchText = "倾城之恋_";
+        String searchText = "166620236";
         SearchPage searchPage = new SearchPage(driver);
         searchPage.gotoPersonalPage(searchText);
 
